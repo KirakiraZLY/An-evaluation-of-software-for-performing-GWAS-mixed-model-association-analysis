@@ -11,5 +11,5 @@
 ## Week 1, 2023/1/31
 ### Start by QC(genomeDK, Plink)
 `./software/plink --bfile data --geno 0.2 --mind 0.2 --maf 0.05 --make-bed --out data_qc`  
-Output: data_qc
+Output: data_qc   
 
