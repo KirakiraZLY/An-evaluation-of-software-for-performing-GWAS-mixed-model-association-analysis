@@ -9,4 +9,5 @@ https://www.nextflow.io/docs/latest/getstarted.html#installation
 https://yanglab.westlake.edu.cn/software/gcta/#fastGWA   
 1. After download, see: **gcta** in dsmwpred/zly/software   
 2. GCTA-GRM: calculating the genetic relationship matrix (GRM) from all the autosomal SNPs:   
-./software/gcta --bfile data_qc --autosome --maf 0.01 --make-grm --out data_qc_gctagrm --thread-num 10
+./software/gcta --bfile data_qc --chr 1 --maf 0.01 --make-grm --out data_qc_chr1 --thread-num 10  
+Output: .grm.bin, .grm.N.bin, .grm.id   
