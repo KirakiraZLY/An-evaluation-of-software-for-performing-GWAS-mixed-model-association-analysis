@@ -14,3 +14,5 @@ https://yanglab.westlake.edu.cn/software/gcta/#fastGWA
 ...
 ./software/gcta --bfile data_qc --chr 22 --maf 0.01 --make-grm --out data_qc_chr22 --thread-num 10
 Output: .grm.bin, .grm.N.bin, .grm.id   
+3. To generate a sparse GRM from SNP data:
+./software/gcta --bfile data_qc --autosome --maf 0.01 --make-grm --out data_qc_gcta --thread-num 10
