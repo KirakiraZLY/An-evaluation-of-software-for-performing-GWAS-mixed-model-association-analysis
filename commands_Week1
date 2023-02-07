@@ -15,5 +15,17 @@ https://yanglab.westlake.edu.cn/software/gcta/#fastGWA
 ./software/gcta --bfile data_qc --chr 22 --maf 0.01 --make-grm --out data_qc_chr22 --thread-num 10
 Output: .grm.bin, .grm.N.bin, .grm.id   
 3. To generate a sparse GRM from SNP data:
-./software/gcta --bfile data_qc --autosome --maf 0.01 --make-grm --out data_qc_gcta --thread-num 10
-./software/gcta --grm data_qc_gcta --make-bK-sparse 0.05 --out sp_grm_gcta
+./software/gcta --bfile data_qc --autosome --maf 0.01 --make-grm --out data_qc_gcta --thread-num 10   
+./software/gcta --grm data_qc_gcta --make-bK-sparse 0.05 --out sp_grm_gcta   
+
+I didn't use PCs
+./software/gcta --mbfile data_qc --grm-sparse sp_grm_gcta --fastGWA-mlm --pheno height.pheno --covar fixed.txt --thread-num 10 --out geno_assoc
+
+### Regenie
+1. regenie \
+  --step 1 \
+  --bed data_qc \
+  --covarFile covar.covars \
+  --phenoFile height.pheno \
+  --bsize 100 \
+  --out data_regenie_out
