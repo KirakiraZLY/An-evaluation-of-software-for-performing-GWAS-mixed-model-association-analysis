@@ -33,13 +33,12 @@ I didn't use PCs
 Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
 2. regenie \
   --step 2 \
-  --bgen example/example.bgen \
-  --covarFile example/covariates.txt \
-  --phenoFile example/phenotype_bin.txt \
-  --remove example/fid_iid_to_remove.txt \
+  --bgen data_qc.bgen \
+  --covarFile covar1.covars \
+  --phenoFile height1.pheno \
   --bsize 200 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred fit_bin_out_pred.list \
-  --out test_bin_out_firth
+  --pred data_regenie_out_pred.list \
+  --out data_regenie_out_firth
