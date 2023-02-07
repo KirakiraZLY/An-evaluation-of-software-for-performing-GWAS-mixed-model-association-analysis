@@ -16,3 +16,4 @@ https://yanglab.westlake.edu.cn/software/gcta/#fastGWA
 Output: .grm.bin, .grm.N.bin, .grm.id   
 3. To generate a sparse GRM from SNP data:
 ./software/gcta --bfile data_qc --autosome --maf 0.01 --make-grm --out data_qc_gcta --thread-num 10
+./software/gcta --grm data_qc_gcta --make-bK-sparse 0.05 --out sp_grm_gcta
