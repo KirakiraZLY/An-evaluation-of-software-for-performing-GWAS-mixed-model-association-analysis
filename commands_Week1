@@ -37,7 +37,7 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --covarFile covar1.covars \
   --phenoFile height1.pheno \
   --bsize 200 \
-  --bt \
+  --qt \
   --firth --approx \
   --pThresh 0.01 \
   --pred data_regenie_out_pred.list \
