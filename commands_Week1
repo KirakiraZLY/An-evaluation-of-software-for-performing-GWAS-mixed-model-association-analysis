@@ -19,7 +19,7 @@ Output: .grm.bin, .grm.N.bin, .grm.id
 ./software/gcta --grm data_qc_gcta --make-bK-sparse 0.05 --out sp_grm_gcta   
 
 I didn't use PCs
-./software/gcta --mbfile data_qc --grm-sparse sp_grm_gcta --fastGWA-mlm --pheno height.pheno --covar covars.covar --thread-num 10 --out geno_assoc
+./software/gcta --bfile data_qc --grm-sparse sp_grm_gcta --fastGWA-mlm --pheno height.pheno --qcovar covar.covars --thread-num 10 --out geno_assoc
 
 ### Plink
 
