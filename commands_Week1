@@ -28,7 +28,7 @@ I didn't use PCs
 Output first 6 PCs, with 2 files: .eigenval and .eigenvec   
 While since we have covars.covar, skip it
 2. assoc test   
-```./software/plink --bfile data_qc --linear --pheno height.pheno --allow-no-sex```   
+```./software/plink --bfile data_qc --linear --pheno height.pheno --allow-no-sex --out data_plink_height```   
 
 
 ### Regenie
