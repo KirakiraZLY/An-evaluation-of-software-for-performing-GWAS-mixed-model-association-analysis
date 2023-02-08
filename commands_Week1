@@ -42,3 +42,4 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --pThresh 0.01 \
   --pred data_regenie_out_pred.list \
   --out data_regenie_out_firth
+Output: data_regenie_out_firth_Phenotype.regenie
