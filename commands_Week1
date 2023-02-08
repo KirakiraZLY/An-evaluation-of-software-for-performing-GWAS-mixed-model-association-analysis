@@ -48,8 +48,8 @@ Output: data_regenie_out_firth_Phenotype.regenie
 ### GEMMA
 Before using GEMMA, the 6th column of .fam should be replaced by real phenotypes. 先把Phenotype替换到.fam文件第6行   
 1. Calculate Kinship Matrix    
-```gemma -bfile data_qc -gk 2 -p height.pheno -o data_gemma_height```   
-2. LMM   
+```gemma -bfile data_qc -gk 2 -o data_gemma_height```   
+1. LMM   
 Move Kinship out to the present location.   
 LMM analysis:   
-```gemma -bfile qc_data -k kin.sXX.txt -lmm 1 -c gemma_cov.txt -o GE_GWAS```
+```gemma -bfile qc_data -k kin.sXX.txt -lmm 1 -c covars.covar -o GEMMA_GWAS```
