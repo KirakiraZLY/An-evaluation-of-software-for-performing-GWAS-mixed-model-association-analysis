@@ -21,6 +21,16 @@ Output: .grm.bin, .grm.N.bin, .grm.id
 I didn't use PCs
 ./software/gcta --mbfile data_qc --grm-sparse sp_grm_gcta --fastGWA-mlm --pheno height.pheno --covar fixed.txt --thread-num 10 --out geno_assoc
 
+### Plink
+
+1. PCA
+```./software/plink --bfile data_qc --pca 6 --out data_qc```   
+Output first 6 PCs, with 2 files: .eigenval and .eigenvec   
+While since we have covars.covar, skip it
+2. assoc test   
+```./software/plink --bfile data_qc --linear --pheno height.pheno --allow-no-sex```   
+
+
 ### Regenie
 1. regenie \
   --step 1 \
