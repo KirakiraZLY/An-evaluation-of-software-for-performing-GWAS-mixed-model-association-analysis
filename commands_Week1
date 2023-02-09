@@ -65,4 +65,4 @@ LMM analysis:
 ```gemma -bfile qc_data -k kin.sXX.txt -lmm 1 -c covars.covar -o GEMMA_GWAS```
 
 ### Bolt-lmm
-./software/BOLT-LMM_v2.4/bolt --bfile=data_qc --phenoFile=height.pheno --phenoCol=3 --covarFile=covar.covars --qCovarCol --lmm --statsFile=data_bolt_height
+./software/BOLT-LMM_v2.4/bolt --bfile=data_qc --phenoFile=height1.pheno --phenoCol=Phenotype --covarFile=covar1.covars --qCovarCol --lmm --statsFile=data_bolt_height
