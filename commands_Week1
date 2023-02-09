@@ -22,7 +22,7 @@ I didn't use PCs
 ./software/gcta --bfile data_qc --grm-sparse sp_grm_gcta --fastGWA-mlm --pheno height.pheno --qcovar covar.covars --thread-num 10 --out data_fastgwa_height
 
 ### Plink
-
+done
 1. PCA
 ```./software/plink --bfile data_qc --pca 6 --out data_qc```   
 Output first 6 PCs, with 2 files: .eigenval and .eigenvec   
@@ -32,6 +32,7 @@ While since we have covars.covar, skip it
 
 
 ### Regenie
+done
 1. regenie \
   --step 1 \
   --bed data_qc \
@@ -56,6 +57,7 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
 Output: data_regenie_out_firth_Phenotype.regenie
 
 ### GEMMA
+not yet
 Before using GEMMA, the 6th column of .fam should be replaced by real phenotypes. 先把Phenotype替换到.fam文件第6行   
 1. Calculate Kinship Matrix    
 ```gemma -bfile data_qc -gk 2 -o data_gemma_height```   
@@ -69,4 +71,5 @@ Again, try with another command:
 2. gemma -bfile data_gemma_height -k 1000g_out.sXX.txt -lmm 1 -o data_gemma_height_yield
 
 ### Bolt-lmm
+not yet
 ./software/BOLT-LMM_v2.4/bolt --bfile=data_qc --phenoFile=height1.pheno --phenoCol=Phenotype --covarFile=covar1.covars --qCovarCol --lmmForceNonInf --statsFile=data_bolt_height
