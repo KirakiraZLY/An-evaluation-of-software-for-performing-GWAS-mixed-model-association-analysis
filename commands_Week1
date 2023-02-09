@@ -11,7 +11,7 @@ Filter out SNPs with genotype missingness >10%, samples with >10% missingness, M
 Output: data_qc   
 
 ### Missingness
-./software/plink --bfile  --data_qc --missing --out data_qc
+./software/plink --bfile  data_qc --missing --out data_qc
 
 
 
