@@ -10,6 +10,9 @@ Filter out SNPs with genotype missingness >10%, samples with >10% missingness, M
 `./software/plink --bfile data --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out data_qc`  
 Output: data_qc   
 
+### Missingness
+./software/plink --bfile  --data_qc --missing --out data_qc
+
 
 
 ### fastGWA
