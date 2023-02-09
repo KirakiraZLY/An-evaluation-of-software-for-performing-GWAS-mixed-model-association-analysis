@@ -5,6 +5,13 @@ https://zhuanlan.zhihu.com/p/380709653
 https://github.com/genepi/nf-gwas   
 https://www.nextflow.io/docs/latest/getstarted.html#installation   
 
+### Start by QC(genomeDK, Plink)
+Filter out SNPs with genotype missingness >10%, samples with >10% missingness, MAF <5%, minor allele count(MAC) <100, 不做这个HWE p-value exceeding 1e-15.(MAF可以改成1%)   
+`./software/plink --bfile data --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out data_qc`  
+Output: data_qc   
+
+
+
 ### fastGWA
 https://yanglab.westlake.edu.cn/software/gcta/#fastGWA   
 1. After download, see: **gcta** in dsmwpred/zly/software   
