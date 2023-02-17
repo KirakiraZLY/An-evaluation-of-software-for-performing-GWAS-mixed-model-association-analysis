@@ -1,6 +1,11 @@
 # Commands for Master's thesis
 ## Week 2
-Since there are a lot problems occuring with UKBB data, I use 1000g as a demo. If it can work, I'll run on UKBB.
+Since there are a lot problems occuring with UKBB data, I use 1000g as a demo. If it can work, I'll run on UKBB.   
+   
+   
+You may also specify some requirements for the job, such as the amount of memory that should be allocated:   
+srun --account lezh --mem 16g --pty bash   
+
 
 ### fastGWA
 https://yanglab.westlake.edu.cn/software/gcta/#fastGWA   
