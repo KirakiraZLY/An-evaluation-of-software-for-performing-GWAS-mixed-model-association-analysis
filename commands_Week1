@@ -28,8 +28,8 @@ Output: .grm.bin, .grm.N.bin, .grm.id
 ./software/gcta --bfile data_qc --autosome --maf 0.01 --make-grm --out data_qc_gcta --thread-num 10   
 ./software/gcta --grm data_qc_gcta --make-bK-sparse 0.05 --out sp_grm_gcta   
 
-I didn't use PCs
-./software/gcta --bfile data_qc --grm-sparse sp_grm_gcta --fastGWA-mlm --pheno height.pheno --qcovar covar.covars --thread-num 10 --out data_fastgwa_height
+I didn't use PCs(--qcovar covar.covars)
+./software/gcta --bfile data_qc --grm-sparse sp_grm_gcta --fastGWA-mlm --pheno height.pheno  --thread-num 10 --out data_fastgwa_height
 
 ### Plink
 done

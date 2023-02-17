@@ -1,0 +1,40 @@
+# Commands for Master's thesis
+## Week 2
+Since there are a lot problems occuring with UKBB data, I use 1000g as a demo. If it can work, I'll run on UKBB.
+
+### fastGWA
+https://yanglab.westlake.edu.cn/software/gcta/#fastGWA   
+1. After download, see: **gcta** in dsmwpred/zly/software   
+2. GCTA-GRM: calculating the genetic relationship matrix (GRM) from all the autosomal SNPs:   
+./software/gcta --bfile ./1000g/1000g_out --chr 1 --maf 0.01 --make-grm --out ./1000g/1000g_out_chr1 --thread-num 10  
+./software/gcta --bfile data_qc --chr 2 --maf 0.01 --make-grm --out data_qc_chr2 --thread-num 10
+...
+./software/gcta --bfile data_qc --chr 22 --maf 0.01 --make-grm --out data_qc_chr22 --thread-num 10
+Output: .grm.bin, .grm.N.bin, .grm.id   
+3. To generate a sparse GRM from SNP data:
+./software/gcta --bfile ./1000g/1000g_out --autosome --maf 0.01 --make-grm --out ./1000g/1000g_out_gcta --thread-num 10   
+./software/gcta --grm ./1000g/1000g_out_gcta --make-bK-sparse 0.05 --out ./1000g/1000g_out_grm_gcta   
+
+I didn't use PCs
+./software/gcta --bfile ./1000g/1000g_out --grm-sparse ./1000g/1000g_out_grm_gcta --fastGWA-mlm --pheno ./1000g/1000g_out.pheno --thread-num 10 --out ./1000g/1000g_fastgwa_height   
+
+I ran fastGWA as the first one, and it worked quickly: in 22.8 sec, with 2504 individuals. So it could also work on UKBB, and 900 times of the time? So it should work in 5 hours, by theory...
+
+### GEMMA
+not yet
+Before using GEMMA, the 6th column of .fam should be replaced by real phenotypes. 先把Phenotype替换到.fam文件第6行   
+1. Calculate Kinship Matrix    
+```gemma -bfile ./1000g/1000g_out -gk 2 -o ./1000g/1000g_gemma```   
+2. LMM   
+Move Kinship out to the present location.   
+LMM analysis:   
+```gemma -bfile data_qc -k data_gemma_height.sXX.txt -lmm 1 -c covars.covar -o GEMMA_GWAS```
+
+Again, try with another command:
+1. gemma -bfile data_qc -gk 2 -o data_gemma_height
+2. gemma -bfile data_gemma_height -k 1000g_out.sXX.txt -lmm 1 -o data_gemma_height_yield
+
+### Bolt-lmm
+not yet
+./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out.pheno --phenoCol=Phenotype --lmmForceNonInf --statsFile=1000g_bolt
+
