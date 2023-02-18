@@ -25,6 +25,10 @@ I didn't use PCs
 
 I ran fastGWA as the first one, and it worked quickly: in 22.8 sec, with 2504 individuals. So it could also work on UKBB, and 900 times of the time? So it should work in 5 hours, by theory...
 
+
+### PCA
+./software/plink --vcf data_qc_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract data_qc.prune.in --pca --make-bed --out data_prune_pca
+
 ### GEMMA
 not yet
 Before using GEMMA, the 6th column of .fam should be replaced by real phenotypes. 先把Phenotype替换到.fam文件第6行   
