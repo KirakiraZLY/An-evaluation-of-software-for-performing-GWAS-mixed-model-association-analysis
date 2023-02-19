@@ -27,7 +27,10 @@ I ran fastGWA as the first one, and it worked quickly: in 22.8 sec, with 2504 in
 
 
 ### PCA
-./software/plink --vcf data_qc_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract data_qc.prune.in --pca --make-bed --out data_prune_pca
+./software/plink --vcf data_qc_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract data_qc.prune.in --pca --make-bed --out data_prune_pca   
+   
+After this, output: .eigenval & .eigenvec   
+Plot by ggplot.
 
 ### GEMMA
 not yet
