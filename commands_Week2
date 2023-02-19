@@ -40,7 +40,7 @@ Before using GEMMA, the 6th column of .fam should be replaced by real phenotypes
 2. LMM   
 Move Kinship out to the present location.   
 LMM analysis:   
-```gemma -bfile data_qc -k data_gemma_height.sXX.txt -lmm 1 -c covars.covar -o GEMMA_GWAS```
+```gemma -bfile ./1000g/1000g_out -k data_gemma_height.sXX.txt -lmm 1 -c covars.covar -o GEMMA_GWAS```
 
 Again, try with another command:
 1. gemma -bfile data_qc -gk 2 -o data_gemma_height
