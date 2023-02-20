@@ -71,6 +71,7 @@ Phenotypes saved in data_binary.pheno, with liabilities in data_binary.liab, bre
 
 ### Regenie
 done
+1. 
 ```python
   regenie \
   --step 1 \
@@ -84,7 +85,7 @@ done
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式, FID, IID, Phenotype)   
 Convert .bed to .bgen: ./software/plink2 --bfile ./1000g/1000g_out --export bgen-1.2 --out ./1000g/1000g_out   
 **Output**: 1000g_regenie_out_pred.list   
-1. 
+2. 
 ```python
   regenie \
   --step 2 \
@@ -128,3 +129,30 @@ not yet
 ```python
 ./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out.pheno --phenoCol=Phenotype --lmmForceNonInf --statsFile=1000g_bolt --LDscoresUseChip
 ```
+
+
+### Regenie for UKBB
+done
+1. regenie \
+  --step 1 \
+  --bed data_qc \
+  --covarFile covar1.covars \
+  --phenoFile data_binary_1.pheno \
+  --bsize 100 \
+  --bt \
+  --out data_regenie_out_binary   
+  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
+Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
+**Output**: data_regenie_out_pred.list
+2. regenie \
+  --step 2 \
+  --bgen data_qc.bgen \
+  --covarFile covar1.covars \
+  --phenoFile data_binary.pheno \
+  --bsize 200 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred data_regenie_out_pred_binary.list \
+  --out data_regenie_out_firth_binary
+Output: data_regenie_out_firth_Phenotype.regenie
