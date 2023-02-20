@@ -90,9 +90,9 @@ Convert .bed to .bgen: ./software/plink2 --bfile ./1000g/1000g_out --export bgen
   regenie \
   --step 2 \
   --bgen ./1000g/1000g_out.bgen \
-  --phenoFile height1.pheno \
+  --phenoFile ./1000g/1000g_out_1.pheno \
   --bsize 200 \
-  --qt \
+  --bt \
   --firth --approx \
   --pThresh 0.01 \
   --pred data_regenie_out_pred.list \
