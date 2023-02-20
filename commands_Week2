@@ -70,3 +70,6 @@ Again, try with another command:
 not yet
 ./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out.pheno --phenoCol=Phenotype --lmmForceNonInf --statsFile=1000g_bolt --LDscoresUseChip
 
+## Simulate Phenotype with LDAK
+To simulate binary traits for UKBB, for the use of REGENIE.   
+```./ldak5.XXX --make-phenos 1000g_out --bfile 1000g_out --ignore-weights YES --power -1 --her 0.5 --num-phenos 1 --num-causals 1000```
