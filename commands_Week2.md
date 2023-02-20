@@ -39,7 +39,14 @@ I ran fastGWA as the first one, and it worked quickly: in 22.8 sec, with 2504 in
 ```
    
 After this, output: .eigenval & .eigenvec   
-Plot by ggplot.
+Plot by ggplot.   
+
+## Simulate Phenotype with LDAK
+To simulate binary traits of UKBB, of the use of REGENIE.   
+```python
+./software/ldak5.XXX --make-phenos data_binary --bfile data_qc --prevalence 0.1 --ignore-weights YES --power -1 --her 0.5 --num-phenos 1 --num-causals 100
+```   
+Phenotypes saved in data_binary.pheno, with liabilities in data_binary.liab, breeding values in data_binary.breed and effect sizes in data_binary.effects   
 
 
 ### Regenie
@@ -92,11 +99,6 @@ gemma -bfile data_gemma_height -k 1000g_out.sXX.txt -lmm 1 -o data_gemma_height_
 
 ### Bolt-lmm
 not yet
-./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out.pheno --phenoCol=Phenotype --lmmForceNonInf --statsFile=1000g_bolt --LDscoresUseChip
-
-## Simulate Phenotype with LDAK
-To simulate binary traits of UKBB, of the use of REGENIE.   
 ```python
-./software/ldak5.XXX --make-phenos data_binary --bfile data_qc --prevalence 0.1 --ignore-weights YES --power -1 --her 0.5 --num-phenos 1 --num-causals 100
-```   
-Phenotypes saved in data_binary.pheno, with liabilities in data_binary.liab, breeding values in data_binary.breed and effect sizes in data_binary.effects   
+./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out.pheno --phenoCol=Phenotype --lmmForceNonInf --statsFile=1000g_bolt --LDscoresUseChip
+```
