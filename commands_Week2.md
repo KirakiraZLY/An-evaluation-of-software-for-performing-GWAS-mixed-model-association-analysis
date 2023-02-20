@@ -92,7 +92,7 @@ Convert .bed to .bgen: ./software/plink2 --bfile ./1000g/1000g_out --export bgen
   --bgen ./1000g/1000g_out.bgen \
   --phenoFile ./1000g/1000g_out_1.pheno \
   --bsize 200 \
-  --bt \
+  --qt \
   --firth --approx \
   --pThresh 0.01 \
   --pred data_regenie_out_pred.list \
@@ -152,14 +152,13 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
    regenie \
   --step 2 \
   --bgen data_qc.bgen \
-  --covarFile covar1.covars \
-  --phenoFile data_binary.pheno \
+  --phenoFile data_binary_1.pheno \
   --bsize 200 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
   --pred data_regenie_out_binary_pred.list \
-  --out data_regenie_out_firth_binary
+  --out data_regenie_out_binary_firth
 ```
 Output: data_regenie_out_firth_Phenotype.regenie
 
