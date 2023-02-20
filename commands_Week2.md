@@ -127,7 +127,7 @@ gemma -bfile data_gemma_height -k 1000g_out.sXX.txt -lmm 1 -o data_gemma_height_
 ### Bolt-lmm
 not yet
 ```python
-./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out.pheno --phenoCol=Phenotype --lmmForceNonInf --statsFile=1000g_bolt --LDscoresUseChip
+./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out_1.pheno --phenoCol=Phenotype --lmmForceNonInf --statsFile=1000g_bolt --LDscoresUseChip
 ```
 
 
