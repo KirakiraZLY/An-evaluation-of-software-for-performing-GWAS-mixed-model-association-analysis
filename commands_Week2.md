@@ -162,3 +162,8 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --out data_regenie_out_firth_binary
 ```
 Output: data_regenie_out_firth_Phenotype.regenie
+
+### Bolt lmm
+```python
+./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out.pheno --phenoCol=Phenotype --covarFile=covar1.covars --qCovarCol --lmmForceNonInf --statsFile=data_bolt_height
+```
