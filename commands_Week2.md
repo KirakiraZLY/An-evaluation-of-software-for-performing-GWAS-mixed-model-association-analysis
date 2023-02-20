@@ -52,6 +52,10 @@ I ran fastGWA as the first one, and it worked quickly: in 22.8 sec, with 2504 in
    
 After this, output: .eigenval & .eigenvec   
 Plot by ggplot.   
+   
+
+### PCA for population prediction, K-means
+Using K-means to cluster populations into 4 groups, with data of PC1 and PC2.   
 
 ## Simulate Phenotype with LDAK
 To simulate binary traits of UKBB, of the use of REGENIE.   
@@ -69,7 +73,7 @@ To simulate binary traits of UKBB, of the use of REGENIE.
 Phenotypes saved in data_binary.pheno, with liabilities in data_binary.liab, breeding values in data_binary.breed and effect sizes in data_binary.effects   
 
 
-### Regenie
+### Regenie for 1000g, quantitative
 done   
 1. 
 ```python
@@ -95,10 +99,43 @@ Convert .bed to .bgen: ./software/plink2 --bfile ./1000g/1000g_out --export bgen
   --qt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred data_regenie_out_pred.list \
-  --out data_regenie_out_firth
+  --pred ./1000g/1000g_regenie_out_pred.list \
+  --out ./1000g/1000g_regenie_out_firth
+```
+Output: data_regenie_out_firth_Phenotype.regenie   
+然后就是画图还没做
+
+### Regenie for UKBB
+done   
+1. 
+```python
+   regenie \
+  --step 1 \
+  --bed data_qc \
+  --covarFile covar1.covars \
+  --phenoFile data_binary_1.pheno \
+  --bsize 100 \
+  --bt \
+  --out data_regenie_out_binary  
+``` 
+  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
+Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
+**Output**: data_regenie_out_pred.list
+2. 
+```python
+   regenie \
+  --step 2 \
+  --bgen data_qc.bgen \
+  --phenoFile data_binary_1.pheno \
+  --bsize 200 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred data_regenie_out_binary_pred.list \
+  --out data_regenie_out_binary_firth
 ```
 Output: data_regenie_out_firth_Phenotype.regenie
+
 
 ### GEMMA
 not yet   
@@ -131,36 +168,6 @@ not yet
 ```
 
 
-### Regenie for UKBB
-done   
-1. 
-```python
-   regenie \
-  --step 1 \
-  --bed data_qc \
-  --covarFile covar1.covars \
-  --phenoFile data_binary_1.pheno \
-  --bsize 100 \
-  --bt \
-  --out data_regenie_out_binary  
-``` 
-  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
-Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
-**Output**: data_regenie_out_pred.list
-2. 
-```python
-   regenie \
-  --step 2 \
-  --bgen data_qc.bgen \
-  --phenoFile data_binary_1.pheno \
-  --bsize 200 \
-  --bt \
-  --firth --approx \
-  --pThresh 0.01 \
-  --pred data_regenie_out_binary_pred.list \
-  --out data_regenie_out_binary_firth
-```
-Output: data_regenie_out_firth_Phenotype.regenie
 
 ### Bolt lmm
 ```python
