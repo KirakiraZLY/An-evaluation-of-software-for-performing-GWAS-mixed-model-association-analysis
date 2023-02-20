@@ -70,7 +70,7 @@ Phenotypes saved in data_binary.pheno, with liabilities in data_binary.liab, bre
 
 
 ### Regenie
-done
+done   
 1. 
 ```python
   regenie \
@@ -101,7 +101,7 @@ Convert .bed to .bgen: ./software/plink2 --bfile ./1000g/1000g_out --export bgen
 Output: data_regenie_out_firth_Phenotype.regenie
 
 ### GEMMA
-not yet
+not yet   
 Before using GEMMA, the 6th column of .fam should be replaced by real phenotypes. 先把Phenotype替换到.fam文件第6行   
 1. Calculate Kinship Matrix    
 ```python
@@ -132,7 +132,7 @@ not yet
 
 
 ### Regenie for UKBB
-done
+done   
 1. 
 ```python
    regenie \
