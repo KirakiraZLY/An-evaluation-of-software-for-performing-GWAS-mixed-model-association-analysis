@@ -21,7 +21,13 @@ Output: .grm.bin, .grm.N.bin, .grm.id
 ```
 3. To generate a sparse GRM from SNP data:
   ```python
-./software/gcta --bfile ./1000g/1000g_out --autosome --maf 0.01 --make-grm --out ./1000g/1000g_out_gcta --thread-num 10   
+./software/gcta \
+--bfile ./1000g/1000g_out \
+--autosome --maf 0.01 \
+--make-grm --out ./1000g/1000g_out_gcta \
+--thread-num 10
+```
+```python  
 ./software/gcta --grm ./1000g/1000g_out_gcta --make-bK-sparse 0.05 --out ./1000g/1000g_out_grm_gcta   
 ```
 
@@ -35,7 +41,13 @@ I ran fastGWA as the first one, and it worked quickly: in 22.8 sec, with 2504 in
 
 ### PCA
 ```python
-./software/plink --vcf data_qc_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract data_qc.prune.in --pca --make-bed --out data_prune_pca   
+  ./software/plink \
+  --vcf data_qc_vcf.vcf \
+  --double-id --allow-extra-chr \
+  --set-missing-var-ids @:# \
+  --extract data_qc.prune.in \
+  --pca --make-bed \
+  --out data_prune_pca   
 ```
    
 After this, output: .eigenval & .eigenvec   
@@ -44,7 +56,15 @@ Plot by ggplot.
 ## Simulate Phenotype with LDAK
 To simulate binary traits of UKBB, of the use of REGENIE.   
 ```python
-./software/ldak5.XXX --make-phenos data_binary --bfile data_qc --prevalence 0.1 --ignore-weights YES --power -1 --her 0.5 --num-phenos 1 --num-causals 100
+  ./software/ldak5.XXX \
+  --make-phenos data_binary \
+  --bfile data_qc \
+  --prevalence 0.1 \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 1 \
+  --num-causals 100
 ```   
 Phenotypes saved in data_binary.pheno, with liabilities in data_binary.liab, breeding values in data_binary.breed and effect sizes in data_binary.effects   
 
@@ -52,7 +72,13 @@ Phenotypes saved in data_binary.pheno, with liabilities in data_binary.liab, bre
 ### Regenie
 done
 ```python
-regenie   --step 1 --force-step1  --bed ./1000g/1000g_out   --phenoFile ./1000g/1000g_out_1.pheno   --bsize 100   --out ./1000g/1000g_regenie_out
+  regenie \
+  --step 1 \
+  --force-step1  \
+  --bed ./1000g/1000g_out   \
+  --phenoFile ./1000g/1000g_out_1.pheno   \
+  --bsize 100   \
+  --out ./1000g/1000g_regenie_out
 ```
    
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式, FID, IID, Phenotype)   
