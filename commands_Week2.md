@@ -169,6 +169,6 @@ Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option.
 
 ### Bolt lmm ukbb
 ```python
-./software/BOLT-LMM_v2.4/bolt --bfile=data_qc --phenoFile=height1.pheno --phenoCol=Phenotype --covarFile=covar1.covars --qCovarCol --lmmForceNonInf --statsFile=data_bolt_height --maxModelSnps 9000000
+./software/BOLT-LMM_v2.4/bolt --bfile=data_qc --phenoFile=height1.pheno --phenoCol=Phenotype --covarFile=covar1.covars --qCovarCol --lmm --statsFile=data_bolt_height --maxModelSnps 9000000
 ```
 Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option. 
