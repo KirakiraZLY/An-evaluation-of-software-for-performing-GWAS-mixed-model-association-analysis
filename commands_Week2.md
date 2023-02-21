@@ -120,7 +120,7 @@ done
 ``` 
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
 Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
-**Output**: data_regenie_out_pred.list
+**Output**: data_regenie_out_binary_pred.list
 2. 
 ```python
    regenie \
@@ -134,7 +134,7 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --pred data_regenie_out_binary_pred.list \
   --out data_regenie_out_binary_firth
 ```
-Output: data_regenie_out_firth_Phenotype.regenie
+Output: data_regenie_out_binary_firth_Phenotype.regenie
 
 
 ### GEMMA
