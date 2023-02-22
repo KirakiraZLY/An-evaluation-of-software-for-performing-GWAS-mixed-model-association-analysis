@@ -175,7 +175,54 @@ Output: ./1000g/1000g_bolt
 ```
 Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option. 
 
+# Binary Trait test for UKBB
+## Softwares Using
+Regenie, fastGWA, Bolt-lmm   
+Location: ./ukbb_binary_test/
+## Regenie for binary UKBB
+Already done from above.   
+## fastGWA for binary UKBB
+### fastGWA
+运行3和4   
+https://yanglab.westlake.edu.cn/software/gcta/#fastGWA   
+1. After download, see: **gcta** in dsmwpred/zly/software   
+2. GCTA-GRM: calculating the genetic relationship matrix (GRM) from all the autosomal SNPs:   
+```python
+./software/gcta --bfile ./1000g/1000g_out --chr 1 --maf 0.01 --make-grm --out ./1000g/1000g_out_chr1 --thread-num 10  
+./software/gcta --bfile data_qc --chr 2 --maf 0.01 --make-grm --out data_qc_chr2 --thread-num 10
+```
+```python
+./software/gcta --bfile data_qc --chr 22 --maf 0.01 --make-grm --out data_qc_chr22 --thread-num 10
+Output: .grm.bin, .grm.N.bin, .grm.id   
+```
+3. To generate a sparse GRM from SNP data:
+  ```python
+./software/gcta \
+--bfile ./ukbb_binary_test/data_qc \
+--autosome --maf 0.01 \
+--make-grm --out ./ukbb_binary_test/data_qc_gcta \
+--thread-num 10
+```
+```python  
+./software/gcta --grm ./ukbb_binary_test/data_qc_gcta --make-bK-sparse 0.05 --out /ukbb_binary_test/data_qc_grm_gcta   
+```
 
+4. I didn't use PCs
+```python
+./software/gcta --bfile ./ukbb_binary_test/data_qc --grm-sparse ./ukbb_binary_test/data_qc_grm_gcta --fastGWA-mlm --pheno ./ukbb_binary_test/data_binary.pheno --thread-num 10 --out ./ukbb_binary_test/data_qc_fastgwa_binary   
+```
+
+### Bolt lmm ukbb binary(--covarFile=covar1.covars --qCovarCol) 跑通了, 回去重新跑
+```python
+./software/BOLT-LMM_v2.4/bolt --bfile=./ukbb_binary_test/data_qc --phenoFile=./ukbb_binary_test/data_binary_1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=./ukbb_binary_test/data_qc_bolt_binary --maxModelSnps 9000000
+```
+Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option.
+
+
+
+
+
+# Ancestry Inference
 ## Extract .bed and .fam into a single population
 ```python
 plink --bfile data_qc --noweb --keep sampleID.txt --recode --make-bed --out data_1
