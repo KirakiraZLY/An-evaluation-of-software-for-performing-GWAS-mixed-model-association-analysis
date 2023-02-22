@@ -204,7 +204,7 @@ Output: .grm.bin, .grm.N.bin, .grm.id
 --thread-num 10
 ```
 ```python  
-./software/gcta --grm ./ukbb_binary_test/data_qc_gcta --make-bK-sparse 0.05 --out /ukbb_binary_test/data_qc_grm_gcta   
+./software/gcta --grm ./ukbb_binary_test/data_qc_gcta --make-bK-sparse 0.05 --out ./ukbb_binary_test/data_qc_grm_gcta   
 ```
 
 4. I didn't use PCs
