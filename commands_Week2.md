@@ -163,12 +163,14 @@ gemma -bfile data_gemma_height -k 1000g_out.sXX.txt -lmm 1 -o data_gemma_height_
 
 ### Bolt lmm
 ```python
-./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out.pheno --phenoCol=Phenotype --covarFile=covar1.covars --qCovarCol --lmmForceNonInf --statsFile=1000g_bolt --maxModelSnps 9000000
+./software/BOLT-LMM_v2.4/bolt --bfile=./1000g/1000g_out --phenoFile=./1000g/1000g_out.pheno --phenoCol=Phenotype --lmmForceNonInf --statsFile=1000g_bolt --maxModelSnps 9000000
 ```
 Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option.   
+Output: ./1000g/1000g_bolt   
 
-### Bolt lmm ukbb
+
+### Bolt lmm ukbb(--covarFile=covar1.covars --qCovarCol) 跑通了
 ```python
-./software/BOLT-LMM_v2.4/bolt --bfile=data_qc --phenoFile=height1.pheno --phenoCol=Phenotype --covarFile=covar1.covars --qCovarCol --lmm --statsFile=data_bolt_height --maxModelSnps 9000000
+./software/BOLT-LMM_v2.4/bolt --bfile=data_qc --phenoFile=height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=data_height_bolt --maxModelSnps 9000000
 ```
 Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option. 
