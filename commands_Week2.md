@@ -236,5 +236,5 @@ fastSTRUCTURE: faststructure_env (py2)
 Dict: ./dsw/zly/ADMIXTURE   
 4 Populations   
 ```python
-admixture data_qc 4
+admixture data_qc.bed 4
 ```
