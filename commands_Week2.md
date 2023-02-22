@@ -174,3 +174,10 @@ Output: ./1000g/1000g_bolt
 ./software/BOLT-LMM_v2.4/bolt --bfile=data_qc --phenoFile=height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=data_height_bolt --maxModelSnps 9000000
 ```
 Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option. 
+
+
+## Extract .bed and .fam into a single population
+```python
+plink --bfile data_qc --noweb --keep sampleID.txt --recode --make-bed --out data_1
+```
+data_1 is the data of population 1, and there will also be data_2 ...   
