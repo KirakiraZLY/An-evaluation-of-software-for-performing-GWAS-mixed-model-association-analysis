@@ -138,7 +138,7 @@ Output: data_regenie_out_binary_firth_Phenotype.regenie
 
 
 ### GEMMA
-not yet   
+not yet, GEMMA is too slow to run, give up.   
 Before using GEMMA, the 6th column of .fam should be replaced by real phenotypes. 先把Phenotype替换到.fam文件第6行   
 1. Calculate Kinship Matrix    
 ```python
@@ -169,7 +169,7 @@ Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option.
 Output: ./1000g/1000g_bolt   
 
 
-### Bolt lmm ukbb(--covarFile=covar1.covars --qCovarCol) 跑通了
+### Bolt lmm ukbb(--covarFile=covar1.covars --qCovarCol) 跑通了, 回去重新跑
 ```python
 ./software/BOLT-LMM_v2.4/bolt --bfile=data_qc --phenoFile=height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=data_height_bolt --maxModelSnps 9000000
 ```
