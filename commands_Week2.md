@@ -181,3 +181,13 @@ Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option.
 plink --bfile data_qc --noweb --keep sampleID.txt --recode --make-bed --out data_1
 ```
 data_1 is the data of population 1, and there will also be data_2 ...   
+
+## Download softwares for ancestry inference
+ADMIXTURE: admixture_env   
+fastSTRUCTURE: faststructure_env (py2)   
+### ADMIXTURE
+Dict: ./dsw/zly/ADMIXTURE   
+4 Populations   
+```python
+admixture data_qc 4
+```
