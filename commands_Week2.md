@@ -239,3 +239,11 @@ Dict: ./dsw/zly/ADMIXTURE
 ```python
 admixture data_qc.bed 4
 ```
+
+# Feb 23th
+1. Run ADMIXTURE on ukbb whole and Bolt-lmm on binary trait + ukbb   
+2. Extract **Region 1** out from .fam   
+3. Question: How to evaluate teh accuracy of K-means?   
+   How to evaluate the performance between PCA+Kmeans and ADMIXTURE?
+4. By step2, I got **region 1** -> Run REGENIE again on data_region1, see difference.
+## REGENIE on data_region1
