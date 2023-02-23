@@ -226,7 +226,7 @@ Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option.
 ## Extract .bed and .fam into a single population
 In the folder: ./ukbb_by_ancestry
 ```python
-plink --bfile data_qc --noweb --keep sampleID.txt --recode --make-bed --out data_1
+./software/plink --bfile ./ukbb_by_ancestry/data_qc --noweb --keep ./ukbb_by_ancestry/data_qc_1.fam --recode --make-bed --out ./ukbb_by_ancestry/data_region1
 ```
 data_1 is the data of population 1, and there will also be data_2 ...   
 
