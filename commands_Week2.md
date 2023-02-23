@@ -224,6 +224,7 @@ Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option.
 
 # Ancestry Inference
 ## Extract .bed and .fam into a single population
+In the folder: ukbb_by_ancestry
 ```python
 plink --bfile data_qc --noweb --keep sampleID.txt --recode --make-bed --out data_1
 ```
