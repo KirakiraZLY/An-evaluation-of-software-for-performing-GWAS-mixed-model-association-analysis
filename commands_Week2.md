@@ -262,8 +262,8 @@ Using Binary Traits
 ``` 
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
 Convert .bed to .bgen: ./software/plink2 --bfile ./ukbb_by_ancestry/data_region1 --export bgen-1.2 --out ./ukbb_by_ancestry/data_region1    
-**Output**: data_region1_regenie_out_binary_pred.list
-1. 
+**Output**: data_region1_regenie_out_binary_pred.list   
+2. 
 ```python
    regenie \
   --step 2 \
