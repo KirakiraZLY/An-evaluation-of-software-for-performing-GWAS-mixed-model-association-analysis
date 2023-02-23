@@ -1,0 +1,10 @@
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 2:0:0
+#SBATCH -c 2
+#SBATCH --constraint \"s05\"
+
+./software/plink --bfile ./ukbb_by_ancestry/data_qc --noweb --keep ./ukbb_by_ancestry/data_qc_1.fam --recode --make-bed --out ./ukbb_by_ancestry/data_region1
+
+" > scripts/plink1
+
