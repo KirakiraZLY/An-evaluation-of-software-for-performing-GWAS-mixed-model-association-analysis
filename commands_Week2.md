@@ -240,10 +240,40 @@ Dict: ./dsw/zly/ADMIXTURE
 admixture data_qc.bed 4
 ```
 
-# Feb 23th
+## Feb 23th
 1. Run ADMIXTURE on ukbb whole and Bolt-lmm on binary trait + ukbb   
 2. Extract **Region 1** out from .fam   
 3. Question: How to evaluate teh accuracy of K-means?   
    How to evaluate the performance between PCA+Kmeans and ADMIXTURE?
 4. By step2, I got **region 1** -> Run REGENIE again on data_region1, see difference.
-## REGENIE on data_region1
+
+### REGENIE on data_region1
+Using Binary Traits   
+1. 
+```python
+   regenie \
+  --step 1 \
+  --bed ./ukbb_by_ancestry/data_region1 \
+  --covarFile covar1.covars \
+  --phenoFile data_binary_1.pheno \
+  --bsize 100 \
+  --bt \
+  --out ./ukbb_by_ancestry/data_region1_regenie_out_binary  
+``` 
+  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
+Convert .bed to .bgen: ./software/plink2 --bfile ./ukbb_by_ancestry/data_region1 --export bgen-1.2 --out ./ukbb_by_ancestry/data_region1    
+**Output**: data_region1_regenie_out_binary_pred.list
+1. 
+```python
+   regenie \
+  --step 2 \
+  --bgen ./ukbb_by_ancestry/data_region1.bgen \
+  --phenoFile data_binary_1.pheno \
+  --bsize 200 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ./ukbb_by_ancestry/data_region1_regenie_out_binary_pred.list \
+  --out ./ukbb_by_ancestry/data_region1_regenie_out_binary_firth
+```
+Output: data_regenie_out_binary_firth_Phenotype.regenie
