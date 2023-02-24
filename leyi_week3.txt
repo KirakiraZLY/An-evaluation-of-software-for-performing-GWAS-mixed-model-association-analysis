@@ -180,6 +180,8 @@ echo "#"'!'"/bin/bash
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
 
+conda activate regenie_env
+
 regenie \
   --step 1 \
   --bed ${dir}/data_qc \
@@ -203,6 +205,8 @@ echo "#"'!'"/bin/bash
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
+
+conda activate regenie_env
 
 regenie \
   --step 2 \
