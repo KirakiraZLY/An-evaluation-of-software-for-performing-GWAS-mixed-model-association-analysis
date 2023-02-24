@@ -225,3 +225,23 @@ regenie \
 # I am doing blabla
 cd ${dir}/scripts
 sbatch regenie_ukbb_height_2
+
+
+
+###############################################################
+Bolt lmm ukbb trait = height
+###############################################################
+dir="/home/lezh/dsmwpred/zly/"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 5:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/ukbb_whole_height_result/data_bolt_height
+" > ${dir}/scripts/bolt_ukbb_height
+
+# I am doing blabla
+cd ${dir}scripts
+sbatch bolt_ukbb_height
