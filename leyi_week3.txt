@@ -186,7 +186,7 @@ conda activate regenie_env
 regenie \
   --step 1 \
   --bed ${dir}/data_qc \
-  --phenoFile height1.pheno \
+  --phenoFile ${dir}/height1.pheno \
   --bsize 100 \
   --out ${dir}/ukbb_whole_height_result/data_regenie_out 
 
