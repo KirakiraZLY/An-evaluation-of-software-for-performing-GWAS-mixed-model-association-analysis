@@ -180,6 +180,7 @@ echo "#"'!'"/bin/bash
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
 
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate regenie_env
 
 regenie \
@@ -206,6 +207,7 @@ echo "#"'!'"/bin/bash
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
 
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate regenie_env
 
 regenie \
