@@ -244,4 +244,27 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/hei
 
 # I am doing blabla
 cd ${dir}scripts
-sbatch bolt_ukbb_height
+sbatch bolt_ukbb_height   
+
+###################################################
+ADMIXTURE ukbb height in folder: ADMIXTURE
+###################################################
+### 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 5:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate admixture_env
+
+admixture ${dir}/ADMIXTURE/data_qc.bed 4
+
+" > ${dir}/scripts/ADMIXTURE_ukbb_1
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch ADMIXTURE_ukbb_1
