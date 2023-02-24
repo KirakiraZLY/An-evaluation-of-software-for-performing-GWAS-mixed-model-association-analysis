@@ -76,7 +76,6 @@ ${dir}/software/gcta \
    regenie \
   --step 1 \
   --bed ${dir}/data_qc \
-  --covarFile covar1.covars \
   --phenoFile height1.pheno \
   --bsize 100 \
   --out ${dir}/ukbb_whole_height_result/data_regenie_out   

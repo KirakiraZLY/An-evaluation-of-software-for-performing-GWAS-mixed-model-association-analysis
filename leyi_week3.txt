@@ -186,7 +186,6 @@ conda activate regenie_env
 regenie \
   --step 1 \
   --bed ${dir}/data_qc \
-  --covarFile covar1.covars \
   --phenoFile height1.pheno \
   --bsize 100 \
   --out ${dir}/ukbb_whole_height_result/data_regenie_out 
@@ -213,7 +212,6 @@ conda activate regenie_env
 regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar1.covars \
   --phenoFile ${dir}/height1.pheno \
   --bsize 200 \
   --qt \
