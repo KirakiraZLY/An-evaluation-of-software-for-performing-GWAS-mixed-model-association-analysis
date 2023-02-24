@@ -109,7 +109,7 @@ fastGWA ukbb  trait = height
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 64G
-#SBATCH -t 5:0:0
+#SBATCH -t 30:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
@@ -131,7 +131,7 @@ sbatch fastGWA_ukbb_height_1
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 64G
-#SBATCH -t 5:0:0
+#SBATCH -t 30:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
@@ -150,7 +150,7 @@ sbatch fastGWA_ukbb_height_2
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 64G
-#SBATCH -t 5:0:0
+#SBATCH -t 30:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
