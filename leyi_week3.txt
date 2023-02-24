@@ -21,4 +21,4 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 
 ./software/BOLT-LMM_v2.4/bolt --bfile=./ukbb_by_ancestry/data_region1 --phenoFile=./ukbb_by_ancestry/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=./ukbb_by_ancestry/data_region1_bolt_height
-" > scripts/plink1
+" > scripts/bolt_ukbb_region1_height

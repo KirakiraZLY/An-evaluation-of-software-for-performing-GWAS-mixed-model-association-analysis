@@ -1,9 +1,10 @@
-1. 创建一个txt文件：见leyi2
-2. 复制到cmd
-3. cat scripts/plink1
-4. sbatch -A dsmwpred scripts/plink1 检查job提交情况
-5. jobinfo 14135784 查看job info
-6. squeue -u lezh 我名下的队伍
+1. srun --account lezh --mem 16g --pty bash
+2. 创建一个txt文件：见leyi2
+3. 复制到cmd
+4. cat scripts/plink1
+5. sbatch -A dsmwpred scripts/plink1 检查job提交情况
+6. jobinfo 14135784 查看job info
+7. squeue -u lezh 我名下的队伍
 
 
 # 例子
