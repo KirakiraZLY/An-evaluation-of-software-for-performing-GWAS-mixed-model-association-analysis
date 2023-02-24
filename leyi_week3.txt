@@ -103,7 +103,7 @@ sbatch -A dsmwpred scripts/bolt_ukbb_region1_height
 ###########################################3
 一. ukbb_whole_height
 ###############################################################
-fastGWA ukbb region_1, trait = height
+fastGWA ukbb  trait = height
 ###############################################################
 ### 1
 dir="/home/lezh/dsmwpred/zly"
@@ -166,3 +166,58 @@ ${dir}/software/gcta \
 # I am doing blabla
 cd ${dir}/scripts
 sbatch fastGWA_ukbb_height_3
+
+
+###################################################
+Regenie ukbb height
+###################################################
+### 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 5:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --covarFile covar1.covars \
+  --phenoFile height1.pheno \
+  --bsize 100 \
+  --out ${dir}/ukbb_whole_height_result/data_regenie_out 
+
+" > ${dir}/scripts/regenie_ukbb_height_1
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch regenie_ukbb_height_1
+
+
+### 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 5:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar1.covars \
+  --phenoFile ${dir}/height1.pheno \
+  --bsize 200 \
+  --qt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/ukbb_whole_height_result/data_regenie_out_pred.list \
+  --out ${dir}/ukbb_whole_height_result/data_regenie_out_firth    
+
+" > ${dir}/scripts/regenie_ukbb_height_2
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch regenie_ukbb_height_2
