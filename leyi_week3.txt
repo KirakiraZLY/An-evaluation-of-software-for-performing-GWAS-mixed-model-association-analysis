@@ -108,7 +108,7 @@ fastGWA ukbb  trait = height
 ### 1
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 15G
+#SBATCH --mem 64G
 #SBATCH -t 5:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
@@ -130,7 +130,7 @@ sbatch fastGWA_ukbb_height_1
 ### 2
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 15G
+#SBATCH --mem 64G
 #SBATCH -t 5:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
@@ -149,7 +149,7 @@ sbatch fastGWA_ukbb_height_2
 ### 3
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 15G
+#SBATCH --mem 64G
 #SBATCH -t 5:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
@@ -174,7 +174,7 @@ Regenie ukbb height
 ### 1
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 15G
+#SBATCH --mem 64G
 #SBATCH -t 5:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
@@ -200,7 +200,7 @@ sbatch regenie_ukbb_height_1
 ### 2
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 15G
+#SBATCH --mem 64G
 #SBATCH -t 5:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
@@ -233,7 +233,7 @@ Bolt lmm ukbb trait = height
 ###############################################################
 dir="/home/lezh/dsmwpred/zly/"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 15G
+#SBATCH --mem 64G
 #SBATCH -t 5:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
