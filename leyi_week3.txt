@@ -253,7 +253,7 @@ ADMIXTURE ukbb height in folder: ADMIXTURE
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 15G
-#SBATCH -t 5:0:0
+#SBATCH -t 64:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
