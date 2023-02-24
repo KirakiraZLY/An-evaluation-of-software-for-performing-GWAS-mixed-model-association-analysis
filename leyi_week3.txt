@@ -13,12 +13,43 @@ echo "#"'!'"/bin/bash
 ###############################################################
 Bolt lmm ukbb region_1, trait = height
 ###############################################################
-
+dir="/home/lezh/dsmwpred/zly/"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 15G
 #SBATCH -t 64:0:0
-#SBATCH -c 2
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
 
-./software/BOLT-LMM_v2.4/bolt --bfile=./ukbb_by_ancestry/data_region1 --phenoFile=./ukbb_by_ancestry/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=./ukbb_by_ancestry/data_region1_bolt_height
-" > scripts/bolt_ukbb_region1_height
+${dir}software/BOLT-LMM_v2.4/bolt --bfile=${dir}ukbb_by_ancestry/data_region1 --phenoFile=${dir}ukbb_by_ancestry/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}ukbb_by_ancestry/data_region1_bolt_height
+" > ${dir}scripts/bolt_ukbb_region1_height
+
+# I am doing blabla
+cd ${dir}scripts
+sbatch bolt_ukbb_region1_height
+
+###############################################################
+Regenie lmm ukbb region_1, trait = height
+###############################################################
+有了
+
+###############################################################
+fastGWA ukbb region_1, trait = height
+###############################################################
+dir="/home/lezh/dsmwpred/zly/"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}software/BOLT-LMM_v2.4/bolt --bfile=${dir}ukbb_by_ancestry/data_region1 --phenoFile=${dir}ukbb_by_ancestry/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}ukbb_by_ancestry/data_region1_bolt_height
+" > ${dir}scripts/bolt_ukbb_region1_height
+
+# I am doing blabla
+cd ${dir}scripts
+sbatch bolt_ukbb_region1_height
+
+#######################
+sbatch -A dsmwpred scripts/bolt_ukbb_region1_height
