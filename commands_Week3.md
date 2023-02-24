@@ -16,6 +16,30 @@ Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option.
 
 ### Bolt lmm ukbb region_1, trait = height(--covarFile=covar1.covars --qCovarCol)
 ```python
-./software/BOLT-LMM_v2.4/bolt --bfile=./ukbb_by_ancestry/data_region1 --phenoFile=./ukbb_binary_test/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=./ukbb_by_ancestry/data_region1/data_region1_bolt_binary --maxModelSnps 9000000
+./software/BOLT-LMM_v2.4/bolt --bfile=./ukbb_by_ancestry/data_region1 --phenoFile=./ukbb_by_ancestry/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=./ukbb_by_ancestry/data_region1_bolt_height
 ```
 Since the number of SNPs is 6M here(>1M), adding --maxModelSnps option.
+
+
+### fastGWA
+https://yanglab.westlake.edu.cn/software/gcta/#fastGWA   
+1. To generate a sparse GRM from SNP data:
+  ```python
+${dir}/software/gcta \
+--bfile ${dir}/ukbb_by_ancestry/data_region1 \
+--autosome --maf 0.01 \
+--make-grm --out ${dir}/ukbb_by_ancestry/data_region1_gcta \
+--thread-num 10
+```   
+2. Next Sparse GRM    
+```python  
+${dir}/software/gcta \
+--grm ${dir}/ukbb_by_ancestry/data_region1_gcta --make-bK-sparse 0.05 \
+--out ${dir}/ukbb_by_ancestry/data_region1_gcta_grm   
+```   
+3. I didn't use PCs
+```python
+${dir}/software/gcta \
+ --bfile ${dir}/ukbb_by_ancestry/data_region1 \
+ --grm-sparse ${dir}/ukbb_by_ancestry/data_region1_gcta_grm --fastGWA-mlm --pheno ${dir}/ukbb_by_ancestry/height.pheno --thread-num 10 --out ${dir}/ukbb_by_ancestry/data_region1_fastgwa_height    
+```
