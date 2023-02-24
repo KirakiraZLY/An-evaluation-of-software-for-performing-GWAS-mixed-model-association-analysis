@@ -43,3 +43,30 @@ ${dir}/software/gcta \
  --bfile ${dir}/ukbb_by_ancestry/data_region1 \
  --grm-sparse ${dir}/ukbb_by_ancestry/data_region1_gcta_grm --fastGWA-mlm --pheno ${dir}/ukbb_by_ancestry/height.pheno --thread-num 10 --out ${dir}/ukbb_by_ancestry/data_region1_fastgwa_height    
 ```
+
+# UKBB Whole Height
+## fastGWA
+1. To generate a sparse GRM from SNP data:
+  ```python
+${dir}/software/gcta \
+--bfile ${dir}/data_qc \
+--autosome --maf 0.01 \
+--make-grm --out ${dir}/ukbb_whole_height_result/data_qc_gcta \
+--thread-num 10
+```   
+2. Next Sparse GRM    
+```python  
+${dir}/software/gcta \
+--grm ${dir}/ukbb_whole_height_result/data_qc_gcta --make-bK-sparse 0.05 \
+--out ${dir}/ukbb_whole_height_result/data_qc_gcta_grm   
+```   
+3. I didn't use PCs
+```python
+${dir}/software/gcta \
+ --bfile ${dir}/data_qc \
+ --grm-sparse ${dir}/ukbb_whole_height_result/data_qc_gcta_grm \
+  --fastGWA-mlm --pheno ${dir}/height.pheno \ 
+  --thread-num 10 --out ${dir}/ukbb_whole_height_result/data_region1_fastgwa_height 
+ ```
+## Regenie
+## Bolt
