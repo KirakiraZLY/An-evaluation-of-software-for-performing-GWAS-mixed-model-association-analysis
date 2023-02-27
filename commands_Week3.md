@@ -128,5 +128,5 @@ ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/non_genetic_trait_qu
 ## LDAK, non_genetic_trait_quant
 Quant   
 ```python
-${dir}/software/ldak5.XXX --linear ${dir}/type_1_error/data_ldak_whole_nongenetic_result --pheno ${dir}/type_1_error/non_genetic_trait_quant --covar ${dir}/covar.covars --bfile ${dir}/data_qc
+${dir}/software/ldak5.XXX --linear ${dir}/type_1_error/data_ldak_whole_nongenetic_result --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --covar ${dir}/covar.covars --bfile ${dir}/data_qc
 ```
