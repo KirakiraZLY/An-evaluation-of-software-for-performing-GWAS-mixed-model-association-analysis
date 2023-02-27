@@ -115,5 +115,8 @@ ${dir}/software/ldak5.XXX \
 ```
 Quant   
 ```python
-${dir}/software/ldak5.XXX --linear data_binary_ldak --pheno data_binary.pheno --bfile data_qc
+${dir}/software/ldak5.XXX \ 
+--linear ${dir}/ukbb_whole_height_result/data_ldak_height \ 
+--pheno ${dir}/height.pheno \ 
+--bfile ${dir}/data_qc
 ```
