@@ -268,3 +268,32 @@ admixture ${dir}/ADMIXTURE/data_qc.bed 4
 # I am doing blabla
 cd ${dir}/scripts
 sbatch ADMIXTURE_ukbb_1
+
+
+############################################################
+2.27
+############################################################
+####  LDAK
+####  Binary
+
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate admixture_env
+
+${dir}/ldak5.XXX \ 
+--logistic ${dir}/ukbb_binary_test/data_binary_ldak \ 
+--pheno ${dir}/ukbb_binary_test/data_binary.pheno \ 
+--bfile ${dir}/ukbb_binary_test/data_qc
+
+" > ${dir}/scripts/ldak_ukbb_binary_1
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch ldak_ukbb_binary_1
