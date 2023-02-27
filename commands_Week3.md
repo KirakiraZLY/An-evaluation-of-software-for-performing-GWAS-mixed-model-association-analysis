@@ -117,8 +117,8 @@ ${dir}/software/ldak5.XXX --thin-tops ${dir}/ukbb_whole_height_result/data_ldak_
 
 ### Type I error
 1. To generate a set of data: complete non-genetic trait. 
-   N(0,1), h2 = 0
+   N(0,1), h2 = 0   
    doi:  10.1002/gepi.22168
 ```python
-${dir}/software/ldak5.XXX --make-phenos ${dir}/ukbb_whole_height_result/non_genetic_trait_quant --bfile data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 0
+${dir}/software/ldak5.XXX --make-phenos ${dir}/ukbb_whole_height_result/non_genetic_trait_quant --bfile ${dir}/data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 1
 ```
