@@ -110,5 +110,7 @@ Quant
 ```python
 ${dir}/software/ldak5.XXX --linear ${dir}/ukbb_whole_height_result/data_ldak_height --pheno ${dir}/height.pheno --covar ${dir}/covar.covars --bfile ${dir}/data_qc
 ```
-
-Mixed model linear regression
+Find Independent Significant Loci
+```python
+${dir}/software/ldak5.XXX --thin-tops ${dir}/ukbb_whole_height_result/data_ldak_height_top --bfile ${dir}/data_qc --pvalues ${dir}/ukbb_whole_height_result/data_ldak_height.pvalues --cutoff 5e-8 --window-cm 1 --window-prune 0.05
+```
