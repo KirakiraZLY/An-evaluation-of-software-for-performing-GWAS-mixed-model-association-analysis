@@ -123,3 +123,4 @@ ${dir}/software/ldak5.XXX --thin-tops ${dir}/ukbb_whole_height_result/data_ldak_
 ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/non_genetic_trait_quant --bfile ${dir}/data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 1
 ```
 2. Generate successfully: into file ${dir}/type_1_error/non_genetic_trait_quant
+3. Redo fastGWA, regenie, bolt, LDAK
