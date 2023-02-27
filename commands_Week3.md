@@ -62,11 +62,7 @@ ${dir}/software/gcta \
 ```   
 3. I didn't use PCs
 ```python
-${dir}/software/gcta \
- --bfile ${dir}/data_qc \
- --grm-sparse ${dir}/ukbb_whole_height_result/data_qc_gcta_grm \
-  --fastGWA-mlm --pheno ${dir}/height.pheno \ 
-  --thread-num 10 --out ${dir}/ukbb_whole_height_result/data_fastgwa_height_finalresult 
+${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/ukbb_whole_height_result/data_qc_gcta_grm --fastGWA-mlm --pheno ${dir}/height.pheno --thread-num 10 --out ${dir}/ukbb_whole_height_result/data_fastgwa_height_finalresult 
  ```
 
 ## Regenie
