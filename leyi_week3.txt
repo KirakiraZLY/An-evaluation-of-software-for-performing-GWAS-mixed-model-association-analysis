@@ -86,10 +86,7 @@ echo "#"'!'"/bin/bash
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
 
-${dir}/software/gcta \
- --bfile ${dir}/ukbb_by_ancestry/data_region1 \
- --grm-sparse ${dir}/ukbb_by_ancestry/data_region1_gcta_grm --fastGWA-mlm --pheno ${dir}/ukbb_by_ancestry/height.pheno --thread-num 10 --out ${dir}/ukbb_by_ancestry/data_region1_fastgwa_height      
-
+${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/ukbb_whole_height_result/data_qc_gcta_grm --fastGWA-mlm --pheno ${dir}/height.pheno --thread-num 10 --out ${dir}/ukbb_whole_height_result/data_fastgwa_height_finalresult 
 " > ${dir}/scripts/fastGWA_ukbb_region1_height_3
 
 # I am doing blabla
