@@ -342,3 +342,25 @@ ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/non_genetic_trait_qu
 # To generate non-genetic traits, normal distributed
 cd ${dir}/scripts
 sbatch ldak_non_genetic_trait_quant
+
+
+################################################
+LDAK, non-genetic traits
+################################################
+####  quant_height
+
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/ldak5.XXX --linear ${dir}/type_1_error/data_ldak_whole_nongenetic_result --pheno ${dir}/type_1_error/non_genetic_trait_quant --covar ${dir}/covar.covars --bfile ${dir}/data_qc
+
+" > ${dir}/scripts/ldak_ukbb_nongenetic_1
+
+# I am doing on ldak ukbb non_genetic type_1_error
+cd ${dir}/scripts
+sbatch ldak_ukbb_nongenetic_1
