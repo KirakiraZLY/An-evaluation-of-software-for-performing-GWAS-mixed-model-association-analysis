@@ -335,7 +335,7 @@ echo "#"'!'"/bin/bash
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
 
-${dir}/software/ldak5.XXX --make-phenos ${dir}/ukbb_whole_height_result/non_genetic_trait_quant --bfile ${dir}/data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 1
+${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/non_genetic_trait_quant --bfile ${dir}/data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 1
 
 " > ${dir}/scripts/ldak_non_genetic_trait_quant
 

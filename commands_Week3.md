@@ -120,5 +120,6 @@ ${dir}/software/ldak5.XXX --thin-tops ${dir}/ukbb_whole_height_result/data_ldak_
    N(0,1), h2 = 0   
    doi:  10.1002/gepi.22168
 ```python
-${dir}/software/ldak5.XXX --make-phenos ${dir}/ukbb_whole_height_result/non_genetic_trait_quant --bfile ${dir}/data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 1
+${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/non_genetic_trait_quant --bfile ${dir}/data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 1
 ```
+2. Generate successfully: into file ${dir}/type_1_error/non_genetic_trait_quant
