@@ -108,9 +108,12 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/hei
 Using LDAK to run for 60k ind.     
 Binary   
 ```python
-${dir}/ldak5.XXX --logistic ${dir}/ukbb_binary_test/data_binary_ldak --pheno ${dir}/ukbb_binary_test/data_binary.pheno --bfile ${dir}/ukbb_binary_test/data_qc
+${dir}/software/ldak5.XXX \ 
+--logistic ${dir}/ukbb_binary_test/data_binary_ldak \ 
+--pheno ${dir}/ukbb_binary_test/data_binary.pheno \ 
+--bfile ${dir}/ukbb_binary_test/data_qc
 ```
 Quant   
 ```python
-${dir}/ldak5.XXX --linear data_binary_ldak --pheno data_binary.pheno --bfile data_qc
+${dir}/software/ldak5.XXX --linear data_binary_ldak --pheno data_binary.pheno --bfile data_qc
 ```

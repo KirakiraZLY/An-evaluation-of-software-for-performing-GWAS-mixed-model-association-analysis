@@ -287,7 +287,7 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate admixture_env
 
-${dir}/ldak5.XXX \ 
+${dir}/software/ldak5.XXX \ 
 --logistic ${dir}/ukbb_binary_test/data_binary_ldak \ 
 --pheno ${dir}/ukbb_binary_test/data_binary.pheno \ 
 --bfile ${dir}/ukbb_binary_test/data_qc
@@ -297,3 +297,6 @@ ${dir}/ldak5.XXX \
 # I am doing blabla
 cd ${dir}/scripts
 sbatch ldak_ukbb_binary_1
+
+####  quant_height
+
