@@ -287,11 +287,7 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate admixture_env
 
-${dir}/software/ldak5.XXX \ 
---logistic ${dir}/ukbb_binary_test/data_binary_ldak \ 
---pheno ${dir}/ukbb_binary_test/data_binary.pheno \ 
---covar ${dir}/covar.covars \ 
---bfile ${dir}/ukbb_binary_test/data_qc
+${dir}/software/ldak5.XXX --logistic ${dir}/ukbb_binary_test/data_binary_ldak --pheno ${dir}/ukbb_binary_test/data_binary.pheno --covar ${dir}/covar.covars --bfile ${dir}/ukbb_binary_test/data_qc
 
 " > ${dir}/scripts/ldak_ukbb_binary_1
 
@@ -310,11 +306,7 @@ echo "#"'!'"/bin/bash
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
 
-${dir}/software/ldak5.XXX \ 
---linear ${dir}/ukbb_whole_height_result/data_ldak_height \ 
---pheno ${dir}/height.pheno \ 
---covar ${dir}/covar.covars \
---bfile ${dir}/data_qc
+${dir}/software/ldak5.XXX --linear ${dir}/ukbb_whole_height_result/data_ldak_height --pheno ${dir}/height.pheno --covar ${dir}/covar.covars --bfile ${dir}/data_qc
 
 " > ${dir}/scripts/ldak_ukbb_height_1
 

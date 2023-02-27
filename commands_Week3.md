@@ -108,17 +108,11 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/hei
 Using LDAK to run for 60k ind.     
 Binary   
 ```python
-${dir}/software/ldak5.XXX \ 
---logistic ${dir}/ukbb_binary_test/data_binary_ldak \ 
---pheno ${dir}/ukbb_binary_test/data_binary.pheno \ 
---covar ${dir}/covar.covars \ 
---bfile ${dir}/ukbb_binary_test/data_qc
+${dir}/software/ldak5.XXX --logistic ${dir}/ukbb_binary_test/data_binary_ldak --pheno ${dir}/ukbb_binary_test/data_binary.pheno --covar ${dir}/covar.covars --bfile ${dir}/ukbb_binary_test/data_qc
 ```
 Quant   
 ```python
-${dir}/software/ldak5.XXX \ 
---linear ${dir}/ukbb_whole_height_result/data_ldak_height \ 
---pheno ${dir}/height.pheno \ 
---covar ${dir}/covar.covars \
---bfile ${dir}/data_qc
+${dir}/software/ldak5.XXX --linear ${dir}/ukbb_whole_height_result/data_ldak_height --pheno ${dir}/height.pheno --covar ${dir}/covar.covars --bfile ${dir}/data_qc
 ```
+
+Mixed model linear regression
