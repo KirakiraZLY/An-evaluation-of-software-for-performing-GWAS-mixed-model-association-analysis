@@ -294,7 +294,7 @@ ${dir}/software/ldak5.XXX \
 
 " > ${dir}/scripts/ldak_ukbb_binary_1
 
-# I am doing blabla
+# I am doing on ldak ukbb binary
 cd ${dir}/scripts
 sbatch ldak_ukbb_binary_1
 
@@ -314,8 +314,8 @@ ${dir}/software/ldak5.XXX \
 --pheno ${dir}/height.pheno \ 
 --bfile ${dir}/data_qc
 
-" > ${dir}/scripts/ldak_ukbb_binary_1
+" > ${dir}/scripts/ldak_ukbb_height_1
 
-# I am doing blabla
+# I am doing on ldak ukbb height
 cd ${dir}/scripts
-sbatch ldak_ukbb_binary_1
+sbatch ldak_ukbb_height_1
