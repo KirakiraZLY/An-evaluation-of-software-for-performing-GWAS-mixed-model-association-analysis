@@ -320,3 +320,25 @@ ${dir}/software/ldak5.XXX --thin-tops ${dir}/ukbb_whole_height_result/data_ldak_
 # I am doing on ldak ukbb height
 cd ${dir}/scripts
 sbatch ldak_ukbb_height_2_significant_loci
+
+
+############################################
+To generate a set of data: complete non-genetic trait. 
+   N(0,1), h2 = 0
+############################################
+
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/ldak5.XXX --make-phenos ${dir}/ukbb_whole_height_result/non_genetic_trait_quant --bfile data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 0
+
+" > ${dir}/scripts/ldak_non_genetic_trait_quant
+
+# To generate non-genetic traits, normal distributed
+cd ${dir}/scripts
+sbatch ldak_non_genetic_trait_quant

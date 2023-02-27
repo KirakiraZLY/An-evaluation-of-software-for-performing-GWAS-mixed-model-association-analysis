@@ -101,8 +101,8 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/hei
 
 ## 2/27
 ### LDAK-GBAT
-Using LDAK to run for 60k ind.     
-Binary   
+  Using LDAK to run for 60k ind.     
+  Binary   
 ```python
 ${dir}/software/ldak5.XXX --logistic ${dir}/ukbb_binary_test/data_binary_ldak --pheno ${dir}/ukbb_binary_test/data_binary.pheno --covar ${dir}/covar.covars --bfile ${dir}/ukbb_binary_test/data_qc
 ```
@@ -113,4 +113,11 @@ ${dir}/software/ldak5.XXX --linear ${dir}/ukbb_whole_height_result/data_ldak_hei
 Find Independent Significant Loci
 ```python
 ${dir}/software/ldak5.XXX --thin-tops ${dir}/ukbb_whole_height_result/data_ldak_height_top --bfile ${dir}/data_qc --pvalues ${dir}/ukbb_whole_height_result/data_ldak_height.pvalues --cutoff 5e-8 --window-cm 1 --window-prune 0.05
+```
+
+### Type I error
+1. To generate a set of data: complete non-genetic trait. 
+   N(0,1), h2 = 0
+```python
+${dir}/software/ldak5.XXX --make-phenos ${dir}/ukbb_whole_height_result/non_genetic_trait_quant --bfile data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 0
 ```
