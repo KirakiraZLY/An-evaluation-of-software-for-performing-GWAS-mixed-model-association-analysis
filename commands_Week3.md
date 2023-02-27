@@ -111,6 +111,7 @@ Binary
 ${dir}/software/ldak5.XXX \ 
 --logistic ${dir}/ukbb_binary_test/data_binary_ldak \ 
 --pheno ${dir}/ukbb_binary_test/data_binary.pheno \ 
+--covar ${dir}/covar.covars \ 
 --bfile ${dir}/ukbb_binary_test/data_qc
 ```
 Quant   
@@ -118,5 +119,6 @@ Quant
 ${dir}/software/ldak5.XXX \ 
 --linear ${dir}/ukbb_whole_height_result/data_ldak_height \ 
 --pheno ${dir}/height.pheno \ 
+--covar ${dir}/covar.covars \
 --bfile ${dir}/data_qc
 ```
