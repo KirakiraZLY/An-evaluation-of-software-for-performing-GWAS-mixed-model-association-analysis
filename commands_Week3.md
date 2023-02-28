@@ -171,3 +171,22 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --out ${dir}/type_1_error/data_regenie_whole_nongenetic_out_2_firth
 ```
 Output: data_regenie_whole_nongenetic_out_2_firth.regenie
+
+## fastGWA
+1. To generate a sparse GRM from SNP data:
+  ```python
+${dir}/software/gcta \
+--bfile ${dir}/data_qc \
+--autosome --maf 0.01 \
+--make-grm --out ${dir}/type_1_error/data_qc_nongenetic_gcta_1 \
+--thread-num 10
+```   
+2. Next Sparse GRM    
+```python  
+${dir}/software/gcta \
+--grm ${dir}/type_1_error/data_qc_nongenetic_gcta_1 --make-bK-sparse 0.05 \
+--out ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2   
+```   
+3. I didn't use PCs
+```python
+${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 --fastGWA-mlm --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --thread-num 10 --out ${dir}/type_1_error/data_fastgwa_nongenetic_3_finalresult 

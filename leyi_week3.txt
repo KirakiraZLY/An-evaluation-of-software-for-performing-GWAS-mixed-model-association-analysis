@@ -450,3 +450,65 @@ regenie \
 # I am doing blabla
 cd ${dir}/scripts
 sbatch regenie_ukbb_nongenetic_2
+
+
+###############################################################
+fastGWA ukbb  trait = non_genetic
+###############################################################
+### 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta \
+--bfile ${dir}/data_qc \
+--autosome --maf 0.01 \
+--make-grm --out ${dir}/type_1_error/data_qc_nongenetic_gcta_1 \
+--thread-num 10
+
+" > ${dir}/scripts/fastGWA_ukbb_nongenetic_1
+
+# To generate a sparse GRM from SNP data
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_nongenetic_1
+
+
+### 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta \
+--grm ${dir}/type_1_error/data_qc_nongenetic_gcta_1 --make-bK-sparse 0.05 \
+--out ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2
+
+" > ${dir}/scripts/fastGWA_ukbb_nongenetic_2
+
+# Sparse GRM
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_nongenetic_2
+
+### 3
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 128G
+#SBATCH -t 100:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 --fastGWA-mlm --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --thread-num 10 --out ${dir}/type_1_error/data_fastgwa_nongenetic_3_finalresult
+
+" > ${dir}/scripts/fastGWA_ukbb_nongenetic_3
+
+# Final result
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_nongenetic_3
