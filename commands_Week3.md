@@ -130,3 +130,13 @@ Quant
 ```python
 ${dir}/software/ldak5.XXX --linear ${dir}/type_1_error/data_ldak_whole_nongenetic_result --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --covar ${dir}/covar.covars --bfile ${dir}/data_qc
 ```
+
+# 2.28
+## Duty
+1. non_genetic_trait_quant in 4 different softwares.   
+LDAK see above.   
+
+## Bolt
+```python
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/non_genetic_trait_quant_1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/type_1_error/data_bolt_whole_nongenetic_result
+```

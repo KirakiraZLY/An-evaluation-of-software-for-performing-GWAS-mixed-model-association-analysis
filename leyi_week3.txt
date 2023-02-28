@@ -364,3 +364,29 @@ ${dir}/software/ldak5.XXX --linear ${dir}/type_1_error/data_ldak_whole_nongeneti
 # I am doing on ldak ukbb non_genetic type_1_error
 cd ${dir}/scripts
 sbatch ldak_ukbb_nongenetic_1
+
+
+######################################################
+######################################################
+2.28
+######################################################
+######################################################
+
+##################################
+Bolt
+##################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/non_genetic_trait_quant_1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/type_1_error/data_bolt_whole_nongenetic_result
+
+" > ${dir}/scripts/bolt_ukbb_nongenetic_1
+
+# I am doing on bolt ukbb non_genetic type_1_error
+cd ${dir}/scripts
+sbatch bolt_ukbb_nongenetic_1
