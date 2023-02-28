@@ -190,3 +190,9 @@ ${dir}/software/gcta \
 3. I didn't use PCs
 ```python
 ${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 --fastGWA-mlm --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --thread-num 10 --out ${dir}/type_1_error/data_fastgwa_nongenetic_3_finalresult 
+```
+## Plink
+assoc test   
+```python
+${dir}/software/plink --bfile ${dir}/data_qc --linear --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --allow-no-sex --out ${dir}/type_1_error/data_plink_nongenetic_finalresult 
+```
