@@ -501,11 +501,11 @@ dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 128G
 #SBATCH -t 100:0:0
-#SBATCH -c 1
+#SBATCH -c 4
 #SBATCH -A dsmwpred 
 #SBATCH --constraint \"s05\"
 
-${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 --fastGWA-mlm --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --thread-num 10 --out ${dir}/type_1_error/data_fastgwa_nongenetic_3_finalresult
+${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 --fastGWA-mlm --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --thread-num 4 --out ${dir}/type_1_error/data_fastgwa_nongenetic_3_finalresult
 
 " > ${dir}/scripts/fastGWA_ukbb_nongenetic_3
 
