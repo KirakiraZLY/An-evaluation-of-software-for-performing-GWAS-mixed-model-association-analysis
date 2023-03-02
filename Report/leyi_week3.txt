@@ -1,0 +1,534 @@
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 2:0:0
+#SBATCH -c 2
+#SBATCH --constraint \"s05\"
+
+./software/plink --bfile ./ukbb_by_ancestry/data_qc --noweb --keep ./ukbb_by_ancestry/data_qc_1.fam --recode --make-bed --out ./ukbb_by_ancestry/data_region1
+
+" > scripts/plink1
+
+###############################################################
+2.24
+###############################################################
+Bolt lmm ukbb region_1, trait = height
+###############################################################
+dir="/home/lezh/dsmwpred/zly/"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}software/BOLT-LMM_v2.4/bolt --bfile=${dir}ukbb_by_ancestry/data_region1 --phenoFile=${dir}ukbb_by_ancestry/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}ukbb_by_ancestry/data_region1_bolt_height
+" > ${dir}scripts/bolt_ukbb_region1_height
+
+# I am doing blabla
+cd ${dir}scripts
+sbatch bolt_ukbb_region1_height
+
+###############################################################
+Regenie lmm ukbb region_1, trait = height
+###############################################################
+有了
+
+###############################################################
+fastGWA ukbb region_1, trait = height
+###############################################################
+### 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 5:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta \
+--bfile ${dir}/ukbb_by_ancestry/data_region1 \
+--autosome --maf 0.01 \
+--make-grm --out ${dir}/ukbb_by_ancestry/data_region1_gcta \
+--thread-num 10
+
+" > ${dir}/scripts/fastGWA_ukbb_region1_height_1
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_region1_height_1
+
+
+### 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 5:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta \
+--grm ${dir}/ukbb_by_ancestry/data_region1_gcta --make-bK-sparse 0.05 \
+--out ${dir}/ukbb_by_ancestry/data_region1_gcta_grm   
+
+" > ${dir}/scripts/fastGWA_ukbb_region1_height_2
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_region1_height_2
+
+### 3
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 15G
+#SBATCH -t 5:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/ukbb_whole_height_result/data_qc_gcta_grm --fastGWA-mlm --pheno ${dir}/height.pheno --thread-num 10 --out ${dir}/ukbb_whole_height_result/data_fastgwa_height_finalresult 
+" > ${dir}/scripts/fastGWA_ukbb_region1_height_3
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_region1_height_3
+
+
+#######################
+sbatch -A dsmwpred scripts/bolt_ukbb_region1_height
+
+###########################################3
+一. ukbb_whole_height
+###############################################################
+fastGWA ukbb  trait = height
+###############################################################
+### 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc --autosome --maf 0.01 --make-grm --out ${dir}/ukbb_whole_height_result/data_qc_gcta --thread-num 10
+
+" > ${dir}/scripts/fastGWA_ukbb_height_1
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_height_1
+
+
+### 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta \
+--grm ${dir}/ukbb_whole_height_result/data_qc_gcta --make-bK-sparse 0.05 \
+--out ${dir}/ukbb_whole_height_result/data_qc_gcta_grm     
+
+" > ${dir}/scripts/fastGWA_ukbb_height_2
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_height_2
+
+### 3
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 128G
+#SBATCH -t 100:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/ukbb_whole_height_result/data_qc_gcta_grm --fastGWA-mlm --pheno ${dir}/height.pheno --thread-num 10 --out ${dir}/ukbb_whole_height_result/data_fastgwa_height_finalresult
+
+" > ${dir}/scripts/fastGWA_ukbb_height_3
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_height_3
+
+
+###################################################
+Regenie ukbb height
+###################################################
+### 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/height1.pheno \
+  --bsize 100 \
+  --out ${dir}/ukbb_whole_height_result/data_regenie_out 
+
+" > ${dir}/scripts/regenie_ukbb_height_1
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch regenie_ukbb_height_1
+
+
+### 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --phenoFile ${dir}/height1.pheno \
+  --bsize 200 \
+  --qt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/ukbb_whole_height_result/data_regenie_out_pred.list \
+  --out ${dir}/ukbb_whole_height_result/data_regenie_out_firth    
+
+" > ${dir}/scripts/regenie_ukbb_height_2
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch regenie_ukbb_height_2
+
+
+
+###############################################################
+Bolt lmm ukbb trait = height
+###############################################################
+dir="/home/lezh/dsmwpred/zly/"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/ukbb_whole_height_result/data_bolt_height
+" > ${dir}/scripts/bolt_ukbb_height
+
+# I am doing blabla
+cd ${dir}scripts
+sbatch bolt_ukbb_height   
+
+###################################################
+ADMIXTURE ukbb height in folder: ADMIXTURE
+###################################################
+### 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 100G
+#SBATCH -t 128:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s22\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate admixture_env
+
+admixture ${dir}/ADMIXTURE/data_qc.bed 4
+
+" > ${dir}/scripts/ADMIXTURE_ukbb_1
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch ADMIXTURE_ukbb_1
+
+
+############################################################
+2.27
+############################################################
+####  LDAK
+####  Binary
+
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate admixture_env
+
+${dir}/software/ldak5.XXX --logistic ${dir}/ukbb_binary_test/data_binary_ldak --pheno ${dir}/ukbb_binary_test/data_binary.pheno --covar ${dir}/covar.covars --bfile ${dir}/ukbb_binary_test/data_qc
+
+" > ${dir}/scripts/ldak_ukbb_binary_1
+
+# I am doing on ldak ukbb binary
+cd ${dir}/scripts
+sbatch ldak_ukbb_binary_1
+
+
+####  quant_height
+
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/ldak5.XXX --linear ${dir}/ukbb_whole_height_result/data_ldak_height --pheno ${dir}/height.pheno --covar ${dir}/covar.covars --bfile ${dir}/data_qc
+
+" > ${dir}/scripts/ldak_ukbb_height_1
+
+# I am doing on ldak ukbb height
+cd ${dir}/scripts
+sbatch ldak_ukbb_height_1
+
+
+#### find significant loci ########### Height.pheno
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/ldak5.XXX --thin-tops ${dir}/ukbb_whole_height_result/data_ldak_height_top --bfile ${dir}/data_qc --pvalues ${dir}/ukbb_whole_height_result/data_ldak_height.pvalues --cutoff 5e-8 --window-cm 1 --window-prune 0.05
+
+" > ${dir}/scripts/ldak_ukbb_height_2_significant_loci
+
+# I am doing on ldak ukbb height
+cd ${dir}/scripts
+sbatch ldak_ukbb_height_2_significant_loci
+
+
+############################################
+To generate a set of data: complete non-genetic trait. 
+   N(0,1), h2 = 0
+############################################
+
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/non_genetic_trait_quant --bfile ${dir}/data_qc --ignore-weights YES --power 0 --her 0 --num-phenos 1 --num-causals 1
+
+" > ${dir}/scripts/ldak_non_genetic_trait_quant
+
+# To generate non-genetic traits, normal distributed
+cd ${dir}/scripts
+sbatch ldak_non_genetic_trait_quant
+
+
+################################################
+LDAK, non-genetic traits
+################################################
+####  quant_height
+
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/ldak5.XXX --linear ${dir}/type_1_error/data_ldak_whole_nongenetic_result --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --covar ${dir}/covar.covars --bfile ${dir}/data_qc
+
+" > ${dir}/scripts/ldak_ukbb_nongenetic_1
+
+# I am doing on ldak ukbb non_genetic type_1_error
+cd ${dir}/scripts
+sbatch ldak_ukbb_nongenetic_1
+
+
+######################################################
+######################################################
+2.28
+######################################################
+######################################################
+
+##################################
+Bolt
+##################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 64:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/non_genetic_trait_quant_1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/type_1_error/data_bolt_whole_nongenetic_result
+
+" > ${dir}/scripts/bolt_ukbb_nongenetic_1
+
+# I am doing on bolt ukbb non_genetic type_1_error
+cd ${dir}/scripts
+sbatch bolt_ukbb_nongenetic_1
+
+##################################
+Regenie
+##################################
+
+### 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/type_1_error/non_genetic_trait_quant_1.pheno \
+  --bsize 100 \
+  --out ${dir}/type_1_error/data_regenie_whole_nongenetic_out_1  
+
+" > ${dir}/scripts/regenie_ukbb_nongenetic_1
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch regenie_ukbb_nongenetic_1
+
+
+### 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar1.covars \
+  --phenoFile ${dir}/type_1_error/non_genetic_trait_quant_1.pheno \
+  --bsize 200 \
+  --qt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/data_regenie_whole_nongenetic_out_1_pred.list \
+  --out ${dir}/type_1_error/data_regenie_whole_nongenetic_out_2_firth
+
+" > ${dir}/scripts/regenie_ukbb_nongenetic_2
+
+# I am doing blabla
+cd ${dir}/scripts
+sbatch regenie_ukbb_nongenetic_2
+
+
+###############################################################
+fastGWA ukbb  trait = non_genetic
+###############################################################
+### 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta \
+--bfile ${dir}/data_qc \
+--autosome --maf 0.01 \
+--make-grm --out ${dir}/type_1_error/data_qc_nongenetic_gcta_1 \
+--thread-num 10
+
+" > ${dir}/scripts/fastGWA_ukbb_nongenetic_1
+
+# To generate a sparse GRM from SNP data
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_nongenetic_1
+
+
+### 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta \
+--grm ${dir}/type_1_error/data_qc_nongenetic_gcta_1 --make-bK-sparse 0.05 \
+--out ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2
+
+" > ${dir}/scripts/fastGWA_ukbb_nongenetic_2
+
+# Sparse GRM
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_nongenetic_2
+
+### 3
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 128G
+#SBATCH -t 100:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc --grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 --fastGWA-mlm --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --thread-num 10 --out ${dir}/type_1_error/data_fastgwa_nongenetic_3_finalresult
+
+" > ${dir}/scripts/fastGWA_ukbb_nongenetic_3
+
+# Final result
+cd ${dir}/scripts
+sbatch fastGWA_ukbb_nongenetic_3
+
+
+###############################################################
+plink ukbb  trait = non_genetic
+###############################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 128G
+#SBATCH -t 100:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+${dir}/software/plink --bfile ${dir}/data_qc --linear --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --allow-no-sex --out ${dir}/type_1_error/data_plink_nongenetic_finalresult 
+
+" > ${dir}/scripts/plink_ukbb_nongenetic_1
+
+# Final result
+cd ${dir}/scripts
+sbatch plink_ukbb_nongenetic_1
