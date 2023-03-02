@@ -37,5 +37,6 @@ ggplot(don, aes(x=BPcum, y=-log10(P))) +
       panel.grid.minor.x = element_blank()
     ) +
   labs(title = "Regenie, region 1, Manhattan") +
+  xlab("Chromosome") +
   NULL
 ```
