@@ -1,0 +1,31 @@
+##################################
+Regenie ukbb_whole_height adding PCs
+##################################
+
+### 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+  regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar1.covars \
+  --phenoFile ${dir}/height1.pheno \
+  --covarCol PC{1:4}
+  --bsize 200 \
+  --qt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/ukbb_whole_height_result/data_regenie_out_pred.list \
+  --out ${dir}/ukbb_whole_height_result/data_regenie_PCs_out_firth
+
+cd ${dir}/scripts
+sbatch regenie_ukbb_nongenetic_PCs_2
