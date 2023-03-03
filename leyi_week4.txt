@@ -19,7 +19,7 @@ conda activate regenie_env
   --bgen ${dir}/data_qc.bgen \
   --covarFile ${dir}/covar1.covars \
   --phenoFile ${dir}/height1.pheno \
-  --covarCol PC{1:4}
+  --covarCol PC{1:4} \
   --bsize 200 \
   --qt \
   --firth --approx \
