@@ -25,7 +25,9 @@ conda activate regenie_env
   --firth --approx \
   --pThresh 0.01 \
   --pred ${dir}/ukbb_whole_height_result/data_regenie_out_pred.list \
-  --out ${dir}/ukbb_whole_height_result/data_regenie_PCs_out_firth
+  --out ${dir}/ukbb_whole_height_result/data_regenie_out_PCs_firth
+
+" > ${dir}/scripts/regenie_ukbb_nongenetic_PCs_2
 
 cd ${dir}/scripts
 sbatch regenie_ukbb_nongenetic_PCs_2
