@@ -1,0 +1,27 @@
+################################
+MAMA Plan
+张乐艺
+2023.3
+################################
+
+1. data_qc 3 files(.bim, .bed, .fam) -> data_region{1-4}
+2. Choose urate.pheno as the trait.
+		200 - 430 in male, 140 - 360 in female: Urate Normal(UN)
+		Else: Urate Abnormal(UA)
+		By criteria: https://www.nbt.nhs.uk/severn-pathology/requesting/test-information/urate-0
+		Change the phenotypes to binary format: 0: UN, 1: UA, into file: urate_binary.pheno
+3. 8 cohorts:
+		Region 1-4 * (UN + UA)
+4. urate_binary.pheno + .fam file --> --make-bed
+5. Step 1:
+		8 single ancestry cohorts + urate_binary.pheno,
+		GWAS(by different softwares)
+			Each would have <10k inds, time consumption is acceptable in theory.
+6. Step 2:
+		Meta-analysis
+			Divide the whole file: data_qc, into case and control files.
+			GWAS, two results.
+7. Manhattan plot + forest plot
+8. **Question**: In the theory book of Meta-analysis, the evaluator would be heterogeneity test(I^2), Odd Ratio(OR), and Risk Ratio(RR).
+				 While in papers (e.g. doi: https://doi.org/10.1038/s41588-020-00725-7), when doing meta-analysis, they still only used Manhattan plot.
+				 How can I measure the Effective Size?
