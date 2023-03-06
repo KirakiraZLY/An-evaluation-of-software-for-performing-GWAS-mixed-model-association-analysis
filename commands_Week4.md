@@ -25,3 +25,7 @@ Multi-ancestry Meta Analysis
 2. PCA comparason: real and K-means.   
    K-means performs well, and can predict on Missed Ethnicity, and wrong self-identification.   
    In other word, I can use the K-means to make division on data_qc.fam file.   
+
+Plot comparison see in: Week_4 section of latex.   
+Accuracy = 0.95.   
+3. Extract files out: data_Mixed.fam, data_Asian.fam, data_Black.fam, data_White.fam   
