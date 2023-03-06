@@ -31,3 +31,79 @@ conda activate regenie_env
 
 cd ${dir}/scripts
 sbatch regenie_ukbb_height_PCs_2
+
+
+##################################
+Extract .bed and .fam into a single population
+##################################
+############## Mixed
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/MAMA/data_Mixed.fam --recode --make-bed --out ${dir}/MAMA/data_Mixed
+
+" > ${dir}/scripts/MAMA/Plink_Extract_Mixed
+
+cd ${dir}/scripts/MAMA
+sbatch Plink_Extract_Mixed
+
+############# Asian
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/MAMA/data_Asian.fam --recode --make-bed --out ${dir}/MAMA/data_Asian
+
+" > ${dir}/scripts/MAMA/Plink_Extract_Asian
+
+cd ${dir}/scripts/MAMA
+sbatch MAMA_Plink_Extract_Asian
+
+############# Black
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/MAMA/data_Black.fam --recode --make-bed --out ${dir}/MAMA/data_Black
+
+" > ${dir}/scripts/MAMA/Plink_Extract_Black
+
+cd ${dir}/scripts/MAMA
+sbatch MAMA_Plink_Extract_Black
+
+############# White
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/MAMA/data_White.fam --recode --make-bed --out ${dir}/MAMA/data_White
+
+" > ${dir}/scripts/MAMA/Plink_Extract_White
+
+cd ${dir}/scripts/MAMA
+sbatch MAMA_Plink_Extract_White
