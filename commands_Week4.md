@@ -37,4 +37,4 @@ In the folder: ./MAMA
 ```python
 ${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/MAMA/data_Asian.fam --recode --make-bed --out ${dir}/MAMA/data_Asian
 ```
-data_1 is the data of population 1, and there will also be data_2 ...   
+Jobinfo: ${dir}/script/MAMA/Plink_Extract_*   
