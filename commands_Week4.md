@@ -163,3 +163,14 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_Mixed -
   --out ${dir}/MAMA/data_regenie_Mixed_urate_out_firth_2
 ```
 Output: data_regenie_Mixed_urate_out_firth_2_Phenotype.regenie
+
+## Heritability by BLD-LDAK
+https://dougspeed.com/snp-heritability/   
+1. Using LDAK to get summary statistics.   
+```python
+${dir}/software/ldak5.XXX --linear ${dir}/MAMA/data_LDAK_Asian_urate --bfile ${dir}/MAMA/data_Asian --pheno ${dir}/MAMA/urate.pheno
+```
+2. Calculate Heritability.   
+```python
+${dir}/software/ldak5.XXX  --sum-hers ${dir}/MAMA/her_LDAK_Asian_urate --summary ${dir}/MAMA/data_LDAK_Asian_urate.summaries --tagfile ${dir}/MAMA/nomaf.eas.hapmap.tagging
+```
