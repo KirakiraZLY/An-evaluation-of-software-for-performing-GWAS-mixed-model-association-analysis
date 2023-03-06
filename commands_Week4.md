@@ -47,7 +47,7 @@ Phenotype: urate.pheno
    regenie \
   --step 1 \
   --bed ${dir}/MAMA/data_Asian \
-  --phenoFile urate_1.pheno \
+  --phenoFile ${dir}/MAMA/urate_1.pheno \
   --bsize 100 \
   --out ${dir}/MAMA/data_Regenie_Asian_urate_1
 ```
@@ -78,7 +78,7 @@ Phenotype: urate.pheno
    regenie \
   --step 1 \
   --bed ${dir}/MAMA/data_White \
-  --phenoFile urate_1.pheno \
+  --phenoFile ${dir}/MAMA/urate_1.pheno \
   --bsize 100 \
   --out ${dir}/MAMA/data_Regenie_White_urate_1
 ```

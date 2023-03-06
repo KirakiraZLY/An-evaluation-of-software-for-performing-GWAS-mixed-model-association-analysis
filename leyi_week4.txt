@@ -128,7 +128,7 @@ conda activate regenie_env
   regenie \
   --step 1 \
   --bed ${dir}/MAMA/data_Asian \
-  --phenoFile urate_1.pheno \
+  --phenoFile ${dir}/MAMA/urate_1.pheno \
   --bsize 100 \
   --out ${dir}/MAMA/data_Regenie_Asian_urate_1
 
@@ -180,7 +180,7 @@ conda activate regenie_env
   --pThresh 0.01 \
   --pred ${dir}/MAMA/data_Regenie_Asian_urate_1_pred.list \
   --out ${dir}/MAMA/data_regenie_Asian_urate_out_firth_2
-  
+
 " > ${dir}/scripts/regenie_ukbb_height_PCs_2
 
 cd ${dir}/scripts
