@@ -60,12 +60,12 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_Asian -
   --step 2 \
   --bgen $${dir}/MAMA/data_Asian.bgen \
   --covarFile ${dir}/MAMA/covar1.covars \
-  --phenoFile ${dir}/height1.pheno \
+  --phenoFile ${dir}/MAMA/urate_1.pheno \
   --bsize 200 \
   --qt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/ukbb_whole_height_result/data_regenie_out_pred.list \
-  --out ${dir}/ukbb_whole_height_result/data_regenie_out_firth
+  --pred ${dir}/MAMA/data_Regenie_Asian_1_pred.list \
+  --out ${dir}/MAMA/data_regenie_Asian_out_firth_2
 ```
-Output: data_regenie_out_firth_Phenotype.regenie
+Output: data_regenie_Asian_out_firth_2_Phenotype.regenie
