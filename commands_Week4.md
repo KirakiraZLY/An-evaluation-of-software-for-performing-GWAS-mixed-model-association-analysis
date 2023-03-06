@@ -60,6 +60,7 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_Asian -
   --step 2 \
   --bgen $${dir}/MAMA/data_Asian.bgen \
   --covarFile ${dir}/MAMA/covar1.covars \
+  --covarCol PC{1:4}
   --phenoFile ${dir}/MAMA/urate_1.pheno \
   --bsize 200 \
   --qt \
