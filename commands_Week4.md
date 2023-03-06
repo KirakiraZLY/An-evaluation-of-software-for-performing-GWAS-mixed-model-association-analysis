@@ -101,3 +101,34 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_White -
   --out ${dir}/MAMA/data_regenie_White_urate_out_firth_2
 ```
 Output: data_regenie_White_urate_out_firth_2_Phenotype.regenie
+
+### Black
+Phenotype: urate.pheno   
+1. 
+```python
+   regenie \
+  --step 1 \
+  --bed ${dir}/MAMA/data_Black \
+  --phenoFile ${dir}/MAMA/urate_1.pheno \
+  --bsize 100 \
+  --out ${dir}/MAMA/data_Regenie_Black_urate_1
+```
+  Since .pheno file needs FID and IID, I copied it and renamed urate_1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个urate_1.pheno文件并更改格式)   
+Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_Black --export bgen-1.2 --out  ${dir}/MAMA/data_Black  
+**Output**: data_Regenie_Black_urate_1_pred.list
+2. 
+```python
+  regenie \
+  --step 2 \
+  --bgen $${dir}/MAMA/data_Black.bgen \
+  --covarFile ${dir}/MAMA/covar1.covars \
+  --covarCol PC{1:4}
+  --phenoFile ${dir}/MAMA/urate_1.pheno \
+  --bsize 200 \
+  --qt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/MAMA/data_Regenie_Black_urate_1_pred.list \
+  --out ${dir}/MAMA/data_regenie_Black_urate_out_firth_2
+```
+Output: data_regenie_Black_urate_out_firth_2_Phenotype.regenie
