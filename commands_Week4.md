@@ -28,4 +28,4 @@ Multi-ancestry Meta Analysis
 
 Plot comparison see in: Week_4 section of latex.   
 Accuracy = 0.95.   
-3. Extract files out: data_Mixed.fam, data_Asian.fam, data_Black.fam, data_White.fam   
+3. Extract files out: data_Mixed.fam data_Asian.fam data_Black.fam data_White.fam   
