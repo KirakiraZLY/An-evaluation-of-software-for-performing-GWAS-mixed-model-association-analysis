@@ -24,4 +24,4 @@ Multi-ancestry Meta Analysis
 1. Get real ethnicity.   
 2. PCA comparason: real and K-means.   
    K-means performs well, and can predict on Missed Ethnicity, and wrong self-identification.   
-   
+   In other word, I can use the K-means to make division on data_qc.fam file.   
