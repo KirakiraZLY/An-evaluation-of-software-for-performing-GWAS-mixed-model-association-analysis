@@ -18,3 +18,6 @@ Only Step 2 is needed.
   --pred ${dir}/ukbb_whole_height_result/data_regenie_out_pred.list \
   --out ${dir}/ukbb_whole_height_result/data_regenie_out_firth
 ```
+
+## UKBB_MAMA
+Multi-ancestry Meta Analysis   
