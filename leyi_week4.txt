@@ -113,6 +113,8 @@ sbatch Plink_Extract_White
 Regenie ${dir}/MAMA/
 4 regions
 ##################################
+Asian
+##################################
 ################ 1
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
@@ -181,7 +183,83 @@ conda activate regenie_env
   --pred ${dir}/MAMA/data_Regenie_Asian_urate_1_pred.list \
   --out ${dir}/MAMA/data_regenie_Asian_urate_out_firth_2
 
-" > ${dir}/scripts/regenie_ukbb_height_PCs_2
+" > ${dir}/scripts/MAMA/regenie_Asian_urate_step2
+
+cd ${dir}/scripts/MAMA
+sbatch regenie_Asian_urate_step2
+
+##################################
+White
+##################################
+################ 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+  regenie \
+  --step 1 \
+  --bed ${dir}/MAMA/data_White \
+  --phenoFile ${dir}/MAMA/urate_1.pheno \
+  --bsize 100 \
+  --out ${dir}/MAMA/data_Regenie_White_urate_1
+
+" > ${dir}/scripts/MAMA/Regenie_White_urate_step1
+
+cd ${dir}/scripts/MAMA
+sbatch Regenie_White_urate_step1
+
+################ Coverting .bed to .bgen
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_White --export bgen-1.2 --out  ${dir}/MAMA/data_White   
+
+" > ${dir}/scripts/MAMA/Regenie_Plink_covert_White
+
+cd ${dir}/scripts/MAMA
+sbatch Regenie_Plink_covert_White
+
+################ 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+  regenie \
+  --step 2 \
+  --bgen $${dir}/MAMA/data_White.bgen \
+  --covarFile ${dir}/MAMA/covar1.covars \
+  --covarCol PC{1:4}
+  --phenoFile ${dir}/MAMA/urate_1.pheno \
+  --bsize 200 \
+  --qt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/MAMA/data_Regenie_White_urate_1_pred.list \
+  --out ${dir}/MAMA/data_regenie_White_urate_out_firth_2
+
+" > ${dir}/scripts/regenie_White_urate_step2
 
 cd ${dir}/scripts
-sbatch regenie_ukbb_height_PCs_2
+sbatch regenie_Asian_urate_step2
