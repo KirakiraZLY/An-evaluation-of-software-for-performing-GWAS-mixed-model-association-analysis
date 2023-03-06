@@ -137,6 +137,25 @@ conda activate regenie_env
 cd ${dir}/scripts/MAMA
 sbatch Regenie_Asian_urate_step1
 
+################ Coverting .bed to .bgen
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_Asian --export bgen-1.2 --out  ${dir}/MAMA/data_Asian 
+
+" > ${dir}/scripts/MAMA/Regenie_Plink_covert_Asian
+
+cd ${dir}/scripts/MAMA
+sbatch Regenie_Plink_covert_Asian
+
 ################ 2
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
