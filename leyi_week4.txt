@@ -261,5 +261,5 @@ conda activate regenie_env
 
 " > ${dir}/scripts/regenie_White_urate_step2
 
-cd ${dir}/scripts
+cd ${dir}/scripts/MAMA
 sbatch regenie_Asian_urate_step2
