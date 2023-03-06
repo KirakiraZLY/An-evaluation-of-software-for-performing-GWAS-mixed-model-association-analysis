@@ -70,7 +70,7 @@ ${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/MAMA/dat
 " > ${dir}/scripts/MAMA/Plink_Extract_Asian
 
 cd ${dir}/scripts/MAMA
-sbatch MAMA_Plink_Extract_Asian
+sbatch Plink_Extract_Asian
 
 ############# Black
 dir="/home/lezh/dsmwpred/zly"
@@ -88,7 +88,7 @@ ${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/MAMA/dat
 " > ${dir}/scripts/MAMA/Plink_Extract_Black
 
 cd ${dir}/scripts/MAMA
-sbatch MAMA_Plink_Extract_Black
+sbatch Plink_Extract_Black
 
 ############# White
 dir="/home/lezh/dsmwpred/zly"
@@ -106,4 +106,4 @@ ${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/MAMA/dat
 " > ${dir}/scripts/MAMA/Plink_Extract_White
 
 cd ${dir}/scripts/MAMA
-sbatch MAMA_Plink_Extract_White
+sbatch Plink_Extract_White
