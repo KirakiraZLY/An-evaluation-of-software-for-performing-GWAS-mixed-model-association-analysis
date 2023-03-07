@@ -169,8 +169,8 @@ https://dougspeed.com/snp-heritability/
 0. Calculating Tagging using BLD-LDAK
 ```python
 ${dir}/software/ldak5.XXX --cut-weights ${dir}/MAMA/Her/sections --bfile ${dir}/MAMA/data_Asian   
-${dir}/software/ldak5.XXX --calc-weights-all sections --bfile ${dir}/MAMA/data_Asian
-mv sections/weights.short bld65
+${dir}/software/ldak5.XXX --calc-weights-all ${dir}/MAMA/Her/sections --bfile ${dir}/MAMA/data_Asian
+mv ${dir}/MAMA/Her/sections/weights.short ${dir}/MAMA/Her/bld65
 ```
 
 ```python

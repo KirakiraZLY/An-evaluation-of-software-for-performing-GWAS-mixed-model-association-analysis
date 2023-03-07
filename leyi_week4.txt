@@ -443,6 +443,29 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 cd ${dir}/scripts/MAMA/Her
 sbatch LDAK_BLD_Asian_urate_Step0_1
 
+################ 
+Step 0_2
+###################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+  ${dir}/software/ldak5.XXX --calc-weights-all ${dir}/MAMA/Her/sections --bfile ${dir}/MAMA/data_Asian
+
+" > ${dir}/scripts/MAMA/Her/LDAK_BLD_Asian_urate_Step0_2
+
+cd ${dir}/scripts/MAMA/Her
+sbatch LDAK_BLD_Asian_urate_Step0_2
+
+##################################
+mv ${dir}/MAMA/Her/sections/weights.short ${dir}/MAMA/Her/bld65
+##################################
 
 ###################
 Step 1
