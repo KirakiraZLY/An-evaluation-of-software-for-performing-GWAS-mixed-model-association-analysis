@@ -1,0 +1,41 @@
+---
+title: "PCA_Covar"
+author: "zly"
+date: "2023-03-07"
+output: html_document
+---
+
+```{r}
+# library(GENESIS)
+library(qqman)
+library(tidyverse)
+library(tidyr)
+```
+
+```{r}
+PCA <- read_table2("data_prune_pca.eigenvec",
+                        col_names = FALSE)
+# plinkPCA <- plinkPCA[,c(-1,-2)] # Remove first 2 columns
+EigenValue <- scan("data_prune_pca.eigenval")
+
+names(PCA)[1:2] <- c("FID","IID")
+names(PCA)[3:ncol(PCA)] <- paste0("PC", 1:(ncol(PCA)))
+```
+
+```{r}
+covar <- read_table2("covar1.covars",
+                     col_names = TRUE)
+```
+
+# Combination
+```{r}
+covar2 <- merge(covar, PCA, by = c("FID","IID"))
+write.table(covar2, file = "./covar_PC.covars", row.names = FALSE, col.names = TRUE, quote = FALSE)
+```
+
+```{r}
+covar3 <- read_table2("covar_PC.covars",
+                      col_names = TRUE)
+covar3
+```
+

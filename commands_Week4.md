@@ -59,8 +59,8 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_Asian -
   regenie \
   --step 2 \
   --bgen $${dir}/MAMA/data_Asian.bgen \
-  --covarFile ${dir}/MAMA/covar1.covars \
-  --covarCol PC{1:4}
+  --covarFile ${dir}/MAMA/covar_PC.covars \
+  --covarCol PC{1:10} \
   --phenoFile ${dir}/MAMA/urate_1.pheno \
   --bsize 200 \
   --qt \
@@ -90,8 +90,8 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_White -
   regenie \
   --step 2 \
   --bgen $${dir}/MAMA/data_White.bgen \
-  --covarFile ${dir}/MAMA/covar1.covars \
-  --covarCol PC{1:4}
+  --covarFile ${dir}/MAMA/covar_PC.covars \
+  --covarCol PC{1:10} \
   --phenoFile ${dir}/MAMA/urate_1.pheno \
   --bsize 200 \
   --qt \
@@ -121,8 +121,8 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_Black -
   regenie \
   --step 2 \
   --bgen $${dir}/MAMA/data_Black.bgen \
-  --covarFile ${dir}/MAMA/covar1.covars \
-  --covarCol PC{1:4}
+  --covarFile ${dir}/MAMA/covar_PC.covars \
+  --covarCol PC{1:10} \
   --phenoFile ${dir}/MAMA/urate_1.pheno \
   --bsize 200 \
   --qt \
@@ -152,8 +152,8 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_Mixed -
   regenie \
   --step 2 \
   --bgen $${dir}/MAMA/data_Mixed.bgen \
-  --covarFile ${dir}/MAMA/covar1.covars \
-  --covarCol PC{1:4}
+  --covarFile ${dir}/MAMA/covar_PC.covars \
+  --covarCol PC{1:10} \
   --phenoFile ${dir}/MAMA/urate_1.pheno \
   --bsize 200 \
   --qt \
