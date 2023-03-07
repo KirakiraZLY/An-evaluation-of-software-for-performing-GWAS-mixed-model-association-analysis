@@ -456,19 +456,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-
-  regenie \
-  --step 2 \
-  --bgen $${dir}/MAMA/data_Mixed.bgen \
-  --covarFile ${dir}/MAMA/covar1.covars \
-  --covarCol PC{1:4}
-  --phenoFile ${dir}/MAMA/urate_1.pheno \
-  --bsize 200 \
-  --qt \
-  --firth --approx \
-  --pThresh 0.01 \
-  --pred ${dir}/MAMA/data_Regenie_Mixed_urate_1_pred.list \
-  --out ${dir}/MAMA/data_regenie_Mixed_urate_out_firth_2
+  ${dir}/software/ldak5.XXX  --sum-hers ${dir}/MAMA/LDAK_Asian_urate_Her --summary ${dir}/MAMA/data_LDAK_Asian_urate.summaries --tagfile ${dir}/MAMA/Tagging/nomaf.eas.hapmap.tagging
 
 " > ${dir}/scripts/MAMA/LDAK_BLD_Asian_urate_Step2
 
