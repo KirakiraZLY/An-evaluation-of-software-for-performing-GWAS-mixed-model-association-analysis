@@ -173,5 +173,5 @@ ${dir}/software/ldak5.XXX --linear ${dir}/MAMA/data_LDAK_Asian_urate --bfile ${d
 Output: data_LDAK_Asian_urate.summaries   
 2. Calculate Heritability.   
 ```python
-${dir}/software/ldak5.XXX  --sum-hers ${dir}/MAMA/Her_LDAK_Asian_urate --summary ${dir}/MAMA/data_LDAK_Asian_urate.summaries --tagfile ${dir}/MAMA/nomaf.eas.hapmap.tagging
+${dir}/software/ldak5.XXX  --sum-hers ${dir}/MAMA/Her_LDAK_Asian_urate --summary ${dir}/MAMA/data_LDAK_Asian_urate.summaries --tagfile ${dir}/MAMA/Tagging/nomaf.eas.hapmap.tagging
 ```
