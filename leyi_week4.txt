@@ -172,7 +172,7 @@ conda activate regenie_env
 
   regenie \
   --step 2 \
-  --bgen $${dir}/MAMA/data_Asian.bgen \
+  --bgen ${dir}/MAMA/data_Asian.bgen \
   --covarFile ${dir}/MAMA/covar1.covars \
   --covarCol PC{1:4} \
   --phenoFile ${dir}/MAMA/urate_1.pheno \
@@ -248,7 +248,7 @@ conda activate regenie_env
 
   regenie \
   --step 2 \
-  --bgen $${dir}/MAMA/data_White.bgen \
+  --bgen ${dir}/MAMA/data_White.bgen \
   --covarFile ${dir}/MAMA/covar1.covars \
   --covarCol PC{1:4} \
   --phenoFile ${dir}/MAMA/urate_1.pheno \
@@ -324,7 +324,7 @@ conda activate regenie_env
 
   regenie \
   --step 2 \
-  --bgen $${dir}/MAMA/data_Black.bgen \
+  --bgen ${dir}/MAMA/data_Black.bgen \
   --covarFile ${dir}/MAMA/covar1.covars \
   --covarCol PC{1:4} \
   --phenoFile ${dir}/MAMA/urate_1.pheno \
@@ -400,7 +400,7 @@ conda activate regenie_env
 
   regenie \
   --step 2 \
-  --bgen $${dir}/MAMA/data_Mixed.bgen \
+  --bgen ${dir}/MAMA/data_Mixed.bgen \
   --covarFile ${dir}/MAMA/covar1.covars \
   --covarCol PC{1:4} \
   --phenoFile ${dir}/MAMA/urate_1.pheno \
