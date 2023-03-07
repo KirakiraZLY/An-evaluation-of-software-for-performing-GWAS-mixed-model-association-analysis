@@ -424,6 +424,27 @@ Heritability, BLD-LDAK, urate
 ##################################
 Asian
 ################ 
+Step 0
+###################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+  ${dir}/software/ldak5.XXX --cut-weights ${dir}/MAMA/Her/sections --bfile ${dir}/MAMA/data_Asian
+
+" > ${dir}/scripts/MAMA/Her/LDAK_BLD_Asian_urate_Step0_1
+
+cd ${dir}/scripts/MAMA/Her
+sbatch LDAK_BLD_Asian_urate_Step0_1
+
+
+###################
 Step 1
 ###################
 dir="/home/lezh/dsmwpred/zly"

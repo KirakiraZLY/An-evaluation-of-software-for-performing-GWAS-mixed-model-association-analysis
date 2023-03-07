@@ -166,6 +166,16 @@ Output: data_regenie_Mixed_urate_out_firth_2_Phenotype.regenie
 
 ## Heritability by BLD-LDAK
 https://dougspeed.com/snp-heritability/   
+0. Calculating Tagging using BLD-LDAK
+```python
+${dir}/software/ldak5.XXX --cut-weights sections --bfile ${dir}/MAMA/data_Asian   
+${dir}/software/ldak5.XXX --calc-weights-all sections --bfile ${dir}/MAMA/data_Asian
+mv sections/weights.short bld65
+```
+
+```python
+./ldak.out --calc-tagging BLD-LDAK --bfile human --ignore-weights YES --power -.25 --window-cm 1 --annotation-number 65 --annotation-prefix bld
+```
 1. Using LDAK to get summary statistics.   
 ```python
 ${dir}/software/ldak5.XXX --linear ${dir}/MAMA/data_LDAK_Asian_urate --bfile ${dir}/MAMA/data_Asian --pheno ${dir}/MAMA/urate.pheno
