@@ -456,9 +456,9 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-  ${dir}/software/ldak5.XXX  --sum-hers ${dir}/MAMA/LDAK_Asian_urate_Her --summary ${dir}/MAMA/data_LDAK_Asian_urate.summaries --tagfile ${dir}/MAMA/Tagging/nomaf.eas.hapmap.tagging
+  ${dir}/software/ldak5.XXX  --sum-hers ${dir}/MAMA/Her/LDAK_Asian_urate_Her --summary ${dir}/MAMA/data_LDAK_Asian_urate.summaries --tagfile ${dir}/MAMA/Tagging/nomaf.eas.hapmap.tagging
 
-" > ${dir}/scripts/MAMA/LDAK_BLD_Asian_urate_Step2
+" > ${dir}/scripts/MAMA/Her/LDAK_BLD_Asian_urate_Step2
 
-cd ${dir}/scripts/MAMA
+cd ${dir}/scripts/MAMA/Her
 sbatch LDAK_BLD_Asian_urate_Step2
