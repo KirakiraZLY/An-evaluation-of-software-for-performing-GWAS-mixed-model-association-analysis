@@ -259,7 +259,7 @@ conda activate regenie_env
   --pred ${dir}/MAMA/data_Regenie_White_urate_1_pred.list \
   --out ${dir}/MAMA/data_regenie_White_urate_out_firth_2
 
-" > ${dir}/scripts/regenie_White_urate_step2
+" > ${dir}/scripts/MAMA/regenie_White_urate_step2
 
 cd ${dir}/scripts/MAMA
 sbatch regenie_White_urate_step2
