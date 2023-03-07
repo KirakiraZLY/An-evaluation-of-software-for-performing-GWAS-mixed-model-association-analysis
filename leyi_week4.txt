@@ -423,7 +423,9 @@ sbatch Regenie_Mixed_urate_step2
 Heritability, BLD-LDAK, urate
 ##################################
 Asian
-################ 1
+################ 
+Step 1
+###################
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 64G
@@ -441,7 +443,9 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 cd ${dir}/scripts/MAMA
 sbatch LDAK_BLD_Asian_urate_Step1
 
-################ 2
+################ 
+Step 2
+###################
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 64G
