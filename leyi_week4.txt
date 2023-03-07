@@ -183,10 +183,10 @@ conda activate regenie_env
   --pred ${dir}/MAMA/data_Regenie_Asian_urate_1_pred.list \
   --out ${dir}/MAMA/data_regenie_Asian_urate_out_firth_2
 
-" > ${dir}/scripts/MAMA/regenie_Asian_urate_step2
+" > ${dir}/scripts/MAMA/Regenie_Asian_urate_step2
 
 cd ${dir}/scripts/MAMA
-sbatch regenie_Asian_urate_step2
+sbatch Regenie_Asian_urate_step2
 
 ##################################
 White
@@ -259,10 +259,10 @@ conda activate regenie_env
   --pred ${dir}/MAMA/data_Regenie_White_urate_1_pred.list \
   --out ${dir}/MAMA/data_regenie_White_urate_out_firth_2
 
-" > ${dir}/scripts/MAMA/regenie_White_urate_step2
+" > ${dir}/scripts/MAMA/Regenie_White_urate_step2
 
 cd ${dir}/scripts/MAMA
-sbatch regenie_White_urate_step2
+sbatch Regenie_White_urate_step2
 
 ##################################
 Black
@@ -335,10 +335,10 @@ conda activate regenie_env
   --pred ${dir}/MAMA/data_Regenie_Black_urate_1_pred.list \
   --out ${dir}/MAMA/data_regenie_Black_urate_out_firth_2
 
-" > ${dir}/scripts/MAMA/regenie_Black_urate_step2
+" > ${dir}/scripts/MAMA/Regenie_Black_urate_step2
 
 cd ${dir}/scripts/MAMA
-sbatch regenie_Black_urate_step2
+sbatch Regenie_Black_urate_step2
 
 ##################################
 Mixed
@@ -412,10 +412,10 @@ conda activate regenie_env
   --out ${dir}/MAMA/data_regenie_Mixed_urate_out_firth_2
 
   
-" > ${dir}/scripts/MAMA/regenie_Mixed_urate_step2
+" > ${dir}/scripts/MAMA/Regenie_Mixed_urate_step2
 
 cd ${dir}/scripts/MAMA
-sbatch regenie_Mixed_urate_step2
+sbatch Regenie_Mixed_urate_step2
 
 
 
