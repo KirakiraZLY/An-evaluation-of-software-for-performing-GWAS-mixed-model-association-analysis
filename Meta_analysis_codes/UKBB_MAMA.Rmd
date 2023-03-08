@@ -355,7 +355,7 @@ Manhattan and qq-plot
 ```{r}
 # install.packages("gap")
 library(gap)
-assoc_data <- read_table2(file = "METAANALYSIS_4Ancestries.TBL", col_names = TRUE)
+assoc_data <- read_table2(file = "METAANALYSIS_4Ancestries_V1.TBL", col_names = TRUE)
 regenie <- read_table2(file = "data_regenie_Asian_urate_out_firth_2_Phenotype.regenie", col_names = TRUE)
 regenie <- select(regenie, c(1,2,3))
 names(regenie) <- c("CHROM","GENPOS","MarkerName")
