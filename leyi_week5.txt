@@ -94,3 +94,98 @@ conda activate regenie_env
 
 cd ${dir}/scripts/MAMA
 sbatch Regenie_Whole_urate_step2
+
+
+
+##################################
+Extract .bed and .fam into a single population
+##################################
+############## Mixed
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_qc --noweb --keep ${dir}/MAMA/Bolt_Height/data_Mixed.fam --recode --make-bed --out ${dir}/MAMA/Bolt_Height/data_Mixed
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Plink_Extract_Mixed
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Plink_Extract_Mixed
+
+############# AsianSWC
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_qc --noweb --keep ${dir}/MAMA/Bolt_Height/data_AsianSWC.fam --recode --make-bed --out ${dir}/MAMA/Bolt_Height/data_AsianSWC
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Plink_Extract_AsianSWC
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Plink_Extract_AsianSWC
+
+############# Black
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_qc --noweb --keep ${dir}/MAMA/Bolt_Height/data_Black.fam --recode --make-bed --out ${dir}/MAMA/Bolt_Height/data_Black
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Plink_Extract_Black
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Plink_Extract_Black
+
+############# White
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_qc --noweb --keep ${dir}/MAMA/Bolt_Height/data_White.fam --recode --make-bed --out ${dir}/MAMA/Bolt_Height/data_White
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Plink_Extract_White
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Plink_Extract_White
+
+############# Chinese
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_qc --noweb --keep ${dir}/MAMA/Bolt_Height/data_Chinese.fam --recode --make-bed --out ${dir}/MAMA/Bolt_Height/data_Chinese
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Plink_Extract_Chinese
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Plink_Extract_Chinese
