@@ -1,0 +1,3 @@
+################### METAL ###########################
+dir="/home/lezh/dsmwpred/zly"
+$dir$/software/metal $dir$/MAMA/Metal_Regenie_4Ancestries.txt

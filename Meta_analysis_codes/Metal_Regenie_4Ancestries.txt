@@ -29,38 +29,55 @@
 # ADDFILTER SNP IN (rs10830963,rs563694)
 # VERBOSE ON
 
-# Describe and process the DGI input files
-MARKER   SNP
+dir="/home/lezh/dsmwpred/zly"
+
+
+# Describe and process the Asian input files
+MARKER   ID
 WEIGHT   N
-ALLELE   EFFECT_ALLELE NON_EFFECT_ALLELE
-FREQ     EFFECT_ALLELE_FREQ
+ALLELE   ALLELE0 ALLELE1
+FREQ     A1FREQ
 EFFECT   BETA
 STDERR   SE
-PVAL     P_VAL
+PVAL     LOG10P
 
-PROCESS DGI_three_regions.txt
+PROCESS $dir$/MAMA/data_regenie_Asian_urate_out_firth_2_Phenotype.regenie
 
-# Describe and process the FUSION input files
-MARKER   SNP
-ALLELE   EFFECT_ALLELE NON_EFFECT_ALLELE
-FREQ     FREQ_EFFECT
+
+# Describe and process the White input files
+MARKER   ID
 WEIGHT   N
+ALLELE   ALLELE0 ALLELE1
+FREQ     A1FREQ
 EFFECT   BETA
 STDERR   SE
-PVAL     PVALUE
+PVAL     LOG10P
 
-PROCESS MAGIC_FUSION_Results.txt.gz
+PROCESS $dir$/MAMA/data_regenie_White_urate_out_firth_2_Phenotype.regenie
 
-# Describe and process the SardiNIA input files
-MARKER   SNP
-DEFAULT  4106
-ALLELE   AL1 AL2
-FREQ     FREQ1
-EFFECT   EFFECT
+
+# Describe and process the Black input files
+MARKER   ID
+WEIGHT   N
+ALLELE   ALLELE0 ALLELE1
+FREQ     A1FREQ
+EFFECT   BETA
 STDERR   SE
-PVAL     PVALUE
+PVAL     LOG10P
 
-PROCESS magic_SARDINIA.tbl
+PROCESS $dir$/MAMA/data_regenie_Black_urate_out_firth_2_Phenotype.regenie
+
+
+# Describe and process the Mixed input files
+MARKER   ID
+WEIGHT   N
+ALLELE   ALLELE0 ALLELE1
+FREQ     A1FREQ
+EFFECT   BETA
+STDERR   SE
+PVAL     LOG10P
+
+PROCESS $dir$/MAMA/data_regenie_Mixed_urate_out_firth_2_Phenotype.regenie
 
 # Execute meta-analysis
 ANALYZE
