@@ -9,7 +9,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-$dir$/software/metal $dir$/MAMA/Metal_Regenie_4Ancestries.txt
+${dir}/software/metal ${dir}/MAMA/Metal_Regenie_4Ancestries.txt
 
 " > ${dir}/scripts/MAMA/Metal_Regenie_4Ancestries
 
