@@ -2,7 +2,7 @@
 Master's thesis   
 Date: 2023-2   
    
-## Problem Statement
+## Project Description
 The most common way to test SNPs for association with a phenotype is via classical association analysis (i.e., least 
 squares regression). However, it is now increasingly common to instead use mixed-model analyses (MMA). The main 
 advantage of MMA is that it reduces false positives due to population structure and relatedness. Further, it can increase 
