@@ -1,0 +1,308 @@
+---
+title: "ukbb_ancestry_separation"
+author: "zly"
+date: "2023-02-22"
+output: html_document
+---
+
+```{r}
+library(GENESIS)
+library(qqman)
+library(tidyverse)
+library(tidyr)
+```
+
+## PCA plot
+```{r}
+plinkPCA <- read_table2("data_prune_pca.eigenvec",
+                        col_names = FALSE)
+plinkPCA <- plinkPCA[,c(-1,-2)] # Remove first 2 columns
+EigenValue <- scan("data_prune_pca.eigenval")
+
+names(plinkPCA)[1:ncol(plinkPCA)] <- paste0("PC", 1:(ncol(plinkPCA)))
+pve <- data.frame(PC = 1:20, pve = EigenValue / sum(EigenValue) * 100)
+```
+
+## Make plot
+```{r}
+ggplot(pve, aes(PC,pve)) +
+  geom_bar(stat = "identity") +
+  ylab("Percentage variance explained") +
+  theme_light()
+```
+
+## Plot PCA
+```{r}
+ggplot(plinkPCA, aes(PC1,PC2)) +
+  geom_point(size = 3) +
+  coord_equal() +
+  theme_light() +
+  coord_equal() +
+  theme_light() +
+  xlab(paste0("PC1 (", signif(pve$pve[1],3), "%)")) +
+  ylab(paste0("PC2 (",signif(pve$pve[2],3),"%)"))
+```
+
+## Region prediction by PCA
+Run 2 firstly.   
+Prediction by K-means, 4 populations. K means is an unsupervised learning method.   
+```{r}
+library(randomForest)
+library(cluster)
+set.seed(0)
+```
+
+Set a subset of PCA and predict
+```{r}
+plinkPCAsub <- plinkPCA[,c('PC1','PC2')]
+
+km = kmeans(plinkPCAsub, centers = 4)
+# km$cluster
+plinkPCA$region <- km$cluster
+```
+
+## Plot PCA
+```{r}
+ggplot(plinkPCA, aes(PC1,PC2, color = region)) +
+  geom_point(size = 3) +
+  coord_equal() +
+  theme_light() +
+  coord_equal() +
+  theme_light() +
+  xlab(paste0("PC1 (", signif(pve$pve[1],3), "%)")) +
+  ylab(paste0("PC2 (",signif(pve$pve[2],3),"%)")) +
+  labs(title = "PCA on 4 population, predicted by K-means")
+```
+
+## load .fam
+```{r}
+fam <- read_table2("data_qc.fam",
+                        col_names = FALSE)
+fam$region <- km$cluster
+```
+
+## extract region = 1 out
+```{r}
+fam1 <- fam[fam$region == 1,]
+fam1 <- subset(fam1, select = -region)
+colnames(fam1) <- c("FID","IID","Far","Mor","Gender","Phenotype")
+write.table(fam1, file = "./data_qc_1.fam", row.names = FALSE, col.names = TRUE, quote = FALSE)
+```
+
+
+## Region 1 Manhattan plot
+### Regenie
+
+```{r}
+assoc_data <- read_table2("data_region1_regenie_out_binary_firth_Phenotype.regenie", col_names = TRUE)
+
+assoc_data1 <- assoc_data[,c("CHROM","GENPOS","LOG10P")]
+names(assoc_data1) <- c("CHR","BP","P")
+# assoc_data2 <- assoc_data[,6]
+# names(assoc_data2) <- c("P")
+# assoc_data_sub <- cbine(assoc_data1,assoc_data2)
+assoc_data_sub <- assoc_data1
+assoc_data_sub <- tidyr::unite(assoc_data_sub,"SNP",CHR,BP,sep=":",remove=FALSE)
+names(assoc_data_sub) <- c("SNP","CHR","BP","P")
+assoc_data_sub$P <-as.numeric(assoc_data_sub$P)
+# manhattan(assoc_data_sub, logp=TRUE)
+
+# ggplot(assoc_data_sub, aes(x=SNP, y = -log10(P))) +
+#   geom_point(aes(color = CHR), alpha=0.8,size=1.3) +
+#   scale_color_manual(values = rep(c("grey","skyblue"),22)) +
+#   labs(title = "Regenie, region 1, Manhattan") +
+#   NULL
+
+# plot(-log10(assoc_data_sub$P), col = assoc_data_sub$CHR, xlab = "Chromosome")
+qq(assoc_data_sub$P, main = "Regenie, Region 1, Q-Q", xlim = c(0,22), ylim=c(0,7))
+```
+## For every software, run Manhattan here.
+```{r}
+don <- assoc_data_sub %>% 
+  
+  # Compute chromosome size
+  group_by(CHR) %>% 
+  summarise(chr_len=max(BP)) %>% 
+  
+  # Calculate cumulative position of each chromosome
+  mutate(tot=cumsum(chr_len)-chr_len) %>%
+  select(-chr_len) %>%
+  
+  # Add this info to the initial dataset
+  left_join(assoc_data_sub, ., by=c("CHR"="CHR")) %>%
+  
+  # Add a cumulative position of each SNP
+  arrange(CHR, BP) %>%
+  mutate( BPcum=BP+tot)
+
+axisdf = don %>% group_by(CHR) %>% summarize(center=( max(BPcum) + min(BPcum) ) / 2 )
+
+ggplot(don, aes(x=BPcum, y=-log10(P))) +
+    
+    # Show all points
+    geom_point( aes(color=as.factor(CHR)), alpha=0.8, size=1.3) +
+    scale_color_manual(values = rep(c("grey", "skyblue"), 22 )) +
+    
+    # custom X axis:
+    scale_x_continuous( label = axisdf$CHR, breaks= axisdf$center ) +
+    scale_y_continuous(expand = c(0, 0) ) +     # remove space between plot area and x axis
+  
+    # Custom the theme:
+    theme_bw() +
+    theme( 
+      legend.position="none",
+      panel.border = element_blank(),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank()
+    ) +
+  labs(title = "Regenie, region 1, Manhattan") +
+  xlab("Chromosome") +
+  NULL
+```
+
+
+## fastGWA
+```{r}
+assoc_data <- read_table2("data_region1_fastgwa_height.fastGWA", col_names = TRUE)
+
+assoc_data1 <- assoc_data[,c("CHR","POS","P")]
+# assoc_data2 <- assoc_data[,6]
+# names(assoc_data2) <- c("P")
+# assoc_data_sub <- cbine(assoc_data1,assoc_data2)
+assoc_data_sub <- assoc_data1
+assoc_data_sub <- tidyr::unite(assoc_data_sub,"SNP",CHR,POS,sep=":",remove=FALSE)
+names(assoc_data_sub) <- c("SNP","CHR","BP","P")
+assoc_data_sub$P <-as.numeric(assoc_data_sub$P)
+
+qq(assoc_data_sub$P, main = "fastGWA, Region 1, Q-Q", xlim = c(0,22), ylim=c(0,7))
+```
+
+
+## For every software, run Manhattan here.
+```{r}
+don <- assoc_data_sub %>% 
+  
+  # Compute chromosome size
+  group_by(CHR) %>% 
+  summarise(chr_len=max(BP)) %>% 
+  
+  # Calculate cumulative position of each chromosome
+  mutate(tot=cumsum(chr_len)-chr_len) %>%
+  select(-chr_len) %>%
+  
+  # Add this info to the initial dataset
+  left_join(assoc_data_sub, ., by=c("CHR"="CHR")) %>%
+  
+  # Add a cumulative position of each SNP
+  arrange(CHR, BP) %>%
+  mutate( BPcum=BP+tot)
+
+axisdf = don %>% group_by(CHR) %>% summarize(center=( max(BPcum) + min(BPcum) ) / 2 )
+
+ggplot(don, aes(x=BPcum, y=-log10(P))) +
+    
+    # Show all points
+    geom_point( aes(color=as.factor(CHR)), alpha=0.8, size=1.3) +
+    scale_color_manual(values = rep(c("grey", "skyblue"), 22 )) +
+    
+    # custom X axis:
+    scale_x_continuous( label = axisdf$CHR, breaks= axisdf$center ) +
+    scale_y_continuous(expand = c(0, 0) ) +     # remove space between plot area and x axis
+  
+    # Custom the theme:
+    theme_bw() +
+    theme( 
+      legend.position="none",
+      panel.border = element_blank(),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank()
+    ) +
+  labs(title = "FastGWA, region 1, Manhattan") +
+  xlab("Chromosome") +
+  NULL
+```
+
+## Bolt-lmm
+
+```{r}
+assoc_data <- read_table2("data_region1_bolt_height", col_names = TRUE)
+hist(assoc_data$P_BOLT_LMM)
+assoc_data1 <- assoc_data[,c("CHR","BP","P_BOLT_LMM_INF")]
+# assoc_data2 <- assoc_data[,6]
+# names(assoc_data2) <- c("P")
+# assoc_data_sub <- cbine(assoc_data1,assoc_data2)
+assoc_data_sub <- assoc_data1
+assoc_data_sub <- tidyr::unite(assoc_data_sub,"SNP",CHR,BP,sep=":",remove=FALSE)
+names(assoc_data_sub) <- c("SNP","CHR","BP","P")
+assoc_data_sub$P <-as.numeric(assoc_data_sub$P)
+assoc_data_sub <- subset(assoc_data_sub, P !=0)
+manhattan(assoc_data_sub,logp = TRUE)
+qq(assoc_data_sub$P, main = "Bolt, Region 1, Q-Q", xlim = c(0,22), ylim=c(0,7))
+```
+
+Manhattan
+```{r}
+don <- assoc_data_sub %>% 
+  
+  # Compute chromosome size
+  group_by(CHR) %>% 
+  summarise(chr_len=max(BP)) %>% 
+  
+  # Calculate cumulative position of each chromosome
+  mutate(tot=cumsum(chr_len)-chr_len) %>%
+  select(-chr_len) %>%
+  
+  # Add this info to the initial dataset
+  left_join(assoc_data_sub, ., by=c("CHR"="CHR")) %>%
+  
+  # Add a cumulative position of each SNP
+  arrange(CHR, BP) %>%
+  mutate( BPcum=BP+tot)
+axisdf = don %>% group_by(CHR) %>% summarize(center=( max(BPcum) + min(BPcum) ) / 2 )
+ggplot(don, aes(x=BPcum, y=-log10(P))) +
+    
+    # Show all points
+    geom_point( aes(color=as.factor(CHR)), alpha=0.8, size=1.3) +
+    scale_color_manual(values = rep(c("grey", "skyblue"), 22 )) +
+    
+    # custom X axis:
+    scale_x_continuous( label = axisdf$CHR, breaks= axisdf$center ) +
+    scale_y_continuous(expand = c(0, 0) ) +     # remove space between plot area and x axis
+  
+    # Custom the theme:
+    theme_bw() +
+    theme( 
+      legend.position="none",
+      panel.border = element_blank(),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank()
+    ) +
+  labs(title = "Bolt, region 1, Manhattan") +
+  xlab("Chromosome") +
+  NULL
+```
+
+## Test for Bolt result
+```{r}
+P <- read_table2(file = "data_region1_bolt_height", col_names = TRUE)
+hist(P$P_BOLT_LMM, main = "Bolt, region1, height")
+```
+
+
+## Test for Regenie result
+```{r}
+P <- read_table2(file = "data_region1_regenie_out_binary_firth_Phenotype.regenie", col_names = TRUE)
+ggplot(P, aes(x=LOG10P)) +
+  geom_histogram() +
+  xlim(0,3) +
+  NULL
+
+```
+
+## Test for fastGWA result
+```{r}
+P <- read_table2(file = "data_region1_fastgwa_height.fastGWA", col_names = TRUE)
+hist(P$P)
+
+```
+
