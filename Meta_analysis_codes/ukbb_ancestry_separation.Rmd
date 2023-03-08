@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r}
-library(GENESIS)
+# library(GENESIS)
 library(qqman)
 library(tidyverse)
 library(tidyr)
