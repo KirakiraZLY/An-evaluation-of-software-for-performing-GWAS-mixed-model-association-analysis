@@ -1,0 +1,83 @@
+---
+title: "Type_1_error"
+author: "zly"
+date: "2023-02-28"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+library(GENESIS)
+library(qqman)
+library(tidyverse)
+library(tidyr)
+```
+
+
+## Regenie file: .pheno
+```{r}
+fam <- read_table2(file = "non_genetic_trait_quant.pheno", col_names = FALSE)
+fam <- subset(fam, select = -X4)
+names(fam) <- c("FID","IID","Phenotype")
+
+# fam$FID <- as.name(fam$FID),
+write.table(fam, file = "./non_genetic_trait_quant_1.pheno", row.names = FALSE, col.names = TRUE, quote = FALSE)
+fam1 <- read_table2(file = "non_genetic_trait_quant_1.pheno", col_names = TRUE)
+```
+
+## test for LDAK result
+```{r}
+P <- read_table2(file = "data_ldak_whole_nongenetic_result.assoc", col_names = TRUE)
+hist(P$Wald_P, main="LDAK, Non-genetic")
+
+sum(P$Wald_P < 0.01) / nrow(P)
+sum(P$Wald_P < 5e-5) / nrow(P)
+```
+
+## Test for Bolt result
+```{r}
+P <- read_table2(file = "data_bolt_whole_nongenetic_result", col_names = TRUE)
+hist(P$P_BOLT_LMM, main = "Bolt, non-genetic")
+
+sum(P$P_BOLT_LMM < 0.01) / nrow(P)
+sum(P$P_BOLT_LMM < 5e-5) / nrow(P)
+```
+
+## Test for Plink result
+```{r}
+P <- read_table2(file = "data_plink_nongenetic_finalresult.assoc.linear", col_names = TRUE)
+hist(P$P, main = "Plink, non-genetic", xlab = "P")
+
+sum(P$P < 0.01) / nrow(P)
+sum(P$P < 5e-5) / nrow(P)
+```
+
+## Regenie for Binary traits(simulation)
+```{r}
+
+P <- read_table2(file = "data_regenie_whole_nongenetic_out_2_firth_Phenotype.regenie", col_names = TRUE)
+
+
+# assoc_data1 <- assoc_data[,c("CHROM","GENPOS","LOG10P")]
+# names(assoc_data1) <- c("CHR","BP","P")
+# # assoc_data2 <- assoc_data[,6]
+# # names(assoc_data2) <- c("P")
+# # assoc_data_sub <- cbine(assoc_data1,assoc_data2)
+# assoc_data_sub <- assoc_data1
+# assoc_data_sub <- tidyr::unite(assoc_data_sub,"SNP",CHR,BP,sep=":",remove=FALSE)
+# names(assoc_data_sub) <- c("SNP","CHR","BP","P")
+# assoc_data_sub$P <-as.numeric(assoc_data_sub$P)
+# # manhattan(assoc_data_sub, logp=TRUE)
+# qq(assoc_data_sub$P, main = "Q-Q", xlim = c(0,22), ylim=c(0,7))
+sum(P$LOG10P<0.01) / nrow(P)
+sum(P$LOG10P<5e-5) / nrow(P)
+hist(P$LOG10P, main="Plink, non-genetic")
+ggplot(P, aes(x = 10^-LOG10P)) +
+  geom_histogram() +
+  # xlim(0,1) +
+  labs(title = "Plink, non-genetic") +
+  xlab("P") +
+  NULL
+
+```
+
