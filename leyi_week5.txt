@@ -189,3 +189,104 @@ ${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_qc --noweb --keep ${d
 
 cd ${dir}/scripts/MAMA/Bolt_Height/
 sbatch Plink_Extract_Chinese
+
+
+
+########################################
+Bolt, Single
+########################################
+###########################
+Chinese
+###########################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Chinese --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_Chinese_bolt_height
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_Chinese_Height
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Bolt_Chinese_Height
+###########################
+AsianSWC
+###########################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_SWC --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_AsianSWC_bolt_height
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_AsianSWC_Height
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Bolt_AsianSWC_Height
+###########################
+White
+###########################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_White --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_White_bolt_height
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_White_Height
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Bolt_White_Height
+###########################
+Black
+###########################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_Black_bolt_height
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_Black_Height
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Bolt_Black_Height
+###########################
+Mixed
+###########################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 2
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Mixed --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_Mixed_bolt_height
+
+" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_Mixed_Height
+
+cd ${dir}/scripts/MAMA/Bolt_Height/
+sbatch Bolt_Mixed_Height
