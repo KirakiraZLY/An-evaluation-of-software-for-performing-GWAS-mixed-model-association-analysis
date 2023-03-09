@@ -307,12 +307,12 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Chinese --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_Chinese_bolt_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Chinese --phenoFile=${dir}/MAMA/urate_1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Urate/data_Chinese_bolt_urate
 
-" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_Chinese_Height
+" > ${dir}/scripts/MAMA/Bolt_Urate/Bolt_Chinese_urate
 
-cd ${dir}/scripts/MAMA/Bolt_Height/
-sbatch Bolt_Chinese_Height
+cd ${dir}/scripts/MAMA/Bolt_Urate/
+sbatch Bolt_Chinese_urate
 ###########################
 AsianSWC
 ###########################
@@ -326,12 +326,12 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_SWC --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_AsianSWC_bolt_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_SWC --phenoFile=${dir}/MAMA/urate_1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Urate/data_AsianSWC_bolt_urate
 
-" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_AsianSWC_Height
+" > ${dir}/scripts/MAMA/Bolt_Urate/Bolt_AsianSWC_urate
 
-cd ${dir}/scripts/MAMA/Bolt_Height/
-sbatch Bolt_AsianSWC_Height
+cd ${dir}/scripts/MAMA/Bolt_Urate/
+sbatch Bolt_AsianSWC_urate
 ###########################
 White
 ###########################
@@ -345,12 +345,12 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_White --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_White_bolt_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_White --phenoFile=${dir}/MAMA/urate_1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Urate/data_White_bolt_urate
 
-" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_White_Height
+" > ${dir}/scripts/MAMA/Bolt_Urate/Bolt_White_urate
 
-cd ${dir}/scripts/MAMA/Bolt_Height/
-sbatch Bolt_White_Height
+cd ${dir}/scripts/MAMA/Bolt_Urate/
+sbatch Bolt_White_urate
 ###########################
 Black
 ###########################
@@ -364,12 +364,12 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_Black_bolt_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/MAMA/urate_1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Urate/data_Black_bolt_urate
 
-" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_Black_Height
+" > ${dir}/scripts/MAMA/Bolt_Urate/Bolt_Black_urate
 
-cd ${dir}/scripts/MAMA/Bolt_Height/
-sbatch Bolt_Black_Height
+cd ${dir}/scripts/MAMA/Bolt_Urate/
+sbatch Bolt_Black_urate
 ###########################
 Mixed
 ###########################
