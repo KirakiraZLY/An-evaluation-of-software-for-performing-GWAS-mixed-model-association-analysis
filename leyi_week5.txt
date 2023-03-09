@@ -433,8 +433,8 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate regenie_env
 
-  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_AsianSWC --export bgen-1.2 --out  ${dir}/MAMA/data_AsianSWC
-
+  ${dir}/software/plink2 --bfile  ${dir}/MAMA/Bolt_Height/data_AsianSWC --export bgen-1.2 --out  ${dir}/MAMA/Bolt_Height/data_AsianSWC
+  
 " > ${dir}/scripts/MAMA/Regenie_Height/Regenie_Plink_covert_AsianSWC
 
 cd ${dir}/scripts/MAMA/Regenie_Height
