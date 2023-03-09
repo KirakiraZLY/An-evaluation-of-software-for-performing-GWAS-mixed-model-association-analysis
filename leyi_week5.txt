@@ -358,18 +358,18 @@ conda activate regenie_env
 
   regenie \
   --step 2 \
-  --bgen ${dir}/MAMA/data_Whole.bgen \
+  --bgen $${dir}/MAMA/data_AsianSWC.bgen \
   --covarFile ${dir}/MAMA/covar_PC.covars \
-  --covarCol PC{1:10} \
-  --phenoFile ${dir}/MAMA/urate_1.pheno \
+  --covarCol PC{1:20} \
+  --phenoFile ${dir}/MAMA/height1.pheno \
   --bsize 200 \
   --qt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/MAMA/data_Regenie_Whole_urate_1_pred.list \
-  --out ${dir}/MAMA/data_regenie_Whole_urate_out_firth_2
+  --pred ${dir}/MAMA/Regenie_Height/data_Regenie_AsianSWC_height_1_pred.list \
+  --out ${dir}/MAMA/Regenie_Height/data_regenie_AsianSWC_height_out_firth_2
 
-" > ${dir}/scripts/MAMA/Regenie_Whole_urate_step2
+" > ${dir}/scripts/MAMA/Regenie_Height/Regenie_AsianSWC_height_step2
 
-cd ${dir}/scripts/MAMA
-sbatch Regenie_Whole_urate_step2
+cd ${dir}/scripts/MAMA/Regenie_Height
+sbatch Regenie_AsianSWC_height_step2

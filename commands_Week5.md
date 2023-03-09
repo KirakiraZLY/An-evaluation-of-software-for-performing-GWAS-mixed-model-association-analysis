@@ -31,9 +31,10 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Mixed --
 
 # Testing Reversely
 I have results from Regenie + urate and Bolt + height now. I am curious about the analysis reversed.   
+数据bed bim fam都是用的MAMA/Bolt_Height里面的。     
 ## Regenie
 ### AsianSWC
-Phenotype: urate.pheno   
+Phenotype: height.pheno   
 1. 
 ```python
    regenie \
@@ -43,9 +44,9 @@ Phenotype: urate.pheno
   --bsize 100 \
   --out ${dir}/MAMA/Regenie_Height/data_Regenie_AsianSWC_height_1
 ```
-  Since .pheno file needs FID and IID, I copied it and renamed urate_1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个urate_1.pheno文件并更改格式)   
+  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
 Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_AsianSWC --export bgen-1.2 --out  ${dir}/MAMA/data_AsianSWC   
-**Output**: data_Regenie_AsianSWC_urate_1_pred.list
+**Output**: data_Regenie_AsianSWC_height_1_pred.list
 2. 
 ```python
   regenie \
@@ -58,10 +59,10 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/data_AsianSW
   --qt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/MAMA/Regenie/data_Regenie_AsianSWC_height_1_pred.list \
-  --out ${dir}/MAMA/data_regenie_AsianSWC_urate_out_firth_2
+  --pred ${dir}/MAMA/Regenie_Height/data_Regenie_AsianSWC_height_1_pred.list \
+  --out ${dir}/MAMA/Regenie_Height/data_regenie_AsianSWC_height_out_firth_2
 ```
-Output: data_regenie_AsianSWC_urate_out_firth_2_Phenotype.regenie
+Output: data_regenie_AsianSWC_height_out_firth_2_Phenotype.regenie
 
 ### White
 Phenotype: urate.pheno   
