@@ -326,7 +326,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_SWC --phenoFile=${dir}/MAMA/urate_1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Urate/data_AsianSWC_bolt_urate
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_AsianSWC --phenoFile=${dir}/MAMA/urate_1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Urate/data_AsianSWC_bolt_urate
 
 " > ${dir}/scripts/MAMA/Bolt_Urate/Bolt_AsianSWC_urate
 
@@ -771,7 +771,7 @@ conda activate regenie_env
   --pThresh 0.01 \
   --pred ${dir}/MAMA/Regenie_Height/data_Regenie_Mixed_height_1_pred.list \
   --out ${dir}/MAMA/Regenie_Height/data_regenie_Mixed_height_out_firth_2
-  
+
 " > ${dir}/scripts/MAMA/Regenie_Height/Regenie_Mixed_height_step2
 
 cd ${dir}/scripts/MAMA/Regenie_Height
