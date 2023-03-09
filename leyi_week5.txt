@@ -383,12 +383,12 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Mixed --phenoFile=${dir}/MAMA/height1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Height/data_Mixed_bolt_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Mixed --phenoFile=${dir}/MAMA/urate_1.pheno --phenoCol=Phenotype --covarFile=${dir}/MAMA/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/MAMA/Bolt_Urate/data_Mixed_bolt_urate
 
-" > ${dir}/scripts/MAMA/Bolt_Height/Bolt_Mixed_Height
+" > ${dir}/scripts/MAMA/Bolt_Urate/Bolt_Mixed_urate
 
-cd ${dir}/scripts/MAMA/Bolt_Height/
-sbatch Bolt_Mixed_Height
+cd ${dir}/scripts/MAMA/Bolt_Urate/
+sbatch Bolt_Mixed_urate
 
 
 
