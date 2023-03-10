@@ -454,7 +454,7 @@ conda activate regenie_env
 
   regenie \
   --step 2 \
-  --bgen $${dir}/MAMA/data_AsianSWC.bgen \
+  --bgen $${dir}/MAMA/Bolt_Height/data_AsianSWC.bgen \
   --covarFile ${dir}/MAMA/covar_PC.covars \
   --covarCol PC{1:20} \
   --phenoFile ${dir}/MAMA/height1.pheno \
