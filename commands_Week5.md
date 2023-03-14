@@ -210,3 +210,17 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/Bolt_Height/
   --out ${dir}/MAMA/Regenie_Height/data_regenie_Mixed_height_out_firth_2
 ```
 Output: data_regenie_Mixed_height_out_firth_2_Phenotype.regenie
+
+
+
+## PRS tutorial
+https://choishingwan.github.io/PRS-Tutorial/target/   
+### Standard GWAS QC
+**MAF**: Removes all SNPs with minor allele frequency less than 0.01. Genotyping errors typically have a larger influence on SNPs with low MAF.    
+**hwe**: Removes SNPs with low P-value from the Hardy-Weinberg Equilibrium Fisher's exact or chi-squared test. SNPs with significant P-values from the HWE test are more likely affected by genotyping error or the effects of natural selection.    
+**geno**: Excludes SNPs that are missing in a high fraction of subjects.   
+**mind**: Excludes individuals who have a high rate of genotype missingness, since this may indicate problems in the DNA sample or processing.   
+### Prune
+Very high or low heterozygosity rates in individuals could be due to DNA contamination or to high levels of inbreeding. Therefore, samples with extreme heterozygosity are typically removed prior to downstream analyses.   
+1. We perform **prune** to remove highly correlated SNPs.   
+**keep**: Informs Plink that we only want to use samples in .fam file in this analysis.   
