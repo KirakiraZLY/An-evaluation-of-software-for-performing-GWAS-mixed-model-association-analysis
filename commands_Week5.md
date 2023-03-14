@@ -243,5 +243,68 @@ Before calculating, individuals with first or second degree relative > 0.125 sho
 4. Final QC   
 
 ### Calculating PRS
+
+https://choishingwan.github.io/PRS-Tutorial/plink/
 **Effect Size**: Require OR instead of Beta, doing logarithm.   
-**Clumping**: 
+**Clumping**: LD   
+```python
+./plink \
+    --bfile EUR.QC \
+    --clump-p1 1 \
+    --clump-r2 0.1 \
+    --clump-kb 250 \
+    --clump Height.QC.Transformed \
+    --clump-snp-field SNP \
+    --clump-field P \
+    --out EUR
+```
+p1: P value threshold for a SNP to be included as an index SNP, 1 means that all SNPs are included.   
+r2: SNPs having r2 higher than 0.1 will be removed.   
+kb: SNPs within 250k of index SNP are considered for clumping.   
+
+```python
+awk 'NR!=1{print $3}' EUR.clumped >  EUR.valid.snp
+```
+
+```python
+awk '{print $3,$8}' Height.QC.Transformed > SNP.pvalue
+```
+
+```python
+echo "0.001 0 0.001" > range_list 
+echo "0.05 0 0.05" >> range_list
+echo "0.1 0 0.1" >> range_list
+echo "0.2 0 0.2" >> range_list
+echo "0.3 0 0.3" >> range_list
+echo "0.4 0 0.4" >> range_list
+echo "0.5 0 0.5" >> range_list
+```
+
+We then calculate PRS:   
+```python
+./plink \
+    --bfile EUR.QC \
+    --score Height.QC.Transformed 3 4 12 header \
+    --q-score-range range_list SNP.pvalue \
+    --extract EUR.valid.snp \
+    --out EUR
+```
+
+### Accounting for Population Stratification
+Population Stratification is the principle source of confounding in GWAS. 一般我们把PCs incorporate into covariates来解释。   
+```python
+# First, we need to perform prunning
+plink \
+    --bfile EUR.QC \
+    --indep-pairwise 200 50 0.25 \
+    --out EUR
+# Then we calculate the first 6 PCs
+plink \
+    --bfile EUR.QC \
+    --extract EUR.prune.in \
+    --pca 6 \
+    --out EUR
+```
+
+### FIND best-fit PRS
+In Rstudio
