@@ -224,3 +224,9 @@ https://choishingwan.github.io/PRS-Tutorial/target/
 Very high or low heterozygosity rates in individuals could be due to DNA contamination or to high levels of inbreeding. Therefore, samples with extreme heterozygosity are typically removed prior to downstream analyses.   
 1. We perform **prune** to remove highly correlated SNPs.   
 **keep**: Informs Plink that we only want to use samples in .fam file in this analysis.   
+**extract**: Use SNPs in .snplist file.   
+**indep-pairwise**: 200 50 0.25, **200**: to perform pruning with a window size of 200 variants, **50**: sliding across hte genome with step size of 50 variants at a time. **0.25**: filter out any SNPs with LD r2 higher than 0.25.   
+Output: .prune.in and .prune.out   
+2. Heterozygosity rates can be computed using plink.   
+This will generate the .het file. F列是coefficient，估计的是heterozygosity.   
+**然后打开R**， remove individuals with F coefficients that are more than 3 standard deviation units from the mean.   
