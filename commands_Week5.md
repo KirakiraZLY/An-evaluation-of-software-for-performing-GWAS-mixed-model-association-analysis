@@ -238,3 +238,10 @@ To generate a file with .sexcheck, containing the F-statistics for each individu
 A male is typically when F-statistic is > 0.8, and female is F<0.2.   
 2. Rstudio step   
 To exclude others.
+3. Relatedness by plink.   
+Before calculating, individuals with first or second degree relative > 0.125 should be removed.   
+4. Final QC   
+
+### Calculating PRS
+**Effect Size**: Require OR instead of Beta, doing logarithm.   
+**Clumping**: 
