@@ -230,3 +230,5 @@ Output: .prune.in and .prune.out
 2. Heterozygosity rates can be computed using plink.   
 This will generate the .het file. F列是coefficient，估计的是heterozygosity.   
 **然后打开R**， remove individuals with F coefficients that are more than 3 standard deviation units from the mean.   
+### Mismatching SNPs
+1. Load the bim file, the summary statistic and the QC SNP list into R.
