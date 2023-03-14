@@ -232,3 +232,9 @@ This will generate the .het file. F列是coefficient，估计的是heterozygosit
 **然后打开R**， remove individuals with F coefficients that are more than 3 standard deviation units from the mean.   
 ### Mismatching SNPs
 1. Load the bim file, the summary statistic and the QC SNP list into R.
+### Sex Chromosomes
+1. Plink step   
+To generate a file with .sexcheck, containing the F-statistics for each individual. **EUR.QC.sexcheck**   
+A male is typically when F-statistic is > 0.8, and female is F<0.2.   
+2. Rstudio step   
+To exclude others.
