@@ -361,12 +361,48 @@ echo "0.5 0 0.5" >> range_list
 ### Calculating PRS with Plink
 ```
 ./plink \
-    --bfile data_qc \
-    --score META_Regenie_Urate.TBL.Transformed 1 4 6 header \
-    --q-score-range range_list ./META_Regenie_Urate.TBL.Transformed.pvalue \
+    --bfile data_Asian \
+    --score META_Regenie_Urate.TBL.Transformed 3 4 10 header \
+    --q-score-range range_list META_Regenie_Urate.TBL.Transformed.pvalue \
     --extract data_regenie_urate.valid.snp \
     --out PRS_Regenie_Urate
 ```
-Columns 1, 4, 6 are: SNP ID, Effective Allele, BETA(effect size)
+Columns 3, 4, 9 are: SNP ID, Effective Allele, BETA(effect size)
 
 ### Accounting for Population Stratification
+```python
+./plink \
+    --bfile data_Asian \
+    --maf 0.01 \
+    --hwe 1e-6 \
+    --geno 0.01 \
+    --mind 0.01 \
+    --write-snplist \
+    --make-just-fam \
+    --out data_Asian
+```
+
+```python
+./plink \
+    --bfile data_Asian \
+    --keep data_Asian.fam \
+    --extract data_Asian.snplist \
+    --indep-pairwise 200 50 0.25 \
+    --out data_Asian
+```
+
+
+
+```python
+# First, we need to perform prunning
+./plink \
+    --bfile data_Asian \
+    --indep-pairwise 200 50 0.25 \
+    --out data_Asian
+# Then we calculate the first 6 PCs
+./plink \
+    --bfile data_Asian \
+    --extract data_Asian.prune.in \
+    --pca 10 \
+    --out data_Asian
+```
