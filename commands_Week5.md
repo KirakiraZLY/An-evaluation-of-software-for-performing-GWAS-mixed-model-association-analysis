@@ -360,12 +360,12 @@ echo "0.5 0 0.5" >> range_list
 
 ### Calculating PRS with Plink
 ```
-./software/plink \
+./plink \
     --bfile ./data_qc \
-    --score ./PRS/META_Regenie_Urate.TBL.Transformed 1 4 6 header \
-    --q-score-range ./PRS/range_list ./PRS/META_Regenie_Urate.TBL.Transformed.pvalue \
-    --extract ./PRS/data_regenie_urate.valid.snp \
-    --out ./PRS/PRS_Regenie_Urate
+    --score ./META_Regenie_Urate.TBL.Transformed 1 4 6 header\
+    --q-score-range ./range_list ./META_Regenie_Urate.TBL.Transformed.pvalue \
+    --extract ./data_regenie_urate.valid.snp \
+    --out ./PRS_Regenie_Urate
 ```
 Columns 1, 4, 6 are: SNP ID, Effective Allele, BETA(effect size)
 
