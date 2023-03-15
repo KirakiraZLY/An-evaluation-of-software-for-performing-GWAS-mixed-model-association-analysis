@@ -312,3 +312,19 @@ In Rstudio
 
 ## PRS Regenie Meta Urate
 As example
+### Update effect size and convert file format
+SEE in Rstudio: PRS_Real.rmd   
+```R
+dat <- read_table2(file = "META_Regenie_Urate.TBL", col_names = TRUE)
+# names(dat) <- 
+
+assoc_data <- read_table2("data_regenie_White_urate_out_firth_2_Phenotype_modified.regenie", col_names = TRUE)
+# hist(assoc_data$P_BOLT_LMM)
+assoc_data1 <- assoc_data[,c("CHROM","GENPOS","ID")]
+names(assoc_data1) <- c("CHR","BP","SNP")
+dat1 <- select(dat, -c(7,8,9,10,11))
+names(dat1) <- c("SNP", "A1", "A2", "BETA", "SE", "P", "N")
+dat1 <- merge(assoc_data1, dat1, by = "SNP")
+write.table(dat1, "META_Regenie_Urate.TBL.Transformed", quote = F, row.names = F)
+```
+
