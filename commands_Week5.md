@@ -308,3 +308,7 @@ plink \
 
 ### FIND best-fit PRS
 In Rstudio
+
+
+## PRS Regenie Meta Urate
+As example
