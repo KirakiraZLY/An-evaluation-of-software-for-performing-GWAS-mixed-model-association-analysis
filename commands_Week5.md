@@ -310,8 +310,8 @@ plink \
 In Rstudio
 
 
-## PRS Regenie Meta Urate
-As example
+## PRS Regenie Meta Urate, Plink
+As example, Using Plink
 ### Update effect size and convert file format
 SEE in Rstudio: PRS_Real.rmd   
 ```R
@@ -328,3 +328,45 @@ dat1 <- merge(assoc_data1, dat1, by = "SNP")
 write.table(dat1, "META_Regenie_Urate.TBL.Transformed", quote = F, row.names = F)
 ```
 
+### Clumping
+消除LD的影响。   
+```python
+./software/plink \
+    --bfile data_qc \
+    --clump-p1 1 \
+    --clump-r2 0.1 \
+    --clump-kb 250 \
+    --clump ./PRS/META_Regenie_Urate.TBL.Transformed \
+    --clump-snp-field SNP \
+    --clump-field P \
+    --out ./PRS/data_regenie_urate
+```
+
+SNP and P-value
+```
+awk 'NR!=1{print $3}' data_regenie_urate.clumped >  data_regenie_urate.valid.snp
+awk '{print $1,$8}' META_Regenie_Urate.TBL.Transformed > META_Regenie_Urate.TBL.Transformed.pvalue
+```
+
+```
+echo "0.001 0 0.001" > range_list 
+echo "0.05 0 0.05" >> range_list
+echo "0.1 0 0.1" >> range_list
+echo "0.2 0 0.2" >> range_list
+echo "0.3 0 0.3" >> range_list
+echo "0.4 0 0.4" >> range_list
+echo "0.5 0 0.5" >> range_list
+```
+
+### Calculating PRS with Plink
+```
+./software/plink \
+    --bfile ./data_qc \
+    --score ./PRS/META_Regenie_Urate.TBL.Transformed 1 4 6 header \
+    --q-score-range ./PRS/range_list ./PRS/META_Regenie_Urate.TBL.Transformed.pvalue \
+    --extract ./PRS/data_regenie_urate.valid.snp \
+    --out ./PRS/PRS_Regenie_Urate
+```
+Columns 1, 4, 6 are: SNP ID, Effective Allele, BETA(effect size)
+
+### Accounting for Population Stratification
