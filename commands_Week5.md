@@ -310,5 +310,99 @@ plink \
 In Rstudio
 
 
-## PRS Regenie Meta Urate
-As example
+## PRS Regenie Meta Urate, Plink
+As example, Using Plink
+### Update effect size and convert file format
+SEE in Rstudio: PRS_Real.rmd   
+```R
+dat <- read_table2(file = "META_Regenie_Urate.TBL", col_names = TRUE)
+# names(dat) <- 
+
+assoc_data <- read_table2("data_regenie_White_urate_out_firth_2_Phenotype_modified.regenie", col_names = TRUE)
+# hist(assoc_data$P_BOLT_LMM)
+assoc_data1 <- assoc_data[,c("CHROM","GENPOS","ID")]
+names(assoc_data1) <- c("CHR","BP","SNP")
+dat1 <- select(dat, -c(7,8,9,10,11))
+names(dat1) <- c("SNP", "A1", "A2", "BETA", "SE", "P", "N")
+dat1 <- merge(assoc_data1, dat1, by = "SNP")
+write.table(dat1, "META_Regenie_Urate.TBL.Transformed", quote = F, row.names = F)
+```
+
+### Clumping
+消除LD的影响。   
+```python
+./software/plink \
+    --bfile data_qc \
+    --clump-p1 1 \
+    --clump-r2 0.1 \
+    --clump-kb 250 \
+    --clump ./PRS/META_Regenie_Urate.TBL.Transformed \
+    --clump-snp-field SNP \
+    --clump-field P \
+    --out ./PRS/data_regenie_urate
+```
+
+SNP and P-value
+```
+awk 'NR!=1{print $3}' data_regenie_urate.clumped >  data_regenie_urate.valid.snp
+awk '{print $1,$8}' META_Regenie_Urate.TBL.Transformed > META_Regenie_Urate.TBL.Transformed.pvalue
+```
+
+```
+echo "0.001 0 0.001" > range_list 
+echo "0.05 0 0.05" >> range_list
+echo "0.1 0 0.1" >> range_list
+echo "0.2 0 0.2" >> range_list
+echo "0.3 0 0.3" >> range_list
+echo "0.4 0 0.4" >> range_list
+echo "0.5 0 0.5" >> range_list
+```
+
+### Calculating PRS with Plink
+```
+./plink \
+    --bfile data_Asian \
+    --score META_Regenie_Urate.TBL.Transformed 3 4 10 header \
+    --q-score-range range_list META_Regenie_Urate.TBL.Transformed.pvalue \
+    --extract data_regenie_urate.valid.snp \
+    --out PRS_Regenie_Urate
+```
+Columns 3, 4, 9 are: SNP ID, Effective Allele, BETA(effect size)
+
+### Accounting for Population Stratification
+```python
+./plink \
+    --bfile data_Asian \
+    --maf 0.01 \
+    --hwe 1e-6 \
+    --geno 0.01 \
+    --mind 0.01 \
+    --write-snplist \
+    --make-just-fam \
+    --out data_Asian
+```
+
+```python
+./plink \
+    --bfile data_Asian \
+    --keep data_Asian.fam \
+    --extract data_Asian.snplist \
+    --indep-pairwise 200 50 0.25 \
+    --out data_Asian
+```
+
+
+
+```python
+# First, we need to perform prunning
+./plink \
+    --bfile data_Asian \
+    --indep-pairwise 200 50 0.25 \
+    --out data_Asian
+# Then we calculate the first 6 PCs
+./plink \
+    --bfile data_Asian \
+    --extract data_Asian.prune.in \
+    --pca 10 \
+    --out data_Asian
+```
