@@ -52,8 +52,8 @@ regenie \
   --pred ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_1_pred.list \
   --out ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_2
 
-" > ${dir}/scripts/regenie_ukbb_nongenetic_2
+" > ${dir}/scripts/type_1_error_new/regenie_ukbb_nongenetic_2
 
 # I am doing blabla
-cd ${dir}/scripts
+cd ${dir}/scripts/type_1_error_new
 sbatch regenie_ukbb_nongenetic_2
