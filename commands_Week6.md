@@ -28,6 +28,6 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --qt \
   --pThresh 0.01 \
   --pred ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_1_pred.list \
-  --out ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_2_firth
+  --out ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_2
 ```
-Output: data_regenie_whole_nongenetic_out_2_firth.regenie
+Output: data_regenie_whole_nongenetic_out_2.regenie
