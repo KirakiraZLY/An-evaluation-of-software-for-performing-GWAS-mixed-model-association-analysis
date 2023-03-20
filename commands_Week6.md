@@ -13,7 +13,7 @@ Stack size, without firth.
   --phenoFile ${dir}/type_1_error_new/non_genetic_trait_quant_1.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --bsize 500 \
-  --lowmen \
+  --lowmem \
   --out ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_1   
 ```
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
