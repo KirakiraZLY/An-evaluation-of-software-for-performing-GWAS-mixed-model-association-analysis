@@ -19,8 +19,10 @@ regenie \
   --step 1 \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/type_1_error_new/non_genetic_trait_quant_1.pheno \
+  --covarFile ${dir}/covar_PC.covars \
   --bsize 500 \
-  --out ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_1   
+  --lowmem \
+  --out ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_1 
 
 " > ${dir}/scripts/type_1_error_new/regenie_ukbb_nongenetic_1
 
@@ -41,10 +43,10 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate regenie_env
 
-regenie \
+  regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar1.covars \
+  --covarFile ${dir}/covar_PC.covars \
   --phenoFile ${dir}/type_1_error_new/non_genetic_trait_quant_1.pheno \
   --bsize 500 \
   --qt \
