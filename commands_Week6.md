@@ -51,5 +51,6 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
     --base-info INFO:0.8 \
     --stat OR \
     --or \
-    --out ${dir}/PRS/PRSice2/Resule_PRSice2_Asian_Urate
+    --quantile 20 \
+    --out ${dir}/PRS/PRSice2/Result_PRSice2_Asian_Urate
 ```
