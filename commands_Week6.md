@@ -39,3 +39,17 @@ See ./PRS/PRS_Real.Rmd, to build data.covariate file.
 
 ### Step 2
 To run PRSice2, to obtain PRS results.   
+```python
+Rscript ${dir}/PRS/PRSice2/PRSice.R \
+    --prsice ${dir}/PRS/PRSice2/PRSice_linux \
+    --base ${dir}/PRS/META_Regenie_Urate.TBL.Transformed \
+    --target ${dir}/PRS/data_Asian \
+    --binary-target F \
+    --pheno ${dir}/PRS/urate_1.pheno \
+    --cov ${dir}/PRS/data.covariate \
+    --base-maf MAF:0.01 \
+    --base-info INFO:0.8 \
+    --stat OR \
+    --or \
+    --out ${dir}/PRS/PRSice2/Resule_PRSice2_Asian_Urate
+```
