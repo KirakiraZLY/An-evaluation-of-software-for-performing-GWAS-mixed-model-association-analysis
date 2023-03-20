@@ -31,3 +31,11 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --out ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_2
 ```
 Output: data_regenie_whole_nongenetic_out_2.regenie
+
+
+## PRSice2, Asian
+### Step 1
+See ./PRS/PRS_Real.Rmd, to build data.covariate file.   
+
+### Step 2
+To run PRSice2, to obtain PRS results.   
