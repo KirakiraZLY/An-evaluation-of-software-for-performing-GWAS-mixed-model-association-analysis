@@ -16,7 +16,7 @@ Stack size, without firth.
   --lowmem \
   --out ${dir}/type_1_error_new/data_regenie_whole_nongenetic_out_1   
 ```
-  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
+  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)
 Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
 **Output**: data_regenie_whole_nongenetic_out_1_pred.list
 2. 
