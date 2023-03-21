@@ -56,3 +56,18 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
     --quantile 20 \
     --out ${dir}/PRS/PRSice2/Result_PRSice2_Asian_Urate
 ```
+
+
+## Simulation traits: H2 0.1 - 0.9
+H2 = 0.1 : 0.9   
+```python
+  ${dir}/software/ldak5.XXX \
+  --make-phenos data_h2_1 \
+  --bfile data_qc \
+  --prevalence 0.1 \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 1 \
+  --num-causals 100
+```   
