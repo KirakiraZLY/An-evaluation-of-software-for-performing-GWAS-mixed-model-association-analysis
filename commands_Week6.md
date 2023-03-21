@@ -119,6 +119,7 @@ Phenotype: height.pheno
   --phenoFile ${dir}/MAMA/height1.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --covarCol PC{1:20} \
+  --extract ${dir}/MAMA/Regenie_Height/Chinese_snps_pass.snplist
   --bsize 100 \
   --out ${dir}/MAMA/Regenie_Height/data_Regenie_Chinese_height_1
 ```
