@@ -125,6 +125,18 @@ Phenotype: height.pheno
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
 Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/Bolt_Height/data_Chinese --export bgen-1.2 --out  ${dir}/MAMA/Bolt_Height/data_Chinese   
 **Output**: data_Regenie_Chinese_height_1_pred.list
+
+In Step 1, **-residualizing and scaling genotypes...ERROR: !! Uh-oh, SNP rs6598892 has low variance (=0.000000)**. So I should remove SNPs below mac, while I actually have done it already.   
+```python
+  ${dir}/software/plink2 \
+  --bfile data_Chinese \
+  --mac 100 \
+  --write-snplist \
+  --out Chinese_snps_pass
+```
+
+
+
 2. 
 ```python
   regenie \
