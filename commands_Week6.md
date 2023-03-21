@@ -60,14 +60,14 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
 
 ## Simulation traits: H2 0.1 - 0.9
 H2 = 0.1 : 0.9   
+Causal SNPs = 1000   
 ```python
   ${dir}/software/ldak5.XXX \
-  --make-phenos data_h2_1 \
-  --bfile data_qc \
-  --prevalence 0.1 \
+  --make-phenos ${dir}/h2_test/data_h2_1 \
+  --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
-  --her 0.5 \
-  --num-phenos 1 \
-  --num-causals 100
+  --her 0.1 \
+  --num-phenos 4 \
+  --num-causals 1000
 ```   
