@@ -126,13 +126,12 @@ conda activate regenie_env
 
   regenie \
   --step 2 \
-  --bgen $${dir}/MAMA/Bolt_Height/data_AsianSWC.bgen \
+  --bgen ${dir}/MAMA/Bolt_Height/data_AsianSWC.bgen \
   --covarFile ${dir}/MAMA/covar_PC.covars \
   --covarCol PC{1:20} \
   --phenoFile ${dir}/MAMA/height1.pheno \
   --bsize 200 \
   --qt \
-  --firth --approx \
   --pThresh 0.01 \
   --pred ${dir}/MAMA/Regenie_Height/data_Regenie_AsianSWC_height_1_pred.list \
   --out ${dir}/MAMA/Regenie_Height/data_regenie_AsianSWC_height_out_firth_2
@@ -234,7 +233,6 @@ conda activate regenie_env
   --phenoFile ${dir}/MAMA/height1.pheno \
   --bsize 200 \
   --qt \
-  --firth --approx \
   --pThresh 0.01 \
   --pred ${dir}/MAMA/Regenie_Height/data_Regenie_Chinese_height_1_pred.list \
   --out ${dir}/MAMA/Regenie_Height/data_regenie_Chinese_height_out_firth_2
@@ -313,7 +311,6 @@ conda activate regenie_env
   --phenoFile ${dir}/MAMA/height1.pheno \
   --bsize 200 \
   --qt \
-  --firth --approx \
   --pThresh 0.01 \
   --pred ${dir}/MAMA/Regenie_Height/data_Regenie_White_height_1_pred.list \
   --out ${dir}/MAMA/Regenie_Height/data_regenie_White_height_out_firth_2
@@ -391,7 +388,6 @@ conda activate regenie_env
   --phenoFile ${dir}/MAMA/height1.pheno \
   --bsize 200 \
   --qt \
-  --firth --approx \
   --pThresh 0.01 \
   --pred ${dir}/MAMA/Regenie_Height/data_Regenie_Black_height_1_pred.list \
   --out ${dir}/MAMA/Regenie_Height/data_regenie_Black_height_out_firth_2
@@ -470,7 +466,6 @@ conda activate regenie_env
   --phenoFile ${dir}/MAMA/height1.pheno \
   --bsize 200 \
   --qt \
-  --firth --approx \
   --pThresh 0.01 \
   --pred ${dir}/MAMA/Regenie_Height/data_Regenie_Mixed_height_1_pred.list \
   --out ${dir}/MAMA/Regenie_Height/data_regenie_Mixed_height_out_firth_2
