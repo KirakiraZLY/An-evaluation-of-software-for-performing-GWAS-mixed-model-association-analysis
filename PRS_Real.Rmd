@@ -199,14 +199,14 @@ names(fam3) <- c("FID","IID","FAR","MOR","SEX","Phenotype","Ancestry")
 names(fam4) <- c("FID","IID","FAR","MOR","SEX","Phenotype","Ancestry")
 names(fam5) <- c("FID","IID","FAR","MOR","SEX","Phenotype","Ancestry")
 
-fam1 = cbind(fam1, anestr = "AsianSWC")
-fam2 = cbind(fam2, anestr = "Chinese")
-fam3 = cbind(fam3, anestr = "Black")
-fam4 = cbind(fam4, anestr = "Mixed")
-fam5 = cbind(fam5, anestr = "White")
+fam1 = cbind(fam1, Ancestry = "AsianSWC")
+fam2 = cbind(fam2, Ancestry = "Chinese")
+fam3 = cbind(fam3, Ancestry = "Black")
+fam4 = cbind(fam4, Ancestry = "Mixed")
+fam5 = cbind(fam5, Ancestry = "White")
 
 fam_total <- rbind(fam1, fam2, fam3, fam4, fam5)
-fam_total <- select(fam_total, c(1,2,6,7))
+fam_total <- select(fam_total, c(1,2,7))
 ```
 
 
@@ -217,25 +217,27 @@ PRS <- read_table2("Result_PRSice2_Regenie_Whole_Height.best", col_names = TRUE)
 Pheno <- read_table2("height1.pheno", col_names = TRUE)
 covar <- read_table2("covar_PC.covars", col_names = TRUE)
 covar$Sex <- as.factor(covar$Sex)
-covar$Ancestry <- as.factor(fam_total$anestr)
+covar$Ancestry <- as.factor(fam_total$Ancestry)
 covar <- select(covar, c(1:4))
 levels(covar$Sex) <- c("Male","Female")
 # names(PRS)[3] <- "Phenotype"
 dat <- merge(merge(PRS, Pheno, by = c("FID","IID")),covar, by = c("FID","IID"))
 dat <- select(dat, -c(3))
+# dat$Ancestry <- as.factor(fam_total$anestr)
+dat <- merge(dat, fam_total, by.x = c("FID","IID"))
 ggplot(dat, aes(x = PRS, y = Phenotype, col = Ancestry)) +
   geom_point() +
-  xlab("Polygenic Risk Score in Asian") +
-  ylab("Urate") +
-  labs(title = "PRSice2, Regenie, Asian, Urate") +
+  xlab("Polygenic Risk Score in different ancestry") +
+  ylab("Height") +
+  labs(title = "PRSice2, Regenie, 5 Ancestries, Height") +
   NULL
 
 
 ggplot(dat, aes(x = PRS, col = Ancestry)) +
-  geom_histogram(position = 'identity') +
+  geom_density(position = 'identity') +
   xlab("PRS score") +
   ylab("Density") +
-  labs(title = "PRS distribution stratified by Sex, BY PRSice2, Regenie, Urate") +
+  labs(title = "PRS distribution stratified by Ancestry, BY PRSice2, Regenie, Height") +
   NULL
 ```
 
