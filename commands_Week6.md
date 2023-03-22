@@ -257,3 +257,5 @@ Output: data_regenie_Mixed_height_out_firth_2_Phenotype.regenie
 ## META
 ## PRS
 cd ${dir}/PRS
+1. I calculate PRS scores for the whole data, while it performed badly.
+2. I calculate PRS scores by each ancestry, and I'll have 5 different files. Then I will combine them and see the result.
