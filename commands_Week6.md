@@ -253,3 +253,7 @@ Convert .bed to .bgen:  ${dir}/software/plink2 --bfile  ${dir}/MAMA/Bolt_Height/
   --out ${dir}/MAMA/Regenie_Height/data_regenie_Mixed_height_out_firth_2
 ```
 Output: data_regenie_Mixed_height_out_firth_2_Phenotype.regenie
+
+## META
+## PRS
+cd ${dir}/PRS
