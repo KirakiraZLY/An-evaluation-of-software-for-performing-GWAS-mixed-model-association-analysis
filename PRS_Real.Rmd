@@ -1,0 +1,407 @@
+---
+title: "PRS_Regenie_Urate"
+author: "zly"
+date: "2023-03-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+# library(GENESIS)
+library(qqman)
+library(tidyverse)
+library(tidyr)
+library(fpp2)
+```
+
+# REGENIE
+https://choishingwan.github.io/PRS-Tutorial/plink/
+## Update Effect Size and convert file format
+```{r}
+dat <- read_table2(file = "METAANALYSIS_Regenie_5Ancestries_Height.tbl", col_names = TRUE)
+# names(dat) <- 
+
+assoc_data <- read_table2("data_regenie_White_urate_out_firth_2_Phenotype_modified.regenie", col_names = TRUE)
+# hist(assoc_data$P_BOLT_LMM)
+assoc_data1 <- assoc_data[,c("CHROM","GENPOS","ID")]
+names(assoc_data1) <- c("CHR","BP","SNP")
+dat1 <- select(dat, -c(7,8,9,10,11))
+names(dat1) <- c("SNP", "A1", "A2", "BETA", "SE", "P", "N")
+dat1 <- merge(assoc_data1, dat1, by = "SNP")
+dat1$OR <- exp(dat1$BETA)
+cols <- colnames(dat1)
+new_cols <- c(cols[2:3], cols[1], cols[4:5], cols[9], cols[7:8], cols[10], cols[6])
+dat1 <- dat1[,new_cols]
+dat1$A1 <- toupper(dat1$A1)
+dat1$A2 <- toupper(dat1$A2)
+write.table(dat1, "META_Regenie_Urate.TBL.Transformed", quote = F, row.names = F)
+```
+
+
+
+## FInding the best-fit PRS
+```{r}
+p.threshold <- c(0.001,0.05,0.1,0.2,0.3,0.4,0.5)
+# Read in the phenotype file 
+phenotype <- read.table("urate_1.pheno", header=T)
+# Read in the PCs
+pcs <- read.table("data_Asian.eigenvec", header=F)
+# The default output from plink does not include a header
+# To make things simple, we will add the appropriate headers
+# (1:6 because there are 6 PCs)
+colnames(pcs) <- c("FID", "IID", paste0("PC",1:6)) 
+pcs <- select(pcs, c(1:8))
+# Read in the covariates (here, it is sex
+covariate <- read.table("covar_PC.covars", header=T)
+covariate <- select(covariate, c(1:4))
+# Now merge the files
+pheno <- merge(merge(phenotype, covariate, by=c("FID", "IID")), pcs, by=c("FID","IID"))
+# We can then calculate the null model (model with PRS) using a linear regression 
+# (as height is quantitative)
+null.model <- lm(Phenotype~., data=pheno[,!colnames(pheno)%in%c("FID","IID")])
+# And the R2 of the null model is 
+null.r2 <- summary(null.model)$r.squared
+prs.result <- NULL
+for(i in p.threshold){
+    # Go through each p-value threshold
+    prs <- read.table(paste0("PRS_Regenie_Urate.",i,".profile"), header=T)
+    # Merge the prs with the phenotype matrix
+    # We only want the FID, IID and PRS from the PRS file, therefore we only select the 
+    # relevant columns
+    pheno.prs <- merge(pheno, prs[,c("FID","IID", "SCORE")], by=c("FID", "IID"))
+    # Now perform a linear regression on Height with PRS and the covariates
+    # ignoring the FID and IID from our model
+    model <- lm(Phenotype~., data=pheno.prs[,!colnames(pheno.prs)%in%c("FID","IID")])
+    # model R2 is obtained as 
+    model.r2 <- summary(model)$r.squared
+    # R2 of PRS is simply calculated as the model R2 minus the null R2
+    prs.r2 <- model.r2-null.r2
+    # We can also obtain the coeffcient and p-value of association of PRS as follow
+    prs.coef <- summary(model)$coeff["SCORE",]
+    prs.beta <- as.numeric(prs.coef[1])
+    prs.se <- as.numeric(prs.coef[2])
+    prs.p <- as.numeric(prs.coef[4])
+    # We can then store the results
+    prs.result <- rbind(prs.result, data.frame(Threshold=i, R2=prs.r2, P=prs.p, BETA=prs.beta,SE=prs.se))
+}
+# Best result is:
+prs.result[which.max(prs.result$R2),]
+```
+
+## VIsualization
+```{r}
+# We strongly recommend the use of ggplot2. Only follow this code if you
+# are desperate.
+# Specify that we want to generate plot in EUR.height.bar.png
+png("EUR.height.bar.png",
+    height=10, width=10, res=300, unit="in")
+# First, obtain the colorings based on the p-value
+col <- suppressWarnings(colorRampPalette(c("dodgerblue", "firebrick")))
+# We want the color gradient to match the ranking of p-values
+prs.result <- prs.result[order(-log10(prs.result$P)),]
+prs.result$color <-  col(nrow(prs.result))
+prs.result <- prs.result[order(prs.result$Threshold),]
+# generate a pretty format for p-value output
+prs.result$print.p <- round(prs.result$P, digits = 3)
+prs.result$print.p[!is.na(prs.result$print.p) & prs.result$print.p == 0 ] <-
+    format(prs.result$P[!is.na(prs.result$print.p) & prs.result$print.p == 0 ], digits = 2)
+prs.result$print.p <- sub("e", "*x*10^", prs.result$print.p)
+# Generate the axis labels
+xlab <- expression(italic(P) - value ~ threshold ~ (italic(P)[T]))
+ylab <- expression(paste("PRS model fit:  ", R ^ 2))
+# Setup the drawing area
+layout(t(1:2), widths=c(8.8,1.2))
+par( cex.lab=1.5, cex.axis=1.25, font.lab=2, 
+    oma=c(0,0.5,0,0),
+    mar=c(4,6,0.5,0.5))
+# Plotting the bars
+b<- barplot(height=prs.result$R2, 
+            col=prs.result$color, 
+            border=NA, 
+            ylim=c(0, max(prs.result$R2)*1.25), 
+            axes = F, ann=F)
+# Plot the axis labels and axis ticks
+odd <- seq(0,nrow(prs.result)+1,2)
+even <- seq(1,nrow(prs.result),2)
+axis(side=1, at=b[odd], labels=prs.result$Threshold[odd], lwd=2)
+axis(side=1, at=b[even], labels=prs.result$Threshold[even],lwd=2)
+axis(side=1, at=c(0,b[1],2*b[length(b)]-b[length(b)-1]), labels=c("","",""), lwd=2, lwd.tick=0)
+# Write the p-value on top of each bar
+text( parse(text=paste(
+    prs.result$print.p)), 
+    x = b+0.1, 
+    y =  prs.result$R2+ (max(prs.result$R2)*1.05-max(prs.result$R2)), 
+    srt = 45)
+# Now plot the axis lines
+box(bty='L', lwd=2)
+axis(2,las=2, lwd=2)
+# Plot the axis titles
+title(ylab=ylab, line=4, cex.lab=1.5, font=2 )
+title(xlab=xlab, line=2.5, cex.lab=1.5, font=2 )
+# Generate plot area for the legend
+par(cex.lab=1.5, cex.axis=1.25, font.lab=2, 
+    mar=c(20,0,20,4))
+prs.result <- prs.result[order(-log10(prs.result$P)),]
+image(1, -log10(prs.result$P), t(seq_along(-log10(prs.result$P))), col=prs.result$color, axes=F,ann=F)
+axis(4,las=2,xaxs='r',yaxs='r', tck=0.2, col="white")
+# plot legend title
+title(bquote(atop(-log[10] ~ model, italic(P) - value), ), 
+        line=2, cex=1.5, font=2, adj=0)
+# write the plot to file
+```
+
+
+## PRS score distribution
+```{r}
+
+PRS <- read_table2("PRS_Regenie_Urate.0.1.profile", col_names = TRUE)
+# hist(PRS$SCORE)
+Pheno <- read_table2("urate_1.pheno", col_names = TRUE)
+covar <- read_table2("covar_PC.covars", col_names = TRUE)
+covar$Sex <- as.factor(covar$Sex)
+covar <- select(covar, c(1:4))
+levels(covar$Sex) <- c("Male","Female")
+# names(PRS)[3] <- "Phenotype"
+dat <- merge(merge(PRS, Pheno, by = c("FID","IID")),covar, by = c("FID","IID"))
+dat <- select(dat, -c(3))
+ggplot(dat, aes(x = SCORE, y = Phenotype, col = Sex)) +
+  geom_point() +
+  xlab("Polygenic Risk Score in Asian") +
+  ylab("Urate") +
+  labs(title = "PRS,Regenie, Asian, Urate") +
+  NULL
+```
+
+
+# PRSice2
+```{r}
+covariate <- read.table("covar_PC.covars", header = T)
+pcs <- read.table("data_prune_pca.eigenvec")
+# colnames
+cov <- select(covariate, c(1,2,4,6:11))
+# covariate <- select(covariate)
+write.table(cov, "data.covariate", quote = F, row.names = F)
+```
+## Next step
+Follow the batch command in Week6, to obtain PRS results.
+## PRS score distribution
+
+```{r}
+fam1 <- read_table2("./FAM_Ancestry/data_AsianSWC.fam", col_names = FALSE)
+fam2 <- read_table2("./FAM_Ancestry/data_Chinese.fam", col_names = FALSE)
+fam3 <- read_table2("./FAM_Ancestry/data_Black.fam", col_names = FALSE)
+fam4 <- read_table2("./FAM_Ancestry/data_Mixed.fam", col_names = FALSE)
+fam5 <- read_table2("./FAM_Ancestry/data_White.fam", col_names = FALSE)
+
+# fam1 <- df.insert(7,Ancestry,"AsianSWC", allow_duplicates = TRUE)
+names(fam1) <- c("FID","IID","FAR","MOR","SEX","Phenotype","Ancestry")
+names(fam2) <- c("FID","IID","FAR","MOR","SEX","Phenotype","Ancestry")
+names(fam3) <- c("FID","IID","FAR","MOR","SEX","Phenotype","Ancestry")
+names(fam4) <- c("FID","IID","FAR","MOR","SEX","Phenotype","Ancestry")
+names(fam5) <- c("FID","IID","FAR","MOR","SEX","Phenotype","Ancestry")
+
+fam1 = cbind(fam1, anestr = "AsianSWC")
+fam2 = cbind(fam2, anestr = "Chinese")
+fam3 = cbind(fam3, anestr = "Black")
+fam4 = cbind(fam4, anestr = "Mixed")
+fam5 = cbind(fam5, anestr = "White")
+
+fam_total <- rbind(fam1, fam2, fam3, fam4, fam5)
+fam_total <- select(fam_total, c(1,2,6,7))
+```
+
+
+```{r}
+
+PRS <- read_table2("Result_PRSice2_Regenie_Whole_Height.best", col_names = TRUE)
+# hist(PRS$SCORE)
+Pheno <- read_table2("height1.pheno", col_names = TRUE)
+covar <- read_table2("covar_PC.covars", col_names = TRUE)
+covar$Sex <- as.factor(covar$Sex)
+covar$Ancestry <- as.factor(fam_total$anestr)
+covar <- select(covar, c(1:4))
+levels(covar$Sex) <- c("Male","Female")
+# names(PRS)[3] <- "Phenotype"
+dat <- merge(merge(PRS, Pheno, by = c("FID","IID")),covar, by = c("FID","IID"))
+dat <- select(dat, -c(3))
+ggplot(dat, aes(x = PRS, y = Phenotype, col = Ancestry)) +
+  geom_point() +
+  xlab("Polygenic Risk Score in Asian") +
+  ylab("Urate") +
+  labs(title = "PRSice2, Regenie, Asian, Urate") +
+  NULL
+
+
+ggplot(dat, aes(x = PRS, col = Ancestry)) +
+  geom_histogram(position = 'identity') +
+  xlab("PRS score") +
+  ylab("Density") +
+  labs(title = "PRS distribution stratified by Sex, BY PRSice2, Regenie, Urate") +
+  NULL
+```
+
+
+# LDpred
+```{r}
+library(bigsnpr)
+options(bigstatsr.check.parallel.blas = FALSE)
+options(default.nproc.blas = NULL)
+
+library(data.table)
+library(magrittr)
+phenotype <- fread("urate_1.pheno")
+covariate <- read.table("covar_PC.covars", header = T)
+pcs <- read.table("data_Asian.eigenvec")
+# colnames
+cov <- select(covariate, c(1,2,4,6:11))
+# generate required table
+pheno <- select(covariate, c(1,2,5,4,6:11))
+data_Asian_fam <- read.table("data_Asian.fam")
+data_Asian_fam <- select(data_Asian_fam, c(1,2))
+names(data_Asian_fam) <- c("FID","IID")
+
+pheno <- merge(pheno, data_Asian_fam)
+
+#### LDpred2 authors recommend restricting the analysis to only the HapMap3 SNPs
+info <- readRDS(runonce::download_file(
+  "https://ndownloader.figshare.com/files/25503788",
+  fname = "map_hm3_ldpred2.rds"))
+
+
+#### 3. Load and transform the summary statistic file
+# Read in the summary statistic file
+sumstats <- bigreadr::fread2("META_Regenie_Urate.TBL.Transformed") 
+# LDpred 2 require the header to follow the exact naming
+names(sumstats) <-
+    c("chr",
+    "pos",
+    "rsid",
+    "a1",
+    "a0",
+    "n_eff",
+    "beta_se",
+    "p",
+    "OR",
+    "beta"
+    )
+# Transform the OR into log(OR)
+# sumstats$beta <- log(sumstats$OR)
+# Filter out hapmap SNPs
+sumstats <- sumstats[sumstats$rsid%in% info$rsid,]
+```
+
+
+```{r}
+#### Calculate LD matrix
+# Get maximum amount of cores
+NCORES <- nb_cores()
+# Open a temporary file
+tmp <- tempfile(tmpdir = "tmp-data")
+on.exit(file.remove(paste0(tmp, ".sbk")), add = TRUE)
+# Initialize variables for storing the LD score and LD matrix
+corr <- NULL
+ld <- NULL
+# We want to know the ordering of samples in the bed file 
+fam.order <- NULL
+# preprocess the bed file (only need to do once for each data set)
+# snp_readBed("data_Asian.bed")
+# now attach the genotype object
+obj.bigSNP <- snp_attach("data_Asian.rds")
+# extract the SNP information from the genotype
+map <- obj.bigSNP$map[-3]
+names(map) <- c("chr", "rsid", "pos", "a1", "a0")
+# perform SNP matching
+info_snp <- snp_match(sumstats, map)
+# Assign the genotype to a variable for easier downstream analysis
+genotype <- obj.bigSNP$genotypes
+# Rename the data structures
+CHR <- map$chr
+POS <- map$pos
+# get the CM information from 1000 Genome
+# will download the 1000G file to the current directory (".")
+POS2 <- snp_asGeneticPos(CHR, POS, dir = ".")
+# calculate LD
+for (chr in 1:22) {
+    # Extract SNPs that are included in the chromosome
+    ind.chr <- which(info_snp$chr == chr)
+    ind.chr2 <- info_snp$`_NUM_ID_`[ind.chr]
+    # Calculate the LD
+    corr0 <- snp_cor(
+            genotype,
+            ind.col = ind.chr2,
+            ncores = NCORES,
+            infos.pos = POS2[ind.chr2],
+            size = 3 / 1000
+        )
+    if (chr == 1) {
+        ld <- Matrix::colSums(corr0^2)
+        corr <- as_SFBM(corr0, tmp)
+    } else {
+        ld <- c(ld, Matrix::colSums(corr0^2))
+        corr$add_columns(corr0, nrow(corr))
+    }
+}
+# We assume the fam order is the same across different chromosomes
+fam.order <- as.data.table(obj.bigSNP$fam)
+# Rename fam order
+setnames(fam.order,
+        c("family.ID", "sample.ID"),
+        c("FID", "IID"))
+
+#### LD score Regression
+df_beta <- info_snp[,c("beta", "beta_se", "n_eff", "_NUM_ID_")]
+ldsc <- snp_ldsc(   ld, 
+                    length(ld), 
+                    chi2 = (df_beta$beta / df_beta$beta_se)^2,
+                    sample_size = df_beta$n_eff, 
+                    blocks = NULL)
+h2_est <- ldsc[["h2"]]
+
+#### Calculate the null R2
+# Reformat the phenotype file such that y is of the same order as the 
+# sample ordering in the genotype file
+# y <- pheno[fam.order, on = c("FID", "IID")]
+y <- merge(pheno, fam.order, by.all = c("FID","IID"))
+# Calculate the null R2
+# use glm for binary trait 
+# (will also need the fmsb package to calculate the pseudo R2)
+null.model <- paste("PC", 1:6, sep = "", collapse = "+") %>%
+    paste0("Phenotype~Sex+", .) %>%
+    as.formula %>%
+    lm(., data = y) %>%
+    summary
+null.r2 <- null.model$r.squared
+
+beta_inf <- snp_ldpred2_inf(corr, df_beta, h2 = h2_est)
+
+#### Obtain model PRS
+if(is.null(obj.bigSNP)){
+    obj.bigSNP <- snp_attach("data_Asian.rds")
+}
+genotype <- obj.bigSNP$genotypes
+# calculate PRS for all samples
+ind.test <- 1:nrow(genotype)
+pred_inf <- big_prodVec(    genotype,
+                            beta_inf,
+                            ind.row = ind.test,
+                            ind.col = info_snp$`_NUM_ID_`)
+
+
+#### Get the final performance of the LDpred models.
+reg.formula <- paste("PC", 1:6, sep = "", collapse = "+") %>%
+    paste0("Phenotype~PRS+Sex+", .) %>%
+    as.formula
+reg.dat <- y
+reg.dat$PRS <- pred_inf
+inf.model <- lm(reg.formula, dat=reg.dat) %>%
+    summary(result <- data.table(
+    infinitesimal = inf.model$r.squared - null.r2,
+    null = null.r2
+))
+```
+
+```{r}
+
+
+
+```
+
