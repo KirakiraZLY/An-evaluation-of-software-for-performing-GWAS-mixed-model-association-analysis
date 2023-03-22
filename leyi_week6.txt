@@ -521,7 +521,6 @@ echo "#"'!'"/bin/bash
 #SBATCH -t 30:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred 
-#SBATCH --constraint \"s05\"
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate master-thesis
@@ -529,19 +528,19 @@ conda activate master-thesis
 Rscript ${dir}/PRS/PRSice2/PRSice.R \
     --prsice ${dir}/PRS/PRSice2/PRSice_linux \
     --base ${dir}/PRS/META_Regenie_Urate.TBL.Transformed \
-    --target ${dir}/PRS/data_Asian \
+    --target ${dir}/data_qc \
     --binary-target F \
-    --pheno ${dir}/PRS/urate_1.pheno \
-    --cov ${dir}/PRS/data.covariate \
+    --pheno ${dir}/height1.pheno \
+    --cov ${dir}/PRS/PRS_META_Regenie_Height/data.covariate \
     --base-maf MAF:0.01 \
     --base-info INFO:0.8 \
     --stat OR \
     --or \
     --quantile 20 \
-    --out ${dir}/PRS/PRSice2/Result_PRSice2_Asian_Urate
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Result_PRSice2_Regenie_Whole_Height
 
-" > ${dir}/scripts/PRS/PRSice2_Asian_urate
+" > ${dir}/scripts/PRS/PRSice2_Regenie_Whole_Height
 
 # I am doing blabla
 cd ${dir}/scripts/PRS
-sbatch PRSice2_Asian_urate
+sbatch PRSice2_Regenie_Whole_Height
