@@ -544,3 +544,159 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
 # I am doing blabla
 cd ${dir}/scripts/PRS
 sbatch PRSice2_Regenie_Whole_Height
+
+###################################
+PRSice2 for Regenie, Height, by ancestry
+###################################
+################# AsianSWC
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred 
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate master-thesis
+
+Rscript ${dir}/PRS/PRSice2/PRSice.R \
+    --prsice ${dir}/PRS/PRSice2/PRSice_linux \
+    --base ${dir}/PRS/META_Regenie_Urate.TBL.Transformed \
+    --target ${dir}/MAMA/Bolt_Height/data_AsianSWC \
+    --binary-target F \
+    --pheno ${dir}/height1.pheno \
+    --cov ${dir}/PRS/PRS_META_Regenie_Height/data.covariate \
+    --base-maf MAF:0.01 \
+    --base-info INFO:0.8 \
+    --stat OR \
+    --or \
+    --quantile 20 \
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Result_PRSice2_Regenie_AsianSWC_Height
+
+" > ${dir}/scripts/PRS/PRSice2_Regenie_AsianSWC_Height
+
+# I am doing blabla
+cd ${dir}/scripts/PRS
+sbatch PRSice2_Regenie_AsianSWC_Height
+################# Chinese
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred 
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate master-thesis
+
+Rscript ${dir}/PRS/PRSice2/PRSice.R \
+    --prsice ${dir}/PRS/PRSice2/PRSice_linux \
+    --base ${dir}/PRS/META_Regenie_Urate.TBL.Transformed \
+    --target ${dir}/MAMA/Bolt_Height/data_Chinese \
+    --binary-target F \
+    --pheno ${dir}/height1.pheno \
+    --cov ${dir}/PRS/PRS_META_Regenie_Height/data.covariate \
+    --base-maf MAF:0.01 \
+    --base-info INFO:0.8 \
+    --stat OR \
+    --or \
+    --quantile 20 \
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Result_PRSice2_Regenie_Chinese_Height
+
+" > ${dir}/scripts/PRS/PRSice2_Regenie_Chinese_Height
+
+# I am doing blabla
+cd ${dir}/scripts/PRS
+sbatch PRSice2_Regenie_Chinese_Height
+################# White
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred 
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate master-thesis
+
+Rscript ${dir}/PRS/PRSice2/PRSice.R \
+    --prsice ${dir}/PRS/PRSice2/PRSice_linux \
+    --base ${dir}/PRS/META_Regenie_Urate.TBL.Transformed \
+    --target ${dir}/MAMA/Bolt_Height/data_White \
+    --binary-target F \
+    --pheno ${dir}/height1.pheno \
+    --cov ${dir}/PRS/PRS_META_Regenie_Height/data.covariate \
+    --base-maf MAF:0.01 \
+    --base-info INFO:0.8 \
+    --stat OR \
+    --or \
+    --quantile 20 \
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Result_PRSice2_Regenie_White_Height
+
+" > ${dir}/scripts/PRS/PRSice2_Regenie_White_Height
+
+# I am doing blabla
+cd ${dir}/scripts/PRS
+sbatch PRSice2_Regenie_White_Height
+
+################# Black
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred 
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate master-thesis
+
+Rscript ${dir}/PRS/PRSice2/PRSice.R \
+    --prsice ${dir}/PRS/PRSice2/PRSice_linux \
+    --base ${dir}/PRS/META_Regenie_Urate.TBL.Transformed \
+    --target ${dir}/MAMA/Bolt_Height/data_Black \
+    --binary-target F \
+    --pheno ${dir}/height1.pheno \
+    --cov ${dir}/PRS/PRS_META_Regenie_Height/data.covariate \
+    --base-maf MAF:0.01 \
+    --base-info INFO:0.8 \
+    --stat OR \
+    --or \
+    --quantile 20 \
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Result_PRSice2_Regenie_Black_Height
+
+" > ${dir}/scripts/PRS/PRSice2_Regenie_Black_Height
+
+# I am doing blabla
+cd ${dir}/scripts/PRS
+sbatch PRSice2_Regenie_Black_Height
+
+################# Mixed
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred 
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate master-thesis
+
+Rscript ${dir}/PRS/PRSice2/PRSice.R \
+    --prsice ${dir}/PRS/PRSice2/PRSice_linux \
+    --base ${dir}/PRS/META_Regenie_Urate.TBL.Transformed \
+    --target ${dir}/MAMA/Bolt_Height/data_Mixed \
+    --binary-target F \
+    --pheno ${dir}/height1.pheno \
+    --cov ${dir}/PRS/PRS_META_Regenie_Height/data.covariate \
+    --base-maf MAF:0.01 \
+    --base-info INFO:0.8 \
+    --stat OR \
+    --or \
+    --quantile 20 \
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Result_PRSice2_Regenie_Mixed_Height
+
+" > ${dir}/scripts/PRS/PRSice2_Regenie_Mixed_Height
+
+# I am doing blabla
+cd ${dir}/scripts/PRS
+sbatch PRSice2_Regenie_Mixed_Height
