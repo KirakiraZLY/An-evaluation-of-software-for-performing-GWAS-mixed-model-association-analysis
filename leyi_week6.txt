@@ -510,3 +510,38 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
 # I am doing blabla
 cd ${dir}/scripts/PRS
 sbatch PRSice2_Asian_urate
+
+
+###################################
+PRSice2 for Regenie, Height
+###################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred 
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate master-thesis
+
+Rscript ${dir}/PRS/PRSice2/PRSice.R \
+    --prsice ${dir}/PRS/PRSice2/PRSice_linux \
+    --base ${dir}/PRS/META_Regenie_Urate.TBL.Transformed \
+    --target ${dir}/PRS/data_Asian \
+    --binary-target F \
+    --pheno ${dir}/PRS/urate_1.pheno \
+    --cov ${dir}/PRS/data.covariate \
+    --base-maf MAF:0.01 \
+    --base-info INFO:0.8 \
+    --stat OR \
+    --or \
+    --quantile 20 \
+    --out ${dir}/PRS/PRSice2/Result_PRSice2_Asian_Urate
+
+" > ${dir}/scripts/PRS/PRSice2_Asian_urate
+
+# I am doing blabla
+cd ${dir}/scripts/PRS
+sbatch PRSice2_Asian_urate
