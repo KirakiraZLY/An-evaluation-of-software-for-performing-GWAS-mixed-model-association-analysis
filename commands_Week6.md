@@ -350,23 +350,25 @@ dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink \
     --bfile ${dir}/MAMA/Bolt_Height/data_AsianSWC \
     --keep ${dir}/MAMA/Bolt_Height/data_AsianSWC.fam \
-    --extract data_Asian.snplist \
     --indep-pairwise 200 50 0.25 \
-    --out /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/data_AsianSWC
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Plink/data_AsianSWC
 ```
 
 
-
+### Accounting for Population Stratification
 ```python
 # First, we need to perform prunning
-./plink \
-    --bfile data_Asian \
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink \
+    --bfile ${dir}/MAMA/Bolt_Height/data_AsianSWC \
     --indep-pairwise 200 50 0.25 \
-    --out data_Asian
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Plink/data_AsianSWC
+
 # Then we calculate the first 6 PCs
-./plink \
-    --bfile data_Asian \
-    --extract data_Asian.prune.in \
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink \
+    --bfile ${dir}/MAMA/Bolt_Height/data_AsianSWC \
+    --extract ${dir}/PRS/PRS_META_Regenie_Height/Plink/data_AsianSWC.prune.in \
     --pca 10 \
-    --out data_Asian
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Plink/data_AsianSWC
 ```
