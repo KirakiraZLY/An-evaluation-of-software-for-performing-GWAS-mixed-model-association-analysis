@@ -700,3 +700,31 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
 # I am doing blabla
 cd ${dir}/scripts/PRS
 sbatch PRSice2_Regenie_Mixed_Height
+
+
+######################################
+PRS by plink
+######################################
+################# Calculating
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred 
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink \
+    --bfile ${dir}/MAMA/Bolt_Height/data_AsianSWC \
+    --score ${dir}/PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed 3 4 10 header \
+    --q-score-range ${dir}/PRS/PRS_META_Regenie_Height/Plink/range_list ${dir}/PRS/PRS_META_Regenie_Height/Plink/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue \
+    --extract ${dir}/PRS/PRS_META_Regenie_Height/Plink/data_Plink_regenie_height.valid.snp \
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Plink/PRS_AsianSWC_Regenie_Height
+
+
+" > ${dir}/scripts/PRS/Plink_PRS_Regenie_Height_Calculating
+
+# I am doing blabla
+cd ${dir}/scripts/PRS
+sbatch Plink_PRS_Regenie_Height_Calculating

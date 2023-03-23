@@ -294,7 +294,7 @@ write.table(dat1, "META_Regenie_Urate.TBL.Transformed", quote = F, row.names = F
 SNP and P-value
 ```
 awk 'NR!=1{print $3}' data_Plink_regenie_height.clumped >  data_Plink_regenie_height.valid.snp
-awk '{print $1,$8}' METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed > METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue
+awk '{print $3,$8}' METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed > METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue
 ```
 
 ```
@@ -309,35 +309,50 @@ echo "0.5 0 0.5" >> range_list
 
 ### Calculating PRS with Plink
 ```
-./software/plink \
-    --bfile ./MAMA/Bolt_Height/data_AsianSWC \
-    --score ./PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed 3 4 10 header \
-    --q-score-range ./PRS/PRS_META_Regenie_Height/Plink/range_list ./PRS/PRS_META_Regenie_Height/Plink/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue \
-    --extract ./PRS/PRS_META_Regenie_Height/Plink/data_Plink_regenie_height.valid.snp \
-    --out ./PRS/PRS_META_Regenie_Height/Plink/PRS_AsianSWC_Regenie_Height
+/home/lezh/dsmwpred/zly/software/plink \
+    --bfile /home/lezh/dsmwpred/zly/MAMA/Bolt_Height/data_AsianSWC \
+    --score /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed 3 4 10 header \
+    --q-score-range /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/range_list /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue \
+    --extract /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/data_Plink_regenie_height.valid.snp \
+    --out /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/PRS_AsianSWC_Regenie_Height
 ```
 Columns 3, 4, 9 are: SNP ID, Effective Allele, BETA(effect size)
 
 ### Accounting for Population Stratification
 ```python
-./plink \
-    --bfile data_Asian \
+/home/lezh/dsmwpred/zly/software/plink \
+    --bfile /home/lezh/dsmwpred/zly/MAMA/Bolt_Height/data_AsianSWC \
     --maf 0.01 \
     --hwe 1e-6 \
     --geno 0.01 \
     --mind 0.01 \
     --write-snplist \
     --make-just-fam \
-    --out data_Asian
+    --out /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/data_AsianSWC
+```
+
+### QC again on each ancestry
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink \
+    --bfile ${dir}/MAMA/Bolt_Height/data_AsianSWC \
+    --maf 0.01 \
+    --hwe 1e-6 \
+    --geno 0.01 \
+    --mind 0.01 \
+    --write-snplist \
+    --make-just-fam \
+    --out ${dir}/PRS/PRS_META_Regenie_Height/Plink/data_AsianSWC
 ```
 
 ```python
-./plink \
-    --bfile data_Asian \
-    --keep data_Asian.fam \
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink \
+    --bfile ${dir}/MAMA/Bolt_Height/data_AsianSWC \
+    --keep ${dir}/MAMA/Bolt_Height/data_AsianSWC.fam \
     --extract data_Asian.snplist \
     --indep-pairwise 200 50 0.25 \
-    --out data_Asian
+    --out /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/data_AsianSWC
 ```
 
 
