@@ -290,3 +290,68 @@ write.table(dat1, "META_Regenie_Urate.TBL.Transformed", quote = F, row.names = F
     --clump-field P \
     --out ./PRS/PRS_META_Regenie_Height/data_Plink_regenie_height
 ```
+
+SNP and P-value
+```
+awk 'NR!=1{print $3}' data_regenie_urate.clumped >  data_regenie_urate.valid.snp
+awk '{print $1,$8}' META_Regenie_Urate.TBL.Transformed > META_Regenie_Urate.TBL.Transformed.pvalue
+```
+
+```
+echo "0.001 0 0.001" > range_list 
+echo "0.05 0 0.05" >> range_list
+echo "0.1 0 0.1" >> range_list
+echo "0.2 0 0.2" >> range_list
+echo "0.3 0 0.3" >> range_list
+echo "0.4 0 0.4" >> range_list
+echo "0.5 0 0.5" >> range_list
+```
+
+### Calculating PRS with Plink
+```
+./plink \
+    --bfile data_Asian \
+    --score META_Regenie_Urate.TBL.Transformed 3 4 10 header \
+    --q-score-range range_list META_Regenie_Urate.TBL.Transformed.pvalue \
+    --extract data_regenie_urate.valid.snp \
+    --out PRS_Regenie_Urate
+```
+Columns 3, 4, 9 are: SNP ID, Effective Allele, BETA(effect size)
+
+### Accounting for Population Stratification
+```python
+./plink \
+    --bfile data_Asian \
+    --maf 0.01 \
+    --hwe 1e-6 \
+    --geno 0.01 \
+    --mind 0.01 \
+    --write-snplist \
+    --make-just-fam \
+    --out data_Asian
+```
+
+```python
+./plink \
+    --bfile data_Asian \
+    --keep data_Asian.fam \
+    --extract data_Asian.snplist \
+    --indep-pairwise 200 50 0.25 \
+    --out data_Asian
+```
+
+
+
+```python
+# First, we need to perform prunning
+./plink \
+    --bfile data_Asian \
+    --indep-pairwise 200 50 0.25 \
+    --out data_Asian
+# Then we calculate the first 6 PCs
+./plink \
+    --bfile data_Asian \
+    --extract data_Asian.prune.in \
+    --pca 10 \
+    --out data_Asian
+```
