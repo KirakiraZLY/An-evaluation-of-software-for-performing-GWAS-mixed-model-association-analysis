@@ -336,10 +336,10 @@ write.table(dat1, "META_Regenie_Urate.TBL.Transformed", quote = F, row.names = F
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ./PRS/META_Regenie_Urate.TBL.Transformed \
+    --clump ./PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed \
     --clump-snp-field SNP \
     --clump-field P \
-    --out ./PRS/data_regenie_urate
+    --out ./PRS/PRS_META_Regenie_Height/data_Plink_regenie_height
 ```
 
 SNP and P-value

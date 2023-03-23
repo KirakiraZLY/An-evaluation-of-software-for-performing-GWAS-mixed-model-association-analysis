@@ -259,3 +259,34 @@ Output: data_regenie_Mixed_height_out_firth_2_Phenotype.regenie
 cd ${dir}/PRS
 1. I calculate PRS scores for the whole data, while it performed badly.
 2. I calculate PRS scores by each ancestry, and I'll have 5 different files. Then I will combine them and see the result.
+## Plink for PRS
+## PRS Regenie Meta Urate, Plink
+As example, Using Plink
+### Update effect size and convert file format
+SEE in Rstudio: PRS_Real.rmd   
+```R
+dat <- read_table2(file = "META_Regenie_Urate.TBL", col_names = TRUE)
+# names(dat) <- 
+
+assoc_data <- read_table2("data_regenie_White_urate_out_firth_2_Phenotype_modified.regenie", col_names = TRUE)
+# hist(assoc_data$P_BOLT_LMM)
+assoc_data1 <- assoc_data[,c("CHROM","GENPOS","ID")]
+names(assoc_data1) <- c("CHR","BP","SNP")
+dat1 <- select(dat, -c(7,8,9,10,11))
+names(dat1) <- c("SNP", "A1", "A2", "BETA", "SE", "P", "N")
+dat1 <- merge(assoc_data1, dat1, by = "SNP")
+write.table(dat1, "META_Regenie_Urate.TBL.Transformed", quote = F, row.names = F)
+```
+### Clumping
+消除LD的影响。   
+```python
+./software/plink \
+    --bfile data_qc \
+    --clump-p1 1 \
+    --clump-r2 0.1 \
+    --clump-kb 250 \
+    --clump ./PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed \
+    --clump-snp-field SNP \
+    --clump-field P \
+    --out ./PRS/PRS_META_Regenie_Height/data_Plink_regenie_height
+```
