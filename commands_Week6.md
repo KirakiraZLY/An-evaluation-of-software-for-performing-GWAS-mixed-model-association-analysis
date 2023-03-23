@@ -288,13 +288,13 @@ write.table(dat1, "META_Regenie_Urate.TBL.Transformed", quote = F, row.names = F
     --clump ./PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed \
     --clump-snp-field SNP \
     --clump-field P \
-    --out ./PRS/PRS_META_Regenie_Height/data_Plink_regenie_height
+    --out ./PRS/PRS_META_Regenie_Height/Plink/data_Plink_regenie_height
 ```
 
 SNP and P-value
 ```
-awk 'NR!=1{print $3}' data_regenie_urate.clumped >  data_regenie_urate.valid.snp
-awk '{print $1,$8}' META_Regenie_Urate.TBL.Transformed > META_Regenie_Urate.TBL.Transformed.pvalue
+awk 'NR!=1{print $3}' data_Plink_regenie_height.clumped >  data_Plink_regenie_height.valid.snp
+awk '{print $1,$8}' METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed > METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue
 ```
 
 ```
