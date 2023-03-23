@@ -372,3 +372,39 @@ ${dir}/software/plink \
     --pca 10 \
     --out ${dir}/PRS/PRS_META_Regenie_Height/Plink/data_AsianSWC
 ```
+
+
+### Calculating PRS with Plink
+Calculate other ancestries
+```
+/home/lezh/dsmwpred/zly/software/plink \
+    --bfile /home/lezh/dsmwpred/zly/MAMA/Bolt_Height/data_Chinese \
+    --score /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed 3 4 10 header \
+    --q-score-range /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/range_list /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue \
+    --extract /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/data_Plink_regenie_height.valid.snp \
+    --out /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/PRS_Chinese_Regenie_Height
+```
+```
+/home/lezh/dsmwpred/zly/software/plink \
+    --bfile /home/lezh/dsmwpred/zly/MAMA/Bolt_Height/data_White \
+    --score /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed 3 4 10 header \
+    --q-score-range /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/range_list /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue \
+    --extract /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/data_Plink_regenie_height.valid.snp \
+    --out /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/PRS_White_Regenie_Height
+```
+```
+/home/lezh/dsmwpred/zly/software/plink \
+    --bfile /home/lezh/dsmwpred/zly/MAMA/Bolt_Height/data_Black \
+    --score /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed 3 4 10 header \
+    --q-score-range /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/range_list /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue \
+    --extract /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/data_Plink_regenie_height.valid.snp \
+    --out /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/PRS_Black_Regenie_Height
+```
+```
+/home/lezh/dsmwpred/zly/software/plink \
+    --bfile /home/lezh/dsmwpred/zly/MAMA/Bolt_Height/data_Mixed \
+    --score /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed 3 4 10 header \
+    --q-score-range /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/range_list /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/METAANALYSIS_Regenie_5Ancestries_Height.tbl.Transformed.pvalue \
+    --extract /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/data_Plink_regenie_height.valid.snp \
+    --out /home/lezh/dsmwpred/zly/PRS/PRS_META_Regenie_Height/Plink/PRS_Mixed_Regenie_Height
+```
