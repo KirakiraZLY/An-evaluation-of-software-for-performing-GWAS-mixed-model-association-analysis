@@ -12,3 +12,19 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/typ
 Location: type_1_error   
 Script: ${dir}/scriptsbolt_ukbb_nongenetic_infOnly_1   
 Result: Total elapsed time for Bolt-lmm-inf = 7812.38 sec   
+
+## Power test using simulated traits
+### h2 0.1, 0.5, 0.9 三个档
+To simulate quantitative traits of UKBB 66688 individuals, with h2 = 0.1, causal = 1000.   
+```python
+  dir="/home/lezh/dsmwpred/zly"
+${dir}/software/ldak5.XXX \
+  --make-phenos data_her01_causal1000 \
+  --bfile data_qc \
+  --prevalence 0.1 \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --num-phenos 1 \
+  --num-causals 1000
+```  
