@@ -19,7 +19,7 @@ To simulate quantitative traits of UKBB 66688 individuals, with h2 = 0.1, causal
 ```python
   dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/Power/data_her01_causal1000 \
+  --make-phenos ${dir}/Power/h2_01/data_her01_causal1000 \
   --bfile ${dir}/data_qc \
   --prevalence 0.1 \
   --ignore-weights YES \
@@ -32,7 +32,7 @@ To simulate quantitative traits of UKBB 66688 individuals, with h2 = 0.5, causal
 ```python
   dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/Power/data_her01_causal1000 \
+  --make-phenos ${dir}/Power/h2_05/data_her01_causal1000 \
   --bfile ${dir}/data_qc \
   --prevalence 0.1 \
   --ignore-weights YES \
@@ -45,7 +45,7 @@ To simulate quantitative traits of UKBB 66688 individuals, with h2 = 0.9, causal
 ```python
   dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/Power/data_her01_causal1000 \
+  --make-phenos ${dir}/Power/h2_09/data_her01_causal1000 \
   --bfile ${dir}/data_qc \
   --prevalence 0.1 \
   --ignore-weights YES \
