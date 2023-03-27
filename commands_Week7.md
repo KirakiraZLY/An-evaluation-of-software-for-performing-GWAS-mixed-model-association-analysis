@@ -29,7 +29,6 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/Power/h2_01/trait_quant_h2_01_1 \
   --bfile ${dir}/data_qc \
-  --prevalence 0.1 \
   --ignore-weights YES \
   --power -1 \
   --her 0.1 \
@@ -56,7 +55,6 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/Power/h2_05/trait_quant_h2_05_1 \
   --bfile ${dir}/data_qc \
-  --prevalence 0.1 \
   --ignore-weights YES \
   --power -1 \
   --her 0.5 \
@@ -82,7 +80,6 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/Power/h2_09/trait_quant_h2_09_1 \
   --bfile ${dir}/data_qc \
-  --prevalence 0.1 \
   --ignore-weights YES \
   --power -1 \
   --her 0.9 \
