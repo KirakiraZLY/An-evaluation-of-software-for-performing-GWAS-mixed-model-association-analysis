@@ -1,3 +1,4 @@
+
 ##################################
 Bolt non-genetic inf only
 ##################################
@@ -9,6 +10,7 @@ echo "#"'!'"/bin/bash
 #SBATCH -t 30:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
