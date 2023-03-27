@@ -28,3 +28,29 @@ ${dir}/software/ldak5.XXX \
   --num-phenos 1 \
   --num-causals 1000
 ```  
+To simulate quantitative traits of UKBB 66688 individuals, with h2 = 0.5, causal = 1000.   
+```python
+  dir="/home/lezh/dsmwpred/zly"
+${dir}/software/ldak5.XXX \
+  --make-phenos data_her01_causal1000 \
+  --bfile data_qc \
+  --prevalence 0.1 \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 1 \
+  --num-causals 1000
+```  
+To simulate quantitative traits of UKBB 66688 individuals, with h2 = 0.9, causal = 1000.   
+```python
+  dir="/home/lezh/dsmwpred/zly"
+${dir}/software/ldak5.XXX \
+  --make-phenos data_her01_causal1000 \
+  --bfile data_qc \
+  --prevalence 0.1 \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --num-phenos 1 \
+  --num-causals 1000
+```  
