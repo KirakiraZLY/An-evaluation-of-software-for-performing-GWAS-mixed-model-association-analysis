@@ -46,6 +46,8 @@ Script: ${dir}/scripts/bolt_ukbb_nongenetic_infOnly_1
 Result: Total elapsed time for Bolt-lmm-inf = 7812.38 sec   
 
 ## Power test using simulated traits
+### SNP list
+See ${dir}/Power folder, snp_power_test_list.txt   
 ### h2 0.1, 0.5, 0.9 三个档
 To simulate quantitative traits of UKBB 66688 individuals, with h2 = 0.1, causal = 1000.   
 ```python
