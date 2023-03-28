@@ -15,8 +15,8 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
 ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/non_genetic_trait_quant_1.pheno --phenoCol=Phenotype \
---covarFile=${dir}/covar_PC.covars \ 
-  --lmmInfOnly  --LDscoresUseChip --statsFile=${dir}/type_1_error/data_bolt_inf_whole_nongenetic_result.Bolt
+--covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \
+--lmmInfOnly  --LDscoresUseChip --statsFile=${dir}/type_1_error/data_bolt_inf_whole_nongenetic_result.Bolt
 
 
 " > ${dir}/scripts/bolt_ukbb_nongenetic_infOnly_2
@@ -79,13 +79,13 @@ conda activate regenie_env
   --qt \
   --pThresh 0.01 \
   --pred ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1.list \
-  --out ${dir}/type_1_error/h2_01/data_regenie_whole_Power01_out_2
+  --out ${dir}/Power/h2_01/data_regenie_whole_Power01_out_2
 
-" > ${dir}/scripts/Power/h2_01/regenie_power01_2
+" > ${dir}/scripts/Power/h2_01/Power_regenie_01_2
 
 # I am doing blabla
 cd ${dir}/scripts/Power/h2_01
-sbatch regenie_power01_2
+sbatch Power_regenie_01_2
 
 ######################## Bolt
 dir="/home/lezh/dsmwpred/zly"
