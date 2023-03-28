@@ -181,7 +181,7 @@ ${dir}/software/gcta \
 --covar ${dir}/covar_PC_withoutLabel.covars \
 --pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno \
 --thread-num 10 \
---out ${dir}/Power/h2_01/data_fastgwa_power01_3_finalresult 
+--out ${dir}/Power/h2_01/data_fastgwa_Power01_3_finalresult 
 ```
 
 ### Plink
@@ -192,11 +192,15 @@ ${dir}/software/plink \
 --linear \
 --covar ${dir}/covar_PC_withoutLabel.covars \
 --pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno --allow-no-sex \
---out ${dir}/Power/h2_01/data_plink_power01_finalresult 
+--out ${dir}/Power/h2_01/data_plink_Power01_finalresult 
 ```
 
-## LDAK, non_genetic_trait_quant
+## LDAK
 Quant   
 ```python
-${dir}/software/ldak5.XXX --linear ${dir}/type_1_error/data_ldak_whole_nongenetic_result --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --covar ${dir}/covar.covars --bfile ${dir}/data_qc
+${dir}/software/ldak5.XXX \
+--pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--bfile ${dir}/data_qc \
+--linear ${dir}/Power/h2_01/data_ldak_whole_Power01_result
 ```
