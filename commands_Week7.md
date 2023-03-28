@@ -123,3 +123,7 @@ ${dir}/software/ldak5.XXX \
 cd ${dir}/scripts/Power/h2_09/
 sbatch trait_quant_h2_09_log
 ```  
+
+
+## Power test by different softwares
+### h2 = 0.1
