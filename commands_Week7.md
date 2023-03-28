@@ -132,3 +132,71 @@ sbatch trait_quant_h2_09_log
 
 ## Power test by different softwares
 ### h2 = 0.1
+### Regenie
+1. 
+```python
+   regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --bsize 1000 \
+  --out ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1   
+```
+  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
+Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
+**Output**: data_regenie_whole_h201Power_out_1.list
+2. 
+```python
+  regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno \
+  --bsize 1000 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1.list \
+  --out ${dir}/type_1_error/h2_01/data_regenie_whole_Power01_out_2
+```
+Output: data_regenie_whole_Power01_out_2.regenie
+
+### Bolt
+```python
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
+ ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars \ 
+ --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip \ 
+ --statsFile=${dir}/Power/h2_01/data_bolt_whole_Power01_out.Bolt
+```
+
+
+### fastGWA
+第一步和第二步是与phenotype无关的，就不操作，只操作第三步。   
+3. I didn't use PCs
+```python
+${dir}/software/gcta \
+--bfile ${dir}/data_qc \
+--grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 \
+--fastGWA-mlm \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno \
+--thread-num 10 \
+--out ${dir}/Power/h2_01/data_fastgwa_power01_3_finalresult 
+```
+
+### Plink
+assoc test   
+```python
+${dir}/software/plink \
+--bfile ${dir}/data_qc \
+--linear \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno --allow-no-sex \
+--out ${dir}/Power/h2_01/data_plink_power01_finalresult 
+```
+
+## LDAK, non_genetic_trait_quant
+Quant   
+```python
+${dir}/software/ldak5.XXX --linear ${dir}/type_1_error/data_ldak_whole_nongenetic_result --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --covar ${dir}/covar.covars --bfile ${dir}/data_qc
+```
