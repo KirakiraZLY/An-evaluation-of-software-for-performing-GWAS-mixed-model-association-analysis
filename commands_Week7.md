@@ -9,7 +9,6 @@ In the analysis below, I tested nongenetic traits on 66688 individuals with 300K
 ```python
 ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/non_genetic_trait_quant_1.pheno --phenoCol=Phenotype \
 --covarFile=${dir}/covar_PC.covars \ 
- --qCovarCol=PC{1:20} \
   --lmmInfOnly  --LDscoresUseChip --statsFile=${dir}/type_1_error/data_bolt_inf_whole_nongenetic_result.Bolt
 ```
 Location: type_1_error   

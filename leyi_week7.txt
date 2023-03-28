@@ -24,3 +24,91 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/typ
 # I am doing blabla
 cd ${dir}/scripts
 sbatch bolt_ukbb_nongenetic_infOnly_2
+
+
+
+##################################
+h2 = 0.1
+##################################
+
+######################## Regenie
+################ 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --bsize 1000 \
+  --out ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1 
+
+" > ${dir}/scripts/Power/h2_01/regenie_power01_1
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_01
+sbatch regenie_power01_1
+################ 2
+
+
+######################## Bolt
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
+ ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars \ 
+ --lmmForceNonInf --LDscoresUseChip \ 
+ --statsFile=${dir}/Power/h2_01/data_bolt_whole_Power01_out.Bolt
+
+" > ${dir}/scripts/Power/h2_01/Power_bolt_01_1
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_01
+sbatch Power_bolt_01_1
+
+######################### Bolt-lmm-inf
+
+
+######################### fastGWA
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+${dir}/software/gcta \
+--bfile ${dir}/data_qc \
+--grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 \
+--fastGWA-mlm \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno \
+--thread-num 10 \
+--out ${dir}/Power/h2_01/data_fastgwa_Power01_3_finalresult 
+
+" > ${dir}/scripts/Power/h2_01/Power_bolt_01_1
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_01
+sbatch Power_bolt_01_1
