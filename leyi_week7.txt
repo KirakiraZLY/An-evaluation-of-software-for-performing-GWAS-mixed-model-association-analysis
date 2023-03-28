@@ -87,6 +87,37 @@ conda activate regenie_env
 cd ${dir}/scripts/Power/h2_01
 sbatch Power_regenie_01_2
 
+
+
+######################## Regenie
+################ 1_testtesttest
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --l0 10 \
+  --l1 8 \
+  --bsize 1000 \
+  --out ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1_test 
+
+" > ${dir}/scripts/Power/h2_01/regenie_power01_1_test
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_01
+sbatch regenie_power01_1_test
+
 ######################## Bolt
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
