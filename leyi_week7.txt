@@ -57,8 +57,35 @@ regenie \
 # I am doing blabla
 cd ${dir}/scripts/Power/h2_01
 sbatch regenie_power01_1
-################ 2
 
+################ 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+  regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno \
+  --bsize 1000 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1.list \
+  --out ${dir}/type_1_error/h2_01/data_regenie_whole_Power01_out_2
+
+" > ${dir}/scripts/Power/h2_01/regenie_power01_2
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_01
+sbatch regenie_power01_2
 
 ######################## Bolt
 dir="/home/lezh/dsmwpred/zly"
@@ -104,7 +131,7 @@ sbatch Power_bolt_inf_01_1
 ######################### fastGWA
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 64G
+#SBATCH --mem 128G
 #SBATCH -t 30:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
