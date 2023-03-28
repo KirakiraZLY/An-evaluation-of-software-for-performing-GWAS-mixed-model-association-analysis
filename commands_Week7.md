@@ -67,7 +67,7 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 1 \
-  --num-causals 1000
+  --num-causals 1000 \
   --causals ${dir}/Power/snp_power_test_list.txt
 
 " > ${dir}/scripts/Power/h2_01/trait_quant_h2_01_log
@@ -94,7 +94,7 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 1 \
-  --num-causals 1000
+  --num-causals 1000 \
   --causals ${dir}/Power/snp_power_test_list.txt
 
 " > ${dir}/scripts/Power/h2_05/trait_quant_h2_05_log
@@ -120,7 +120,7 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 1 \
-  --num-causals 1000
+  --num-causals 1000 \
   --causals ${dir}/Power/snp_power_test_list.txt
 
 " > ${dir}/scripts/Power/h2_09/trait_quant_h2_09_log
