@@ -339,12 +339,12 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
 --phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
  --lmmInfOnly --LDscoresUseChip \ 
  --statsFile=${dir}/Power/h2_05/data_bolt_whole_Power05_out.Bolt
- 
-" > ${dir}/scripts/Power/h2_01/Power_bolt_inf_01_1
+
+" > ${dir}/scripts/Power/h2_05/Power_bolt_inf_05_1
 
 # I am doing blabla
-cd ${dir}/scripts/Power/h2_01
-sbatch Power_bolt_inf_01_1
+cd ${dir}/scripts/Power/h2_05
+sbatch Power_bolt_inf_05_1
 
 
 ######################### fastGWA
@@ -364,15 +364,15 @@ ${dir}/software/gcta \
 --grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 \
 --fastGWA-mlm \
 --qcovar ${dir}/covar_PC_withoutLabel.covars \
---pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno \
+--pheno ${dir}/Power/h2_05/trait_quant_h2_05_1.pheno \
 --thread-num 10 \
---out ${dir}/Power/h2_01/data_fastgwa_Power01_3_finalresult 
+--out ${dir}/Power/h2_05/data_fastgwa_Power05_3_finalresult 
 
-" > ${dir}/scripts/Power/h2_01/Power_fastgwa_01_1
+" > ${dir}/scripts/Power/h2_05/Power_fastgwa_05_1
 
 # I am doing blabla
-cd ${dir}/scripts/Power/h2_01
-sbatch Power_fastgwa_01_1
+cd ${dir}/scripts/Power/h2_05
+sbatch Power_fastgwa_05_1
 
 ######################### Plink
 dir="/home/lezh/dsmwpred/zly"
@@ -390,14 +390,14 @@ ${dir}/software/plink \
 --bfile ${dir}/data_qc \
 --linear \
 --covar ${dir}/covar_PC_withoutLabel.covars \
---pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno --allow-no-sex \
---out ${dir}/Power/h2_01/data_plink_Power01_finalresult 
+--pheno ${dir}/Power/h2_05/trait_quant_h2_05_1.pheno --allow-no-sex \
+--out ${dir}/Power/h2_05/data_plink_Power05_finalresult 
 
-" > ${dir}/scripts/Power/h2_01/Power_plink_01_1
+" > ${dir}/scripts/Power/h2_05/Power_plink_05_1
 
 # I am doing blabla
-cd ${dir}/scripts/Power/h2_01
-sbatch Power_plink_01_1
+cd ${dir}/scripts/Power/h2_05
+sbatch Power_plink_05_1
 
 
 ########################### LDAK
@@ -413,13 +413,13 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate regenie_env
 
 ${dir}/software/ldak5.XXX \
---pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno \
+--pheno ${dir}/Power/h2_05/trait_quant_h2_05_1.pheno \
 --covar ${dir}/covar_PC_withoutLabel.covars \
 --bfile ${dir}/data_qc \
---linear ${dir}/Power/h2_01/data_ldak_whole_Power01_result
+--linear ${dir}/Power/h2_05/data_ldak_whole_Power05_result
 
-" > ${dir}/scripts/Power/h2_01/Power_ldak_01_1
+" > ${dir}/scripts/Power/h2_01/Power_ldak_05_1
 
 # I am doing blabla
-cd ${dir}/scripts/Power/h2_01
-sbatch Power_ldak_01_1
+cd ${dir}/scripts/Power/h2_05
+sbatch Power_ldak_05_1
