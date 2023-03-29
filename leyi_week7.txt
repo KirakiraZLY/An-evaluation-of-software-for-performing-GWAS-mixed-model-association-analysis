@@ -261,6 +261,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
   --bsize 1000 \
   --out ${dir}/Power/h2_05/data_regenie_whole_h205Power_out_1 
 
@@ -286,12 +287,13 @@ conda activate regenie_env
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
   --phenoFile ${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno \
   --bsize 1000 \
   --qt \
   --pThresh 0.01 \
-  --pred ${dir}/Power/h2_05/data_regenie_whole_h201Power_out_1.list \
-  --out ${dir}/type_1_error/h2_05/data_regenie_whole_Power01_out_2
+  --pred ${dir}/Power/h2_05/data_regenie_whole_h205Power_out_1.list \
+  --out ${dir}/type_1_error/h2_05/data_regenie_whole_Power05_out_2
 
 " > ${dir}/scripts/Power/h2_05/Power_regenie_05_2
 
@@ -418,7 +420,7 @@ ${dir}/software/ldak5.XXX \
 --bfile ${dir}/data_qc \
 --linear ${dir}/Power/h2_05/data_ldak_whole_Power05_result
 
-" > ${dir}/scripts/Power/h2_01/Power_ldak_05_1
+" > ${dir}/scripts/Power/h2_05/Power_ldak_05_1
 
 # I am doing blabla
 cd ${dir}/scripts/Power/h2_05
