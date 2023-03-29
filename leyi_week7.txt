@@ -419,3 +419,191 @@ ${dir}/software/ldak5.XXX \
 # I am doing blabla
 cd ${dir}/scripts/Power/h2_05
 sbatch Power_ldak_05_1
+
+
+
+
+
+
+
+
+##################################
+h2 = 0.9
+##################################
+
+######################## Regenie
+################ 1
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --out ${dir}/Power/h2_09/data_regenie_whole_h209Power_out_1   
+
+" > ${dir}/scripts/Power/h2_09/regenie_power09_1
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_09
+sbatch regenie_power09_1
+
+################ 2
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
+  --phenoFile ${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno \
+  --bsize 1000 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/Power/h2_09/data_regenie_whole_h209Power_out_1.list \
+  --out ${dir}/type_1_error/h2_09/data_regenie_whole_Power09_out_2
+
+" > ${dir}/scripts/Power/h2_09/Power_regenie_09_2
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_09
+sbatch Power_regenie_09_2
+
+
+######################## Bolt
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
+
+" > ${dir}/scripts/Power/h2_09/Power_bolt_09_1
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_09
+sbatch Power_bolt_09_1
+
+######################### Bolt-lmm-inf
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
+
+" > ${dir}/scripts/Power/h2_09/Power_bolt_inf_09_1
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_09
+sbatch Power_bolt_inf_09_1
+
+
+######################### fastGWA
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 128G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+${dir}/software/gcta \
+--bfile ${dir}/data_qc \
+--grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 \
+--fastGWA-mlm \
+--qcovar ${dir}/covar_PC_withoutLabel.covars \
+--pheno ${dir}/Power/h2_09/trait_quant_h2_09_1.pheno \
+--thread-num 10 \
+--out ${dir}/Power/h2_09/data_fastgwa_Power09_3_finalresult 
+
+" > ${dir}/scripts/Power/h2_09/Power_fastgwa_09_1
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_09
+sbatch Power_fastgwa_09_1
+
+######################### Plink
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+${dir}/software/plink \
+--bfile ${dir}/data_qc \
+--linear \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--pheno ${dir}/Power/h2_09/trait_quant_h2_09_1.pheno --allow-no-sex \
+--out ${dir}/Power/h2_09/data_plink_Power09_finalresult 
+
+" > ${dir}/scripts/Power/h2_09/Power_plink_09_1
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_09
+sbatch Power_plink_09_1
+
+
+########################### LDAK
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+${dir}/software/ldak5.XXX \
+--pheno ${dir}/Power/h2_09/trait_quant_h2_09_1.pheno \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--bfile ${dir}/data_qc \
+--linear ${dir}/Power/h2_09/data_ldak_whole_Power09_result
+
+" > ${dir}/scripts/Power/h2_09/Power_ldak_09_1
+
+# I am doing blabla
+cd ${dir}/scripts/Power/h2_09
+sbatch Power_ldak_09_1
