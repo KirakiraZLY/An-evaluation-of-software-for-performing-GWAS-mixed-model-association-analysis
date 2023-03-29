@@ -327,24 +327,24 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --qt \
   --pThresh 0.01 \
   --pred ${dir}/Power/h2_09/data_regenie_whole_h209Power_out_1.list \
-  --out ${dir}/type_1_error/h2_09/data_regenie_whole_Power01_out_2
+  --out ${dir}/type_1_error/h2_09/data_regenie_whole_Power09_out_2
 ```
-Output: data_regenie_whole_Power05_out_2.regenie
+Output: data_regenie_whole_Power09_out_2.regenie
 
 ### Bolt
 ```python
 ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
---phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
+--phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
  --lmmForceNonInf --LDscoresUseChip \ 
- --statsFile=${dir}/Power/h2_05/data_bolt_whole_Power05_out.Bolt
+ --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
 ```
 
 ### Bolt-inf
 ```python
 ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
---phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
+--phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
  --lmmInfOnly --LDscoresUseChip \ 
- --statsFile=${dir}/Power/h2_05/data_bolt_whole_Power05_out.Bolt
+ --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
 ```
 
 ### fastGWA
@@ -355,9 +355,9 @@ ${dir}/software/gcta \
 --grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 \
 --fastGWA-mlm \
 --qcovar ${dir}/covar_PC_withoutLabel.covars \
---pheno ${dir}/Power/h2_05/trait_quant_h2_05_1.pheno \
+--pheno ${dir}/Power/h2_09/trait_quant_h2_09_1.pheno \
 --thread-num 10 \
---out ${dir}/Power/h2_05/data_fastgwa_Power05_3_finalresult 
+--out ${dir}/Power/h2_09/data_fastgwa_Power09_3_finalresult 
 ```
 
 ### Plink
@@ -367,16 +367,16 @@ ${dir}/software/plink \
 --bfile ${dir}/data_qc \
 --linear \
 --covar ${dir}/covar_PC_withoutLabel.covars \
---pheno ${dir}/Power/h2_05/trait_quant_h2_05_1.pheno --allow-no-sex \
---out ${dir}/Power/h2_05/data_plink_Power05_finalresult 
+--pheno ${dir}/Power/h2_09/trait_quant_h2_09_1.pheno --allow-no-sex \
+--out ${dir}/Power/h2_09/data_plink_Power09_finalresult 
 ```
 
 ### LDAK
 Quant   
 ```python
 ${dir}/software/ldak5.XXX \
---pheno ${dir}/Power/h2_05/trait_quant_h2_05_1.pheno \
+--pheno ${dir}/Power/h2_09/trait_quant_h2_09_1.pheno \
 --covar ${dir}/covar_PC_withoutLabel.covars \
 --bfile ${dir}/data_qc \
---linear ${dir}/Power/h2_05/data_ldak_whole_Power05_result
+--linear ${dir}/Power/h2_09/data_ldak_whole_Power09_result
 ```
