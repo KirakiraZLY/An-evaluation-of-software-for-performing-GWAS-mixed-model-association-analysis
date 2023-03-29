@@ -160,7 +160,7 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --qt \
   --pThresh 0.01 \
   --pred ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1.list \
-  --out ${dir}/type_1_error/h2_01/data_regenie_whole_Power01_out_2
+  --out ${dir}/Power/h2_01/data_regenie_whole_Power01_out_2
 ```
 Output: data_regenie_whole_Power01_out_2.regenie
 
@@ -250,18 +250,12 @@ Output: data_regenie_whole_Power05_out_2.regenie
 
 ### Bolt
 ```python
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
---phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
- --lmmForceNonInf --LDscoresUseChip \ 
- --statsFile=${dir}/Power/h2_05/data_bolt_whole_Power05_out.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}   --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/Power/h2_05/data_bolt_whole_Power05_out.Bolt
 ```
 
 ### Bolt-inf
 ```python
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
---phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
- --lmmInfOnly --LDscoresUseChip \ 
- --statsFile=${dir}/Power/h2_05/data_bolt_whole_Power05_out.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_05/data_bolt_whole_Power05_out.Bolt
 ```
 
 ### fastGWA
@@ -333,18 +327,12 @@ Output: data_regenie_whole_Power09_out_2.regenie
 
 ### Bolt
 ```python
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
---phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
- --lmmForceNonInf --LDscoresUseChip \ 
- --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmForceNonInf --LDscoresUseChip --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
 ```
 
 ### Bolt-inf
 ```python
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
---phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
- --lmmInfOnly --LDscoresUseChip \ 
- --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
 ```
 
 ### fastGWA
