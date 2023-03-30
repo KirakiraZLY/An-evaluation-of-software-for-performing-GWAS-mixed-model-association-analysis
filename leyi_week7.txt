@@ -334,7 +334,7 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate regenie_env
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_05/data_bolt_whole_Power05_out.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_05/data_bolt_inf_whole_Power05_out.Bolt
 
 " > ${dir}/scripts/Power/h2_05/Power_bolt_inf_05_1
 
@@ -522,7 +522,7 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate regenie_env
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_09/data_bolt_inf_whole_Power09_out.Bolt
 
 " > ${dir}/scripts/Power/h2_09/Power_bolt_inf_09_1
 

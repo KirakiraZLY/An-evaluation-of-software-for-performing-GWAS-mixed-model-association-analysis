@@ -177,7 +177,7 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
 ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
 --phenoFile=${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
  --lmmInfOnly --LDscoresUseChip \ 
- --statsFile=${dir}/Power/h2_01/data_bolt_whole_Power01_out.Bolt
+ --statsFile=${dir}/Power/h2_01/data_bolt_inf_whole_Power01_out.Bolt
 ```
 
 
@@ -255,7 +255,7 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Pow
 
 ### Bolt-inf
 ```python
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_05/data_bolt_whole_Power05_out.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_05/trait_quant_h2_05_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_05/data_bolt_inf_whole_Power05_out.Bolt
 ```
 
 ### fastGWA
@@ -332,7 +332,7 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Pow
 
 ### Bolt-inf
 ```python
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_09/data_bolt_whole_Power09_out.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Power/h2_09/trait_quant_h2_09_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/Power/h2_09/data_bolt_inf_whole_Power09_out.Bolt
 ```
 
 ### fastGWA
