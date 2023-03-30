@@ -163,7 +163,7 @@ sbatch Power_bolt_inf_01_1
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 128G
-#SBATCH -t 30:0:0
+#SBATCH -t 90:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -347,7 +347,7 @@ sbatch Power_bolt_inf_05_1
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 128G
-#SBATCH -t 30:0:0
+#SBATCH -t 90:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -535,7 +535,7 @@ sbatch Power_bolt_inf_09_1
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 128G
-#SBATCH -t 30:0:0
+#SBATCH -t 90:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
