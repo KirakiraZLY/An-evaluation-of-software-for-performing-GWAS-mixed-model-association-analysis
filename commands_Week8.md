@@ -21,7 +21,7 @@ GCTA: power -1, ignore weight
 h01: h2 = 0.1; h05, h09   
 K: 1000 causal snps; 10K 10K causal snps.   
 
-70K individuals
+### 1. qt, 7 Wan, GCTA -1, h2=0.1, 5 Phenos, 1K causal
 
 ```python
 ${dir}/software/ldak5.XXX \
@@ -34,3 +34,33 @@ ${dir}/software/ldak5.XXX \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
 ```
+
+### 2. qt, 7 Wan, GCTA, h2=0.5, 5 Phenos, 1K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_1 \
+  --bfile ${dir}/data_qc \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+```
+
+### 3. qt, 7 Wan, GCTA, h2=0.9, 5 Phenos, 1K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_1 \
+  --bfile ${dir}/data_qc \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+```
+
+### Submitted
