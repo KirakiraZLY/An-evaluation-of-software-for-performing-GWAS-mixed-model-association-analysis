@@ -12,14 +12,25 @@ Replicate Phenotypes: 5 phenotypes
 
 High number of causal SNPs will have high polygenicity, and decrease the effect size of each SNP.   
 
+${dir}/type_1_error/Multi_Traits/
+
+Trait name labels:   
+qt: quantitative   
+Wan: 10K individuals, 7Wan: 70K individuals.   
+GCTA: power -1, ignore weight   
+h01: h2 = 0.1; h05, h09   
+K: 1000 causal snps; 10K 10K causal snps.   
+
+70K individuals
+
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/Power/h2_01/trait_quant_h2_01_1 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
   --her 0.1 \
   --num-phenos 1 \
   --num-causals 1000 \
-  --causals ${dir}/Power/snp_power_test_list.txt
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
 ```
