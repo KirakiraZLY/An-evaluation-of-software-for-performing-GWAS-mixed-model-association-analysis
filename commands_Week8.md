@@ -103,10 +103,7 @@ Output: Result_regenie_qt_7Wan_GCTA_h01_K_1_s2.regenie
 
 ### Bolt
 ```python
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
---phenoFile=${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
- --lmmForceNonInf --LDscoresUseChip \ 
- --statsFile=${dir}/Power/h2_01/data_bolt_whole_Power01_out.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_bolt_qt_7Wan_GCTA_h01_K_1_s2.Bolt
 ```
 
 ### Bolt-inf
