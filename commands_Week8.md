@@ -76,28 +76,28 @@ Result: ${dir}/type_1_error/Multi_Traits/Result*/
    regenie \
   --step 1 \
   --bed ${dir}/data_qc \
-  --phenoFile ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --bsize 1000 \
-  --out ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1   
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1_label/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1 
 ```
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
 Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
-**Output**: data_regenie_whole_h201Power_out_1.list
+**Output**: data_regenie_whole_h201Power_out_1_s1.list
 2. 
 ```python
   regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --covarFile ${dir}/covar_PC.covars \
-  --phenoFile ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
   --bsize 1000 \
   --qt \
   --pThresh 0.01 \
-  --pred ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1.list \
-  --out ${dir}/Power/h2_01/data_regenie_whole_Power01_out_2
+  --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1_label/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1.list \
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1_label/Result_regenie_qt_7Wan_GCTA_h01_K_1_s2
 ```
-Output: data_regenie_whole_Power01_out_2.regenie
+Output: Result_regenie_qt_7Wan_GCTA_h01_K_1_s2.regenie
 
 ### Bolt
 ```python
