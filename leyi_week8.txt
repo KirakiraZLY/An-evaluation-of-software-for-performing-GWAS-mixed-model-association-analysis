@@ -151,8 +151,8 @@ Bolt
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 16G
-#SBATCH -t 5:0:0
-#SBATCH -c 4
+#SBATCH -t 30:0:0
+#SBATCH -c 8
 #SBATCH -A dsmwpred
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
