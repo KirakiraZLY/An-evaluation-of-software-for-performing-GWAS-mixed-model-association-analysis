@@ -118,16 +118,16 @@ ${dir}/software/plink \
 --bfile ${dir}/data_qc \
 --linear \
 --covar ${dir}/covar_PC_withoutLabel.covars \
---pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno --allow-no-sex \
---out ${dir}/Power/h2_01/data_plink_Power01_finalresult 
+--pheno --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno --allow-no-sex \
+--out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_plink_inf_qt_7Wan_GCTA_h01_K_1
 ```
 
 ### LDAK
 Quant   
 ```python
 ${dir}/software/ldak5.XXX \
---pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno \
 --covar ${dir}/covar_PC_withoutLabel.covars \
 --bfile ${dir}/data_qc \
---linear ${dir}/Power/h2_01/data_ldak_whole_Power01_result
+--linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_ldak_inf_qt_7Wan_GCTA_h01_K_1
 ```
