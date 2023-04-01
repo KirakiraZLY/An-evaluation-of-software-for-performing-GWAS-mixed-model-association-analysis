@@ -64,3 +64,74 @@ ${dir}/software/ldak5.XXX \
 ```
 
 ### Submitted
+Pheno: ${dir}/type_1_error/Multi_Traits
+Result: ${dir}/type_1_error/Multi_Traits/Result*/
+
+
+## Run software on these three phenos
+### 1
+### Regenie
+1. 
+```python
+   regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --bsize 1000 \
+  --out ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1   
+```
+  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
+Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
+**Output**: data_regenie_whole_h201Power_out_1.list
+2. 
+```python
+  regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno \
+  --bsize 1000 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/Power/h2_01/data_regenie_whole_h201Power_out_1.list \
+  --out ${dir}/Power/h2_01/data_regenie_whole_Power01_out_2
+```
+Output: data_regenie_whole_Power01_out_2.regenie
+
+### Bolt
+```python
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
+--phenoFile=${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
+ --lmmForceNonInf --LDscoresUseChip \ 
+ --statsFile=${dir}/Power/h2_01/data_bolt_whole_Power01_out.Bolt
+```
+
+### Bolt-inf
+```python
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc \
+--phenoFile=${dir}/Power/h2_01/trait_quant_h2_01_1_label.pheno  --phenoCol=Phenotype --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20} \ 
+ --lmmInfOnly --LDscoresUseChip \ 
+ --statsFile=${dir}/Power/h2_01/data_bolt_inf_whole_Power01_out.Bolt
+```
+
+### Plink
+assoc test   
+```python
+${dir}/software/plink \
+--bfile ${dir}/data_qc \
+--linear \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno --allow-no-sex \
+--out ${dir}/Power/h2_01/data_plink_Power01_finalresult 
+```
+
+### LDAK
+Quant   
+```python
+${dir}/software/ldak5.XXX \
+--pheno ${dir}/Power/h2_01/trait_quant_h2_01_1.pheno \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--bfile ${dir}/data_qc \
+--linear ${dir}/Power/h2_01/data_ldak_whole_Power01_result
+```
