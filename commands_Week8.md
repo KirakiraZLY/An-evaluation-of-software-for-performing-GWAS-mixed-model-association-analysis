@@ -79,7 +79,7 @@ Result: ${dir}/type_1_error/Multi_Traits/Result*/
   --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --bsize 1000 \
-  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1_label/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1 
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1 
 ```
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
 Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
@@ -95,7 +95,7 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --qt \
   --pThresh 0.01 \
   --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1_label/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1.list \
-  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1_label/Result_regenie_qt_7Wan_GCTA_h01_K_1_s2
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_regenie_qt_7Wan_GCTA_h01_K_1_s2
 ```
 Output: Result_regenie_qt_7Wan_GCTA_h01_K_1_s2.regenie
 
