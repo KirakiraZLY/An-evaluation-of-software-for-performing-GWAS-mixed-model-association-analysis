@@ -78,6 +78,7 @@ Result: ${dir}/type_1_error/Multi_Traits/Result*/
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
   --bsize 1000 \
   --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1 
 ```
@@ -91,6 +92,7 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --bgen ${dir}/data_qc.bgen \
   --covarFile ${dir}/covar_PC.covars \
   --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
+  --covarCol PC{1:20} \
   --bsize 1000 \
   --qt \
   --pThresh 0.01 \

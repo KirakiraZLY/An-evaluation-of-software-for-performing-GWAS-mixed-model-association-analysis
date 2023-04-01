@@ -96,12 +96,14 @@ echo "#"'!'"/bin/bash
 #SBATCH -A dsmwpred
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
 regenie \
   --step 1 \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
   --bsize 1000 \
   --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1 
 
@@ -121,11 +123,13 @@ echo "#"'!'"/bin/bash
 #SBATCH -A dsmwpred
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
 regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
   --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
   --bsize 1000 \
   --qt \
