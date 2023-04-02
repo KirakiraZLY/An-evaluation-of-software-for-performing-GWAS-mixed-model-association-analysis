@@ -306,3 +306,8 @@ ${dir}/software/ldak5.XXX \
 ### Submitted
 Pheno: ${dir}/type_1_error/Multi_Traits
 Result: ${dir}/type_1_error/Multi_Traits/Result*/
+
+# Summary till now:
+1-3: qt, 7 Wan, GCTA, 5 Phenos, 1K causal, **h2 = 0.1, 0.5, 0.9**   
+4-6: qt, 7 Wan, GCTA, 5 Phenos, 10K causal,  **h2 = 0.1, 0.5, 0.9**   
+7-12: qt, 1 Wan(Chinese), GCTA, 5 Phenos, **1 - 10K causal**,  **h2 = 0.1, 0.5, 0.9** 
