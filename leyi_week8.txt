@@ -299,3 +299,85 @@ ${dir}/software/ldak5.XXX \
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/
 sbatch Trait_qt_7Wan_GCTA_h09_10K_4to6
+
+
+
+######################################
+Simulate data 7-12
+######################################
+############# 4-6 Trait_qt_7Wan_GCTA_h01_K_4-6
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 16G
+#SBATCH -t 30:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_7 \
+  --bfile ${dir}/MAMA/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_8 \
+  --bfile ${dir}/MAMA/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_9 \
+  --bfile ${dir}/MAMA/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_7 \
+  --bfile ${dir}/MAMA/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_8 \
+  --bfile ${dir}/MAMA/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_9 \
+  --bfile ${dir}/MAMA/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_7to12
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/
+sbatch Trait_qt_7Wan_GCTA_h09_10K_7to12
