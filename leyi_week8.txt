@@ -305,7 +305,7 @@ sbatch Trait_qt_7Wan_GCTA_h09_10K_4to6
 ######################################
 Simulate data 7-12
 ######################################
-############# 4-6 Trait_qt_7Wan_GCTA_h01_K_4-6
+############# 7-12 Trait_qt_1Wan_GCTA_h01-09_K-10K_4-6
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 16G
