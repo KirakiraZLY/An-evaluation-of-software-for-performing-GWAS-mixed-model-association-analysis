@@ -311,3 +311,70 @@ Result: ${dir}/type_1_error/Multi_Traits/Result*/
 1-3: qt, 7 Wan, GCTA, 5 Phenos, 1K causal, **h2 = 0.1, 0.5, 0.9**   
 4-6: qt, 7 Wan, GCTA, 5 Phenos, 10K causal,  **h2 = 0.1, 0.5, 0.9**   
 7-12: qt, 1 Wan(Chinese), GCTA, 5 Phenos, **1 - 10K causal**,  **h2 = 0.1, 0.5, 0.9** 
+
+
+## Run software on **2** pheno
+### 1
+### Regenie
+1. 
+```python
+   regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1 
+```
+  Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
+Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
+**Output**: data_regenie_whole_h201Power_out_1_s1_pred.list
+2. 
+```python
+  regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1_label/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_regenie_qt_7Wan_GCTA_h01_K_1_s2
+```
+Output: Result_regenie_qt_7Wan_GCTA_h01_K_1_s2.regenie
+
+### Bolt
+```python
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno  --phenoCol=Phenotype5  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_bolt_qt_7Wan_GCTA_h01_K_5.Bolt
+```
+
+### Bolt-inf
+```python
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno  --phenoCol=Phenotype1 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_bolt_inf_qt_7Wan_GCTA_h01_K_1.Bolt
+```
+
+### Plink
+assoc test   
+```python
+${dir}/software/plink \
+--bfile ${dir}/data_qc \
+--linear \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--pheno --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno --allow-no-sex \
+--out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_plink_inf_qt_7Wan_GCTA_h01_K_1
+```
+
+### LDAK
+Quant   
+```python
+${dir}/software/ldak5.XXX \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno \
+--covar ${dir}/covar_PC_withoutLabel.covars \
+--bfile ${dir}/data_qc \
+--linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_ldak_inf_qt_7Wan_GCTA_h01_K_1
+```
+
+### Done
