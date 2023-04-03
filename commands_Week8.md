@@ -32,7 +32,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
 ### 2. qt, 7 Wan, GCTA, h2=0.5, 5 Phenos, 1K causal
@@ -46,7 +46,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
 ### 3. qt, 7 Wan, GCTA, h2=0.9, 5 Phenos, 1K causal
@@ -60,7 +60,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_7Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
 ### Submitted
@@ -167,7 +167,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
 ### 5. qt, 7 Wan, GCTA, h2=0.5, 5 Phenos, 10K causal
@@ -181,7 +181,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
 ### 6. qt, 7 Wan, GCTA, h2=0.9, 5 Phenos, 10K causal
@@ -195,7 +195,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
 ### Submitted
