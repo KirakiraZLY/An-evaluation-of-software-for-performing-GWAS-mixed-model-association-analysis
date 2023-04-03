@@ -368,7 +368,7 @@ ${dir}/software/plink \
 --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_2.pheno \
 --mpheno 1 \
 --allow-no-sex \
---out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_plink_inf_qt_7Wan_GCTA_h05_K_2
+--out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_plink_inf_qt_7Wan_GCTA_h05_K_2_P1
 ```
 
 ### LDAK
@@ -379,5 +379,5 @@ ${dir}/software/ldak5.XXX \
 --mpheno 1 \
 --covar ${dir}/covar_PC_withoutLabel.covars \
 --bfile ${dir}/data_qc \
---linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_ldak_inf_qt_7Wan_GCTA_h05_K_2
+--linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_ldak_inf_qt_7Wan_GCTA_h05_K_2_P1
 ```
