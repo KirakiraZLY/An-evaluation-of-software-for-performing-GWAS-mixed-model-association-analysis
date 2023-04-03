@@ -382,6 +382,8 @@ ${dir}/software/ldak5.XXX \
 --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_ldak_inf_qt_7Wan_GCTA_h05_K_2_P1
 ```
 
+### DONE
+
 
 ## Run software on **3** pheno
 ### Regenie
@@ -436,3 +438,5 @@ Quant
 ```python
 ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_3.pheno --mpheno 1 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_K_3/Result_ldak_inf_qt_7Wan_GCTA_h09_K_3_P1
 ```
+
+### DONE
