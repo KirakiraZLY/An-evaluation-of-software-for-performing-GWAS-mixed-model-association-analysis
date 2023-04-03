@@ -457,6 +457,7 @@ sbatch Trait_qt_1Wan_GCTA_h09_10K_7to12
 
 ############################################
 Software test: Trait_qt_7Wan_GCTA_h05_K_2_label
+第二个trait
 ############################################
 ##############################
 Regenie
@@ -465,7 +466,7 @@ Regenie
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 16G
-#SBATCH -t 5:0:0
+#SBATCH -t 10:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 
@@ -481,25 +482,8 @@ regenie \
   --bsize 1000 \
   --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h05_K_2_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_regenie_qt_7Wan_GCTA_h05_K_2_s1 
 
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/
-
-sbatch Result_regenie_qt_7Wan_GCTA_h05_K_2_s1 
-
-########### 2 #############
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 16G
-#SBATCH -t 5:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-conda activate regenie_env
-
-  regenie \
+regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --covarFile ${dir}/covar_PC.covars \
@@ -516,7 +500,7 @@ conda activate regenie_env
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/
 
-sbatch Result_regenie_qt_7Wan_GCTA_h05_K_2_s2 
+sbatch Result_regenie_qt_7Wan_GCTA_h05_K_2_s1and2 
 
 
 ##############################
