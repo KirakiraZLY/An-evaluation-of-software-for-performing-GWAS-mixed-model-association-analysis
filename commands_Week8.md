@@ -118,7 +118,9 @@ ${dir}/software/plink \
 --bfile ${dir}/data_qc \
 --linear \
 --covar ${dir}/covar_PC_withoutLabel.covars \
---pheno --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno --allow-no-sex \
+--pheno --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno \
+--mpheno 1 \
+--allow-no-sex \
 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_plink_inf_qt_7Wan_GCTA_h01_K_1
 ```
 
