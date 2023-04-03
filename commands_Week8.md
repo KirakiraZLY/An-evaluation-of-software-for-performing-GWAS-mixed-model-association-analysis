@@ -323,11 +323,11 @@ Result: ${dir}/type_1_error/Multi_Traits/Result*/
    regenie \
   --step 1 \
   --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_2_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --covarCol PC{1:20} \
   --bsize 1000 \
-  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1  
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h05_K_2_s1  
 ```
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
 Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
@@ -338,24 +338,24 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --covarFile ${dir}/covar_PC.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_2_label.pheno \
   --covarCol PC{1:20} \
   --bsize 1000 \
   --qt \
   --pThresh 0.01 \
   --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1_label/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_regenie_qt_7Wan_GCTA_h01_K_1_s2
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h05_K_2_s2
 ```
 Output: Result_regenie_qt_7Wan_GCTA_h05_K_2_s2.regenie
 
 ### Bolt
 ```python
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno  --phenoCol=Phenotype5  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_bolt_qt_7Wan_GCTA_h01_K_1_P1.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_2_label.pheno  --phenoCol=Phenotype5  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_bolt_qt_7Wan_GCTA_h05_K_2_P1.Bolt
 ```
 
 ### Bolt-inf
 ```python
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno  --phenoCol=Phenotype1 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_bolt_inf_qt_7Wan_GCTA_h01_K_1_P1.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_2_label.pheno  --phenoCol=Phenotype1 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_bolt_inf_qt_7Wan_GCTA_h05_K_1_P2.Bolt
 ```
 
 ### Plink
@@ -365,19 +365,19 @@ ${dir}/software/plink \
 --bfile ${dir}/data_qc \
 --linear \
 --covar ${dir}/covar_PC_withoutLabel.covars \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_2.pheno \
 --mpheno 1 \
 --allow-no-sex \
---out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_plink_inf_qt_7Wan_GCTA_h01_K_1
+--out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_plink_inf_qt_7Wan_GCTA_h05_K_2
 ```
 
 ### LDAK
 Quant   
 ```python
 ${dir}/software/ldak5.XXX \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_2.pheno \
 --mpheno 1 \
 --covar ${dir}/covar_PC_withoutLabel.covars \
 --bfile ${dir}/data_qc \
---linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_ldak_inf_qt_7Wan_GCTA_h01_K_1
+--linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_ldak_inf_qt_7Wan_GCTA_h05_K_2
 ```
