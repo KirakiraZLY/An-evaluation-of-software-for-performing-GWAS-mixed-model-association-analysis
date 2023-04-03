@@ -222,7 +222,7 @@ K: 1000 causal snps; 10K 10K causal snps.
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_7 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h01_K_7 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -1 \
@@ -236,7 +236,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_8 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_K_8 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -1 \
@@ -250,7 +250,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_9 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_K_9 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -1 \
@@ -265,7 +265,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_7 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h01_K_10 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -1 \
@@ -279,7 +279,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_8 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_K_11 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -1 \
@@ -293,7 +293,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_9 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_K_12 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -1 \
