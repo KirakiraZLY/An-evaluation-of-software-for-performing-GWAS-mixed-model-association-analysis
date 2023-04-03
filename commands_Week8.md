@@ -160,7 +160,7 @@ K: 1000 causal snps; 10K 10K causal snps.
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_4 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_10K_4 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -174,7 +174,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_5 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -188,7 +188,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_6 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
