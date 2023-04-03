@@ -339,7 +339,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_7Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5 \
@@ -349,7 +349,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_7Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6 \
@@ -359,7 +359,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_7Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_4to6
 
@@ -390,7 +390,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_K_8 \
@@ -400,7 +400,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_K_9 \
@@ -410,7 +410,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h01_K_10 \
@@ -420,7 +420,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
 
 ${dir}/software/ldak5.XXX \
@@ -431,7 +431,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_K_12 \
@@ -441,7 +441,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_7to12
 
