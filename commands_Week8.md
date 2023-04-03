@@ -129,6 +129,7 @@ Quant
 ```python
 ${dir}/software/ldak5.XXX \
 --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno \
+--mpheno 1 \
 --covar ${dir}/covar_PC_withoutLabel.covars \
 --bfile ${dir}/data_qc \
 --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_ldak_inf_qt_7Wan_GCTA_h01_K_1
@@ -314,9 +315,8 @@ Result: ${dir}/type_1_error/Multi_Traits/Result*/
 4-6: qt, 7 Wan, GCTA, 5 Phenos, 10K causal,  **h2 = 0.1, 0.5, 0.9**   
 7-12: qt, 1 Wan(Chinese), GCTA, 5 Phenos, **1 - 10K causal**,  **h2 = 0.1, 0.5, 0.9** 
 
-
+# Software test on each: 2-12
 ## Run software on **2** pheno
-### 1
 ### Regenie
 1. 
 ```python
@@ -365,7 +365,9 @@ ${dir}/software/plink \
 --bfile ${dir}/data_qc \
 --linear \
 --covar ${dir}/covar_PC_withoutLabel.covars \
---pheno --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno --allow-no-sex \
+--pheno --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno \
+--mpheno 1 \
+--allow-no-sex \
 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_plink_inf_qt_7Wan_GCTA_h01_K_1
 ```
 
@@ -374,6 +376,7 @@ Quant
 ```python
 ${dir}/software/ldak5.XXX \
 --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1.pheno \
+--mpheno 1 \
 --covar ${dir}/covar_PC_withoutLabel.covars \
 --bfile ${dir}/data_qc \
 --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_ldak_inf_qt_7Wan_GCTA_h01_K_1
