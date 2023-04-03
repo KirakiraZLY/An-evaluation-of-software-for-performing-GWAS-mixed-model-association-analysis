@@ -1,8 +1,8 @@
 # Week 8
 2023/3/31 - 2023/4/6
 
-## Test Mixed Model on different parameters
-### Simulate phenotypes based on different parameters
+# Test Mixed Model on different parameters
+## Simulate phenotypes based on different parameters: 1-3
 Quantitative/ Binary   
 Number of Causal: 1000, 10000   
 h2: 0.1, 0.5, 0.9   
@@ -136,7 +136,7 @@ ${dir}/software/ldak5.XXX \
 
 ### Done
 
-## Test Mixed Model on different parameters
+## Test Mixed Model on different parameters 4-6
 Quantitative/ Binary   
 Number of Causal: 1000, 10000   
 h2: 0.1, 0.5, 0.9   
@@ -201,7 +201,7 @@ ${dir}/software/ldak5.XXX \
 Pheno: ${dir}/type_1_error/Multi_Traits
 Result: ${dir}/type_1_error/Multi_Traits/Result*/
 
-## 7+ Test Mixed Model on different parameters
+## Test Mixed Model on different parameters 7-12
 Quantitative/ Binary   
 Number of Causal: 1000, 10000   
 h2: 0.1, 0.5, 0.9   
@@ -378,5 +378,3 @@ ${dir}/software/ldak5.XXX \
 --bfile ${dir}/data_qc \
 --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_1/Result_ldak_inf_qt_7Wan_GCTA_h01_K_1
 ```
-
-### Done
