@@ -232,7 +232,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 ```
 
 ### 8. qt, 1 Wan, GCTA, h2=0.5, 5 Phenos, 10K causal
