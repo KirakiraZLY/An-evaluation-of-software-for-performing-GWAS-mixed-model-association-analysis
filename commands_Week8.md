@@ -39,7 +39,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_1 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_2 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -53,14 +53,14 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_1 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_3 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12.txt
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_7Wan.txt
 ```
 
 ### Submitted
@@ -157,7 +157,7 @@ K: 1000 causal snps; 10K 10K causal snps.
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_4 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -171,7 +171,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_1 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_5 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -185,7 +185,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_1 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_6 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
