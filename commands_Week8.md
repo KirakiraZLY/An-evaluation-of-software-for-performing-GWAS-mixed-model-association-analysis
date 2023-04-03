@@ -323,7 +323,7 @@ Result: ${dir}/type_1_error/Multi_Traits/Result*/
    regenie \
   --step 1 \
   --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_K_1_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_K_2_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --covarCol PC{1:20} \
   --bsize 1000 \
