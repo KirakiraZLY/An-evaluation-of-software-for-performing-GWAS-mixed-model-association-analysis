@@ -1,0 +1,381 @@
+---
+title: "Type_1_error"
+author: "zly"
+date: "2023-02-28"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+# library(GENESIS)
+library(qqman)
+library(tidyverse)
+library(tidyr)
+library(fpp2)
+```
+
+# Power Test
+## Bolt-lmm as example
+```{r}
+assoc_data <- read_table2("./Result_bolt_qt_7Wan_GCTA_h01_K_1_P1.Bolt", col_names = TRUE)
+# hist(assoc_data$P_BOLT_LMM)
+assoc_data1 <- assoc_data[,c("CHR","BP","P_BOLT_LMM")]
+# assoc_data2 <- assoc_data[,6]
+# names(assoc_data2) <- c("P")
+# assoc_data_sub <- cbine(assoc_data1,assoc_data2)
+assoc_data_sub <- assoc_data1 %>% subset(assoc_data1$CHR<13)
+assoc_data_sub <- tidyr::unite(assoc_data_sub,"SNP",CHR,BP,sep=":",remove=FALSE)
+names(assoc_data_sub) <- c("SNP","CHR","BP","P")
+assoc_data_sub$P <-as.numeric(assoc_data_sub$P)
+assoc_data_sub <- subset(assoc_data_sub, P !=0)
+manhattan(assoc_data_sub,logp = TRUE)
+qq(assoc_data_sub$P, main = "Power, Q-Q, Bolt-lmm, qt, 70K inds, GCTA, h2 = 0.1, 1K causals", xlim = c(0,22), ylim=c(0,7))
+
+
+#######################################3
+# Manhattan
+#######################################
+don <- assoc_data_sub %>% 
+  
+  # Compute chromosome size
+  group_by(CHR) %>% 
+  summarise(chr_len=max(BP)) %>% 
+  
+  # Calculate cumulative position of each chromosome
+  mutate(tot=cumsum(chr_len)-chr_len) %>%
+  select(-chr_len) %>%
+  
+  # Add this info to the initial dataset
+  left_join(assoc_data_sub, ., by=c("CHR"="CHR")) %>%
+  
+  # Add a cumulative position of each SNP
+  arrange(CHR, BP) %>%
+  mutate( BPcum=BP+tot)
+axisdf = don %>% group_by(CHR) %>% summarize(center=( max(BPcum) + min(BPcum) ) / 2 )
+ggplot(don, aes(x=BPcum, y=-log10(P))) +
+    
+    # Show all points
+    geom_point( aes(color=as.factor(CHR)), alpha=0.8, size=1.3) +
+    geom_hline(yintercept = -log10(5e-8), color = "red", linetype = "dashed") + 
+    scale_color_manual(values = rep(c("grey", "skyblue"), 22 )) +
+    
+    # custom X axis:
+    scale_x_continuous( label = axisdf$CHR, breaks= axisdf$center ) +
+    scale_y_continuous(expand = c(0, 0) ) +     # remove space between plot area and x axis
+  
+    # Custom the theme:
+    theme_bw() +
+    theme( 
+      legend.position="none",
+      panel.border = element_blank(),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank()
+    ) +
+  labs(title = "Power, Manhattan, Bolt-lmm, qt, 70K inds, GCTA, h2 = 0.1, 1K causals") +
+  xlab("Chromosome") +
+  NULL
+ 
+
+## Power test
+assoc_data_2 <- assoc_data1
+assoc_data_2$SNP <- assoc_data$SNP
+assoc_data_2_sub <- assoc_data_2 %>% subset(assoc_data_2$CHR<13)
+names(assoc_data_2_sub) <- c("CHR","BP","P","SNP")
+Sig_obs <- subset(assoc_data_2_sub, assoc_data_2_sub$P < 5e-5)
+Sig_obs <- select(Sig_obs, c(3,4))
+Sig_obs <- Sig_obs[,c(2,1)]
+colnames(Sig_obs) <- c("SNP","P")
+Sig_SNP <- read_table2(file = "../Trait_qt_7Wan_GCTA_h01_K_1.effects", col_names = TRUE)
+Sig_SNP <- subset(Sig_SNP, Sig_SNP$Phenotype == 1)
+Sig_SNP_list <- data.frame(Sig_SNP$Predictor)
+# Sig_SNP_list <- t(Sig_SNP_list)
+colnames(Sig_SNP_list) <- c("SNP")
+Sig_obs_1 <- merge(Sig_obs, Sig_SNP_list, by.x = "SNP")
+Power <- nrow(Sig_obs_1) / nrow(Sig_SNP)
+
+
+## Chisq-test
+assoc_data_fp <- assoc_data1 %>% subset(assoc_data1$CHR>=13)
+assoc_data_fp <- tidyr::unite(assoc_data_fp,"SNP",CHR,BP,sep=":",remove=FALSE)
+names(assoc_data_fp) <- c("SNP","CHR","BP","P")
+
+ggplot(assoc_data_fp, aes(x = P)) + 
+  geom_histogram(binwidth = 0.1, boundary = 0) + 
+  labs(title = "Type I Error, Bolt-lmm, qt, 70K inds, GCTA, h2 = 0.1, 1K causals") +
+  xlab("P") + 
+  NULL
+
+unif <- runif(n = nrow(assoc_data_fp), min = 0, max = 1)
+hist(unif)
+unif <- data.frame(unif)
+names(unif) <- c("P")
+unif$P <- as.numeric(unif$P)
+
+n11 <- sum(assoc_data_fp$P < 5e-5)
+n21 <- sum(assoc_data_fp$P >= 5e-5)
+n12 <- sum(unif$P < 5e-5)
+n22 <- sum(unif$P >= 5e-5)
+chi <- matrix(c(n11,n21,n12,n22), nrow = 2)
+# chi <- data.frame(order(unif), order(assoc_data_sub$P))
+# chi <- cbind(assoc_data_sub$P, unif)
+chisq.test(chi)
+```
+## Bolt-lmm-inf
+```{r}
+assoc_data <- read_table2("Result_bolt_inf_qt_7Wan_GCTA_h01_K_1.Bolt", col_names = TRUE)
+# hist(assoc_data$P_BOLT_LMM)
+assoc_data1 <- assoc_data[,c("CHR","BP","P_BOLT_LMM_INF")]
+# assoc_data2 <- assoc_data[,6]
+# names(assoc_data2) <- c("P")
+# assoc_data_sub <- cbine(assoc_data1,assoc_data2)
+assoc_data_sub <- assoc_data1
+assoc_data_sub <- tidyr::unite(assoc_data_sub,"SNP",CHR,BP,sep=":",remove=FALSE)
+names(assoc_data_sub) <- c("SNP","CHR","BP","P")
+assoc_data_sub$P <-as.numeric(assoc_data_sub$P)
+assoc_data_sub <- subset(assoc_data_sub, P !=0)
+manhattan(assoc_data_sub,logp = TRUE)
+qq(assoc_data_sub$P, main = "Q-Q, bolt, white, height", xlim = c(0,22), ylim=c(0,7))
+
+
+###################################
+# Manhattan
+###################################
+don <- assoc_data_sub %>% 
+  
+  # Compute chromosome size
+  group_by(CHR) %>% 
+  summarise(chr_len=max(BP)) %>% 
+  
+  # Calculate cumulative position of each chromosome
+  mutate(tot=cumsum(chr_len)-chr_len) %>%
+  select(-chr_len) %>%
+  
+  # Add this info to the initial dataset
+  left_join(assoc_data_sub, ., by=c("CHR"="CHR")) %>%
+  
+  # Add a cumulative position of each SNP
+  arrange(CHR, BP) %>%
+  mutate( BPcum=BP+tot)
+axisdf = don %>% group_by(CHR) %>% summarize(center=( max(BPcum) + min(BPcum) ) / 2 )
+ggplot(don, aes(x=BPcum, y=-log10(P))) +
+    
+    # Show all points
+    geom_point( aes(color=as.factor(CHR)), alpha=0.8, size=1.3) +
+    geom_hline(yintercept = -log10(5e-8), color = "red", linetype = "dashed") + 
+    scale_color_manual(values = rep(c("grey", "skyblue"), 22 )) +
+    
+    # custom X axis:
+    scale_x_continuous( label = axisdf$CHR, breaks= axisdf$center ) +
+    scale_y_continuous(expand = c(0, 0) ) +     # remove space between plot area and x axis
+  
+    # Custom the theme:
+    theme_bw() +
+    theme( 
+      legend.position="none",
+      panel.border = element_blank(),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.x = element_blank()
+    ) +
+  labs(title = "Bolt, h2=0.1, causal=1000, Manhattan") +
+  xlab("Chromosome") +
+  NULL
+```
+
+
+```{r}
+#############################
+# Power Calculating
+#############################
+
+Sig <- subset(assoc_data, assoc_data$P_BOLT_LMM_INF < 5e-5)
+Sig <- select(Sig, c(1,11))
+# Sig$lab <- 1
+Sig2 <- subset(assoc_data, assoc_data$P_BOLT_LMM_INF < 1e-7)
+Sig2 <- select(Sig2, c(1,11))
+colnames(Sig) <- c("SNP","P")
+colnames(Sig2) <- c("SNP","P")
+Sig_SNP_list <- read_table2(file = "./Trait_qt_7Wan_GCTA_h01_K_1.effects", col_names = TRUE)
+# Sig_SNP_list <- t(Sig_SNP_list)
+Sig_SNP_list <- subset(Sig_SNP_list, Sig_SNP_list$Phenotype == 5)
+Sig_SNP_list <- select(Sig_SNP_list, c(2))
+colnames(Sig_SNP_list) <- c("SNP")
+Sig_1 <- merge(Sig, Sig_SNP_list, by = "SNP")
+Sig_2 <- merge(Sig2, Sig_SNP_list, by.x = "SNP")
+Sig_1$lab <- 1
+Sig_2$lab <- 2
+Sig_1 <- rbind(Sig_1, Sig_2)
+Sig_1$lab <- as.factor(Sig_1$lab)
+ggplot(Sig_1, aes(lab, -log10(P))) +
+  geom_boxplot()
+```
+## Regenie
+
+
+
+## Regenie file: .pheno
+```{r}
+# fam <- read_table2(file = "non_genetic_trait_quant.pheno", col_names = FALSE)
+# fam <- subset(fam, select = -X4)
+# names(fam) <- c("FID","IID","Phenotype")
+# 
+# # fam$FID <- as.name(fam$FID),
+# write.table(fam, file = "./non_genetic_trait_quant_1.pheno", row.names = FALSE, col.names = TRUE, quote = FALSE)
+# fam1 <- read_table2(file = "non_genetic_trait_quant_1.pheno", col_names = TRUE)
+```
+
+## Simulate a Uniform
+```{r}
+unif <- runif(n = 369877, min = 0, max = 1)
+hist(unif)
+# Obs_P <- 10^(-P$LOG10P) ## Regenie
+# Obs_P <- P$P ## Plink
+# Obs_P <- P$P_BOLT_LMM_INF # Bolt
+# accuracy(Obs_P, unif)
+```
+
+
+## test for LDAK result
+```{r}
+P <- read_table2(file = "data_ldak_whole_nongenetic_result.assoc", col_names = TRUE)
+hist(P$Wald_P, main="LDAK, Non-genetic")
+
+sum(P$Wald_P < 0.01) / nrow(P)
+sum(P$Wald_P < 5e-5) / nrow(P)
+
+P_sub <- subset(P, P$Wald_P < 0.01)
+# hist(P_sub$Wald_P, main = "LDAK, P<0.01, Non-genetic")
+ggplot(P_sub, aes(x = Wald_P)) +
+  geom_histogram(bins=20,color = "skyblue") +
+  labs(title = "LDAK, Non-genetic, P<0.01") +
+  xlab("P") +
+  NULL
+
+unif <- runif(n = nrow(P_sub), min = 0, max = 0.01)
+hist(unif)
+
+accuracy(P_sub$Wald_P, unif)
+```
+
+## Test for Bolt result
+```{r}
+P <- read_table2(file = "Result_bolt_qt_7Wan_GCTA_h01_K_1.Bolt", col_names = TRUE)
+hist(P$P_BOLT_LMM, main = "Bolt-lmm, non-genetic")
+
+sum(P$P_BOLT_LMM < 0.01) / nrow(P)
+sum(P$P_BOLT_LMM < 5e-5) / nrow(P)
+
+
+P_sub <- subset(P, P$P_BOLT_LMM < 0.01)
+# hist(P_sub$P_BOLT_LMM, main = "Bolt-lmm, P<0.01, Non-genetic")
+ggplot(P_sub, aes(x = P_BOLT_LMM)) +
+  geom_histogram(bins=20, color = "skyblue") +
+  labs(title = "Bolt-lmm, Non-genetic, P<0.01") +
+  xlab("P") +
+  NULL
+
+unif <- runif(n = nrow(P_sub), min = 0, max = 0.01)
+hist(unif)
+
+accuracy(P_sub$P_BOLT_LMM, unif)
+```
+
+## Bolt Lmm INF
+```{r}
+P <- read_table2(file = "data_bolt_inf_whole_nongenetic_result.Bolt", col_names = TRUE)
+hist(P$P_BOLT_LMM_INF, main = "Bolt-lmm-inf, non-genetic, inf")
+
+sum(P$P_BOLT_LMM_INF < 0.01) / nrow(P)
+sum(P$P_BOLT_LMM_INF < 5e-5) / nrow(P)
+
+P_sub <- subset(P, P$P_BOLT_LMM_INF < 0.01)
+# hist(P_sub$P_BOLT_LMM_INF, main = "Bolt-lmm-inf, P<0.01, Non-genetic")
+ggplot(P_sub, aes(x = P_BOLT_LMM_INF)) +
+  geom_histogram(bins=20, color = "skyblue") +
+  labs(title = "Bolt-lmm-inf, Non-genetic, P<0.01") +
+  xlab("P") +
+  NULL
+
+unif <- runif(n = nrow(P_sub), min = 0, max = 0.01)
+hist(unif)
+
+accuracy(P_sub$P_BOLT_LMM_INF, unif)
+```
+
+## Test for Plink result
+```{r}
+P <- read_table2(file = "data_plink_nongenetic_finalresult.assoc.linear", col_names = TRUE)
+hist(P$P, main = "Plink, non-genetic", xlab = "P")
+
+sum(P$P < 0.01) / nrow(P)
+sum(P$P < 5e-5) / nrow(P)
+
+
+P$P_R <- as.numeric(P$P)
+P <- select(P, -c(9))
+
+P_sub <- subset(P, P$P_R <= 0.02)
+ggplot(P_sub, aes(x = P_R)) +
+  geom_histogram(bins=20, color = "skyblue") +
+  labs(title = "Plink, non-genetic, P<0.01") +
+  xlab("P") +
+  NULL
+
+unif <- runif(n = nrow(P_sub), min = 0, max = 0.01)
+hist(unif)
+
+accuracy(P_sub$P_R, unif)
+```
+
+## Regenie for Type I error traits(simulation)
+```{r}
+
+P <- read_table2(file = "data_regenie_whole_nongenetic_out_2_firth_Phenotype.regenie", col_names = TRUE)
+
+
+# assoc_data1 <- assoc_data[,c("CHROM","GENPOS","LOG10P")]
+# names(assoc_data1) <- c("CHR","BP","P")
+# # assoc_data2 <- assoc_data[,6]
+# # names(assoc_data2) <- c("P")
+# # assoc_data_sub <- cbine(assoc_data1,assoc_data2)
+# assoc_data_sub <- assoc_data1
+# assoc_data_sub <- tidyr::unite(assoc_data_sub,"SNP",CHR,BP,sep=":",remove=FALSE)
+# names(assoc_data_sub) <- c("SNP","CHR","BP","P")
+# assoc_data_sub$P <-as.numeric(assoc_data_sub$P)
+# # manhattan(assoc_data_sub, logp=TRUE)
+# qq(assoc_data_sub$P, main = "Q-Q", xlim = c(0,22), ylim=c(0,7))
+sum(10^(-P$LOG10P)<0.01)/ nrow(P)
+sum(10^(-P$LOG10P)<5e-5) / nrow(P)
+hist(P$LOG10P, main="Regenie, non-genetic")
+ggplot(P, aes(x = 10^-LOG10P)) +
+  geom_histogram() +
+  # xlim(0,1) +
+  labs(title = "Regenie, non-genetic") +
+  xlab("P") +
+  NULL
+  
+P_sub <- subset(P, P$LOG10P < 0.01)
+ggplot(P_sub, aes(x = 10^-(P$LOG10P))) +
+  geom_histogram(bins=20, color = "skyblue") +
+  labs(title = "Regenie, Non-genetic, P<0.01") +
+  xlab("P") +
+  NULL
+
+
+unif <- runif(n = nrow(P_sub), min = 0, max = 0.01)
+hist(unif)
+
+accuracy(P_sub$LOG10P, unif)
+```
+
+
+## Calculating the Variance from Uniform Distribution
+```{r}
+
+unif <- runif(n = 369877, min = 0, max = 1)
+hist(unif)
+# Obs_P <- 10^(-P$LOG10P) ## Regenie
+# Obs_P <- P$P ## Plink
+Obs_P <- P$P_BOLT_LMM_INF # Bolt
+accuracy(Obs_P, unif)
+```
+
