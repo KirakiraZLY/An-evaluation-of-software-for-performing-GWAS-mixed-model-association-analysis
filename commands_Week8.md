@@ -501,7 +501,8 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan
 
 ### DONE
 
-# 所有的Plink
+# 五和六的Plink
+之后的plink需要另外的covar_PC，要建新的principle components   
 ## Plink on 5
 assoc test   
 ```python
