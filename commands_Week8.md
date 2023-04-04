@@ -501,6 +501,19 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan
 
 ### DONE
 
+# 所有的Plink
+## Plink on 5
+assoc test   
+```python
+${dir}/software/plink --bfile ${dir}/data_qc --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5.pheno --mpheno 1 --allow-no-sex --threads 8  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_plink_inf_qt_7Wan_GCTA_h05_10K_5_P1 
+```
+
+## Plink on 6
+assoc test   
+```python
+${dir}/software/plink --bfile ${dir}/data_qc --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6.pheno --mpheno 1 --allow-no-sex --threads 8  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_plink_inf_qt_7Wan_GCTA_h09_10K_6_P1 
+```
+
 
 ## Run software on **5** pheno
 ### Regenie
@@ -509,11 +522,11 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan
    regenie \
   --step 1 \
   --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_3_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --covarCol PC{1:20} \
   --bsize 1000 \
-  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_K_3/Result_regenie_qt_7Wan_GCTA_h09_K_3_s1  
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_regenie_qt_7Wan_GCTA_h05_10K_5_s1  
 ```
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
 Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out data_qc   
@@ -555,5 +568,3 @@ Quant
 ```python
 ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_3.pheno --mpheno 1 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_K_3/Result_ldak_inf_qt_7Wan_GCTA_h09_K_3_P1 --max-threads 8
 ```
-
-### DONE
