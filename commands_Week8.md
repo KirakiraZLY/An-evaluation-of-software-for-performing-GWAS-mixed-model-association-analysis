@@ -454,6 +454,7 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan
   --covarFile ${dir}/covar_PC.covars \
   --covarCol PC{1:20} \
   --bsize 1000 \
+  --threads 8 \
   --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_10K_4/Result_regenie_qt_7Wan_GCTA_h01_10K_4_s1  
 ```
   Since .pheno file needs FID and IID, I copied it and renamed height1.pheno with the titles.(因为.pheno需要FID和IID，就复制了一个height1.pheno文件并更改格式)   
@@ -468,6 +469,7 @@ Convert .bed to .bgen: ./software/plink2 --bfile data_qc --export bgen-1.2 --out
   --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h01_10K_4_label.pheno \
   --covarCol PC{1:20} \
   --bsize 1000 \
+  --threads 8 \
   --qt \
   --pThresh 0.01 \
   --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_10K_4/Result_regenie_qt_7Wan_GCTA_h01_10K_4_s1_pred.list \
