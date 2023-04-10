@@ -433,18 +433,18 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5_label.pheno  --phenoCol=Phenotype1 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_bolt_inf_qt_7Wan_GCTA_h05_10K_5_P1.Bolt
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5_label.pheno  --phenoCol=Phenotype2 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_bolt_inf_qt_7Wan_GCTA_h05_10K_5_P2.Bolt
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5_label.pheno  --phenoCol=Phenotype3 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_bolt_inf_qt_7Wan_GCTA_h05_10K_5_P3.Bolt
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5_label.pheno  --phenoCol=Phenotype4 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_bolt_inf_qt_7Wan_GCTA_h05_10K_5_P4.Bolt
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5_label.pheno  --phenoCol=Phenotype5 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_bolt_inf_qt_7Wan_GCTA_h05_10K_5_P5.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6_label.pheno  --phenoCol=Phenotype1 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_bolt_inf_qt_7Wan_GCTA_h09_10K_6_P1.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6_label.pheno  --phenoCol=Phenotype2 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_bolt_inf_qt_7Wan_GCTA_h09_10K_6_P2.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6_label.pheno  --phenoCol=Phenotype3 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_bolt_inf_qt_7Wan_GCTA_h09_10K_6_P3.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6_label.pheno  --phenoCol=Phenotype4 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_bolt_inf_qt_7Wan_GCTA_h09_10K_6_P4.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6_label.pheno  --phenoCol=Phenotype5 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip  --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_bolt_inf_qt_7Wan_GCTA_h09_10K_6_P5.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_bolt_inf_qt_7Wan_GCTA_h05_10K_5
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_bolt_inf_qt_7Wan_GCTA_h09_10K_6
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/
 
-sbatch Result_bolt_inf_qt_7Wan_GCTA_h05_10K_5
+sbatch Result_bolt_inf_qt_7Wan_GCTA_h09_10K_6
 
 ##############################
 LDAK
