@@ -615,6 +615,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 1000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
@@ -629,6 +630,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 1000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
@@ -643,6 +645,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 1000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
@@ -657,6 +660,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
@@ -671,6 +675,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 10000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
@@ -685,6 +690,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 10000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 ```
 
@@ -699,6 +705,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 ```
 
@@ -713,6 +720,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 10000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
 ```
 
@@ -727,6 +735,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 10000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
 ```
 
@@ -742,6 +751,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 1000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
 ```
 
@@ -756,6 +766,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 1000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
 ```
 
@@ -770,5 +781,6 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 1000 \
+  --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
 ```
