@@ -931,6 +931,22 @@ ${dir}/software/ldak5.XXX \
   --max-threads 8 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
+  " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_LDAK_13to19
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK
+sbatch Trait_qt_LDAK_13to19
+
+##############################################################################3
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 16G
+#SBATCH -t 30:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h05_K_20 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
@@ -990,8 +1006,8 @@ ${dir}/software/ldak5.XXX \
 
 
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_LDAK_13to24
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_LDAK_20to24
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK
-sbatch Trait_qt_LDAK_13to24
+sbatch Trait_qt_LDAK_20to24
