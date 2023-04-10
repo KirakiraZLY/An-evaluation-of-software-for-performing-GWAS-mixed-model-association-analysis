@@ -488,6 +488,7 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
 regenie \
   --step 1 \
