@@ -315,6 +315,7 @@ Result: ${dir}/type_1_error/Multi_Traits/Result*/
 4-6: qt, 7 Wan, GCTA, 5 Phenos, 10K causal,  **h2 = 0.1, 0.5, 0.9**   
 7-12: qt, 1 Wan(Chinese), GCTA, 5 Phenos, **1 - 10K causal**,  **h2 = 0.1, 0.5, 0.9** 
 
+
 # Software test on each: 2-12
 ## Run software on **2** pheno
 ### Regenie
@@ -599,4 +600,175 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan
   --pThresh 0.01 \
   --pred ${dir}/ukbb_whole_height_result/data_regenie_height_s1_pred.list \
   --out ${dir}/ukbb_whole_height_result/data_regenie_height_s2
+```
+
+
+## Simulation 13 - 24: From GCTA to LDAK
+### 13. qt, 7 Wan, LDAK -0.25, h2=0.1, 5 Phenos, 1K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h01_K_13 \
+  --bfile ${dir}/data_qc \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+```
+
+### 14. qt, 7 Wan, LDAK, h2=0.5, 5 Phenos, 1K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h05_K_14 \
+  --bfile ${dir}/data_qc \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+```
+
+### 15. qt, 7 Wan, LDAK, h2=0.9, 5 Phenos, 1K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h09_K_15 \
+  --bfile ${dir}/data_qc \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+```
+
+### 16. qt, 7 Wan, LDAK, h2=0.1, 5 Phenos, 10K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h01_10K_16 \
+  --bfile ${dir}/data_qc \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+```
+
+### 17. qt, 7 Wan, LDAKq, h2=0.5, 5 Phenos, 10K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h05_10K_17 \
+  --bfile ${dir}/data_qc \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+```
+
+### 18. qt, 7 Wan, LDAK, h2=0.9, 5 Phenos, 10K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h09_10K_18 \
+  --bfile ${dir}/data_qc \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+```
+
+### 19. qt, 1 Wan, LDAK, h2=0.1, 5 Phenos, 10K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h01_K_19 \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
+```
+
+### 20. qt, 1 Wan, LDAK, h2=0.5, 5 Phenos, 10K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h05_K_20 \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+```
+
+### 21. qt, 1 Wan, LDAK, h2=0.9, 5 Phenos, 10K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h09_K_21 \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+```
+
+
+### 22. qt, 1 Wan, LDAK, h2=0.1, 5 Phenos, 1K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h01_K_22 \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+```
+
+### 23. qt, 1 Wan, LDAK, h2=0.5, 5 Phenos, 1K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h05_K_23 \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+```
+
+### 24. qt, 1 Wan, LDAK, h2=0.9, 5 Phenos, 1K causal
+
+```python
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h09_K_24 \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --ignore-weights YES \
+  --power -0.25 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
 ```
