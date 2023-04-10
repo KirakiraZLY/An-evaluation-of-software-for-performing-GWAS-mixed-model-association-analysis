@@ -570,3 +570,33 @@ Quant
 ```python
 ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_3.pheno --mpheno 1 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_K_3/Result_ldak_inf_qt_7Wan_GCTA_h09_K_3_P1 --max-threads 8
 ```
+
+
+
+
+## Regenie + height + 70K
+1. 
+```python
+   regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/height1.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --out ${dir}/ukbb_whole_height_result/data_regenie_height_s1
+```
+2. 
+```python
+  regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/height1.pheno \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/ukbb_whole_height_result/data_regenie_height_s1_pred.list \
+  --out ${dir}/ukbb_whole_height_result/data_regenie_height_s2
+```

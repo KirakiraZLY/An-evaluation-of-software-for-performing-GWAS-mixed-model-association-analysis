@@ -471,3 +471,48 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/
 
 sbatch Result_ldak_qt_7Wan_GCTA_h09_10K_6
+
+
+
+
+
+##############################
+Regenie + height + 70K
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 64G
+#SBATCH -t 30:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/height1.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --out ${dir}/ukbb_whole_height_result/data_regenie_height_s1
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/height1.pheno \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/ukbb_whole_height_result/data_regenie_height_s1_pred.list \
+  --out ${dir}/ukbb_whole_height_result/data_regenie_height_s2
+
+" > ${dir}/scripts/regenie_ukbb_height_1and2_forMeta
+
+# I am doing blabla
+cd ${dir}/scripts/
+
+sbatch regenie_ukbb_height_1and2_forMeta
