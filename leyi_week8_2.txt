@@ -481,8 +481,8 @@ Regenie + height + 70K
 ##############################
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 64G
-#SBATCH -t 30:0:0
+#SBATCH --mem 16G
+#SBATCH -t 5:0:0
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
