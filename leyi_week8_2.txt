@@ -495,6 +495,7 @@ regenie \
   --phenoFile ${dir}/height1.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --covarCol PC{1:20} \
+  --threads 8 \
   --bsize 1000 \
   --out ${dir}/ukbb_whole_height_result/data_regenie_height_s1
 
@@ -505,6 +506,7 @@ regenie \
   --phenoFile ${dir}/height1.pheno \
   --covarCol PC{1:20} \
   --bsize 1000 \
+  --threads 8 \
   --qt \
   --pThresh 0.01 \
   --pred ${dir}/ukbb_whole_height_result/data_regenie_height_s1_pred.list \
