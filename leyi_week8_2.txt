@@ -551,7 +551,7 @@ regenie \
   --covarCol PC{1:20} \
   --bsize 1000 \
   --threads 8 \
-  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_7/Result_regenie_qt_1Wan_GCTA_h01_1K_7_s1  
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_7/Result_regenie_qt_1Wan_GCTA_h01_K_7_s1  
 
 
 regenie \
@@ -564,15 +564,15 @@ regenie \
   --threads 8 \
   --qt \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_7/Result_regenie_qt_1Wan_GCTA_h01_1K_7_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_7/Result_regenie_qt_1Wan_GCTA_h01_1K_7_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_7/Result_regenie_qt_1Wan_GCTA_h01_K_7_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_7/Result_regenie_qt_1Wan_GCTA_h01_K_7_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_7/Result_regenie_qt_1Wan_GCTA_h01_1K_7_s1and2 
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_7/Result_regenie_qt_1Wan_GCTA_h01_K_7_s1and2 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h01_K_7/
 
-sbatch Result_regenie_qt_1Wan_GCTA_h01_1K_7_s1and2 
+sbatch Result_regenie_qt_1Wan_GCTA_h01_K_7_s1and2 
 
 
 ##############################
