@@ -459,15 +459,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5.pheno --mpheno 1 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_ldak_qt_7Wan_GCTA_h05_10K_5_P1
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5.pheno --mpheno 2 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_ldak_qt_7Wan_GCTA_h05_10K_5_P2
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5.pheno --mpheno 3 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_ldak_qt_7Wan_GCTA_h05_10K_5_P3
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5.pheno --mpheno 4 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_ldak_qt_7Wan_GCTA_h05_10K_5_P4
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h05_10K_5.pheno --mpheno 5 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_ldak_qt_7Wan_GCTA_h05_10K_5_P5
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6.pheno --mpheno 1 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_ldak_qt_7Wan_GCTA_h09_10K_6_P1
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6.pheno --mpheno 2 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_ldak_qt_7Wan_GCTA_h09_10K_6_P2
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6.pheno --mpheno 3 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_ldak_qt_7Wan_GCTA_h09_10K_6_P3
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6.pheno --mpheno 4 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_ldak_qt_7Wan_GCTA_h09_10K_6_P4
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_10K_6.pheno --mpheno 5 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear --max-threads 8 ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_ldak_qt_7Wan_GCTA_h09_10K_6_P5
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/Result_ldak_qt_7Wan_GCTA_h05_10K_5
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/Result_ldak_qt_7Wan_GCTA_h09_10K_6
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_10K_5/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_10K_6/
 
-sbatch Result_ldak_qt_7Wan_GCTA_h05_10K_5
+sbatch Result_ldak_qt_7Wan_GCTA_h09_10K_6
