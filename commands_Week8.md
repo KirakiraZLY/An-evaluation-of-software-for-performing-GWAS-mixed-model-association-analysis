@@ -608,7 +608,7 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h01_K_13 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_7Wan_LDAK_h01_K_13 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -0.25 \
@@ -622,7 +622,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h05_K_14 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_7Wan_LDAK_h05_K_14 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -0.25 \
@@ -636,7 +636,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h09_K_15 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_7Wan_LDAK_h09_K_15 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -0.25 \
@@ -650,7 +650,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h01_10K_16 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_7Wan_LDAK_h01_10K_16 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -0.25 \
@@ -664,7 +664,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h05_10K_17 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_7Wan_LDAK_h05_10K_17 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -0.25 \
@@ -678,7 +678,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_LDAK_h09_10K_18 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_7Wan_LDAK_h09_10K_18 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -0.25 \
@@ -692,7 +692,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h01_K_19 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h01_K_19 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -0.25 \
@@ -706,7 +706,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h05_K_20 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h05_K_20 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -0.25 \
@@ -720,7 +720,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h09_K_21 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h09_K_21 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -0.25 \
@@ -735,7 +735,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h01_K_22 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h01_K_22 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -0.25 \
@@ -749,7 +749,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h05_K_23 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h05_K_23 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -0.25 \
@@ -763,7 +763,7 @@ ${dir}/software/ldak5.XXX \
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_LDAK_h09_K_24 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h09_K_24 \
   --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
   --ignore-weights YES \
   --power -0.25 \
