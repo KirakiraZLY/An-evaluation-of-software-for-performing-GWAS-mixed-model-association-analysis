@@ -384,7 +384,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h01_K_7 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -1 \
   --her 0.1 \
@@ -394,7 +394,7 @@ ${dir}/software/ldak5.XXX \
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_K_8 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -1 \
   --her 0.5 \
@@ -404,7 +404,7 @@ ${dir}/software/ldak5.XXX \
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_K_9 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -1 \
   --her 0.9 \
@@ -414,7 +414,7 @@ ${dir}/software/ldak5.XXX \
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h01_K_10 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -1 \
   --her 0.1 \
@@ -425,7 +425,7 @@ ${dir}/software/ldak5.XXX \
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_K_11 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -1 \
   --her 0.5 \
@@ -435,7 +435,7 @@ ${dir}/software/ldak5.XXX \
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_K_12 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -1 \
   --her 0.9 \
@@ -922,7 +922,7 @@ ${dir}/software/ldak5.XXX \
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h01_K_19 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -0.25 \
   --her 0.1 \
@@ -949,7 +949,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h05_K_20 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -0.25 \
   --her 0.5 \
@@ -960,7 +960,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h09_K_21 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -0.25 \
   --her 0.9 \
@@ -971,7 +971,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h01_K_22 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -0.25 \
   --her 0.1 \
@@ -982,7 +982,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h05_K_23 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -0.25 \
   --her 0.5 \
@@ -993,7 +993,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h09_K_24 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -0.25 \
   --her 0.9 \
