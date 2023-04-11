@@ -492,7 +492,7 @@ regenie \
   --bsize 1000 \
   --qt \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h01_K_1_s1_pred.list \
+  --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h05_K_2_s1_pred.list \
   --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h05_K_2_s2
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h05_K_2_s1and2 
