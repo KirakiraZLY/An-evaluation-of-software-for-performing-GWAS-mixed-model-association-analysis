@@ -529,6 +529,9 @@ sbatch regenie_ukbb_height_1and2_forMeta
 Software test: Trait_qt_7Wan_GCTA_h01_K_7
 第七个trait
 ############################################
+
+./software/plink2 --bfile ./MAMA/Bolt_Height/data_Black --export bgen-1.2 --out ./MAMA/Bolt_Height/data_Black
+
 ##############################
 Regenie
 ##############################
