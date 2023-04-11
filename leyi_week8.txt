@@ -956,7 +956,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
   --num-phenos 5 \
   --num-causals 10000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h09_K_21 \
@@ -967,7 +967,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
   --num-phenos 5 \
   --num-causals 10000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h01_K_22 \
@@ -978,7 +978,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h05_K_23 \
@@ -989,7 +989,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_qt_1Wan_LDAK_h09_K_24 \
@@ -1000,7 +1000,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
+  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 
 
 
