@@ -10,7 +10,7 @@ ${dir}/software/ldak5.XXX \
   --ignore-weights YES \
   --power -1 \
   --her 0.1 \
-   --prevalence 0 \
+   --prevalence 0.001 \
   --num-phenos 5 \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
