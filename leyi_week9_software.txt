@@ -109,7 +109,7 @@ Plink
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 30:0:0
+#SBATCH -t 60:0:0
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -300,7 +300,7 @@ Plink
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 30:0:0
+#SBATCH -t 60:0:0
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
