@@ -5,7 +5,7 @@
 
 ```python
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_bi_7Wan_GCTA_h01_K_25 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_25_bi_7Wan_GCTA_h01_K \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -14,4 +14,4 @@ ${dir}/software/ldak5.XXX \
   --num-phenos 5 \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
-```
+``` 
