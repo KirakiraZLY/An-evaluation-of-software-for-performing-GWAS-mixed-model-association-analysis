@@ -226,12 +226,12 @@ K: 1000 causal snps; 10K 10K causal snps.
 ```python
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h01_K_7 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 10000 \
+  --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_1Wan.txt
 ```
 
@@ -240,12 +240,12 @@ ${dir}/software/ldak5.XXX \
 ```python
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_K_8 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 10000 \
+  --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
 ```
 
@@ -254,12 +254,12 @@ ${dir}/software/ldak5.XXX \
 ```python
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_K_9 \
-  --bfile ${dir}/MAMA/Bolt_Height/data_Chinese \
+  --bfile ${dir}/MAMA/Bolt_Height/data_Black \
   --ignore-weights YES \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 10000 \
+  --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/list_snps_1_to_12_1Wan.txt
 ```
 
