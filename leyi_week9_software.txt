@@ -550,3 +550,395 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h01_10K_10/
 
 sbatch Result_LDAK_qt_1Wan_GCTA_h01_10K_10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+############################################
+Software test: Trait_qt_7Wan_GCTA_h05_10K_11
+第十一个trait
+############################################
+
+./software/plink2 --bfile ./MAMA/Bolt_Height/data_Black --export bgen-1.2 --out ./MAMA/Bolt_Height/data_Black
+
+##############################
+Regenie
+##############################
+########### 1 #############
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 10:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/MAMA/Bolt_Height/data_Black \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --threads 8 \
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_regenie_qt_1Wan_GCTA_h05_10K_11_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/MAMA/Bolt_Height/data_Black.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --threads 8 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_regenie_qt_1Wan_GCTA_h05_10K_11_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_regenie_qt_1Wan_GCTA_h05_10K_11_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_regenie_qt_1Wan_GCTA_h05_10K_11_s1and2 
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/
+
+sbatch Result_regenie_qt_1Wan_GCTA_h05_10K_11_s1and2 
+
+
+##############################
+Bolt
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 30:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype1  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_qt_1Wan_GCTA_h05_10K_11_P1.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype2  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_qt_1Wan_GCTA_h05_10K_11_P2.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype3  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_qt_1Wan_GCTA_h05_10K_11_P3.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype4  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_qt_1Wan_GCTA_h05_10K_11_P4.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype5  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_qt_1Wan_GCTA_h05_10K_11_P5.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_bolt_qt_1Wan_GCTA_h05_10K_11
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11
+
+sbatch Result_bolt_qt_1Wan_GCTA_h05_10K_11
+
+##############################
+Bolt-inf
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 30:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype1 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_inf_qt_1Wan_GCTA_h05_10K_11_P1.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype2 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_inf_qt_1Wan_GCTA_h05_10K_11_P2.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype3 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_inf_qt_1Wan_GCTA_h05_10K_11_P3.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype4 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_inf_qt_1Wan_GCTA_h05_10K_11_P4.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype5 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_inf_qt_1Wan_GCTA_h05_10K_11_P5.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_bolt_inf_qt_1Wan_GCTA_h05_10K_11
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/
+
+sbatch Result_bolt_inf_qt_1Wan_GCTA_h05_10K_11
+
+##############################
+Plink
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 60:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 1 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Plink_qt_1Wan_GCTA_h05_10K_11_P1
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 2 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Plink_qt_1Wan_GCTA_h05_10K_11_P2
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 3 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Plink_qt_1Wan_GCTA_h05_10K_11_P3
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 4 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Plink_qt_1Wan_GCTA_h05_10K_11_P4
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 5 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Plink_qt_1Wan_GCTA_h05_10K_11_P5
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Plink_qt_1Wan_GCTA_h05_10K_11
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/
+
+sbatch Result_Plink_qt_1Wan_GCTA_h05_10K_11
+
+##############################
+LDAK
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 30:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 1 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_LDAK_qt_1Wan_GCTA_h05_10K_11_P1
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 2 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_LDAK_qt_1Wan_GCTA_h05_10K_11_P2
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 3 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_LDAK_qt_1Wan_GCTA_h05_10K_11_P3
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 4 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_LDAK_qt_1Wan_GCTA_h05_10K_11_P4
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno 5 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_LDAK_qt_1Wan_GCTA_h05_10K_11_P5
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_LDAK_qt_1Wan_GCTA_h05_10K_11
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/
+
+sbatch Result_LDAK_qt_1Wan_GCTA_h05_10K_11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+############################################
+Software test: Trait_qt_7Wan_GCTA_h09_10K_12
+第十二个trait
+############################################
+
+./software/plink2 --bfile ./MAMA/Bolt_Height/data_Black --export bgen-1.2 --out ./MAMA/Bolt_Height/data_Black
+
+##############################
+Regenie
+##############################
+########### 1 #############
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 10:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/MAMA/Bolt_Height/data_Black \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --threads 8 \
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_regenie_qt_1Wan_GCTA_h09_10K_12_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/MAMA/Bolt_Height/data_Black.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --threads 8 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_regenie_qt_1Wan_GCTA_h09_10K_12_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_regenie_qt_1Wan_GCTA_h09_10K_12_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_regenie_qt_1Wan_GCTA_h09_10K_12_s1and2 
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/
+
+sbatch Result_regenie_qt_1Wan_GCTA_h09_10K_12_s1and2 
+
+
+##############################
+Bolt
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 30:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype1  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_qt_1Wan_GCTA_h09_10K_12_P1.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype2  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_qt_1Wan_GCTA_h09_10K_12_P2.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype3  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_qt_1Wan_GCTA_h09_10K_12_P3.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype4  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_qt_1Wan_GCTA_h09_10K_12_P4.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype5  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_qt_1Wan_GCTA_h09_10K_12_P5.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_bolt_qt_1Wan_GCTA_h09_10K_12
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12
+
+sbatch Result_bolt_qt_1Wan_GCTA_h09_10K_12
+
+##############################
+Bolt-inf
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 30:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype1 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_inf_qt_1Wan_GCTA_h09_10K_12_P1.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype2 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_inf_qt_1Wan_GCTA_h09_10K_12_P2.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype3 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_inf_qt_1Wan_GCTA_h09_10K_12_P3.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype4 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_inf_qt_1Wan_GCTA_h09_10K_12_P4.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype5 --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_inf_qt_1Wan_GCTA_h09_10K_12_P5.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_bolt_inf_qt_1Wan_GCTA_h09_10K_12
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/
+
+sbatch Result_bolt_inf_qt_1Wan_GCTA_h09_10K_12
+
+##############################
+Plink
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 60:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 1 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Plink_qt_1Wan_GCTA_h09_10K_12_P1
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 2 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Plink_qt_1Wan_GCTA_h09_10K_12_P2
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 3 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Plink_qt_1Wan_GCTA_h09_10K_12_P3
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 4 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Plink_qt_1Wan_GCTA_h09_10K_12_P4
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 5 --allow-no-sex --threads 8 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Plink_qt_1Wan_GCTA_h09_10K_12_P5
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Plink_qt_1Wan_GCTA_h09_10K_12
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/
+
+sbatch Result_Plink_qt_1Wan_GCTA_h09_10K_12
+
+##############################
+LDAK
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 30:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 1 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_LDAK_qt_1Wan_GCTA_h09_10K_12_P1
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 2 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_LDAK_qt_1Wan_GCTA_h09_10K_12_P2
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 3 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_LDAK_qt_1Wan_GCTA_h09_10K_12_P3
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 4 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_LDAK_qt_1Wan_GCTA_h09_10K_12_P4
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno 5 --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 8  --bfile ${dir}/MAMA/Bolt_Height/data_Black --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_LDAK_qt_1Wan_GCTA_h09_10K_12_P5
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_LDAK_qt_1Wan_GCTA_h09_10K_12
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/
+
+sbatch Result_LDAK_qt_1Wan_GCTA_h09_10K_12
