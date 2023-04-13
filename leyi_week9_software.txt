@@ -988,8 +988,6 @@ echo "#"'!'"/bin/bash
 #SBATCH -t 2:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH -a 1-5
-c=$SLURM_ARRAY_TASK_ID
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 conda activate regenie_env
