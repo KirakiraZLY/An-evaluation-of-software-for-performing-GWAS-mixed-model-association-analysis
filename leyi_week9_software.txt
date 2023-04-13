@@ -1443,7 +1443,7 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/typ
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K
 
-sbatch Result_14_bolt_qt_7Wan_LDAK_h05_K_P$j
+sbatch Result_15_bolt_qt_7Wan_LDAK_h09_K_P$j
 done
 
 ##############################
@@ -1469,7 +1469,7 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/typ
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/
 
-sbatch Result_14_bolt_inf_qt_7Wan_LDAK_h05_K_P$j
+sbatch Result_15_bolt_inf_qt_7Wan_LDAK_h09_K_P$j
 done
 
 
@@ -1488,14 +1488,14 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h09_K_15_label.pheno --mpheno $j --allow-no-sex --threads 4 --hide-covar --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_Plink_qt_7Wan_LDAK_h01_1K_13_P$cj
+${dir}/software/plink --bfile ${dir}/data_qc --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h09_K_15_label.pheno --mpheno $j --allow-no-sex --threads 4 --hide-covar --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_15_Plink_qt_7Wan_LDAK_h09_K_P$cj
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_14_Plink_qt_7Wan_LDAK_h05_K_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_15_Plink_qt_7Wan_LDAK_h09_K_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/
 
-sbatch Result_14_Plink_qt_7Wan_LDAK_h05_K_P$j
+sbatch Result_15_Plink_qt_7Wan_LDAK_h09_K_P$j
 done
 
 ##############################
@@ -1513,12 +1513,12 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h09_K_15_label.pheno --mpheno $j --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_LDAK_qt_7Wan_LDAK_h01_1K_13_P$j
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h09_K_15_label.pheno --mpheno $j --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_15_LDAK_qt_7Wan_LDAK_h09_K_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_14_LDAK_qt_7Wan_LDAK_h05_1K_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_15_LDAK_qt_7Wan_LDAK_h09_K_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/
 
-sbatch Result_14_LDAK_qt_7Wan_LDAK_h05_1K_P$j
+sbatch Result_15_LDAK_qt_7Wan_LDAK_h09_K_P$j
 done
