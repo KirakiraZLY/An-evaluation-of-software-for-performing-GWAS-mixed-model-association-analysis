@@ -42,7 +42,7 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_26_bi_7Wan_GCTA_h05_K \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_26_bi_7Wan_GCTA_h05_K \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -53,7 +53,7 @@ ${dir}/software/ldak5.XXX \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_27_bi_7Wan_GCTA_h09_K \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_27_bi_7Wan_GCTA_h09_K \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -64,7 +64,7 @@ ${dir}/software/ldak5.XXX \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_28_bi_7Wan_GCTA_h01_10K \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_28_bi_7Wan_GCTA_h01_10K \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -75,7 +75,7 @@ ${dir}/software/ldak5.XXX \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_29_bi_7Wan_GCTA_h05_10K \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_29_bi_7Wan_GCTA_h05_10K \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
@@ -86,7 +86,7 @@ ${dir}/software/ldak5.XXX \
   --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_30_bi_7Wan_GCTA_h09_10K \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_30_bi_7Wan_GCTA_h09_10K \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
   --power -1 \
