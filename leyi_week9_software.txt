@@ -1126,3 +1126,196 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait
 
 sbatch Result_13_LDAK_qt_7Wan_LDAK_h01_1K_P$j
 done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+############################################
+Software test: Trait_qt_7Wan_LDAK_h05_1K_14
+第十四个trait
+############################################
+
+./software/plink2 --bfile ./MAMA/Bolt_Height/data_Black --export bgen-1.2 --out ./MAMA/Bolt_Height/data_Black
+
+##############################
+Regenie
+##############################
+########### 1 #############
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_K_14_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --threads 4 \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_regenie_qt_7Wan_LDAK_h01_1K_13_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_K_14_label.pheno \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --threads 4 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_regenie_qt_7Wan_LDAK_h01_1K_13_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_regenie_qt_7Wan_LDAK_h01_1K_13_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_14_regenie_qt_7Wan_LDAK_h05_1K_s1and2 
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/
+
+sbatch Result_14_regenie_qt_7Wan_LDAK_h05_1K_s1and2 
+
+
+##############################
+Bolt
+##############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_K_14_label.pheno  --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_Bolt_qt_7Wan_LDAK_h01_1K_13_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_14_bolt_qt_7Wan_LDAK_h05_K_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K
+
+sbatch Result_14_bolt_qt_7Wan_LDAK_h05_K_P$j
+done
+
+##############################
+Bolt-inf
+##############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+#SBATCH -a 1-5
+c=$SLURM_ARRAY_TASK_ID
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_K_14_label.pheno  --phenoCol=Phenotype$j --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4 --statsFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_Bolt_inf_qt_7Wan_LDAK_h01_1K_13_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_14_bolt_inf_qt_7Wan_LDAK_h05_K_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/
+
+sbatch Result_14_bolt_inf_qt_7Wan_LDAK_h05_K_P$j
+done
+
+
+##############################
+Plink
+##############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/data_qc --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_K_14_label.pheno --mpheno $j --allow-no-sex --threads 4 --hide-covar --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_Plink_qt_7Wan_LDAK_h01_1K_13_P$cj
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_14_Plink_qt_7Wan_LDAK_h05_K_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/
+
+sbatch Result_14_Plink_qt_7Wan_LDAK_h05_K_P$j
+done
+
+##############################
+LDAK
+##############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_K_14_label.pheno --mpheno $j --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_LDAK_qt_7Wan_LDAK_h01_1K_13_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_14_LDAK_qt_7Wan_LDAK_h05_1K_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/
+
+sbatch Result_14_LDAK_qt_7Wan_LDAK_h05_1K_P$j
+done
