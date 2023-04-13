@@ -467,7 +467,7 @@ dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 16G
 #SBATCH -t 10:0:0
-#SBATCH -c 4
+#SBATCH -c 8
 #SBATCH -A dsmwpred
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
@@ -480,6 +480,7 @@ regenie \
   --covarFile ${dir}/covar_PC.covars \
   --covarCol PC{1:20} \
   --bsize 1000 \
+  --threads 8 \
   --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h05_K_2_s1  
 
 
@@ -492,6 +493,7 @@ regenie \
   --bsize 1000 \
   --qt \
   --pThresh 0.01 \
+  --threads 8 \
   --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h05_K_2_s1_pred.list \
   --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_2/Result_regenie_qt_7Wan_GCTA_h05_K_2_s2
 
