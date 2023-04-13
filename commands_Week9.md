@@ -88,3 +88,21 @@ Quant
 ```python
 ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_7Wan_GCTA_h09_K_3.pheno --mpheno 1 --covar ${dir}/covar_PC_withoutLabel.covars --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h09_K_3/Result_ldak_inf_qt_7Wan_GCTA_h09_K_3_P1 --max-threads 8
 ```
+
+
+# 循环
+```python
+#!/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint "s05"
+#SBATCH -a 1-5
+c=$SLURM_ARRAY_TASK_ID
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+/home/lezh/dsmwpred/zly/software/BOLT-LMM_v2.4/bolt --bfile=/home/lezh/dsmwpred/zly/MAMA/Bolt_Height/data_Black --phenoFile=/home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11_label.pheno  --phenoCol=Phenotype$c --covarFile=/home/lezh/dsmwpred/zly/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=/home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_Bolt_inf_qt_1Wan_GCTA_h05_10K_11_P$c.Bolt
+
+```
