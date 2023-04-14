@@ -1819,7 +1819,7 @@ dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 2:0:0
-#SBATCH -c 8
+#SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 #SBATCH -a 1-5
@@ -1844,16 +1844,16 @@ Plink
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
+#SBATCH --mem 1G
 #SBATCH -t 4:0:0
-#SBATCH -c 4
+#SBATCH -c 1
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_10K_17_label.pheno --mpheno $j --allow-no-sex --threads 4 --hide-covar --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait17_qt_7Wan_LDAK_h05_10K/Result_Plink_17_qt_7Wan_LDAK_h05_10K_P$cj
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar  --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_10K_17_label.pheno --mpheno $j --allow-no-sex --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait17_qt_7Wan_LDAK_h05_10K/Result_Plink_17_qt_7Wan_LDAK_h05_10K_P$cj  --memory 2048 
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait17_qt_7Wan_LDAK_h05_10K/Result_Plink_17_qt_7Wan_LDAK_h05_10K_P$j
 
