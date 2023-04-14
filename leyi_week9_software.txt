@@ -1935,12 +1935,12 @@ regenie \
   --pred ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_regenie_qt_1Wan_GCTA_h09_10K_12_s1_pred.list \
   --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_regenie_qt_1Wan_GCTA_h09_10K_12_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_regenie_qt_1Wan_GCTA_h09_10K_12_s1and2 
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_12_regenie_qt_1Wan_GCTA_h09_10K_s1and2 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/
 
-sbatch Result_regenie_qt_1Wan_GCTA_h09_10K_12_s1and2 
+sbatch Result_12_regenie_qt_1Wan_GCTA_h09_10K_s1and2 
 
 
 ##############################
@@ -1959,12 +1959,12 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
 ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_qt_1Wan_GCTA_h09_10K_12_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_bolt_qt_1Wan_GCTA_h09_10K_12_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_12_bolt_qt_1Wan_GCTA_h09_10K_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12
 
-sbatch Result_bolt_qt_1Wan_GCTA_h09_10K_12_P$j
+sbatch Result_12_bolt_qt_1Wan_GCTA_h09_10K_P$j
 done
 
 ##############################
@@ -1983,12 +1983,12 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
 ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype$j --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 8 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_inf_qt_1Wan_GCTA_h09_10K_12_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_bolt_inf_qt_1Wan_GCTA_h09_10K_12_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_12_bolt_inf_qt_1Wan_GCTA_h09_10K_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/
 
-sbatch Result_bolt_inf_qt_1Wan_GCTA_h09_10K_12_P$j
+sbatch Result_12_bolt_inf_qt_1Wan_GCTA_h09_10K_P$j
 done
 
 
