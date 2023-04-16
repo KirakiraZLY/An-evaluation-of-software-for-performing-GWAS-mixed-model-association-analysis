@@ -2029,7 +2029,7 @@ Regenie
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 3:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 
@@ -2075,7 +2075,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 3:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -2101,7 +2101,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 3:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -2153,7 +2153,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 3:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
