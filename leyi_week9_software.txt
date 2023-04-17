@@ -2083,6 +2083,8 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/typ
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_18_Bolt_inf_qt_7Wan_LDAK_h09_10K_P$j
 
 done
+chmod a+x ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_18_Bolt_inf_qt_7Wan_LDAK_h09_10K_P*
+
 
 
 ##############################
