@@ -1211,11 +1211,6 @@ regenie \
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_14_regenie_qt_7Wan_LDAK_h05_1K_s1and2 
 
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/
-
-sbatch Result_14_regenie_qt_7Wan_LDAK_h05_1K_s1and2 
-
 
 ##############################
 Bolt
@@ -1236,11 +1231,6 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/typ
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_14_bolt_qt_7Wan_LDAK_h05_K_P$j
 
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K
-
-sbatch Result_14_bolt_qt_7Wan_LDAK_h05_K_P$j
 done
 
 ##############################
