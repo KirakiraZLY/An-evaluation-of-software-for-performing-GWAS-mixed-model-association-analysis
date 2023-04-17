@@ -2040,10 +2040,6 @@ regenie \
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_18_regenie_qt_7Wan_LDAK_h09_10K_s1and2 
 
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/
-
-sbatch Result_18_regenie_qt_7Wan_LDAK_h09_10K_s1and2 
 
 
 ##############################
@@ -2065,11 +2061,6 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/typ
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_18_Bolt_qt_7Wan_LDAK_h09_10K_P$j
 
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K
-
-sbatch Result_18_Bolt_qt_7Wan_LDAK_h09_10K_P$j
 done
 
 ##############################
@@ -2091,10 +2082,6 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/typ
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_18_Bolt_inf_qt_7Wan_LDAK_h09_10K_P$j
 
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/
-
-sbatch Result_18_Bolt_inf_qt_7Wan_LDAK_h09_10K_P$j
 done
 
 
@@ -2117,10 +2104,6 @@ ${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar  --covar ${dir}
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_Plink_18_qt_7Wan_LDAK_h09_10K_P$j
 
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/
-
-sbatch Result_Plink_18_qt_7Wan_LDAK_h09_10K_P$j
 done
 
 ##############################
@@ -2142,8 +2125,4 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_2
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_18_LDAK_qt_7Wan_LDAK_h09_10K_P$j
 
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/
-
-sbatch Result_18_LDAK_qt_7Wan_LDAK_h09_10K_P$j
 done
