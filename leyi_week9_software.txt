@@ -1211,6 +1211,8 @@ regenie \
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_14_regenie_qt_7Wan_LDAK_h05_1K_s1and2 
 
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/ 
+sbatch Result_14_regenie_qt_7Wan_LDAK_h05_1K_s1and2
 
 ##############################
 Bolt
