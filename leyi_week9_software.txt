@@ -1115,7 +1115,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h01_K_13_label.pheno --mpheno $j --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_LDAK_qt_7Wan_LDAK_h01_1K_13_P$j
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h01_K_13.pheno --mpheno $j --covar ${dir}/covar_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_LDAK_qt_7Wan_LDAK_h01_1K_13_P$j
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_13_LDAK_qt_7Wan_LDAK_h01_1K_P$j
 
@@ -1279,7 +1279,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_K_14_label.pheno --mpheno $j --allow-no-sex  --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_Plink_qt_7Wan_LDAK_h01_1K_13_P$j
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_K_14.pheno --mpheno $j --allow-no-sex  --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_Plink_qt_7Wan_LDAK_h01_1K_13_P$j
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait14_qt_7Wan_LDAK_h05_K/Result_14_Plink_qt_7Wan_LDAK_h05_K_P$j
 
@@ -1482,7 +1482,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar  --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h09_K_15_label.pheno --mpheno $j --allow-no-sex --hide-covar  --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_15_Plink_qt_7Wan_LDAK_h09_K_P$j
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar  --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h09_K_15.pheno --mpheno $j --allow-no-sex --hide-covar  --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_15_Plink_qt_7Wan_LDAK_h09_K_P$j
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait15_qt_7Wan_LDAK_h09_K/Result_15_Plink_qt_7Wan_LDAK_h09_K_P$j
 
@@ -1664,7 +1664,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear  hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h01_10K_16_label.pheno --mpheno $j --allow-no-sex --hide-covar  --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait16_qt_7Wan_LDAK_h01_10K/Result_16_Plink_qt_7Wan_LDAK_h01_10K_P$j
+${dir}/software/plink --bfile ${dir}/data_qc --linear  hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h01_10K_16.pheno --mpheno $j --allow-no-sex --hide-covar  --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait16_qt_7Wan_LDAK_h01_10K/Result_16_Plink_qt_7Wan_LDAK_h01_10K_P$j
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait16_qt_7Wan_LDAK_h01_10K/Result_16_Plink_qt_7Wan_LDAK_h01_10K_P$j
 
@@ -1843,7 +1843,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar  --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_10K_17_label.pheno --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait17_qt_7Wan_LDAK_h05_10K/Result_Plink_17_qt_7Wan_LDAK_h05_10K_P$j  
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar  --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h05_10K_17.pheno --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait17_qt_7Wan_LDAK_h05_10K/Result_Plink_17_qt_7Wan_LDAK_h05_10K_P$j  
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait17_qt_7Wan_LDAK_h05_10K/Result_Plink_17_qt_7Wan_LDAK_h05_10K_P$j
 
@@ -2123,7 +2123,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar  --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h09_10K_18_label.pheno --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_Plink_18_qt_7Wan_LDAK_h09_10K_P$j  
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar  --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Trait_qt_7Wan_LDAK_h09_10K_18.pheno --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_Plink_18_qt_7Wan_LDAK_h09_10K_P$j  
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait18_qt_7Wan_LDAK_h09_10K/Result_Plink_18_qt_7Wan_LDAK_h09_10K_P$j
 
