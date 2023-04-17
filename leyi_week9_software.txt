@@ -1453,8 +1453,6 @@ echo "#"'!'"/bin/bash
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
-#SBATCH -a 1-5
-c=$SLURM_ARRAY_TASK_ID
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
@@ -1637,8 +1635,6 @@ echo "#"'!'"/bin/bash
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
-#SBATCH -a 1-5
-c=$SLURM_ARRAY_TASK_ID
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
@@ -1818,8 +1814,6 @@ echo "#"'!'"/bin/bash
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
-#SBATCH -a 1-5
-c=$SLURM_ARRAY_TASK_ID
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
