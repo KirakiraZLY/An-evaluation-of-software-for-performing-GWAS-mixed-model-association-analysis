@@ -441,3 +441,14 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10
 
 sbatch Result_plink_qt_1Wan_GCTA_h09_10K_12_P$j
 done
+
+
+
+
+
+####################################3
+Make 10K(1Wan) random data
+######################################
+############ Step 2###########
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/data_qc --noweb --keep ${dir}/data_1Wan.fam --recode --make-bed --out ${dir}/data_1Wan

@@ -14,5 +14,5 @@
 1. Randomly generate 1Wan individuals, into data_1Wan.fam   
 2. .fam -> make bed
 ```python
-${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/data_1Wan.fam --recode --make-bed --out ${dir}/data_1Wan
+${dir}/software/plink --bfile ${dir}/data_qc --noweb --keep ${dir}/data_1Wan.fam --recode --make-bed --out ${dir}/data_1Wan
 ```
