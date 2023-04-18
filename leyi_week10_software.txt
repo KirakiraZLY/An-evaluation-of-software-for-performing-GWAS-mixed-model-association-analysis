@@ -608,10 +608,10 @@ regenie \
   --pred ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$j/Result_Trait$j_NEW_regenie_s1_pred.list \
   --out ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$j/Result_Trait$j_NEW_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Trait$j/Result_Trait$j_NEW_regenie_s1and2 
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Regenie/Result_Trait$j_NEW_regenie_s1and2 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Trait$j
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Regenie
 
 sbatch Result_Trait$j_NEW_regenie_s1and2 
 done
