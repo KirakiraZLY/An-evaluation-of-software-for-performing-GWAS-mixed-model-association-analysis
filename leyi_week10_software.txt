@@ -633,15 +633,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_$i_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_Bolt_qt_7Wan_LDAK_h01_1K_13_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_$i_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/1Wan_Traits/Result_Trait$i/Result_Bolt_Trait$i_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_13_bolt_qt_7Wan_LDAK_h01_1K_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Bolt_lmm/Result_Bolt_Trait$i_P$j
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Bolt_lmm/
 
-sbatch Result_13_bolt_qt_7Wan_LDAK_h01_1K_P$j
+sbatch Result_Bolt_Trait$i_P$j
 done
 done
 
