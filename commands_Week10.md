@@ -9,3 +9,10 @@
 6. 我想要比较的是：在ind减小的情况下，是否出现linear regression优于MLM的情况。   
 7. **Regenie 3正在跑，跑完再来统计结果**。   
 8. 比较5个Phenotypes的区别， 详见PhenotypeComparison   
+
+## Make 10K(1Wan) random data
+1. Randomly generate 1Wan individuals, into data_1Wan.fam   
+2. .fam -> make bed
+```python
+${dir}/software/plink --bfile ${dir}/MAMA/data_qc --noweb --keep ${dir}/data_1Wan.fam --recode --make-bed --out ${dir}/data_1Wan
+```
