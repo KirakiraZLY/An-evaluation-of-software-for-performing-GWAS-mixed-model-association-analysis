@@ -8,3 +8,4 @@
 5. About Fraction in 2, if fraq < 1, it is deflation; if fraq > 1, it is inflation.   
 6. 我想要比较的是：在ind减小的情况下，是否出现linear regression优于MLM的情况。   
 7. **Regenie 3正在跑，跑完再来统计结果**。   
+8. 比较5个Phenotypes的区别， 详见PhenotypeComparison   
