@@ -570,10 +570,9 @@ dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink2 --bfile ${dir}/data_1Wan --export bgen-1.2 --out ${dir}/data_1Wan
 
 ##############################
-Regenie
+Regenie 模板
 ##############################
 ########### 1 #############
-for j in {7..12}; do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -587,35 +586,35 @@ conda activate regenie_env
 regenie \
   --step 1 \
   --bed ${dir}/data_1Wan \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_$j_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_$i_label.pheno \
   --covarFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC.covars \
   --covarCol PC{1:20} \
   --bsize 1000 \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$j/Result_Trait$j_NEW_regenie_s1  
+  --out ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$i/Result_Trait$i_NEW_regenie_s1  
 
 
 regenie \
   --step 2 \
   --bgen ${dir}/data_1Wan.bgen \
   --covarFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_$j_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_$i_label.pheno \
   --covarCol PC{1:20} \
   --bsize 1000 \
   --threads 4 \
   --qt \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$j/Result_Trait$j_NEW_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$j/Result_Trait$j_NEW_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$i/Result_Trait$i_NEW_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$i/Result_Trait$i_NEW_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Regenie/Result_NEW_regenie_s1and2_Trait$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Regenie/Result_NEW_regenie_s1and2_Trait$i
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Regenie
 
-sbatch Result_NEW_regenie_s1and2_Trait$j
-done
+sbatch Result_NEW_regenie_s1and2_Trait$i
+
 
 ##############################
 Bolt
@@ -677,6 +676,7 @@ done
 ##############################
 Plink
 ##############################
+for i in {7..12}; do
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
@@ -689,14 +689,14 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_7.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_Plink_qt_7Wan_LDAK_h01_1K_13_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --linear hide-covar --covar ${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_$i.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$i/Result_Plink_Trait$i_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_13_Plink_qt_7Wan_LDAK_h01_1K_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Plink/Result_Plink_Trait$i_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Plink
 
-sbatch Result_13_Plink_qt_7Wan_LDAK_h01_1K_P$j
+sbatch Result_Plink_Trait$i_P$j
 done
 
 ##############################
@@ -714,12 +714,94 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_7.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_LDAK_qt_7Wan_LDAK_h01_1K_13_P$j
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_$i.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait$i/Result_Plink_Trait_$i_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_13_LDAK_qt_7Wan_LDAK_h01_1K_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_LDAK/Result_LDAK_Trait$i_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24_LDAK/Result_Trait13_qt_7Wan_LDAK_h01_K/
-
-sbatch Result_13_LDAK_qt_7Wan_LDAK_h01_1K_P$j
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_LDAK/
+sbatch Result_LDAK_Trait$i_P$j
 done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################
+第七个
+##############################
+Regenie
+##############################
+########### 1 #############
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_7_label.pheno \
+  --covarFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC.covars \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --threads 4 \
+  --out ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait7/Result_Trait7_NEW_regenie_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/covar_1Wan_PC.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_7_label.pheno \
+  --covarCol PC{1:20} \
+  --bsize 1000 \
+  --threads 4 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait7/Result_Trait7_NEW_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Result_Trait7/Result_Trait7_NEW_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Regenie/Result_NEW_regenie_s1and2_Trait7
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Regenie
+
+sbatch Result_NEW_regenie_s1and2_Trait7
