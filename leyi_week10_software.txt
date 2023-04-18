@@ -100,3 +100,4 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_7Wan_GCTA_h05_K_
 
 sbatch Result_ldak_inf_qt_7Wan_GCTA_h05_K_2_P$j
 done
+
