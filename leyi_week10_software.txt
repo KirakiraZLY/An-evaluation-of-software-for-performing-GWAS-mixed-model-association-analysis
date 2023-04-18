@@ -533,6 +533,7 @@ ${dir}/software/ldak5.XXX \
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/1Wan_Traits/Trait_1Wan_12 \
   --bfile ${dir}/data_1Wan \
+  --ignore-weights YES \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
