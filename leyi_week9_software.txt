@@ -800,7 +800,7 @@ Regenie
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 10:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 
