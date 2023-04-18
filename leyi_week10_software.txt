@@ -113,7 +113,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 2G
-#SBATCH -t 5:0:0
+#SBATCH -t 10:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -139,7 +139,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 2G
-#SBATCH -t 5:0:0
+#SBATCH -t 10:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -165,7 +165,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 2G
-#SBATCH -t 5:0:0
+#SBATCH -t 10:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -193,7 +193,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 2G
-#SBATCH -t 5:0:0
+#SBATCH -t 10:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -221,7 +221,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 2G
-#SBATCH -t 5:0:0
+#SBATCH -t 10:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -249,7 +249,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 2G
-#SBATCH -t 5:0:0
+#SBATCH -t 10:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -279,7 +279,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 2G
-#SBATCH -t 5:0:0
+#SBATCH -t 10:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -295,4 +295,149 @@ ${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h01_K_7/
 
 sbatch Result_plink_qt_1Wan_GCTA_h01_K_7_P$j
+done
+
+
+
+
+
+###############
+第八个
+###############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 2G
+#SBATCH -t 10:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_K_8.pheno --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_K_8/Result_plink_qt_1Wan_GCTA_h05_K_8_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_K_8/Result_plink_qt_1Wan_GCTA_h05_K_8_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_K_8/
+
+sbatch Result_plink_qt_1Wan_GCTA_h05_K_8_P$j
+done
+
+
+
+###############
+第九个
+###############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 2G
+#SBATCH -t 10:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_K_9.pheno --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_K_9/Result_plink_qt_1Wan_GCTA_h09_K_9_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_K_9/Result_plink_qt_1Wan_GCTA_h09_K_9_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_K_9/
+
+sbatch Result_plink_qt_1Wan_GCTA_h09_K_9_P$j
+done
+
+
+
+
+
+
+###############
+第十个
+###############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 2G
+#SBATCH -t 10:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h01_10K_10.pheno --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h01_10K_10/Result_plink_qt_1Wan_GCTA_h01_10K_10_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h01_10K_10/Result_plink_qt_1Wan_GCTA_h01_10K_10_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h01_10K_10/
+
+sbatch Result_plink_qt_1Wan_GCTA_h01_10K_10_P$j
+done
+
+
+
+
+
+###############
+第十一个
+###############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 2G
+#SBATCH -t 10:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h05_10K_11.pheno --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_plink_qt_1Wan_GCTA_h05_10K_11_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/Result_plink_qt_1Wan_GCTA_h05_10K_11_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h05_10K_11/
+
+sbatch Result_plink_qt_1Wan_GCTA_h05_10K_11_P$j
+done
+
+
+
+
+
+
+###############
+第十二个
+###############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 2G
+#SBATCH -t 10:0:0
+#SBATCH -c 1
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12.pheno --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_plink_qt_1Wan_GCTA_h09_10K_12_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_plink_qt_1Wan_GCTA_h09_10K_12_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/
+
+sbatch Result_plink_qt_1Wan_GCTA_h09_10K_12_P$j
 done
