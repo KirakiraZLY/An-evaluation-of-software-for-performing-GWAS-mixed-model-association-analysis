@@ -469,7 +469,7 @@ ${dir}/software/plink --bfile ${dir}/data_qc --noweb --keep ${dir}/data_1Wan.fam
 Simulate data 7-12 NEW
 用新的1万人来generate phenotypes
 ######################################
-############# 7-12 Trait_qt_1Wan_GCTA_h01-09_K-10K_4-6
+##########
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 16G
