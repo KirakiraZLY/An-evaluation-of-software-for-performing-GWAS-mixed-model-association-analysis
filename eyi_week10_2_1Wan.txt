@@ -48,7 +48,7 @@ sbatch Result_NEW_regenie_s1and2_Trait7
 ##############################
 Bolt
 ##############################
-for i in {7..12};do
+
 for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
@@ -71,12 +71,12 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Bolt_lmm/
 
 sbatch Result_Bolt_Trait7_P$j
 done
-done
+
 
 ##############################
 Bolt-inf
 ##############################
-for i in {7..12};do
+
 for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
@@ -98,14 +98,14 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/t
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/1Wan_Traits/Result_Bolt_lmm_inf/
 
 sbatch Result_Bolt_inf_Trait7_P$j
-done
+
 done
 
 
 ##############################
 Plink
 ##############################
-for i in {7..12}; do
+
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
