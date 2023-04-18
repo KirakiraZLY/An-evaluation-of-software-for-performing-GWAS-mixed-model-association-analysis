@@ -109,8 +109,8 @@ Plink
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 5:0:0
+#SBATCH --mem 2G
+#SBATCH -t 10:0:0
 #SBATCH -c 1
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
