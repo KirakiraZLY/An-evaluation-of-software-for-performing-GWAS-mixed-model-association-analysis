@@ -892,8 +892,8 @@ Simulate data 13-24: LDAK
 ############# 13-24 Trait_qt_1Wan_LDAK_h01-09_K-10K_13-24
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 16G
-#SBATCH -t 30:0:0
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 
@@ -987,8 +987,8 @@ sbatch Trait_qt_LDAK_13to19
 ##############################################################################3
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 16G
-#SBATCH -t 30:0:0
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 
