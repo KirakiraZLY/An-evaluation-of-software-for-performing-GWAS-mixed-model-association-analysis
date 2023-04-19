@@ -1,6 +1,11 @@
 ##############################
 八千的那部分 替换11
 ##############################
+
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink2 --bfile ${dir}/MAMA/Bolt_Height/data_Black --export bgen-1.2 --out ${dir}/MAMA/Bolt_Height/data_Black
+
+
 Regenie 模板
 ##############################
 ########### 1 #############
