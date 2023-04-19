@@ -800,7 +800,7 @@ Regenie
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 4:0:0
+#SBATCH -t 2:0:0
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 
@@ -877,7 +877,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype$j --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_Bolt_inf_qt_1Wan_GCTA_h09_10K_12_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/MAMA/Bolt_Height/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_qt_1Wan_GCTA_h09_10K_12_label.pheno  --phenoCol=Phenotype$j --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4 --statsFile=${dir}/type_1_error/Multi_Traits/Result_Trait13_qt_7Wan_LDAK_h01_K/Result_Bolt_inf_qt_1Wan_GCTA_h09_10K_12_P$j.Bolt
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Result_Trait_qt_1Wan_GCTA_h09_10K_12/Result_Bolt_inf_qt_1Wan_GCTA_h09_10K_12_P$j
 
@@ -1176,7 +1176,7 @@ Regenie
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 
@@ -1219,7 +1219,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -1245,7 +1245,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -1297,7 +1297,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 3:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
