@@ -19,6 +19,7 @@ ${dir}/software/plink --bfile ${dir}/data_qc --noweb --keep ${dir}/data_1Wan.fam
 
 
 ## Remove low mac
+What do I do if I get the error "Uh-oh, SNP XX has low variance (=XX)" in step 1?   
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink \
