@@ -1344,3 +1344,7 @@ ${dir}/software/ldak5.XXX \
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_newBlack_7_to_12
 sbatch Trait_1Wan_7to12
+
+
+
+
