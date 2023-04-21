@@ -16,3 +16,14 @@
 ```python
 ${dir}/software/plink --bfile ${dir}/data_qc --noweb --keep ${dir}/data_1Wan.fam --recode --make-bed --out ${dir}/data_1Wan
 ```
+
+
+## Remove low mac
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink \
+ --bfile ${dir}/data_1Wan \
+  --mac 100 \
+  --write-snplist \
+  --out ${dir}/snps_pass_1Wan
+```
