@@ -21,8 +21,8 @@ regenie \
   --covarFile ${dir}/covar_1Wan_PC.covars \
   --covarCol PC{1:20} \
   --bsize 1000 \
-  --threads 4 \ 
   --bt \
+  --threads 4 \ 
   --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Trait31_regenie_s1  
 
 
@@ -33,10 +33,10 @@ regenie \
   --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_31_label.pheno \
   --covarCol PC{1:20} \
   --bsize 1000 \
-  --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
+  --threads 4 \
   --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Trait31_regenie_s1_pred.list \
   --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Trait31_regenie_s2
 
