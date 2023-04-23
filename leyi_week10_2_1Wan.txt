@@ -17,15 +17,13 @@ conda activate regenie_env
 regenie \
   --step 1 \
   --bed ${dir}/data_1Wan \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_31_label.pheno \
   --covarFile ${dir}/covar_1Wan_PC.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_31_label.pheno \
   --covarCol PC{1:20} \
   --bsize 1000 \
-  --bt \
-  --threads 4 \ 
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Trait31_regenie_s1  
-
-
+  --bt --lowmem \
+  --threads 4 \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Trait31_regenie_s1
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait31
 
