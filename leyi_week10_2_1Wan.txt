@@ -122,7 +122,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_1Wan --logistic  skip-invalid-pheno --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_31.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Plink_Trait31_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --glm firth skip-invalid-pheno --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_31.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Plink_Trait31_P$j
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Plink/Result_Plink_Trait31_P$j
 
