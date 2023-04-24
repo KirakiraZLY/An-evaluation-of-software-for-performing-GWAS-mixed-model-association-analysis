@@ -90,3 +90,7 @@ ${dir}/software/gcta --bfile ${dir}/data_qc \
 --out type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait$i/Result_fastGWA_Trait$i \
 --thread-num 10
 ```
+
+
+## fastGWA
+Require to use 10 cores.   
