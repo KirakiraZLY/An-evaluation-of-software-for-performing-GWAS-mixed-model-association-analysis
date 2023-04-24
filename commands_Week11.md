@@ -35,12 +35,12 @@ ${dir}/software/plink2 --bfile ${dir}/data_1Wan --export bgen-1.2 --out ${dir}/d
 ### For 10K individuals, using fastGWA
 前两步  只用进行一次
 ```python
+dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/gcta \
 --bfile ${dir}/data_1Wan \
 --autosome --maf 0.01 \
 --make-grm --out ${dir}/data_1Wan_gcta_1 \
 --thread-num 4
-
 
 ${dir}/software/gcta \
 --grm ${dir}/data_1Wan_gcta_1 --make-bK-sparse 0.05 \
