@@ -48,6 +48,7 @@ ${dir}/software/gcta \
 --thread-num 4
 ```
 
+Step 3
 ```python
 ${dir}/software/gcta --bfile ${dir}/data_1Wan \
 --grm-sparse ${dir}/data_1Wan_gcta_2 \
