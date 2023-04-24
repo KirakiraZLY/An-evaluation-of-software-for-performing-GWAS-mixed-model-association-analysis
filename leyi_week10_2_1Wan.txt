@@ -152,3 +152,32 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_2
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_LDAK/
 sbatch Result_LDAK_Trait19_P$j
 done
+
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_19.pheno \
+--qcovar ${dir}/covar_1Wan_PC.covars \
+--out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait19/Result_fastGWA_Trait19 \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait19
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA
+
+sbatch Result_fastGWA_Trait19
