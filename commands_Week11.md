@@ -23,7 +23,8 @@ ${dir}/software/plink \
 
 ## 1 Wan QC
 ```python
-${dir}/software/plink --bfile ${dir}/data_1Wan --geno 0.1 --mind 0.1 --maf 0.05 --mac 1000 --make-bed --out ${dir}/data_1Wan
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/data_1Wan --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/data_1Wan
 ```
 
 ## 1 Wan .bgen

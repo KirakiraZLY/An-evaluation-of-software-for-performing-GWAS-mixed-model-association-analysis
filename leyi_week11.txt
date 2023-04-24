@@ -1,3 +1,32 @@
+###############################33
+data_1Wan QC
+###############################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 1:0:0
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/plink --bfile ${dir}/data_1Wan --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/data_1Wan
+
+" > ${dir}/scripts/
+
+# I am doing blabla
+cd ${dir}/scripts/
+sbatch data_1Wan_QC
+
+
+
+
+
+
+
+
+
+
+
+
 ##################################3
 fastGWA Step 1 and 2 -> Sparse GLM
 For data_1Wan
