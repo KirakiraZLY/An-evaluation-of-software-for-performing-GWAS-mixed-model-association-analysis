@@ -49,5 +49,11 @@ ${dir}/software/gcta \
 ```
 
 ```python
-${dir}/software/gcta --bfile ${dir}/data_1Wan_gcta_2 --grm-sparse ${dir}/type_1_error/data_qc_nongenetic_gcta_grm_2 --fastGWA-mlm --pheno ${dir}/type_1_error/non_genetic_trait_quant.pheno --thread-num 4 --out ${dir}/type_1_error/data_fastgwa_nongenetic_3_finalresult 
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_$i.pheno \
+--qcovar ${dir}/covar_1Wan_PC.covars \
+--out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait$i/Result_fastGWA_Trait$i \
+--thread-num 10
 ```
