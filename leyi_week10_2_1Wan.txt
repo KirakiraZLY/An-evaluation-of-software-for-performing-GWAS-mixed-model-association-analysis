@@ -34,6 +34,7 @@ regenie \
   --threads 4 \
   --qt \
   --pThresh 0.01 \
+  --extract ${dir}/snps_pass_1Wan.snplist \
   --pred ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait19/Result_Trait19_regenie_s1_pred.list \
   --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait19/Result_Trait19_regenie_s2
 
