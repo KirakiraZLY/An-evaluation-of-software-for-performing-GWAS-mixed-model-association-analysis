@@ -13,7 +13,7 @@ echo "#"'!'"/bin/bash
 ${dir}/software/gcta --bfile ${dir}/data_1Wan \
 --grm-sparse ${dir}/data_1Wan_gcta_2 \
 --fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_19_label.pheno \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_19.pheno \
 --mpheno $j \
 --qcovar ${dir}/covar_1Wan_PC.covars \
 --out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait19/Result_fastGWA_Trait19_P$j \
