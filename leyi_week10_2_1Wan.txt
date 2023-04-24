@@ -13,17 +13,17 @@ echo "#"'!'"/bin/bash
 ${dir}/software/gcta --bfile ${dir}/data_1Wan \
 --grm-sparse ${dir}/data_1Wan_gcta_2 \
 --fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_22.pheno \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_23.pheno \
 --mpheno $j \
 --qcovar ${dir}/covar_1Wan_PC.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait22/Result_fastGWA_Trait22_P$j \
+--out ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait23/Result_fastGWA_Trait23_P$j \
 --thread-num 10
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait22_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait23_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA
 
-sbatch Result_fastGWA_Trait22_P$j
+sbatch Result_fastGWA_Trait23_P$j
 done
