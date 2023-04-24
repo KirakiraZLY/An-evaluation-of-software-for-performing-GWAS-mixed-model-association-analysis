@@ -170,15 +170,15 @@ echo "#"'!'"/bin/bash
 ${dir}/software/gcta --bfile ${dir}/data_1Wan \
 --grm-sparse ${dir}/data_1Wan_gcta_2 \
 --fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_19.pheno \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_19.pheno \
 --qcovar ${dir}/covar_1Wan_PC.covars \
---out type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_fastGWA_Trait19 \
+--out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait19/Result_fastGWA_Trait19 \
 --thread-num 10
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_fastGWA/Result_fastGWA_Trait19
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait19
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_fastGWA
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA
 
 sbatch Result_fastGWA_Trait19
