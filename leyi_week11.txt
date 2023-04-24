@@ -1,3 +1,7 @@
+##################################3
+fastGWA Step 1 and 2 -> Sparse GLM
+For data_1Wan
+#####################################
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -22,4 +26,7 @@ ${dir}/software/gcta \
 # I am doing blabla
 cd ${dir}/scripts/
 sbatch data_1Wan_fastGWA_STEP1and2
-done
+
+
+
+
