@@ -71,7 +71,7 @@ ${dir}/software/gcta \
 --bfile ${dir}/data_qc \
 --autosome --maf 0.01 \
 --make-grm --out ${dir}/data_qc_gcta_1 \
---thread-num 4
+--thread-num 10
 
 ${dir}/software/gcta \
 --grm ${dir}/data_qc_gcta_1 --make-bK-sparse 0.05 \
@@ -84,8 +84,8 @@ Step 3
 ${dir}/software/gcta --bfile ${dir}/data_qc \
 --grm-sparse ${dir}/data_qc_gcta_2 \
 --fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_$i.pheno \
---qcovar ${dir}/covar_1Wan_PC.covars \
---out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait$i/Result_fastGWA_Trait$i \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_$i.pheno \
+--qcovar ${dir}/covar_PC.covars \
+--out type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait$i/Result_fastGWA_Trait$i \
 --thread-num 10
 ```

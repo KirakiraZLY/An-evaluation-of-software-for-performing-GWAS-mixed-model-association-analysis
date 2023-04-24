@@ -87,3 +87,32 @@ ${dir}/software/gcta --bfile ${dir}/data_1Wan \
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_fastGWA
 
 sbatch Result_fastGWA_Trait$i
+
+
+
+#############################
+fastGWA Step 3 for data_qc
+#############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc \
+--grm-sparse ${dir}/data_qc_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_$i.pheno \
+--qcovar ${dir}/covar_PC.covars \
+--out type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait$i/Result_fastGWA_Trait$i \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_fastGWA/Result_fastGWA_Trait$i
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_fastGWA
+
+sbatch Result_fastGWA_Trait$i
