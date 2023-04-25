@@ -94,3 +94,10 @@ ${dir}/software/gcta --bfile ${dir}/data_qc \
 
 ## fastGWA
 Require to use 10 cores.   
+
+
+## data_Black QC
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/data_Black
+```
