@@ -192,7 +192,7 @@ sbatch Result_fastGWA_Trait$i
 ###############################################
 Binary Traits:
 Black
-B1 - B6
+B31 - B36
 ################################
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
@@ -204,7 +204,7 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B1 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B31 \
   --bfile ${dir}/data_Black \
   --ignore-weights YES \
   --power -1 \
@@ -214,7 +214,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.01 \
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B2 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B32 \
   --bfile ${dir}/data_Black \
   --ignore-weights YES \
   --power -1 \
@@ -224,7 +224,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.01 \
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B3 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B33 \
   --bfile ${dir}/data_Black \
   --ignore-weights YES \
   --power -1 \
@@ -234,7 +234,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.01 \
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B4 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B34 \
   --bfile ${dir}/data_Black \
   --ignore-weights YES \
   --power -1 \
@@ -245,7 +245,7 @@ ${dir}/software/ldak5.XXX \
 
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B5 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B35 \
   --bfile ${dir}/data_Black \
   --ignore-weights YES \
   --power -1 \
@@ -255,7 +255,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.01 \
 
 ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B6 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B36 \
   --bfile ${dir}/data_Black \
   --ignore-weights YES \
   --power -1 \
@@ -265,11 +265,11 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.01 \
 
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B1toB6
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B31toB36
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B12_Binary
-sbatch Trait_B1toB6
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary
+sbatch Trait_B31toB36
 
 
 
@@ -283,24 +283,24 @@ echo "#"'!'"/bin/bash
 #SBATCH -c 8
 #SBATCH -A dsmwpred
 
-${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B7 \
+${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B43 \
   --bfile ${dir}/data_Black --ignore-weights YES --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000 \
   --max-threads 8 --prevalence 0.01  
 
-  ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B8 \
+  ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B44 \
   --bfile ${dir}/data_Black --ignore-weights YES --power -0.25 \
   --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.01  
 
-  ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B9 \
+  ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B45 \
   --bfile ${dir}/data_Black --ignore-weights YES --power -0.25 --her 0.9 --num-phenos 5 --num-causals 10000 \
   --max-threads 8 --prevalence 0.01  
 
-  ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B10 \
+  ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B46 \
   --bfile ${dir}/data_Black --ignore-weights YES  --power -0.25 \
   --her 0.1 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.01    
 
   ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B11 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B47 \
   --bfile ${dir}/data_Black \
   --ignore-weights YES \
   --power -0.25 \
@@ -311,7 +311,7 @@ ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B
   --prevalence 0.01    
 
   ${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B12 \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B48 \
   --bfile ${dir}/data_Black \
   --ignore-weights YES \
   --power -0.25 \
@@ -321,8 +321,8 @@ ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B
   --max-threads 8 \
   --prevalence 0.01    
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B12_Binary/Trait_B7toB12
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B43toB48
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B12_Binary
-sbatch Trait_B7toB12
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary
+sbatch Trait_B43toB48
