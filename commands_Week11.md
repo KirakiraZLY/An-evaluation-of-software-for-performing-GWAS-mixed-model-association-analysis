@@ -101,3 +101,13 @@ Require to use 10 cores.
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/MAMA/Bolt_Height/data_Black --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/data_Black
 ```
+
+## data_Black .bgen
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink2 --bfile ${dir}/data_Black --export bgen-1.2 --out ${dir}/data_Black
+```
+
+##
+Re-generate covar_Black_PC
+For fastGWA, generate data_Black_gcta_1 and data_Black_gcta_2
