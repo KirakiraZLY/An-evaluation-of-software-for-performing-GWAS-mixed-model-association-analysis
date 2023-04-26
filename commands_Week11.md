@@ -124,26 +124,52 @@ For fastGWA, generate data_Black_gcta_1 and data_Black_gcta_2
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/data_Black
 ```
+### data_Black .bgen
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink2 --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --export bgen-1.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black
+```
 ### data_White QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White
+```
+### data_White .bgen
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink2 --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --export bgen-1.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White
 ```
 ### data_Chinese QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese
 ```
+### data_Chinese .bgen
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink2 --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --export bgen-1.2 --out ${dir}/data_Black
+```
 ### data_AsianSWC QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC
+```
+### data_AsianSWC .bgen
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink2 --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --export bgen-1.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC
 ```
 ### data_Mixed QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed
 ```
+### data_Mixed .bgen
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink2 --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --export bgen-1.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed
+```
+
 ## 3. Extract SNP_1_to_12
 See in computer
 ## 4. Generate Phenotypes * 5
