@@ -19,7 +19,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Black \
@@ -28,7 +29,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Chinese \
@@ -37,7 +39,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_AsianSWC \
@@ -46,7 +49,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Mixed \
@@ -55,7 +59,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
   
   " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Trait1
 
@@ -82,7 +87,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Trait_Black \
@@ -91,7 +97,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Trait_Chinese \
@@ -100,7 +107,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Trait_AsianSWC \
@@ -109,7 +117,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Trait_Mixed \
@@ -118,7 +127,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
   
   " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2/Trait2
 
@@ -146,7 +156,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Trait_Black \
@@ -155,7 +166,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Trait_Chinese \
@@ -164,7 +176,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Trait_AsianSWC \
@@ -173,7 +186,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Trait_Mixed \
@@ -182,7 +196,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 1000
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
   
   " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3/Trait3
 
@@ -210,7 +225,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T4/Trait_Black \
@@ -219,7 +235,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T4/Trait_Chinese \
@@ -228,7 +245,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T4/Trait_AsianSWC \
@@ -237,7 +255,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T4/Trait_Mixed \
@@ -246,7 +265,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.1 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
   
   " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T4/Trait4
 
@@ -274,7 +294,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Trait_Black \
@@ -283,7 +304,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Trait_Chinese \
@@ -292,7 +314,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Trait_AsianSWC \
@@ -301,7 +324,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Trait_Mixed \
@@ -310,7 +334,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.5 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
   
   " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5/Trait5
 
@@ -320,7 +345,7 @@ ${dir}/software/ldak5.XXX \
 
 
 ##################################################################################################################################
-Trait 5
+Trait 6
 ########################################################
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
@@ -338,7 +363,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Trait_Black \
@@ -347,7 +373,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
 	${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Trait_Chinese \
@@ -356,7 +383,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Trait_AsianSWC \
@@ -365,7 +393,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Trait_Mixed \
@@ -374,7 +403,8 @@ ${dir}/software/ldak5.XXX \
   --power -1 \
   --her 0.9 \
   --num-phenos 5 \
-  --num-causals 10000
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
   
   " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6/Trait6
 
