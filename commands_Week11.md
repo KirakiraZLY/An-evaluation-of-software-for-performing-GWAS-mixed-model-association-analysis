@@ -147,7 +147,7 @@ ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/dat
 ### data_Chinese .bgen
 ```python
 dir="/home/lezh/dsmwpred/zly"
-${dir}/software/plink2 --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --export bgen-1.2 --out ${dir}/data_Black
+${dir}/software/plink2 --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --export bgen-1.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese
 ```
 ### data_AsianSWC QC
 ```python
