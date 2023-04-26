@@ -170,7 +170,7 @@ sbatch Trait_7to12
 ######################################
 Simulate data 13-18: LDAK
 ######################################
-############# 13-24 Trait_qt_1Wan_LDAK_h01-09_K-10K_13-24
+#############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 16G
