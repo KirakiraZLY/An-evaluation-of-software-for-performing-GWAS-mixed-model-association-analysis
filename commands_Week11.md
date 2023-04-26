@@ -122,7 +122,7 @@ For fastGWA, generate data_Black_gcta_1 and data_Black_gcta_2
 ### data_Black QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
-${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/data_Black
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black
 ```
 ### data_Black .bgen
 ```python
