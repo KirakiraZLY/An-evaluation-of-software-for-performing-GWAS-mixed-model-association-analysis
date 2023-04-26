@@ -111,3 +111,36 @@ ${dir}/software/plink2 --bfile ${dir}/data_Black --export bgen-1.2 --out ${dir}/
 ##
 Re-generate covar_Black_PC
 For fastGWA, generate data_Black_gcta_1 and data_Black_gcta_2
+
+
+
+
+
+# Meta-analysis
+## 1. Copy 5 region data into folder
+## 2. QC on 5 regions
+## data_Black QC
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/data_Black
+```
+## data_White QC
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White
+```
+## data_Chinese QC
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese
+```
+## data_AsianSWC QC
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC
+```
+## data_Mixed QC
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed
+```
