@@ -16,7 +16,6 @@ ${dir}/software/ldak5.XXX \
   --ignore-weights YES \
   --power -1 \
   --her 0.1 \
-  --prevalence 0.01 \
   --num-phenos 5 \
   --num-causals 1000
 
@@ -28,7 +27,6 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_3 \
@@ -38,7 +36,6 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_4 \
@@ -48,7 +45,6 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_5 \
@@ -58,7 +54,6 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_6 \
@@ -68,7 +63,6 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Trait_1to6
 
