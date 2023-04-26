@@ -13,12 +13,12 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Trait_White.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_White_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_White_P$j
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Trait_White.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_White_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_White_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_White_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_White_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6
 sbatch Result_LDAK_White_P$j
 done
 
@@ -36,12 +36,12 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Trait_Black.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Black_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_Black_P$j
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Trait_Black.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Black_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_Black_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_Black_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_Black_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6
 sbatch Result_LDAK_Black_P$j
 done
 
@@ -58,12 +58,12 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Trait_Chinese.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Chinese_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_Chinese_P$j
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Trait_Chinese.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Chinese_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_Chinese_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_Chinese_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_Chinese_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6
 sbatch Result_LDAK_Chinese_P$j
 done
 
@@ -81,12 +81,12 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Trait_AsianSWC.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_AsianSWC_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_AsianSWC_P$j
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Trait_AsianSWC.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_AsianSWC_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_AsianSWC_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_AsianSWC_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_AsianSWC_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6
 sbatch Result_LDAK_AsianSWC_P$j
 done
 
@@ -104,11 +104,11 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Trait_Mixed.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Mixed_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_Mixed_P$j
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Trait_Mixed.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Mixed_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_Mixed_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5/Result_LDAK_Mixed_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6/Result_LDAK_Mixed_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T5
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T6
 sbatch Result_LDAK_Mixed_P$j
 done
