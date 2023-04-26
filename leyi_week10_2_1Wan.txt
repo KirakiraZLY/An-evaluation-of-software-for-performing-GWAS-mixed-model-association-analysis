@@ -23,7 +23,7 @@ regenie \
   --bsize 1000 \
   --threads 4 \
   --bt \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_TraitB31/Result_TraitB31_regenie_s1  
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_B31/Result_Trait_B31_regenie_s1  
 
 
 regenie \
@@ -37,8 +37,8 @@ regenie \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_TraitB31/Result_TraitB31_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_TraitB31/Result_TraitB31_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_B31/Result_Trait_B31_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_B31/Result_Trait_B31_regenie_s2
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitB31
 
@@ -65,7 +65,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B31_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_TraitB31/Result_Bolt_TraitB31_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B31_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_B31/Result_Bolt_TraitB31_P$j.Bolt
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Bolt_lmm/Result_Bolt_TraitB31_P$j
 
@@ -93,7 +93,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_BB31_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_TraitB31/Result_Bolt_inf_TraitB31_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_BB31_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_B31/Result_Bolt_inf_TraitB31_P$j.Bolt
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Bolt_lmm_inf/Result_Bolt_inf_TraitB31_P$j
 
@@ -122,7 +122,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_Black --logistic hide-covar --covar ${dir}/covar_Black_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_BB31.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_TraitB31/Result_Plink_TraitB31_P$j
+${dir}/software/plink --bfile ${dir}/data_Black --logistic hide-covar --covar ${dir}/covar_Black_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_BB31.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_B31/Result_Plink_TraitB31_P$j
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Plink/Result_Plink_TraitB31_P$j
 
@@ -147,7 +147,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_BB31.pheno  --mpheno $j --covar ${dir}/covar_Black_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_Black --logistic ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_TraitB31/Result_LDAK_Trait_B31_P$j
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_BB31.pheno  --mpheno $j --covar ${dir}/covar_Black_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_Black --logistic ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_B31/Result_LDAK_Trait_B31_P$j
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_LDAK/Result_LDAK_TraitB31_P$j
 
@@ -176,7 +176,7 @@ ${dir}/software/gcta --bfile ${dir}/data_Black \
 --pheno ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_BB31.pheno \
 --mpheno $j \
 --qcovar ${dir}/covar_1Wan_PC.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_TraitB31/Result_fastGWA_TraitB31_P$j \
+--out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_B31/Result_fastGWA_TraitB31_P$j \
 --thread-num 10
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_fastGWA/Result_fastGWA_TraitB31_P$j
