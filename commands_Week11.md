@@ -119,28 +119,35 @@ For fastGWA, generate data_Black_gcta_1 and data_Black_gcta_2
 # Meta-analysis
 ## 1. Copy 5 region data into folder
 ## 2. QC on 5 regions
-## data_Black QC
+### data_Black QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/data_Black
 ```
-## data_White QC
+### data_White QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White
 ```
-## data_Chinese QC
+### data_Chinese QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese
 ```
-## data_AsianSWC QC
+### data_AsianSWC QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC
 ```
-## data_Mixed QC
+### data_Mixed QC
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --geno 0.1 --mind 0.1 --maf 0.05 --mac 100 --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed
 ```
+## 3. Extract SNP_1_to_12
+See in computer
+## 4. Generate Phenotypes * 5
+
+## 5. LDAK assoc test
+
+## 6. METAL in each folder(metal_LDAK.txt)
