@@ -12,15 +12,15 @@ echo "#"'!'"/bin/bash
 ${dir}/software/gcta --bfile ${dir}/data_qc \
 --grm-sparse ${dir}/data_7Wan_gcta_2 \
 --fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_3.pheno \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_4.pheno \
 --qcovar ${dir}/covar_1Wan_PC.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait3/Result_fastGWA_Trait3 \
+--out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait4/Result_fastGWA_Trait4 \
 --thread-num 10
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA/Result_fastGWA_Trait3
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA/Result_fastGWA_Trait4
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA
 
-sbatch Result_fastGWA_Trait3
+sbatch Result_fastGWA_Trait4
