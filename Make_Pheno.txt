@@ -656,7 +656,7 @@ ${dir}/software/ldak5.XXX \
   --ignore-weights YES \
   --power -1 \
   --her 0.1 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --num-phenos 5 \
   --num-causals 1000 \
   --extract ${dir}/snps_1_to_12_qc.txt
@@ -669,7 +669,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
 ${dir}/software/ldak5.XXX \
@@ -680,7 +680,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
 ${dir}/software/ldak5.XXX \
@@ -691,7 +691,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
 ${dir}/software/ldak5.XXX \
@@ -702,7 +702,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
 ${dir}/software/ldak5.XXX \
@@ -713,7 +713,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Trait_25to30
@@ -782,7 +782,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
 ${dir}/software/ldak5.XXX \
@@ -793,7 +793,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
 ${dir}/software/ldak5.XXX \
@@ -804,7 +804,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
 ${dir}/software/ldak5.XXX \
@@ -815,7 +815,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
 
@@ -827,7 +827,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
 ${dir}/software/ldak5.XXX \
@@ -838,7 +838,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
 
@@ -894,20 +894,20 @@ echo "#"'!'"/bin/bash
 
 ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_37 --bfile ${dir}/data_qc --ignore-weights YES --power -0.25 --her 0.1 --num-phenos 5 \
-  --num-causals 1000  --max-threads 8 --prevalence 0.01 --extract ${dir}/snps_1_to_12_qc.txt
+  --num-causals 1000  --max-threads 8 --prevalence 0.1 --extract ${dir}/snps_1_to_12_qc.txt
 
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_38 --bfile ${dir}/data_qc --ignore-weights YES --power -0.25 --her 0.5 --num-phenos 5 \
-  --num-causals 1000 --max-threads 8 --prevalence 0.01 --extract ${dir}/snps_1_to_12_qc.txt
+  --num-causals 1000 --max-threads 8 --prevalence 0.1 --extract ${dir}/snps_1_to_12_qc.txt
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_39 --bfile ${dir}/data_qc --ignore-weights YES --power -0.25 \
-  --her 0.9 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.01 --extract ${dir}/snps_1_to_12_qc.txt
+  --her 0.9 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.1 --extract ${dir}/snps_1_to_12_qc.txt
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_40 \
-  --bfile ${dir}/data_qc --ignore-weights YES --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.01 \
+  --bfile ${dir}/data_qc --ignore-weights YES --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
   ${dir}/software/ldak5.XXX \
@@ -919,29 +919,29 @@ ${dir}/software/ldak5.XXX \
   --num-phenos 5 \
   --num-causals 10000 \
   --max-threads 8 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_42 --bfile ${dir}/data_qc --ignore-weights YES --power -0.25 --her 0.9 \
-  --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.01 --extract ${dir}/snps_1_to_12_qc.txt
+  --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.1 --extract ${dir}/snps_1_to_12_qc.txt
 
   ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_43 \
   --bfile ${dir}/data_1Wan --ignore-weights YES --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000 \
-  --max-threads 8 --prevalence 0.01 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
+  --max-threads 8 --prevalence 0.1 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
 
   ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_44 \
   --bfile ${dir}/data_1Wan --ignore-weights YES --power -0.25 \
-  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.01 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_new1Wan.txt
+  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.1 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_new1Wan.txt
 
   ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_45 \
   --bfile ${dir}/data_1Wan --ignore-weights YES --power -0.25 --her 0.9 --num-phenos 5 --num-causals 10000 \
-  --max-threads 8 --prevalence 0.01 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
+  --max-threads 8 --prevalence 0.1 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
   ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_46 \
   --bfile ${dir}/data_1Wan --ignore-weights YES  --power -0.25 \
-  --her 0.1 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.01 \
+  --her 0.1 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.1 \
   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
   ${dir}/software/ldak5.XXX \
@@ -953,7 +953,7 @@ ${dir}/software/ldak5.XXX \
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
   ${dir}/software/ldak5.XXX \
@@ -965,7 +965,7 @@ ${dir}/software/ldak5.XXX \
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Trait_37to48
@@ -1164,7 +1164,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_Black.txt
 
 ${dir}/software/ldak5.XXX \
@@ -1175,7 +1175,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_Black.txt
 
 ${dir}/software/ldak5.XXX \
@@ -1186,7 +1186,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 1000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_Black.txt
 
 ${dir}/software/ldak5.XXX \
@@ -1197,7 +1197,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.1 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_Black.txt
 
 
@@ -1209,7 +1209,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.5 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_Black.txt
 
 ${dir}/software/ldak5.XXX \
@@ -1220,7 +1220,7 @@ ${dir}/software/ldak5.XXX \
   --her 0.9 \
   --num-phenos 5 \
   --num-causals 10000 \
-  --prevalence 0.01 \
+  --prevalence 0.1 \
   --extract ${dir}/snps_1_to_12_Black.txt
 
 
@@ -1244,19 +1244,19 @@ echo "#"'!'"/bin/bash
 
 ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B43 \
   --bfile ${dir}/data_Black --ignore-weights YES --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000 \
-  --max-threads 8 --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+  --max-threads 8 --prevalence 0.1  --extract ${dir}/snps_1_to_12_Black.txt
 
   ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B44 \
   --bfile ${dir}/data_Black --ignore-weights YES --power -0.25 \
-  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.1  --extract ${dir}/snps_1_to_12_Black.txt
 
   ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B45 \
   --bfile ${dir}/data_Black --ignore-weights YES --power -0.25 --her 0.9 --num-phenos 5 --num-causals 10000 \
-  --max-threads 8 --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+  --max-threads 8 --prevalence 0.1  --extract ${dir}/snps_1_to_12_Black.txt
 
   ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B46 \
   --bfile ${dir}/data_Black --ignore-weights YES  --power -0.25 \
-  --her 0.1 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.01    --extract ${dir}/snps_1_to_12_Black.txt
+  --her 0.1 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.1    --extract ${dir}/snps_1_to_12_Black.txt
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B47 \
@@ -1267,7 +1267,7 @@ ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+  --prevalence 0.1  --extract ${dir}/snps_1_to_12_Black.txt
 
   ${dir}/software/ldak5.XXX \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B48 \
@@ -1278,7 +1278,7 @@ ${dir}/software/ldak5.XXX --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+  --prevalence 0.1  --extract ${dir}/snps_1_to_12_Black.txt
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B43toB48
 
