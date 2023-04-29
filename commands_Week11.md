@@ -181,6 +181,7 @@ See in computer
 
 
 ## 7. PCA on 5 ancestries
+1. 
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf
@@ -188,4 +189,25 @@ ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/dat
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf
 ${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf
+```
+
+2. 
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 50 2 0.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 50 2 0.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 50 2 0.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 50 2 0.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 50 2 0.2 --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf
+```
+
+3. 
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf_prune_pca
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf_prune_pca
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf_prune_pca
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf_prune_pca
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf_prune_pca
+
 ```
