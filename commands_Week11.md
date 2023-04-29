@@ -177,3 +177,15 @@ See in computer
 ## 5. LDAK assoc test
 
 ## 6. METAL in each folder(metal_LDAK.txt)
+
+
+
+## 7. PCA on 5 ancestries
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf
+```

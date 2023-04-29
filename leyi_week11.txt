@@ -494,3 +494,31 @@ ${dir}/software/plink --bfile ${dir}/data_1Wan --geno 0.1 --mind 0.1 --maf 0.05 
 # I am doing blabla
 cd ${dir}/scripts/
 sbatch data_1Wan_QC
+
+
+
+
+
+
+###############################33
+PCA on 5 ancestries
+###############################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 10:0:0
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf
+${dir}/software/plink --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --recode vcf-iid --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf
+
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/PCA_vcf
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/
+sbatch PCA_vcf
