@@ -122,7 +122,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_Plink_Trait25_P$j
+${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_Plink_Trait25_P$j
 
 " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait25_P$j
 
@@ -165,7 +165,7 @@ for j in {1..5}; do
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 128G
-#SBATCH -t 4:0:0
+#SBATCH -t 10:0:0
 #SBATCH -c 10
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
