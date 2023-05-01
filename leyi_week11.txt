@@ -550,3 +550,30 @@ ${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/
 sbatch PCA_vcf_prune
+
+
+
+###############################33
+PCA on 5 ancestries
+Step 3
+###############################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 10:0:0
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+#SBATCH -c 8
+
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed_vcf_prune_pca
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese_vcf_prune_pca
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC_vcf_prune_pca
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White_vcf_prune_pca
+${dir}/software/plink --vcf ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf.prune.in --pca --make-bed --out ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black_vcf_prune_pca
+
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/PCA_vcf_pca
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/
+sbatch PCA_vcf_pca
