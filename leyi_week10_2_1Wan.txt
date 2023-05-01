@@ -1,105 +1,168 @@
-##############################
-Regenie 模板
-############################################################################################
-Trait 1 to 6
-##############################
-########### 1 #############
+#############################
+fastGWA Step 3 for data_qc
+#############################
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 4:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-conda activate regenie_env
-
-regenie \
-  --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_6_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
-  --covarCol PC{1:20} \
-  --bsize 1000 \
-  --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait6/Result_Trait6_regenie_s1  
-
-
-regenie \
-  --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_6_label.pheno \
-  --covarCol PC{1:20} \
-  --bsize 1000 \
-  --threads 4 \
-  --qt \
-  --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait6/Result_Trait6_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait6/Result_Trait6_regenie_s2
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Regenie/Result_regenie_s1and2_Trait6
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Regenie
-
-sbatch Result_regenie_s1and2_Trait6
-
-
-##############################
-Bolt
-##############################
-
-for j in {1..5};do 
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 8:0:0
-#SBATCH -c 4
+#SBATCH --mem 128G
+#SBATCH -t 10:0:0
+#SBATCH -c 10
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 
+${dir}/software/gcta --bfile ${dir}/data_qc \
+--grm-sparse ${dir}/data_qc_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_13.pheno \
+--qcovar ${dir}/covar_1Wan_PC.covars \
+--out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait13/Result_fastGWA_Trait13 \
+--thread-num 10
 
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_6_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait6/Result_Bolt_Trait6_P$j.Bolt
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait6_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait13
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA
 
-sbatch Result_Bolt_Trait6_P$j
-done
+sbatch Result_fastGWA_Trait13
 
 
-##############################
-Bolt-inf
-##############################
-
-for j in {1..5};do 
+#############################
+fastGWA Step 3 for data_qc
+#############################
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 4:0:0
-#SBATCH -c 4
+#SBATCH --mem 128G
+#SBATCH -t 10:0:0
+#SBATCH -c 10
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 
+${dir}/software/gcta --bfile ${dir}/data_qc \
+--grm-sparse ${dir}/data_qc_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_14.pheno \
+--qcovar ${dir}/covar_1Wan_PC.covars \
+--out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait14/Result_fastGWA_Trait14 \
+--thread-num 10
 
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_6_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait6/Result_Bolt_inf_Trait6_P$j.Bolt
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait6_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait14
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm_inf/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA
 
-sbatch Result_Bolt_inf_Trait6_P$j
+sbatch Result_fastGWA_Trait14
 
-done
+
+#############################
+fastGWA Step 3 for data_qc
+#############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 128G
+#SBATCH -t 10:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc \
+--grm-sparse ${dir}/data_qc_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_15.pheno \
+--qcovar ${dir}/covar_1Wan_PC.covars \
+--out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait15/Result_fastGWA_Trait15 \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait15
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA
+
+sbatch Result_fastGWA_Trait15
+
+
+#############################
+fastGWA Step 3 for data_qc
+#############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 128G
+#SBATCH -t 10:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc \
+--grm-sparse ${dir}/data_qc_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_16.pheno \
+--qcovar ${dir}/covar_1Wan_PC.covars \
+--out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait16/Result_fastGWA_Trait16 \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait16
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA
+
+sbatch Result_fastGWA_Trait16
+
+
+#############################
+fastGWA Step 3 for data_qc
+#############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 128G
+#SBATCH -t 10:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc \
+--grm-sparse ${dir}/data_qc_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_17.pheno \
+--qcovar ${dir}/covar_1Wan_PC.covars \
+--out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait17/Result_fastGWA_Trait17 \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait17
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA
+
+sbatch Result_fastGWA_Trait17
+
+
+#############################
+fastGWA Step 3 for data_qc
+#############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 128G
+#SBATCH -t 10:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_qc \
+--grm-sparse ${dir}/data_qc_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_18.pheno \
+--qcovar ${dir}/covar_1Wan_PC.covars \
+--out type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait18/Result_fastGWA_Trait18 \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA/Result_fastGWA_Trait18
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_fastGWA
+
+sbatch Result_fastGWA_Trait18
+
 
