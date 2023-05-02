@@ -1,32 +1,116 @@
-#############################
-fastGWA Step 3 for data_qc
-#############################
+##############################
+LDAK
+###############
+White
+###############
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 128G
-#SBATCH -t 10:0:0
-#SBATCH -c 10
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/gcta --bfile ${dir}/data_qc \
---grm-sparse ${dir}/data_qc_gcta_2 \
---fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25.pheno \
---mpheno $j \
---qcovar ${dir}/covar_PC.covars \
---chr 1 \
---out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_fastGWA_Trait25_chr1_P$j \
---thread-num 10
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_White.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_White_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_White_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait25_chr1_P$j
-
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_White_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_LDAK_White_P$j
+done
 
-sbatch Result_fastGWA_Trait25_chr1_P$j
+
+###############
+Black
+###############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Black.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Black_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_Black_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_Black_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_LDAK_Black_P$j
+done
+
+##############
+Chinese
+##############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Chinese.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Chinese_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_Chinese_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_Chinese_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_LDAK_Chinese_P$j
+done
+
+
+##############
+AsianSWC
+##############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_AsianSWC.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_AsianSWC_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_AsianSWC_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_AsianSWC_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_LDAK_AsianSWC_P$j
+done
+
+
+#############
+Mixed
+#############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Mixed.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Mixed_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_Mixed_P$j
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_LDAK_Mixed_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_LDAK_Mixed_P$j
 done
 
 
@@ -54,27 +138,145 @@ done
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################
+Bolt
+###############
+White
+###############
+for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
-#SBATCH --mem 128G
-#SBATCH -t 30:0:0
-#SBATCH -c 10
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/gcta --bfile ${dir}/data_qc \
---grm-sparse ${dir}/data_qc_gcta_2 \
---fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_1.pheno \
---mpheno 1 \
---qcovar ${dir}/covar_1Wan_PC.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait1/Result_fastGWA_Trait1_P1 \
---thread-num 10
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_White_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_White_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_White_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA/Result_fastGWA_Trait1_P1
-
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_White_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_White_P$j
+done
 
-sbatch Result_fastGWA_Trait1_P1
+
+###############
+Black
+###############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Black_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Black_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Black_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Black_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_Black_P$j
+done
+
+##############
+Chinese
+##############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Chinese_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Chinese_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Chinese_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Chinese_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_Chinese_P$j
+done
+
+
+##############
+AsianSWC
+##############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_AsianSWC_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_AsianSWC_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_AsianSWC_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_AsianSWC_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_AsianSWC_P$j
+done
+
+
+#############
+Mixed
+#############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Mixed_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Mixed_PC.covars --qCovarCol=PC{1:20}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Mixed_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Mixed_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_Mixed_P$j
+done
