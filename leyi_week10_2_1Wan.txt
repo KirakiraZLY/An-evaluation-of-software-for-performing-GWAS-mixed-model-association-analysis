@@ -219,6 +219,7 @@ ${dir}/software/ldak5.XXX \
   --num-causals 1000 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Trait_1_generator
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12
