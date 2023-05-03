@@ -21,3 +21,4 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/height.pheno  --covar ${dir}/covar_PC.c
 cd ${dir}/scripts/Real_Traits/Height/
 sbatch data_ldak_height
 ```
+## META result check, height
