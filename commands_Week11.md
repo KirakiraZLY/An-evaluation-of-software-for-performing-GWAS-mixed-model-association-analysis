@@ -232,5 +232,4 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/height.pheno  --covar ${dir}/covar_PC.c
 # I am doing blabla
 cd ${dir}/scripts/Real_Traits/Height/
 sbatch data_ldak_height
-done
 ```
