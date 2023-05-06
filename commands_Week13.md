@@ -227,3 +227,6 @@ sbatch Trait_B19toB24
 
 
 ```
+
+
+## Trait 13-18, 5 softwares
