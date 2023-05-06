@@ -162,6 +162,7 @@ sbatch Trait_qt_LDAK_13to18
 ######################################################################
 Trait 19 - 24
 ######################################################################
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -197,6 +198,7 @@ sbatch Trait_qt_LDAK_19to24
 ######################################################################
 Trait B19 - B24
 ######################################################################
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
