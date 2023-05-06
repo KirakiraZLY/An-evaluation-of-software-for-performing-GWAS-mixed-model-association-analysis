@@ -232,6 +232,71 @@ sbatch Trait_B19toB24
 ## Trait 13-18, 5 softwares
 **Submitted**  
 **Waiting**    
-## Trait 19-24, 5 softwares
+## Trait 19-24, 6 softwares
 **Submitted**   
 **Waiting**   
+## Trait 19-24_Black, 6 softwares
+**Waiting for trait generator**   
+## 5.6 Plan
+Binary Traits(37 - 48 and Black)
+1. Generator Traits
+2. Softwares
+
+
+## T 43 - 48 Black, LDAK, Prevalence = 0.01
+```python 
+##############################################################################################
+B43 - B48
+################################
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+  ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B43 \
+  --bfile ${dir}/data_Black --weights ${dir}/data_Black_weighting/weights.short --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000 \
+  --max-threads 8 --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+
+    ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B44 \
+  --bfile ${dir}/data_Black --weights ${dir}/data_Black_weighting/weights.short --power -0.25 \
+  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+
+    ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B45 \
+  --bfile ${dir}/data_Black --weights ${dir}/data_Black_weighting/weights.short --power -0.25 --her 0.9 --num-phenos 5 --num-causals 10000 \
+  --max-threads 8 --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+
+    ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B46 \
+  --bfile ${dir}/data_Black --weights ${dir}/data_Black_weighting/weights.short  --power -0.25 \
+  --her 0.1 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.01    --extract ${dir}/snps_1_to_12_Black.txt
+
+    ${dir_LDAK} \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B47 \
+  --bfile ${dir}/data_Black \
+  --weights ${dir}/data_Black_weighting/weights.short \
+  --power -0.25 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --max-threads 8 \
+  --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+
+    ${dir_LDAK} \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B48 \
+  --bfile ${dir}/data_Black \
+  --weights ${dir}/data_Black_weighting/weights.short \
+  --power -0.25 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --max-threads 8 \
+  --prevalence 0.01  --extract ${dir}/snps_1_to_12_Black.txt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Trait_B43toB48
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary
+sbatch Trait_B43toB48
+```
