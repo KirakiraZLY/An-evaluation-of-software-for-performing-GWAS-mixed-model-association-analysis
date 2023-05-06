@@ -12,13 +12,13 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --bfile ${dir}/data_qc  --cut-weights ${dir}/sections_qc
-${dir_LDAK} --bfile ${dir}/data_Black  --cut-weights ${dir}/sections_Black
-${dir_LDAK} --bfile ${dir}/data_1Wan  --cut-weights ${dir}/sections_1Wan
+${dir_LDAK} --bfile ${dir}/data_qc  --cut-weights ${dir}/data_qc_weighting
+${dir_LDAK} --bfile ${dir}/data_Black  --cut-weights ${dir}/data_Black_weighting
+${dir_LDAK} --bfile ${dir}/data_1Wan  --cut-weights ${dir}/data_1Wan_weighting
 
-${dir_LDAK} --bfile ${dir}/data_qc  --calc-weights-all ${dir}/sections_qc
-${dir_LDAK} --bfile ${dir}/data_Black  --calc-weights-all ${dir}/sections_Black
-${dir_LDAK} --bfile ${dir}/data_1Wan  --calc-weights-all ${dir}/sections_1Wan
+${dir_LDAK} --bfile ${dir}/data_qc  --calc-weights-all ${dir}/data_qc_weighting
+${dir_LDAK} --bfile ${dir}/data_Black  --calc-weights-all ${dir}/data_Black_weighting
+${dir_LDAK} --bfile ${dir}/data_1Wan  --calc-weights-all ${dir}/data_1Wan_weighting
 
 " > ${dir}/scripts/LDAK_Weighting_Step1and2
 
