@@ -230,3 +230,6 @@ sbatch Trait_B19toB24
 
 
 ## Trait 13-18, 5 softwares
+**Submitted**   
+## Trait 19-24, 5 softwares
+**Submitted**   
