@@ -306,7 +306,7 @@ sbatch Trait_B43toB48
 
 
 
-## T
+## T 37 - 48, LDAK
 ```python
 dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 ##############################################################################################
