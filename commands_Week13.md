@@ -91,7 +91,7 @@ ${dir_LDAK} \
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+  --extract ${dir}/snps_1_to_12_qc.txt
 
 
   ${dir_LDAK} \
@@ -103,7 +103,7 @@ ${dir_LDAK} \
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+  --extract ${dir}/snps_1_to_12_qc.txt
 
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_15 \
@@ -114,7 +114,7 @@ ${dir_LDAK} \
   --num-phenos 5 \
   --num-causals 1000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+  --extract ${dir}/snps_1_to_12_qc.txt
 
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_16 \
@@ -125,7 +125,7 @@ ${dir_LDAK} \
   --num-phenos 5 \
   --num-causals 10000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+  --extract ${dir}/snps_1_to_12_qc.txt
 
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_17 \
@@ -136,7 +136,7 @@ ${dir_LDAK} \
   --num-phenos 5 \
   --num-causals 10000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+  --extract ${dir}/snps_1_to_12_qc.txt
 
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_18 \
@@ -147,7 +147,7 @@ ${dir_LDAK} \
   --num-phenos 5 \
   --num-causals 10000 \
   --max-threads 8 \
-  --extract ${dir}/type_1_error/Multi_Traits/snps_1_to_12_7Wan.txt
+  --extract ${dir}/snps_1_to_12_qc.txt
 
   " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Trait_qt_LDAK_13to18
 
