@@ -393,7 +393,7 @@ echo "#"'!'"/bin/bash
 
   ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_44 \
   --bfile ${dir}/data_1Wan --weights ${dir}/data_1Wan_weighting/weights.short --power -0.25 \
-  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.01 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_new1Wan.txt
+  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.01 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
   ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_45 \
   --bfile ${dir}/data_1Wan --weights ${dir}/data_1Wan_weighting/weights.short --power -0.25 --her 0.9 --num-phenos 5 --num-causals 10000 \
@@ -483,7 +483,7 @@ echo "#"'!'"/bin/bash
 
   ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_44 \
   --bfile ${dir}/data_1Wan --weights ${dir}/data_1Wan_weighting/weights.short --power -0.25 \
-  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.15 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_new1Wan.txt
+  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.15 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
   ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_45 \
   --bfile ${dir}/data_1Wan --weights ${dir}/data_1Wan_weighting/weights.short --power -0.25 --her 0.9 --num-phenos 5 --num-causals 10000 \
