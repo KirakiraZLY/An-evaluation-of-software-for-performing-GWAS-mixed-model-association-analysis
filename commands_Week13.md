@@ -460,40 +460,25 @@ echo "#"'!'"/bin/bash
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_37 --bfile ${dir}/data_qc --weights ${dir}/data_qc_weighting/weights.short --power -0.25 --her 0.1 --num-phenos 5 \
   --num-causals 1000  --max-threads 8 --prevalence 0.15 --extract ${dir}/snps_1_to_12_qc.txt
-
-
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_38 --bfile ${dir}/data_qc --weights ${dir}/data_qc_weighting/weights.short --power -0.25 --her 0.5 --num-phenos 5 \
   --num-causals 1000 --max-threads 8 --prevalence 0.15 --extract ${dir}/snps_1_to_12_qc.txt
-
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_39 --bfile ${dir}/data_qc --weights ${dir}/data_qc_weighting/weights.short --power -0.25 \
   --her 0.9 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.15 --extract ${dir}/snps_1_to_12_qc.txt
-
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_40 \
   --bfile ${dir}/data_qc --weights ${dir}/data_qc_weighting/weights.short --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.15 \
   --extract ${dir}/snps_1_to_12_qc.txt
-
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_41 \
   --bfile ${dir}/data_qc \
   --weights ${dir}/data_qc_weighting/weights.short \
-  --power -0.25 \
-  --her 0.5 \
-  --num-phenos 5 \
-  --num-causals 10000 \
-  --max-threads 8 \
-  --prevalence 0.15 \
-  --extract ${dir}/snps_1_to_12_qc.txt
-
+  --power -0.25 --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.15 --extract ${dir}/snps_1_to_12_qc.txt
   ${dir_LDAK} \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_42 --bfile ${dir}/data_qc --weights ${dir}/data_qc_weighting/weights.short --power -0.25 --her 0.9 \
-  --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.15 --extract ${dir}/snps_1_to_12_qc.txt
-
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_42 --bfile ${dir}/data_qc --weights ${dir}/data_qc_weighting/weights.short --power -0.25 --her 0.9 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.15 --extract ${dir}/snps_1_to_12_qc.txt
   ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_43 \
-  --bfile ${dir}/data_1Wan --weights ${dir}/data_1Wan_weighting/weights.short --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000 \
-  --max-threads 8 --prevalence 0.15 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
+  --bfile ${dir}/data_1Wan --weights ${dir}/data_1Wan_weighting/weights.short --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000  --max-threads 8 --prevalence 0.15 --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
 
   ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_44 \
