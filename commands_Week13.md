@@ -434,3 +434,6 @@ echo "#"'!'"/bin/bash
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary
 sbatch Trait_37to48
 ```
+
+
+## Trait 13 include first 10 PCs, fastGWA
