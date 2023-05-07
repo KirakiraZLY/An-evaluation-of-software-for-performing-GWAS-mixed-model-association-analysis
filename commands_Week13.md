@@ -341,10 +341,10 @@ sbatch Trait_B43toB48
 
 ## T 37 - 48, LDAK, P001
 ```python
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 ##############################################################################################
 37 - 48
 ################################
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 4G
@@ -444,12 +444,12 @@ sbatch Trait_37to48
 
 
 
-## T 37 - 48, LDAK, P001
+## T 37 - 48, LDAK, P015
 ```python
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 ##############################################################################################
 37 - 48
 ################################
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 4G
