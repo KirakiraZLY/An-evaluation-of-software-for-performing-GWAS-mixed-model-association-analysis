@@ -1208,3 +1208,4 @@ sbatch Trait_W43toW48
 5. fastGWA email
 6. White 的GCTA
 7. 100
+8. 101
