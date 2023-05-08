@@ -706,7 +706,7 @@ source /home/lezh/miniconda3/etc/profile.d/conda.sh
 ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_13 \
   --bfile ${dir}/data_qc \
-  --weights ${dir}/data_qc_thin  \
+  --weights ${dir}/data_qc_thin.thin  \
   --power -0.25 \
   --her 0.1 \
   --num-phenos 5 \
@@ -718,7 +718,7 @@ ${dir_LDAK} \
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_14 \
   --bfile ${dir}/data_qc \
-  --weights ${dir}/data_qc_thin  \
+  --weights ${dir}/data_qc_thin.thin  \
   --power -0.25 \
   --her 0.5 \
   --num-phenos 5 \
@@ -729,7 +729,7 @@ ${dir_LDAK} \
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_15 \
   --bfile ${dir}/data_qc \
-  --weights ${dir}/data_qc_thin  \
+  --weights ${dir}/data_qc_thin.thin  \
   --power -0.25 \
   --her 0.9 \
   --num-phenos 5 \
@@ -740,7 +740,7 @@ ${dir_LDAK} \
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_16 \
   --bfile ${dir}/data_qc \
-  --weights ${dir}/data_qc_thin  \
+  --weights ${dir}/data_qc_thin.thin  \
   --power -0.25 \
   --her 0.1 \
   --num-phenos 5 \
@@ -751,7 +751,7 @@ ${dir_LDAK} \
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_17 \
   --bfile ${dir}/data_qc \
-  --weights ${dir}/data_qc_thin  \
+  --weights ${dir}/data_qc_thin.thin  \
   --power -0.25 \
   --her 0.5 \
   --num-phenos 5 \
@@ -762,7 +762,7 @@ ${dir_LDAK} \
   ${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_18 \
   --bfile ${dir}/data_qc \
-  --weights ${dir}/data_qc_thin  \
+  --weights ${dir}/data_qc_thin.thin  \
   --power -0.25 \
   --her 0.9 \
   --num-phenos 5 \
@@ -793,17 +793,17 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_19   --bfile ${dir}/data_1Wan   --weights ${dir}/data_1Wan_thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_19   --bfile ${dir}/data_1Wan   --weights ${dir}/data_1Wan_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
   
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_20   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_20   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
-  ${dir_LDAK}    --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_21   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
+  ${dir_LDAK}    --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_21   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
-  ${dir_LDAK}    --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_22   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
+  ${dir_LDAK}    --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_22   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
-  ${dir_LDAK}    --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_23   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
+  ${dir_LDAK}    --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_23   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
-  ${dir_LDAK}    --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_24   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
+  ${dir_LDAK}    --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_13_to_24/Trait_24   --bfile ${dir}/data_1Wan    --weights ${dir}/data_1Wan_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_1Wan.txt
 
   " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Trait_qt_LDAK_19to24
 
@@ -829,16 +829,16 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B19   --bfile ${dir}/data_Black   --weights ${dir}/data_Black_thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B20   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B19   --bfile ${dir}/data_Black   --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B20   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B21   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B21   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B22   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B22   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B23   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B23   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B24   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B24   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
 
   " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Trait_B19toB24
 
