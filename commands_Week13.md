@@ -679,9 +679,9 @@ sbatch LDAK_Thin_Step1and2_1Wan
 
 ```python
 dir="/home/lezh/dsmwpred/zly"
-awk < data_qc_thin.in '{print $1, 1}' > data_qc_thin.thin
-awk < data_1Wan_thin.in '{print $1, 1}' > data_1Wan_thin.thin
-awk < data_Black_thin.in '{print $1, 1}' > data_Black_thin.thin
+awk < ${dir}/data_qc_thin.in '{print $1, 1}' > ${dir}/data_qc_thin.thin
+awk < ${dir}/data_1Wan_thin.in '{print $1, 1}' > ${dir}/data_1Wan_thin.thin
+awk < ${dir}/data_Black_thin.in '{print $1, 1}' > ${dir}/data_Black_thin.thin
 ```
 
 
