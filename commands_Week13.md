@@ -1207,3 +1207,4 @@ sbatch Trait_W43toW48
 4. To run on real traits(Height, Urate, Urate_binary)
 5. fastGWA email
 6. White 的GCTA
+7. 100
