@@ -576,3 +576,20 @@ ${dir}/software/gcta \
 --out ${dir}/type_1_error/Test/UKBB_5Wan_gcta_2  \
 --thread-num 10
 ```
+
+
+## fastGWA, white test, step 1and2
+```python
+dir="/home/lezh/dsmwpred/zly"
+
+${dir}/software/gcta \
+--bfile ${dir}/type_1_error/Test/data_White \
+--autosome --maf 0.01 \
+--make-grm --out ${dir}/type_1_error/Test/data_White_gcta_1 \
+--thread-num 10
+
+${dir}/software/gcta \
+--grm ${dir}/type_1_error/Test/data_White_gcta_1 --make-bK-sparse 0.05 \
+--out ${dir}/type_1_error/Test/data_White_gcta_2  \
+--thread-num 10
+```
