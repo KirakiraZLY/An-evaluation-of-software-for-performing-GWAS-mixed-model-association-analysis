@@ -1104,7 +1104,7 @@ awk < ${dir}/data_White_thin.in '{print $1, 1}' > ${dir}/data_White_thin.thin
 ## T19 - 24, White
 ```python
 ######################################################################
-Trait B19 - B24
+Trait W19 - W24
 ######################################################################
 dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
@@ -1136,3 +1136,61 @@ sbatch Trait_W19toW24
 
 ```
 
+
+## T 43 - 48 White, LDAK, Prevalence = 0.01
+```python 
+##############################################################################################
+W43 - W48
+################################
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+  ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W43 \
+  --bfile ${dir}/data_White --weights ${dir}/data_White_thin.thin --power -0.25 --her 0.1 --num-phenos 5 --num-causals 10000 \
+  --max-threads 8 --prevalence 0.01  --extract ${dir}/snps_1_to_12_White.txt
+
+    ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W44 \
+  --bfile ${dir}/data_White --weights ${dir}/data_White_thin.thin --power -0.25 \
+  --her 0.5 --num-phenos 5 --num-causals 10000 --max-threads 8 --prevalence 0.01  --extract ${dir}/snps_1_to_12_White.txt
+
+    ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W45 \
+  --bfile ${dir}/data_White --weights ${dir}/data_White_thin.thin --power -0.25 --her 0.9 --num-phenos 5 --num-causals 10000 \
+  --max-threads 8 --prevalence 0.01  --extract ${dir}/snps_1_to_12_White.txt
+
+    ${dir_LDAK} --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W46 \
+  --bfile ${dir}/data_White --weights ${dir}/data_White_thin.thin  --power -0.25 \
+  --her 0.1 --num-phenos 5 --num-causals 1000 --max-threads 8 --prevalence 0.01    --extract ${dir}/snps_1_to_12_White.txt
+
+    ${dir_LDAK} \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W47 \
+  --bfile ${dir}/data_White \
+  --weights ${dir}/data_White_thin.thin \
+  --power -0.25 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --max-threads 8 \
+  --prevalence 0.01  --extract ${dir}/snps_1_to_12_White.txt
+
+    ${dir_LDAK} \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W48 \
+  --bfile ${dir}/data_White \
+  --weights ${dir}/data_White_thin.thin \
+  --power -0.25 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --max-threads 8 \
+  --prevalence 0.01  --extract ${dir}/snps_1_to_12_White.txt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W43toW48
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary
+sbatch Trait_W43toW48
+```
