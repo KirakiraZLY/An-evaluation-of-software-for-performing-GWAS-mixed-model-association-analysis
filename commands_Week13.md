@@ -1116,22 +1116,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B19   --bfile ${dir}/data_White   --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B20   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_W1_to_W24/Trait_W19   --bfile ${dir}/data_White   --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_W1_to_W24/Trait_W20   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B21   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_W1_to_W24/Trait_W21   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B22   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_W1_to_W24/Trait_W22   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B23   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_W1_to_W24/Trait_W23   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
 
-  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B24   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_W1_to_W24/Trait_W24   --bfile ${dir}/data_White    --weights ${dir}/data_White_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
 
-  " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Trait_B19toB24
+  " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Trait_W19toW24
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24
-sbatch Trait_B19toB24
+sbatch Trait_W19toW24
 
 
 ```
