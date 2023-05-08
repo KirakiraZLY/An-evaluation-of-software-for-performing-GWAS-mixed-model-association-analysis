@@ -1204,4 +1204,6 @@ sbatch Trait_W43toW48
 1. Write the introduction   
 2. Analyze META on other traits
 3. Try MR META
-4. To run on real traits
+4. To run on real traits(Height, Urate, Urate_binary)
+5. fastGWA email
+6. 
