@@ -618,7 +618,7 @@ ${dir}/software/gcta \
 
 
 
-## LDAK-thin
+# LDAK-thin
 ## LDAK-thin on each dataset 
 ```python
 dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
@@ -677,7 +677,12 @@ cd ${dir}/scripts/
 sbatch LDAK_Thin_Step1and2_1Wan
 ```
 
-
+```python
+dir="/home/lezh/dsmwpred/zly"
+awk < data_qc_thin.in '{print $1, 1}' > data_qc_thin.thin
+awk < data_1Wan_thin.in '{print $1, 1}' > data_1Wan_thin.thin
+awk < data_Black_thin.in '{print $1, 1}' > data_Black_thin.thin
+```
 
 
 # Generator LDAK-thin
