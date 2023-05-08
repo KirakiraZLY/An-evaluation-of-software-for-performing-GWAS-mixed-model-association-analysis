@@ -606,3 +606,73 @@ ${dir}/software/gcta \
 --out ${dir}/type_1_error/Test/data_White_gcta_2_01  \
 --thread-num 10
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+## LDAK-thin
+## LDAK-thin on each dataset 
+```python
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 8:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir_LDAK} --bfile ${dir}/data_qc  --max-threads 4  --thin ${dir}/data_qc_thin --window-prune 0.98 --window-kb 100
+
+
+" > ${dir}/scripts/LDAK_Thin_Step1and2_qc
+
+# I am doing blabla
+cd ${dir}/scripts/
+sbatch LDAK_Thin_Step1and2_qc
+
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 8:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir_LDAK} --bfile ${dir}/data_Black  --max-threads 4  --thin ${dir}/data_Black_thin --window-prune 0.98 --window-kb 100
+
+" > ${dir}/scripts/LDAK_Thin_Step1and2_Black
+
+# I am doing blabla
+cd ${dir}/scripts/
+sbatch LDAK_Thin_Step1and2_Black
+
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 8:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir_LDAK} --bfile ${dir}/data_1Wan  --max-threads 4  --thin ${dir}/data_1Wan_thin --window-prune 0.98 --window-kb 100
+
+" > ${dir}/scripts/LDAK_Thin_Step1and2_1Wan
+
+# I am doing blabla
+cd ${dir}/scripts/
+sbatch LDAK_Thin_Step1and2_1Wan
+```
