@@ -533,3 +533,11 @@ dir="/home/lezh/dsmwpred/zly"
 dir_j="/home/lezh/dsmwpred/jasper/Weights"
 ${dir_Plink} --bfile ${dir_j}/UKBB  --noweb --keep ${dir}/type_1_error/Test/UKBB_1Wan.fam --recode --make-bed --out ${dir}/type_1_error/Test/UKBB_1Wan
 ```
+
+## fastGWA, 5Wan test, generator
+```python
+dir_Plink="/home/lezh/snpher/faststorage/plink"
+dir="/home/lezh/dsmwpred/zly"
+dir_j="/home/lezh/dsmwpred/jasper/Weights"
+${dir_Plink} --bfile ${dir_j}/UKBB  --noweb --keep ${dir}/type_1_error/Test/UKBB_5Wan.fam --recode --make-bed --out ${dir}/type_1_error/Test/UKBB_5Wan
+```
