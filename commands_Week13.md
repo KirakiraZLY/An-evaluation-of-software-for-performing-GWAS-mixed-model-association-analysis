@@ -1202,4 +1202,6 @@ sbatch Trait_W43toW48
 
 # 5.9 Missions
 1. Write the introduction   
-2. 
+2. Analyze META on other traits
+3. Try MR META
+4. 
