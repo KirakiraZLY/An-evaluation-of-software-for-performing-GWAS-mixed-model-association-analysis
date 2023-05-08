@@ -541,3 +541,62 @@ dir="/home/lezh/dsmwpred/zly"
 dir_j="/home/lezh/dsmwpred/jasper/Weights"
 ${dir_Plink} --bfile ${dir_j}/UKBB  --noweb --keep ${dir}/type_1_error/Test/UKBB_5Wan.fam --recode --make-bed --out ${dir}/type_1_error/Test/UKBB_5Wan
 ```
+
+
+
+## fastGWA, 1Wan test, step 1and2
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta \
+--bfile ${dir}/type_1_error/Test/UKBB_1Wan \
+--autosome --maf 0.01 \
+--make-grm --out ${dir}/type_1_error/Test/UKBB_1Wan_gcta_1 \
+--thread-num 10
+
+${dir}/software/gcta \
+--grm ${dir}/type_1_error/Test/UKBB_1Wan_gcta_1 --make-bK-sparse 0.05 \
+--out ${dir}/type_1_error/Test/UKBB_1Wan_gcta_2  \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Test/UKBB_1Wan_fastGWA_STEP1and2
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Test/
+sbatch UKBB_1Wan_fastGWA_STEP1and2
+```
+
+
+## fastGWA, 5Wan test, step 1and2
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta \
+--bfile ${dir}/type_1_error/Test/UKBB_5Wan \
+--autosome --maf 0.01 \
+--make-grm --out ${dir}/type_1_error/Test/UKBB_5Wan_gcta_1 \
+--thread-num 10
+
+${dir}/software/gcta \
+--grm ${dir}/type_1_error/Test/UKBB_5Wan_gcta_1 --make-bK-sparse 0.05 \
+--out ${dir}/type_1_error/Test/UKBB_5Wan_gcta_2  \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Test/UKBB_5Wan_fastGWA_STEP1and2
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Test/
+sbatch UKBB_5Wan_fastGWA_STEP1and2
+```
