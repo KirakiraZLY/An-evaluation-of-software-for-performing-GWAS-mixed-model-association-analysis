@@ -1094,3 +1094,45 @@ sbatch Trait_B43toB48
 
 
 # White dataset
+## White thin
+```python
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
+dir="/home/lezh/dsmwpred/zly"
+${dir_LDAK} --bfile ${dir}/data_White  --max-threads 4  --thin ${dir}/data_White_thin --window-prune 0.98 --window-kb 100
+awk < ${dir}/data_White_thin.in '{print $1, 1}' > ${dir}/data_White_thin.thin
+```
+## T19 - 24, White
+```python
+######################################################################
+Trait B19 - B24
+######################################################################
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B19   --bfile ${dir}/data_Black   --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B20   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B21   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 1000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B22   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.1   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B23   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.5   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+
+  ${dir_LDAK}   --make-phenos /home/lezh/dsmwpred/zly/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B24   --bfile ${dir}/data_Black    --weights ${dir}/data_Black_thin.thin    --power -0.25   --her 0.9   --num-phenos 5   --num-causals 10000   --max-threads 8   --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
+
+  " > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Trait_B19toB24
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24
+sbatch Trait_B19toB24
+
+
+```
+
