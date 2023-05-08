@@ -1087,3 +1087,10 @@ echo "#"'!'"/bin/bash
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary
 sbatch Trait_B43toB48
 ```
+
+
+## Next: Run software on Binary Traits
+
+
+
+# White dataset
