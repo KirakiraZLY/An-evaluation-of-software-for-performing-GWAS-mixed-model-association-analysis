@@ -598,4 +598,11 @@ ${dir}/software/gcta \
 --grm ${dir}/type_1_error/Test/data_White_gcta_1 --make-bK-sparse 0.0001 \
 --out ${dir}/type_1_error/Test/data_White_gcta_2_1e4  \
 --thread-num 10
+
+
+
+${dir}/software/gcta \
+--grm ${dir}/type_1_error/Test/data_White_gcta_1 --make-bK-sparse 0.1 \
+--out ${dir}/type_1_error/Test/data_White_gcta_2_01  \
+--thread-num 10
 ```
