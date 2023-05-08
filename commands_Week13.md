@@ -1194,3 +1194,12 @@ echo "#"'!'"/bin/bash
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary
 sbatch Trait_W43toW48
 ```
+
+
+
+
+
+
+# 5.9 Missions
+1. Write the introduction   
+2. 
