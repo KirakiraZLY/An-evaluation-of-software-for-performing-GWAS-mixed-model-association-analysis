@@ -1240,3 +1240,4 @@ ${dir}/software/gcta \
 cd ${dir}/scripts/
 sbatch data_White_fastGWA_STEP1and2
 ```
+
