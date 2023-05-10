@@ -160,7 +160,7 @@ done
 
 
 #############################
-fastGWA Step 3 for data_Black
+fastGWA Step 3 for data_1Wan
 #############################
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
@@ -370,7 +370,7 @@ done
 
 
 #############################
-fastGWA Step 3 for data_Black
+fastGWA Step 3 for data_1Wan
 #############################
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
@@ -398,6 +398,10 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_f
 
 sbatch Result_fastGWA_TraitB44_P$j
 done
+
+
+
+
 
 
 
@@ -574,7 +578,7 @@ done
 
 
 #############################
-fastGWA Step 3 for data_Black
+fastGWA Step 3 for data_1Wan
 #############################
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
@@ -602,6 +606,8 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_f
 
 sbatch Result_fastGWA_TraitB45_P$j
 done
+
+
 
 
 
@@ -781,7 +787,7 @@ done
 
 
 #############################
-fastGWA Step 3 for data_Black
+fastGWA Step 3 for data_1Wan
 #############################
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
@@ -809,10 +815,6 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_f
 
 sbatch Result_fastGWA_TraitB46_P$j
 done
-
-
-
-
 
 
 
@@ -990,7 +992,7 @@ done
 
 
 #############################
-fastGWA Step 3 for data_Black
+fastGWA Step 3 for data_1Wan
 #############################
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
@@ -1018,6 +1020,10 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_f
 
 sbatch Result_fastGWA_TraitB47_P$j
 done
+
+
+
+
 
 
 
@@ -1196,7 +1202,7 @@ done
 
 
 #############################
-fastGWA Step 3 for data_Black
+fastGWA Step 3 for data_1Wan
 #############################
 for j in {1..5}; do 
 dir="/home/lezh/dsmwpred/zly"
