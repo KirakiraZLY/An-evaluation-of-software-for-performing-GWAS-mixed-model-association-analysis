@@ -1,5 +1,111 @@
-sacct -j 17769604,17769605,17769606,17769607,17769608,17840781,17840782,17840783,17840784,17840785 --parsable --format=jobid,state,elapsed,maxrss
+##############################
+Bolt
+###############
+White
+###############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-sacct -j 17769626,17769628,17769629,17769630,17769631,17840786,17840787,17840788,17840789,17840790 --parsable --format=jobid,state,elapsed,maxrss
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_White_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_White_P$j.Bolt
 
-sacct -j 17769648,17769649,17769650,17769651,17769652,17840791,17840792,17840793,17840794,17840795 --parsable --format=jobid,state,elapsed,maxrss
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_White_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_White_P$j
+done
+
+###############
+Black
+###############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Black_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Black_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Black_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_Black_P$j
+done
+
+##############
+Chinese
+##############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Chinese_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Chinese_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Chinese_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_Chinese_P$j
+done
+
+##############
+AsianSWC
+##############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_AsianSWC_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_AsianSWC_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_AsianSWC_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_AsianSWC_P$j
+done
+
+#############
+Mixed
+#############
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Trait_Mixed_label.pheno   --phenoCol=Phenotype$j --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Mixed_P$j.Bolt
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1/Result_Bolt_Mixed_P$j
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T1
+sbatch Result_Bolt_Mixed_P$j
+done
