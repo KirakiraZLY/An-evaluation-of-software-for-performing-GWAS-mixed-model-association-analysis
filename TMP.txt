@@ -13,12 +13,12 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Trait_White_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_White_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Trait_White_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_White_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_White_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_White_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3
 sbatch Result_Bolt_White_P$j
 done
 
@@ -35,12 +35,12 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Trait_Black_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_Black_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Trait_Black_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_Black_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_Black_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_Black_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3
 sbatch Result_Bolt_Black_P$j
 done
 
@@ -57,12 +57,12 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Trait_Chinese_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_Chinese_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Trait_Chinese_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_Chinese_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_Chinese_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_Chinese_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3
 sbatch Result_Bolt_Chinese_P$j
 done
 
@@ -79,12 +79,12 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Trait_AsianSWC_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_AsianSWC_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Trait_AsianSWC_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_AsianSWC_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_AsianSWC_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_AsianSWC_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3
 sbatch Result_Bolt_AsianSWC_P$j
 done
 
@@ -101,11 +101,11 @@ echo "#"'!'"/bin/bash
 #SBATCH --constraint \"s05\"
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Trait_Mixed_label.pheno   --phenoCol=Phenotype$j --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_Mixed_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Trait_Mixed_label.pheno   --phenoCol=Phenotype$j --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_Mixed_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2/Result_Bolt_Mixed_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3/Result_Bolt_Mixed_P$j
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T2
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T3
 sbatch Result_Bolt_Mixed_P$j
 done
