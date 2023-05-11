@@ -1424,3 +1424,97 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015
 sbatch Trait_25to30
 
 ```
+
+
+
+## W31 - 36
+```python
+###############################################
+Binary Traits:
+White
+W31 - W36
+################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W31 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --prevalence 0.01 \
+  --extract ${dir}/snps_1_to_12_White.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W32 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --prevalence 0.01 \
+  --extract ${dir}/snps_1_to_12_White.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W33 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --prevalence 0.01 \
+  --extract ${dir}/snps_1_to_12_White.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W34 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --prevalence 0.01 \
+  --extract ${dir}/snps_1_to_12_White.txt
+
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W35 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --prevalence 0.01 \
+  --extract ${dir}/snps_1_to_12_White.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W36 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --prevalence 0.01 \
+  --extract ${dir}/snps_1_to_12_White.txt
+
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W31toW36
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary
+sbatch Trait_W31toW36
+
+```
