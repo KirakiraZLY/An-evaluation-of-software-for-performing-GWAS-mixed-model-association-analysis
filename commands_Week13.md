@@ -1213,6 +1213,7 @@ sbatch Trait_W43toW48
 ## fastGWA for dataWhite
 ```python
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 32G
 #SBATCH -t 4:0:0
@@ -1250,6 +1251,7 @@ Binary Traits:
 25 - 30
 ################################
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 4G
 #SBATCH -t 2:0:0
@@ -1258,7 +1260,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_25 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1269,7 +1271,7 @@ ${dir}/software/ldak5.XXX \
   --num-causals 1000 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_26 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1280,7 +1282,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.01 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_27 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1291,7 +1293,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.01 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_28 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1302,7 +1304,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.01 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_29 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1313,7 +1315,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.01 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_30 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1340,6 +1342,7 @@ Binary Traits:
 prevalence == 0.15
 ################################
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 4G
 #SBATCH -t 2:0:0
@@ -1348,7 +1351,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1359,7 +1362,7 @@ ${dir}/software/ldak5.XXX \
   --num-causals 1000 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_26 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1370,7 +1373,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.15 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_27 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1381,7 +1384,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.15 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_28 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1392,7 +1395,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.15 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_29 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
@@ -1403,7 +1406,7 @@ ${dir}/software/ldak5.XXX \
   --prevalence 0.15 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-${dir}/software/ldak5.XXX \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_30 \
   --bfile ${dir}/data_qc \
   --ignore-weights YES \
