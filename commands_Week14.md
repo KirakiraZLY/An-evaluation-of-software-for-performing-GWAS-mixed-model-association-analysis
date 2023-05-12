@@ -4,7 +4,7 @@
 ### BOLT
 ```python
 dir="/home/lezh/dsmwpred/zly"
-${dir}/software/MR-MEGA_v0.2/MR-MEGA -i mr_mega_Bolt.in -o mr_mega_out_Bolt --pc 3 --name_pos BP --name_chr CHR  --name_beta BETA  --name_se SE  --name_ea ALLELE1  --name_eaf A1FREQ  --name_nea ALLELE0  
+${dir}/software/MR-MEGA_v0.2/MR-MEGA -i mr_mega_Bolt.in -o mr_mega_out_Bolt --name_pos BP --name_chr CHR  --name_beta BETA  --name_se SE  --name_ea ALLELE1  --name_eaf A1FREQ  --name_nea ALLELE0  --pc 3
 ```
 ### mr-mega.in
 ```python
