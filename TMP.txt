@@ -12,20 +12,20 @@ conda activate regenie_env
 regenie \
   --step 1 \
   --bed ${dir}/data_1Wan \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_31_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_43_label.pheno \
   --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Trait31_regenie_s1  
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait43/Result_Trait43_regenie_s1  
 
 
 regenie \
   --step 2 \
   --bgen ${dir}/data_1Wan.bgen \
   --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_31_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_43_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -33,16 +33,200 @@ regenie \
   --spa \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Trait31_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait31/Result_Trait31_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait43/Result_Trait43_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait43/Result_Trait43_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait31
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait43
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait31
+sbatch Result_regenie_s1and2_Trait43
+
+#
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_44_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait44/Result_Trait44_regenie_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_44_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --spa \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait44/Result_Trait44_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait44/Result_Trait44_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait44
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
+
+sbatch Result_regenie_s1and2_Trait44
+
+#
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_45_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait45/Result_Trait45_regenie_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_45_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --spa \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait45/Result_Trait45_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait45/Result_Trait45_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait45
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
+
+sbatch Result_regenie_s1and2_Trait45
+
+#
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_46_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait46/Result_Trait46_regenie_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_46_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --spa \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait46/Result_Trait46_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait46/Result_Trait46_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait46
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
+
+sbatch Result_regenie_s1and2_Trait46
+
+#
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_47_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait47/Result_Trait47_regenie_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_47_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --spa \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait47/Result_Trait47_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait47/Result_Trait47_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait47
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
+
+sbatch Result_regenie_s1and2_Trait47
 
 
 #
@@ -59,20 +243,20 @@ conda activate regenie_env
 regenie \
   --step 1 \
   --bed ${dir}/data_1Wan \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_32_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_48_label.pheno \
   --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait32/Result_Trait32_regenie_s1  
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait48/Result_Trait48_regenie_s1  
 
 
 regenie \
   --step 2 \
   --bgen ${dir}/data_1Wan.bgen \
   --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_32_label.pheno \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_48_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -80,197 +264,13 @@ regenie \
   --spa \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait32/Result_Trait32_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait32/Result_Trait32_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait48/Result_Trait48_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait48/Result_Trait48_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait32
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
-
-sbatch Result_regenie_s1and2_Trait32
-
-#
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 4:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-conda activate regenie_env
-
-regenie \
-  --step 1 \
-  --bed ${dir}/data_1Wan \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_33_label.pheno \
-  --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --covarCol PC{1:10} \
-  --bsize 1000 \
-  --threads 4 \
-  --bt \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait33/Result_Trait33_regenie_s1  
-
-
-regenie \
-  --step 2 \
-  --bgen ${dir}/data_1Wan.bgen \
-  --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_33_label.pheno \
-  --covarCol PC{1:10} \
-  --bsize 1000 \
-  --threads 4 \
-  --bt \
-  --spa \
-  --firth --approx \
-  --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait33/Result_Trait33_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait33/Result_Trait33_regenie_s2
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait33
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait48
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait33
-
-#
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 4:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-conda activate regenie_env
-
-regenie \
-  --step 1 \
-  --bed ${dir}/data_1Wan \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_34_label.pheno \
-  --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --covarCol PC{1:10} \
-  --bsize 1000 \
-  --threads 4 \
-  --bt \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait34/Result_Trait34_regenie_s1  
-
-
-regenie \
-  --step 2 \
-  --bgen ${dir}/data_1Wan.bgen \
-  --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_34_label.pheno \
-  --covarCol PC{1:10} \
-  --bsize 1000 \
-  --threads 4 \
-  --bt \
-  --spa \
-  --firth --approx \
-  --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait34/Result_Trait34_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait34/Result_Trait34_regenie_s2
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait34
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
-
-sbatch Result_regenie_s1and2_Trait34
-
-#
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 4:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-conda activate regenie_env
-
-regenie \
-  --step 1 \
-  --bed ${dir}/data_1Wan \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_35_label.pheno \
-  --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --covarCol PC{1:10} \
-  --bsize 1000 \
-  --threads 4 \
-  --bt \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait35/Result_Trait35_regenie_s1  
-
-
-regenie \
-  --step 2 \
-  --bgen ${dir}/data_1Wan.bgen \
-  --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_35_label.pheno \
-  --covarCol PC{1:10} \
-  --bsize 1000 \
-  --threads 4 \
-  --bt \
-  --spa \
-  --firth --approx \
-  --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait35/Result_Trait35_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait35/Result_Trait35_regenie_s2
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait35
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
-
-sbatch Result_regenie_s1and2_Trait35
-
-#
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 4:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-conda activate regenie_env
-
-regenie \
-  --step 1 \
-  --bed ${dir}/data_1Wan \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_36_label.pheno \
-  --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --covarCol PC{1:10} \
-  --bsize 1000 \
-  --threads 4 \
-  --bt \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait36/Result_Trait36_regenie_s1  
-
-
-regenie \
-  --step 2 \
-  --bgen ${dir}/data_1Wan.bgen \
-  --covarFile ${dir}/covar_1Wan_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Trait_36_label.pheno \
-  --covarCol PC{1:10} \
-  --bsize 1000 \
-  --threads 4 \
-  --bt \
-  --spa \
-  --firth --approx \
-  --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait36/Result_Trait36_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary/Result_Trait36/Result_Trait36_regenie_s2
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie/Result_regenie_s1and2_Trait36
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary/Result_Regenie
-
-sbatch Result_regenie_s1and2_Trait36
+sbatch Result_regenie_s1and2_Trait48
