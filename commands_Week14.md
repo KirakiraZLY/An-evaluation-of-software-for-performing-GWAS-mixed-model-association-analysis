@@ -117,7 +117,7 @@ conda activate regenie_env
 regenie \
   --step 1 \
   --bed ${dir}/data_qc \
-  --phenoFile ${dir}/height1.pheno \
+  --phenoFile ${dir}/Phenotype_UKBB/height_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
@@ -128,7 +128,7 @@ regenie \
 regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
-  --phenoFile ${dir}/height1.pheno \
+  --phenoFile ${dir}/Phenotype_UKBB/height_label.pheno \
   --covarFile ${dir}/covar_PC.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
@@ -159,7 +159,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/height1.pheno  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/Height/data_qc_Bolt_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/Height/data_qc_Bolt_height
 
 " > ${dir}/scripts/Real_Traits/Height/data_qc_Bolt_height
 
@@ -184,11 +184,105 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/height.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/Height/data_qc_ldak_height
+${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/Height/data_qc_ldak_height
 
 " > ${dir}/scripts/Real_Traits/Height/data_qc_ldak_height
 
 # I am doing blabla
 cd ${dir}/scripts/Real_Traits/Height/
 sbatch data_qc_ldak_height
+```
+
+
+
+## bmi
+### Regenie bmi
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/Phenotype_UKBB/bmi_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --out ${dir}/Real_Traits/bmi/data_qc_regenie_bmi_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --phenoFile ${dir}/Phenotype_UKBB/bmi_label.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/Real_Traits/bmi/data_qc_regenie_bmi_s1_pred.list \
+  --out ${dir}/Real_Traits/bmi/data_qc_regenie_bmi_s2
+
+" > ${dir}/scripts/Real_Traits/bmi/data_qc_regenie_bmi
+
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/bmi/
+sbatch data_qc_regenie_bmi
+
+```
+### Bolt bmi
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 8:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bmi_label.pheno  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bmi/data_qc_Bolt_bmi
+
+" > ${dir}/scripts/Real_Traits/bmi/data_qc_Bolt_bmi
+
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/bmi/
+
+sbatch data_qc_Bolt_bmi
+```
+
+
+### LDAK run bmi
+result in ${dir}/Real_Traits/bmi
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/bmi.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/bmi/data_qc_ldak_bmi
+
+" > ${dir}/scripts/Real_Traits/bmi/data_qc_ldak_bmi
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/bmi/
+sbatch data_qc_ldak_bmi
 ```
