@@ -96,3 +96,99 @@ Result_LDAK_Chinese_P5.assoc
 Result_LDAK_Mixed_P5.assoc
 Result_LDAK_White_P5.assoc
 ```
+
+
+
+
+# Real Traits
+## Height
+### Regenie Height
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/height1.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --out ${dir}/Real_Traits/Height/data_qc_regenie_height_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --phenoFile ${dir}/height1.pheno \
+  --covarFile ${dir}/covar_PC.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --qt \
+  --pThresh 0.01 \
+  --pred ${dir}/Real_Traits/Height/data_qc_regenie_height_s1_pred.list \
+  --out ${dir}/Real_Traits/Height/data_qc_regenie_height_s2
+
+" > ${dir}/scripts/Real_Traits/Height/data_qc_regenie_height
+
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/Height/
+sbatch data_qc_regenie_height
+
+```
+### Bolt Height
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 8:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/height1.pheno  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/Height/data_qc_Bolt_height
+
+" > ${dir}/scripts/Real_Traits/Height/data_qc_Bolt_height
+
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/Height/
+
+sbatch data_qc_Bolt_height
+```
+
+
+### LDAK run Height
+result in ${dir}/Real_Traits/Height
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX --pheno ${dir}/height.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/Height/data_qc_ldak_height
+
+" > ${dir}/scripts/Real_Traits/Height/data_qc_ldak_height
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/Height/
+sbatch data_qc_ldak_height
+```
