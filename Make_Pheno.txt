@@ -1711,3 +1711,483 @@ ${dir}/software/ldak5.XXX \
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015
 sbatch Trait_37to48
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+######################### Make pheno Meta-analysis 25-30
+###############################################
+Binary Traits:
+25 - 30
+################################
+Trait 25
+########################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T25/Trait_White \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
+
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T25/Trait_Black \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
+  
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T25/Trait_Chinese \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T25/Trait_AsianSWC \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T25/Trait_Mixed \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
+  
+  " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T25/Trait25
+
+	# I am doing blabla
+	cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T25
+	sbatch Trait25
+
+
+
+
+################################
+Trait 26
+########################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T26/Trait_White \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
+
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T26/Trait_Black \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
+  
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T26/Trait_Chinese \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T26/Trait_AsianSWC \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T26/Trait_Mixed \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
+  
+  " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T26/Trait26
+
+	# I am doing blabla
+	cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T26
+	sbatch Trait26
+
+
+
+
+
+
+################################
+Trait 27
+########################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T27/Trait_White \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
+
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T27/Trait_Black \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
+  
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T27/Trait_Chinese \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T27/Trait_AsianSWC \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T27/Trait_Mixed \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
+  
+  " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T27/Trait27
+
+	# I am doing blabla
+	cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T27
+	sbatch Trait27
+
+
+
+################################
+Trait 28
+########################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T28/Trait_White \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
+
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T28/Trait_Black \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
+  
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T28/Trait_Chinese \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T28/Trait_AsianSWC \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T28/Trait_Mixed \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
+  
+  " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T28/Trait28
+
+	# I am doing blabla
+	cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T28
+	sbatch Trait28
+
+
+
+
+################################
+Trait 29
+########################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T29/Trait_White \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
+
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T29/Trait_Black \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
+  
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T29/Trait_Chinese \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T29/Trait_AsianSWC \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T29/Trait_Mixed \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
+  
+  " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T29/Trait29
+
+	# I am doing blabla
+	cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T29
+	sbatch Trait29
+
+
+
+
+
+
+################################
+Trait 30
+########################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T30/Trait_White \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
+
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T30/Trait_Black \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
+  
+	${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T30/Trait_Chinese \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T30/Trait_AsianSWC \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
+  
+  ${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T30/Trait_Mixed \
+  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --prevalence 0.15 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Mixed.txt
+  
+  " > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T30/Trait30
+
+	# I am doing blabla
+	cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T30
+	sbatch Trait30
+
+

@@ -765,7 +765,7 @@ ${dir}/software/plink2 --bfile ${dir}/data_White --export bgen-1.2 --out ${dir}/
 
 
 
-# Make pheno Meta-analysis
+######################### Make pheno Meta-analysis 25-30
 ###############################################
 Binary Traits:
 25 - 30
