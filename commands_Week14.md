@@ -4,7 +4,7 @@
 ### BOLT
 ```python
 dir="/home/lezh/dsmwpred/zly"
-${dir}/software/MR-MEGA_v0.2/MR-MEGA -i ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/mr_mega_Bolt.in -o ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/mr_mega_out_Bolt.out --name_pos BP --name_chr CHR  --name_beta BETA  --name_se SE  --name_ea ALLELE1  --name_eaf A1FREQ  --name_nea ALLELE0  --pc 3
+${dir}/software/MR-MEGA_v0.2/MR-MEGA -i ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/mr_mega_Bolt.in -o ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/mr_mega_out_Bolt.out --name_pos BP --name_chr CHR  --name_beta BETA  --name_se SE  --name_ea ALLELE1  --name_eaf A1FREQ  --name_nea ALLELE0  --pc 3 --name_marker SNP
 ```
 ### mr-mega.in
 ```python
