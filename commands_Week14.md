@@ -51,7 +51,7 @@ Result_Bolt_White_P5.Bolt
 ```python
 dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/MR-MEGA_v0.2/MR-MEGA -i mr_mega_Regenie.in -o mr_mega_out_Regenie —pc 3 \
---name_pos Basepair --name_chr Chromosome  --name_beta BETA  --name_se SE  --name_ea ALLELE1  --name_eaf A1FREQ  --name_nea ALLELE0  
+--name_pos Basepair --name_chr Chromosome  --name_marker  Predictor  --name_beta BETA  --name_se SE  --name_ea ALLELE1  --name_eaf A1FREQ  --name_nea ALLELE0  
 ```
 
 ```python
