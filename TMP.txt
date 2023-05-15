@@ -1,4 +1,4 @@
-./metal metal_Bolt_P2.txt
-./metal metal_Bolt_P3.txt
-./metal metal_Bolt_P4.txt
-./metal metal_Bolt_P5.txt
+./metal metal_BOLT_P2.txt 
+./metal metal_BOLT_P3.txt 
+./metal metal_BOLT_P4.txt 
+./metal metal_BOLT_P5.txt 
