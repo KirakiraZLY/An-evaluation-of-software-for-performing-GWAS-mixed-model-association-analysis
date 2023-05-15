@@ -755,3 +755,10 @@ ${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/hba1c.pheno  --covar ${d
 cd ${dir}/scripts/Real_Traits/hba1c/
 sbatch data_qc_ldak_hba1c
 ```
+
+
+# White -> .bgen
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink2 --bfile ${dir}/data_White --export bgen-1.2 --out ${dir}/data_White
+```
