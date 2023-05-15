@@ -1,296 +1,540 @@
-##############################
-LDAK
-###############
-White
-###############
-for j in {1..5}; do 
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_White.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_White_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_White_P$j
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W31_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W31/Result_Trait_W31_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_White_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W31_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W31/Result_Trait_W31_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W31/Result_Trait_W31_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW31
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_LDAK_White_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
+sbatch Result_regenie_s1and2_TraitW31
 
-###############
-Black
-###############
-for j in {1..5}; do 
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_Black.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Black_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_Black_P$j
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W32_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W32/Result_Trait_W32_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_Black_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W32_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W32/Result_Trait_W32_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W32/Result_Trait_W32_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW32
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_LDAK_Black_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
-##############
-Chinese
-##############
-for j in {1..5}; do 
+sbatch Result_regenie_s1and2_TraitW32
+
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_Chinese.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Chinese_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_Chinese_P$j
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W33_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W33/Result_Trait_W33_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_Chinese_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W33_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W33/Result_Trait_W33_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W33/Result_Trait_W33_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW33
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_LDAK_Chinese_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
+sbatch Result_regenie_s1and2_TraitW33
 
-##############
-AsianSWC
-##############
-for j in {1..5}; do 
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_AsianSWC.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_AsianSWC_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_AsianSWC_P$j
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W34_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W34/Result_Trait_W34_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_AsianSWC_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W34_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W34/Result_Trait_W34_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W34/Result_Trait_W34_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW34
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_LDAK_AsianSWC_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
+sbatch Result_regenie_s1and2_TraitW34
 
-#############
-Mixed
-#############
-for j in {1..5}; do 
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_Mixed.pheno  --mpheno $j --covar ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/covar_Mixed_PC_withoutLabel.covars --max-threads 4  --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --linear ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_Mixed_P$j
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W35_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W35/Result_Trait_W35_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_LDAK_Mixed_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W35_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W35/Result_Trait_W35_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W35/Result_Trait_W35_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW35
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_LDAK_Mixed_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
+sbatch Result_regenie_s1and2_TraitW35
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##############################
-Bolt
-###############
-White
-###############
-for j in {1..5}; do 
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_White --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_White_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_White_P$j.Bolt
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W36_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W36/Result_Trait_W36_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_White_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W36_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W36/Result_Trait_W36_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W36/Result_Trait_W36_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW36
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_Bolt_White_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
-###############
-Black
-###############
-for j in {1..5}; do 
+sbatch Result_regenie_s1and2_TraitW36
+
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_Black_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_Black_P$j.Bolt
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W43_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W43/Result_Trait_W43_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_Black_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W43_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W43/Result_Trait_W43_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W43/Result_Trait_W43_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW43
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_Bolt_Black_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
-##############
-Chinese
-##############
-for j in {1..5}; do 
+sbatch Result_regenie_s1and2_TraitW43
+
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_Chinese_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_Chinese_P$j.Bolt
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W44_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W44/Result_Trait_W44_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_Chinese_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W44_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W44/Result_Trait_W44_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W44/Result_Trait_W44_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW44
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_Bolt_Chinese_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
-##############
-AsianSWC
-##############
-for j in {1..5}; do 
+sbatch Result_regenie_s1and2_TraitW44
+
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_AsianSWC_label.pheno   --phenoCol=Phenotype$j  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_AsianSWC_P$j.Bolt
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W45_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W45/Result_Trait_W45_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_AsianSWC_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W45_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W45/Result_Trait_W45_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W45/Result_Trait_W45_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW45
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_Bolt_AsianSWC_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
-#############
-Mixed
-#############
-for j in {1..5}; do 
+sbatch Result_regenie_s1and2_TraitW45
+
+##
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
+
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed --phenoFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Trait_Mixed_label.pheno   --phenoCol=Phenotype$j --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_Mixed_P$j.Bolt
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W46_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W46/Result_Trait_W46_regenie_s1  
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13/Result_Bolt_Mixed_P$j
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W46_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W46/Result_Trait_W46_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W46/Result_Trait_W46_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW46
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/META_ANALYSIS/T13
-sbatch Result_Bolt_Mixed_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
+
+sbatch Result_regenie_s1and2_TraitW46
+
+##
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W47_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W47/Result_Trait_W47_regenie_s1  
 
 
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W47_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W47/Result_Trait_W47_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W47/Result_Trait_W47_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW47
 
 
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
+
+sbatch Result_regenie_s1and2_TraitW47
+
+##
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_White \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W48_label.pheno \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W48/Result_Trait_W48_regenie_s1  
 
 
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_White.bgen \
+  --covarFile ${dir}/covar_White_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Trait_W48_label.pheno \
+  --covarCol PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W48/Result_Trait_W48_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_B25_to_B48_Binary/Result_Trait_W48/Result_Trait_W48_regenie_s2
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie/Result_regenie_s1and2_TraitW48
 
 
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B25_to_B48_Binary/Result_Regenie
 
-
-
-
-
-
-
-
+sbatch Result_regenie_s1and2_TraitW48
 
