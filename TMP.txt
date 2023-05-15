@@ -1,4 +1,9 @@
-###
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -11,37 +16,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_31_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_Trait25_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait31/Result_Trait31_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_31_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_Trait25_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_Trait25_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait31/Result_Trait31_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait31/Result_Trait31_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait25
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait31
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait25
+sbatch Result_regenie_s1and2_Trait31
 
 
 ##############################
@@ -60,15 +65,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_Bolt_Trait25_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_31_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait31/Result_Bolt_Trait31_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait25_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait31_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait25_P$j
+sbatch Result_Bolt_Trait31_P$j
 done
 
 
@@ -88,15 +93,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_Bolt_inf_Trait25_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_31_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait31/Result_Bolt_inf_Trait31_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait25_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait31_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait25_P$j
+sbatch Result_Bolt_inf_Trait31_P$j
 
 done
 
@@ -117,22 +122,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_Plink_Trait25_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_31.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait31/Result_Plink_Trait31_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait25_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait31_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait25_P$j
+sbatch Result_Plink_Trait31_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -143,16 +148,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_25.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B25/Result_LDAK_Trait_25_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_31.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait31/Result_LDAK_Trait_31_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait25_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait31_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait25_P$j
+sbatch Result_LDAK_Trait31_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_31.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait31/Result_fastGWA_Trait31_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait31_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait31_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -165,37 +207,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_26_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_32_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B26/Result_Trait26_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait32/Result_Trait32_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_26_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_32_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B26/Result_Trait26_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B26/Result_Trait26_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait32/Result_Trait32_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait32/Result_Trait32_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait26
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait32
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait26
+sbatch Result_regenie_s1and2_Trait32
 
 
 ##############################
@@ -214,15 +256,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_26_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B26/Result_Bolt_Trait26_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_32_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait32/Result_Bolt_Trait32_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait26_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait32_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait26_P$j
+sbatch Result_Bolt_Trait32_P$j
 done
 
 
@@ -242,15 +284,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_26_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B26/Result_Bolt_inf_Trait26_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_32_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait32/Result_Bolt_inf_Trait32_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait26_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait32_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait26_P$j
+sbatch Result_Bolt_inf_Trait32_P$j
 
 done
 
@@ -271,22 +313,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_26.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B26/Result_Plink_Trait26_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_32.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait32/Result_Plink_Trait32_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait26_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait32_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait26_P$j
+sbatch Result_Plink_Trait32_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -297,16 +339,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_26.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B26/Result_LDAK_Trait_26_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_32.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait32/Result_LDAK_Trait_32_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait26_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait32_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait26_P$j
+sbatch Result_LDAK_Trait32_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_32.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait32/Result_fastGWA_Trait32_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait32_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait32_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -319,37 +398,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_27_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_33_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B27/Result_Trait27_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait33/Result_Trait33_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_27_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_33_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B27/Result_Trait27_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B27/Result_Trait27_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait33/Result_Trait33_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait33/Result_Trait33_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait27
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait33
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait27
+sbatch Result_regenie_s1and2_Trait33
 
 
 ##############################
@@ -368,15 +447,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_27_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B27/Result_Bolt_Trait27_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_33_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait33/Result_Bolt_Trait33_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait27_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait33_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait27_P$j
+sbatch Result_Bolt_Trait33_P$j
 done
 
 
@@ -396,15 +475,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_27_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B27/Result_Bolt_inf_Trait27_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_33_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait33/Result_Bolt_inf_Trait33_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait27_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait33_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait27_P$j
+sbatch Result_Bolt_inf_Trait33_P$j
 
 done
 
@@ -425,22 +504,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_27.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B27/Result_Plink_Trait27_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_33.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait33/Result_Plink_Trait33_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait27_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait33_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait27_P$j
+sbatch Result_Plink_Trait33_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -451,16 +530,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_27.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B27/Result_LDAK_Trait_27_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_33.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait33/Result_LDAK_Trait_33_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait27_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait33_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait27_P$j
+sbatch Result_LDAK_Trait33_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_33.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait33/Result_fastGWA_Trait33_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait33_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait33_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -473,37 +589,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_28_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_34_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B28/Result_Trait28_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait34/Result_Trait34_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_28_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_34_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B28/Result_Trait28_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B28/Result_Trait28_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait34/Result_Trait34_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait34/Result_Trait34_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait28
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait34
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait28
+sbatch Result_regenie_s1and2_Trait34
 
 
 ##############################
@@ -522,15 +638,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_28_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B28/Result_Bolt_Trait28_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_34_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait34/Result_Bolt_Trait34_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait28_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait34_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait28_P$j
+sbatch Result_Bolt_Trait34_P$j
 done
 
 
@@ -550,15 +666,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_28_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B28/Result_Bolt_inf_Trait28_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_34_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait34/Result_Bolt_inf_Trait34_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait28_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait34_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait28_P$j
+sbatch Result_Bolt_inf_Trait34_P$j
 
 done
 
@@ -579,22 +695,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_28.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B28/Result_Plink_Trait28_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_34.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait34/Result_Plink_Trait34_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait28_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait34_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait28_P$j
+sbatch Result_Plink_Trait34_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -605,16 +721,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_28.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B28/Result_LDAK_Trait_28_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_34.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait34/Result_LDAK_Trait_34_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait28_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait34_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait28_P$j
+sbatch Result_LDAK_Trait34_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_34.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait34/Result_fastGWA_Trait34_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait34_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait34_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -627,37 +780,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_29_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_35_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B29/Result_Trait29_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait35/Result_Trait35_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_29_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_35_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B29/Result_Trait29_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B29/Result_Trait29_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait35/Result_Trait35_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait35/Result_Trait35_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait29
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait35
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait29
+sbatch Result_regenie_s1and2_Trait35
 
 
 ##############################
@@ -676,15 +829,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_29_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B29/Result_Bolt_Trait29_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_35_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait35/Result_Bolt_Trait35_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait29_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait35_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait29_P$j
+sbatch Result_Bolt_Trait35_P$j
 done
 
 
@@ -704,15 +857,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_29_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B29/Result_Bolt_inf_Trait29_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_35_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait35/Result_Bolt_inf_Trait35_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait29_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait35_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait29_P$j
+sbatch Result_Bolt_inf_Trait35_P$j
 
 done
 
@@ -733,22 +886,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_29.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B29/Result_Plink_Trait29_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_35.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait35/Result_Plink_Trait35_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait29_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait35_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait29_P$j
+sbatch Result_Plink_Trait35_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -759,16 +912,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_29.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B29/Result_LDAK_Trait_29_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_35.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait35/Result_LDAK_Trait_35_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait29_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait35_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait29_P$j
+sbatch Result_LDAK_Trait35_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_35.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait35/Result_fastGWA_Trait35_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait35_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait35_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -781,37 +971,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_30_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_36_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B30/Result_Trait30_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait36/Result_Trait36_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_30_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_36_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B30/Result_Trait30_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B30/Result_Trait30_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait36/Result_Trait36_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait36/Result_Trait36_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait30
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait36
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait30
+sbatch Result_regenie_s1and2_Trait36
 
 
 ##############################
@@ -830,15 +1020,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_30_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B30/Result_Bolt_Trait30_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_36_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait36/Result_Bolt_Trait36_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait30_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait36_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait30_P$j
+sbatch Result_Bolt_Trait36_P$j
 done
 
 
@@ -858,15 +1048,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_30_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B30/Result_Bolt_inf_Trait30_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_36_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait36/Result_Bolt_inf_Trait36_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait30_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait36_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait30_P$j
+sbatch Result_Bolt_inf_Trait36_P$j
 
 done
 
@@ -887,22 +1077,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_30.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B30/Result_Plink_Trait30_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_36.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait36/Result_Plink_Trait36_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait30_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait36_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait30_P$j
+sbatch Result_Plink_Trait36_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -913,16 +1103,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_30.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B30/Result_LDAK_Trait_30_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_36.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait36/Result_LDAK_Trait_36_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait30_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait36_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait30_P$j
+sbatch Result_LDAK_Trait36_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_36.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait36/Result_fastGWA_Trait36_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait36_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait36_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -935,37 +1162,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_37_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_43_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B37/Result_Trait37_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait43/Result_Trait43_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_37_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_43_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B37/Result_Trait37_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B37/Result_Trait37_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait43/Result_Trait43_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait43/Result_Trait43_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait37
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait43
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait37
+sbatch Result_regenie_s1and2_Trait43
 
 
 ##############################
@@ -984,15 +1211,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_37_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B37/Result_Bolt_Trait37_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_43_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait43/Result_Bolt_Trait43_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait37_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait43_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait37_P$j
+sbatch Result_Bolt_Trait43_P$j
 done
 
 
@@ -1012,15 +1239,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_37_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B37/Result_Bolt_inf_Trait37_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_43_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait43/Result_Bolt_inf_Trait43_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait37_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait43_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait37_P$j
+sbatch Result_Bolt_inf_Trait43_P$j
 
 done
 
@@ -1041,22 +1268,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_37.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B37/Result_Plink_Trait37_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_43.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait43/Result_Plink_Trait43_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait37_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait43_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait37_P$j
+sbatch Result_Plink_Trait43_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -1067,16 +1294,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_37.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B37/Result_LDAK_Trait_37_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_43.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait43/Result_LDAK_Trait_43_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait37_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait43_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait37_P$j
+sbatch Result_LDAK_Trait43_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_43.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait43/Result_fastGWA_Trait43_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait43_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait43_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -1089,37 +1353,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_38_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_44_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B38/Result_Trait38_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait44/Result_Trait44_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_38_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_44_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B38/Result_Trait38_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B38/Result_Trait38_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait44/Result_Trait44_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait44/Result_Trait44_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait38
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait44
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait38
+sbatch Result_regenie_s1and2_Trait44
 
 
 ##############################
@@ -1138,15 +1402,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_38_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B38/Result_Bolt_Trait38_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_44_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait44/Result_Bolt_Trait44_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait38_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait44_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait38_P$j
+sbatch Result_Bolt_Trait44_P$j
 done
 
 
@@ -1166,15 +1430,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_38_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B38/Result_Bolt_inf_Trait38_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_44_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait44/Result_Bolt_inf_Trait44_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait38_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait44_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait38_P$j
+sbatch Result_Bolt_inf_Trait44_P$j
 
 done
 
@@ -1195,22 +1459,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_38.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B38/Result_Plink_Trait38_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_44.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait44/Result_Plink_Trait44_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait38_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait44_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait38_P$j
+sbatch Result_Plink_Trait44_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -1221,16 +1485,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_38.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B38/Result_LDAK_Trait_38_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_44.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait44/Result_LDAK_Trait_44_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait38_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait44_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait38_P$j
+sbatch Result_LDAK_Trait44_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_44.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait44/Result_fastGWA_Trait44_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait44_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait44_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -1243,37 +1544,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_39_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_45_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B39/Result_Trait39_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait45/Result_Trait45_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_39_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_45_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B39/Result_Trait39_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B39/Result_Trait39_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait45/Result_Trait45_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait45/Result_Trait45_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait39
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait45
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait39
+sbatch Result_regenie_s1and2_Trait45
 
 
 ##############################
@@ -1292,15 +1593,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_39_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B39/Result_Bolt_Trait39_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_45_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait45/Result_Bolt_Trait45_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait39_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait45_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait39_P$j
+sbatch Result_Bolt_Trait45_P$j
 done
 
 
@@ -1320,15 +1621,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_39_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B39/Result_Bolt_inf_Trait39_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_45_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait45/Result_Bolt_inf_Trait45_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait39_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait45_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait39_P$j
+sbatch Result_Bolt_inf_Trait45_P$j
 
 done
 
@@ -1349,22 +1650,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_39.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B39/Result_Plink_Trait39_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_45.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait45/Result_Plink_Trait45_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait39_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait45_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait39_P$j
+sbatch Result_Plink_Trait45_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -1375,16 +1676,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_39.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B39/Result_LDAK_Trait_39_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_45.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait45/Result_LDAK_Trait_45_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait39_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait45_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait39_P$j
+sbatch Result_LDAK_Trait45_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_45.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait45/Result_fastGWA_Trait45_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait45_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait45_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -1397,37 +1735,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_40_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_46_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B40/Result_Trait40_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait46/Result_Trait46_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_40_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_46_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B40/Result_Trait40_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B40/Result_Trait40_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait46/Result_Trait46_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait46/Result_Trait46_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait40
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait46
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait40
+sbatch Result_regenie_s1and2_Trait46
 
 
 ##############################
@@ -1446,15 +1784,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_40_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B40/Result_Bolt_Trait40_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_46_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait46/Result_Bolt_Trait46_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait40_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait46_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait40_P$j
+sbatch Result_Bolt_Trait46_P$j
 done
 
 
@@ -1474,15 +1812,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_40_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B40/Result_Bolt_inf_Trait40_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_46_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait46/Result_Bolt_inf_Trait46_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait40_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait46_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait40_P$j
+sbatch Result_Bolt_inf_Trait46_P$j
 
 done
 
@@ -1503,22 +1841,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_40.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B40/Result_Plink_Trait40_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_46.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait46/Result_Plink_Trait46_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait40_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait46_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait40_P$j
+sbatch Result_Plink_Trait46_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -1529,16 +1867,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_40.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B40/Result_LDAK_Trait_40_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_46.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait46/Result_LDAK_Trait_46_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait40_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait46_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait40_P$j
+sbatch Result_LDAK_Trait46_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_46.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait46/Result_fastGWA_Trait46_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait46_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait46_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -1551,37 +1926,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_41_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_47_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B41/Result_Trait41_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait47/Result_Trait47_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_41_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_47_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B41/Result_Trait41_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B41/Result_Trait41_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait47/Result_Trait47_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait47/Result_Trait47_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait41
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait47
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait41
+sbatch Result_regenie_s1and2_Trait47
 
 
 ##############################
@@ -1600,15 +1975,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_41_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B41/Result_Bolt_Trait41_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_47_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait47/Result_Bolt_Trait47_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait41_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait47_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait41_P$j
+sbatch Result_Bolt_Trait47_P$j
 done
 
 
@@ -1628,15 +2003,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_41_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B41/Result_Bolt_inf_Trait41_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_47_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait47/Result_Bolt_inf_Trait47_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait41_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait47_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait41_P$j
+sbatch Result_Bolt_inf_Trait47_P$j
 
 done
 
@@ -1657,22 +2032,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_41.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B41/Result_Plink_Trait41_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_47.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait47/Result_Plink_Trait47_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait41_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait47_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait41_P$j
+sbatch Result_Plink_Trait47_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -1683,16 +2058,53 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_41.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B41/Result_LDAK_Trait_41_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_47.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait47/Result_LDAK_Trait_47_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait41_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait47_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait41_P$j
+sbatch Result_LDAK_Trait47_P$j
 done
 
-###
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_47.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait47/Result_fastGWA_Trait47_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait47_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait47_P$j
+done
+
+##############################
+##############################
+Regenie 模板
+31-36 & 43-48
+##############################
+########### 1 #############
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -1705,37 +2117,37 @@ conda activate regenie_env
 
 regenie \
   --step 1 \
-  --bed ${dir}/data_qc \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_42_label.pheno \
-  --covarFile ${dir}/covar_PC_10.covars \
+  --bed ${dir}/data_1Wan \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_48_label.pheno \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
-  --bt \
   --threads 4 \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B42/Result_Trait42_regenie_s1  
+  --bt \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait48/Result_Trait48_regenie_s1  
 
 
 regenie \
   --step 2 \
-  --bgen ${dir}/data_qc.bgen \
-  --covarFile ${dir}/covar_PC_10.covars \
-  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_42_label.pheno \
+  --bgen ${dir}/data_1Wan.bgen \
+  --covarFile ${dir}/covar_1Wan_PC_10.covars \
+  --phenoFile ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_48_label.pheno \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
   --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B42/Result_Trait42_regenie_s1_pred.list \
-  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B42/Result_Trait42_regenie_s2
+  --pred ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait48/Result_Trait48_regenie_s1_pred.list \
+  --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait48/Result_Trait48_regenie_s2
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait42
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie/Result_regenie_s1and2_Trait48
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Regenie
 
-sbatch Result_regenie_s1and2_Trait42
+sbatch Result_regenie_s1and2_Trait48
 
 
 ##############################
@@ -1754,15 +2166,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_42_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B42/Result_Bolt_Trait42_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_48_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait48/Result_Bolt_Trait48_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait42_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/Result_Bolt_Trait48_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait42_P$j
+sbatch Result_Bolt_Trait48_P$j
 done
 
 
@@ -1782,15 +2194,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_42_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B42/Result_Bolt_inf_Trait42_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_1Wan --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_48_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_1Wan_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait48/Result_Bolt_inf_Trait48_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait42_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/Result_Bolt_inf_Trait48_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Bolt_lmm_inf/
 
-sbatch Result_Bolt_inf_Trait42_P$j
+sbatch Result_Bolt_inf_Trait48_P$j
 
 done
 
@@ -1811,22 +2223,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_42.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B42/Result_Plink_Trait42_P$j
+${dir}/software/plink --bfile ${dir}/data_1Wan --logistic hide-covar --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_48.pheno  --mpheno $j --allow-no-sex --memory 2048 --out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait48/Result_Plink_Trait48_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait42_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink/Result_Plink_Trait48_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Plink
 
-sbatch Result_Plink_Trait42_P$j
+sbatch Result_Plink_Trait48_P$j
 done
 
 ##############################
 LDAK
 ##############################
 for j in {1..5}; do 
-dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 4:0:0
@@ -1837,12 +2249,43 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_42.pheno  --mpheno $j --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait_B42/Result_LDAK_Trait_42_P$j
+${dir_LDAK} --pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_48.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --logistic ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait48/Result_LDAK_Trait_48_P$j
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait42_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/Result_LDAK_Trait48_P$j
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_LDAK/
-sbatch Result_LDAK_Trait42_P$j
+sbatch Result_LDAK_Trait48_P$j
 done
 
+
+
+#############################
+fastGWA Step 3 for data_1Wan
+#############################
+for j in {1..5}; do 
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 10
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+${dir}/software/gcta --bfile ${dir}/data_1Wan \
+--grm-sparse ${dir}/data_1Wan_gcta_2 \
+--fastGWA-mlm \
+--pheno ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Trait_48.pheno \
+--mpheno $j \
+--qcovar ${dir}/covar_1Wan_PC_10.covars \
+--out ${dir}/type_1_error/Multi_Traits/Trait_25_to_48_Binary_P015/Result_Trait48/Result_fastGWA_Trait48_P$j \
+--thread-num 10
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA/Result_fastGWA_Trait48_P$j
+
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_25_to_48_Binary_P015/Result_fastGWA
+
+sbatch Result_fastGWA_Trait48_P$j
+done
