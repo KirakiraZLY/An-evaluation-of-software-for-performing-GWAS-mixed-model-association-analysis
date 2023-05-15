@@ -765,3 +765,67 @@ ${dir}/software/plink2 --bfile ${dir}/data_White --export bgen-1.2 --out ${dir}/
 
 
 
+# Meta-analysis
+## Metal
+```python
+./metal metal_BOLT_P1.txt 
+./metal metal_BOLT_P2.txt 
+./metal metal_BOLT_P3.txt 
+./metal metal_BOLT_P4.txt 
+./metal metal_BOLT_P5.txt 
+
+./metal metal_LDAK_P1.txt 
+./metal metal_LDAK_P2.txt 
+./metal metal_LDAK_P3.txt 
+./metal metal_LDAK_P4.txt 
+./metal metal_LDAK_P5.txt 
+
+```
+
+
+## MR MEGA
+### BOLT
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/MR-MEGA_v0.2/MR-MEGA -i ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/mr_mega_Bolt.in -o ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T1/mr_mega_out_Bolt.out --name_pos BP --name_chr CHR  --name_beta BETA  --name_se SE  --name_ea ALLELE1  --name_eaf A1FREQ  --name_nea ALLELE0  --pc 3 --name_marker SNP  --qt --name_n SampleSize
+```
+### mr-mega.in
+```python
+Result_Bolt_AsianSWC_P1.Bolt
+Result_Bolt_Black_P1.Bolt
+Result_Bolt_Chinese_P1.Bolt
+Result_Bolt_Mixed_P1.Bolt
+Result_Bolt_White_P1.Bolt
+```
+
+```
+Result_Bolt_AsianSWC_P2.Bolt
+Result_Bolt_Black_P2.Bolt
+Result_Bolt_Chinese_P2.Bolt
+Result_Bolt_Mixed_P2.Bolt
+Result_Bolt_White_P2.Bolt
+```
+
+```
+Result_Bolt_AsianSWC_P3.Bolt
+Result_Bolt_Black_P3.Bolt
+Result_Bolt_Chinese_P3.Bolt
+Result_Bolt_Mixed_P3.Bolt
+Result_Bolt_White_P3.Bolt
+```
+
+```
+Result_Bolt_AsianSWC_P4.Bolt
+Result_Bolt_Black_P4.Bolt
+Result_Bolt_Chinese_P4.Bolt
+Result_Bolt_Mixed_P4.Bolt
+Result_Bolt_White_P4.Bolt
+```
+
+```
+Result_Bolt_AsianSWC_P5.Bolt
+Result_Bolt_Black_P5.Bolt
+Result_Bolt_Chinese_P5.Bolt
+Result_Bolt_Mixed_P5.Bolt
+Result_Bolt_White_P5.Bolt
+```
