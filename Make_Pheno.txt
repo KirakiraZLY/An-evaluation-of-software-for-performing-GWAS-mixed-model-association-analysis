@@ -625,7 +625,7 @@ ${dir_LDAK} \
   --extract ${dir}/snps_1_to_12_qc.txt
 
 
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_14 \
   --bfile ${dir}/data_qc \
   --weights ${dir}/data_qc_weighting \
@@ -636,7 +636,7 @@ ${dir_LDAK} \
   --max-threads 8 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_15 \
   --bfile ${dir}/data_qc \
   --weights ${dir}/data_qc_weighting \
@@ -647,7 +647,7 @@ ${dir_LDAK} \
   --max-threads 8 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_16 \
   --bfile ${dir}/data_qc \
   --weights ${dir}/data_qc_weighting \
@@ -658,7 +658,7 @@ ${dir_LDAK} \
   --max-threads 8 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_17 \
   --bfile ${dir}/data_qc \
   --weights ${dir}/data_qc_weighting \
@@ -669,7 +669,7 @@ ${dir_LDAK} \
   --max-threads 8 \
   --extract ${dir}/snps_1_to_12_qc.txt
 
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_18 \
   --bfile ${dir}/data_qc \
   --weights ${dir}/data_qc_weighting \
@@ -1758,7 +1758,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T25/Trait_Black \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
   --ignore-weights YES \
@@ -1769,7 +1769,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T25/Trait_Chinese \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
   --ignore-weights YES \
@@ -1780,7 +1780,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T25/Trait_AsianSWC \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
   --ignore-weights YES \
@@ -1791,7 +1791,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T25/Trait_Mixed \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
   --ignore-weights YES \
@@ -1835,7 +1835,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T26/Trait_Black \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
   --ignore-weights YES \
@@ -1846,7 +1846,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T26/Trait_Chinese \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
   --ignore-weights YES \
@@ -1857,7 +1857,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T26/Trait_AsianSWC \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
   --ignore-weights YES \
@@ -1868,7 +1868,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T26/Trait_Mixed \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
   --ignore-weights YES \
@@ -1914,7 +1914,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T27/Trait_Black \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
   --ignore-weights YES \
@@ -1925,7 +1925,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T27/Trait_Chinese \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
   --ignore-weights YES \
@@ -1936,7 +1936,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T27/Trait_AsianSWC \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
   --ignore-weights YES \
@@ -1947,7 +1947,7 @@ ${dir_LDAK} \
   --num-causals 1000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T27/Trait_Mixed \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
   --ignore-weights YES \
@@ -1990,7 +1990,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T28/Trait_Black \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
   --ignore-weights YES \
@@ -2001,7 +2001,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T28/Trait_Chinese \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
   --ignore-weights YES \
@@ -2012,7 +2012,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T28/Trait_AsianSWC \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
   --ignore-weights YES \
@@ -2023,7 +2023,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T28/Trait_Mixed \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
   --ignore-weights YES \
@@ -2067,7 +2067,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T29/Trait_Black \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
   --ignore-weights YES \
@@ -2078,7 +2078,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T29/Trait_Chinese \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
   --ignore-weights YES \
@@ -2089,7 +2089,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T29/Trait_AsianSWC \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
   --ignore-weights YES \
@@ -2100,7 +2100,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T29/Trait_Mixed \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
   --ignore-weights YES \
@@ -2146,7 +2146,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_White.txt
 
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T30/Trait_Black \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Black \
   --ignore-weights YES \
@@ -2157,7 +2157,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Black.txt
   
-	${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T30/Trait_Chinese \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Chinese \
   --ignore-weights YES \
@@ -2168,7 +2168,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_Chinese.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T30/Trait_AsianSWC \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_AsianSWC \
   --ignore-weights YES \
@@ -2179,7 +2179,7 @@ ${dir_LDAK} \
   --num-causals 10000 \
   --extract ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/snps_1_to_12_AsianSWC.txt
   
-  ${dir_LDAK} \
+${dir_LDAK} \
   --make-phenos ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/T30/Trait_Mixed \
   --bfile ${dir}/type_1_error/Multi_Traits/META_ANALYSIS/data_Mixed \
   --ignore-weights YES \
