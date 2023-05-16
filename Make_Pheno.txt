@@ -1103,88 +1103,6 @@ sbatch Trait_37to48
 
 
 
-########################################################
-Trait B7 - B12
-into Trait_B1_to_B24
-########################################################
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 4G
-#SBATCH -t 2:0:0
-#SBATCH -c 8
-#SBATCH -A dsmwpred
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-
-${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B7 \
-  --bfile ${dir}/data_Black \
-  --ignore-weights YES \
-  --power -1 \
-  --her 0.1 \
-  --num-phenos 5 \
-  --num-causals 1000 \
-  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
-
-${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B8 \
-  --bfile ${dir}/data_Black \
-  --ignore-weights YES \
-  --power -1 \
-  --her 0.5 \
-  --num-phenos 5 \
-  --num-causals 1000 \
-  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
-
-${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B9 \
-  --bfile ${dir}/data_Black \
-  --ignore-weights YES \
-  --power -1 \
-  --her 0.9 \
-  --num-phenos 5 \
-  --num-causals 1000 \
-  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
-
-${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B10 \
-  --bfile ${dir}/data_Black \
-  --ignore-weights YES \
-  --power -1 \
-  --her 0.1 \
-  --num-phenos 5 \
-  --num-causals 10000 \
-  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
-
-
-${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B11 \
-  --bfile ${dir}/data_Black \
-  --ignore-weights YES \
-  --power -1 \
-  --her 0.5 \
-  --num-phenos 5 \
-  --num-causals 10000 \
-  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
-
-${dir}/software/ldak5.XXX \
-  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B12 \
-  --bfile ${dir}/data_Black \
-  --ignore-weights YES \
-  --power -1 \
-  --her 0.9 \
-  --num-phenos 5 \
-  --num-causals 10000 \
-  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_Black.txt
-
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Trait_B7toB12
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24
-sbatch Trait_B7toB12
-
-
 
 ######################################################################
 Trait B19 - B24
@@ -1216,6 +1134,92 @@ cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24
 sbatch Trait_B19toB24
 
 
+
+
+
+
+
+########################################################
+Trait W7 - W12
+White T7-12 make pheno
+into Trait_B1_to_B24
+########################################################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 4G
+#SBATCH -t 2:0:0
+#SBATCH -c 8
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_W7 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_W8 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_W9 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 1000 \
+  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_W10 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.1 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_W11 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.5 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+
+${dir}/software/ldak5.XXX \
+  --make-phenos ${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_W12 \
+  --bfile ${dir}/data_White \
+  --ignore-weights YES \
+  --power -1 \
+  --her 0.9 \
+  --num-phenos 5 \
+  --num-causals 10000 \
+  --extract /home/lezh/dsmwpred/zly/snps_1_to_12_White.txt
+
+
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Trait_W7toW12
+
+# I am doing blabla
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24
+sbatch Trait_W7toW12
 
 
 
