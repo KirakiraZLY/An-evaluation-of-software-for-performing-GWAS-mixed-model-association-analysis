@@ -477,7 +477,7 @@ sbatch data_qc_ldak_urate
 ```
 
 
-## bilirubin
+## bilirubin Binary
 ### Regenie bilirubin
 ```python
 dir="/home/lezh/dsmwpred/zly"
