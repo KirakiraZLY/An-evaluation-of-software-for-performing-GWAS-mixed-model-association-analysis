@@ -493,26 +493,28 @@ conda activate regenie_env
 regenie \
   --step 1 \
   --bed ${dir}/data_qc \
-  --phenoFile ${dir}/Phenotype_UKBB/bilirubin_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
+  --bt \
   --threads 4 \
-  --out ${dir}/Real_Traits/bilirubin/data_qc_regenie_bilirubin_s1  
+  --out ${dir}/Real_Traits/bilirubin/data_qc_regenie_bilirubin_binary_s1  
 
 
 regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
-  --phenoFile ${dir}/Phenotype_UKBB/bilirubin_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --phenoFile ${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
-  --qt \
+  --bt \
+  --firth --approx \
   --pThresh 0.01 \
-  --pred ${dir}/Real_Traits/bilirubin/data_qc_regenie_bilirubin_s1_pred.list \
-  --out ${dir}/Real_Traits/bilirubin/data_qc_regenie_bilirubin_s2
+  --pred ${dir}/Real_Traits/bilirubin/data_qc_regenie_bilirubin_binary_s1_pred.list \
+  --out ${dir}/Real_Traits/bilirubin/data_qc_regenie_bilirubin_binary_s2
 
 " > ${dir}/scripts/Real_Traits/bilirubin/data_qc_regenie_bilirubin
 
@@ -535,21 +537,22 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bilirubin_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin_Binary
 
-" > ${dir}/scripts/Real_Traits/bilirubin/data_qc_Bolt_bilirubin
+" > ${dir}/scripts/Real_Traits/bilirubin/data_qc_Bolt_bilirubin_Binary
 
 
 # I am doing blabla
 cd ${dir}/scripts/Real_Traits/bilirubin/
 
-sbatch data_qc_Bolt_bilirubin
+sbatch data_qc_Bolt_bilirubin_Binary
 ```
 
 
 ### LDAK run bilirubin
 result in ${dir}/Real_Traits/bilirubin
 ```python
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
@@ -560,13 +563,13 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/bilirubin.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/bilirubin/data_qc_ldak_bilirubin
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/bilirubin_binary.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/Real_Traits/bilirubin/data_qc_ldak_bilirubin_Binary
 
-" > ${dir}/scripts/Real_Traits/bilirubin/data_qc_ldak_bilirubin
+" > ${dir}/scripts/Real_Traits/bilirubin/data_qc_ldak_bilirubin_Binary
 
 # I am doing blabla
 cd ${dir}/scripts/Real_Traits/bilirubin/
-sbatch data_qc_ldak_bilirubin
+sbatch data_qc_ldak_bilirubin_Binary
 ```
 
 
