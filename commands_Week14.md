@@ -118,7 +118,7 @@ regenie \
   --step 1 \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/height_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -129,7 +129,7 @@ regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/height_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -159,7 +159,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/Height/data_qc_Bolt_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/Height/data_qc_Bolt_height
 
 " > ${dir}/scripts/Real_Traits/Height/data_qc_Bolt_height
 
@@ -184,7 +184,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/Height/data_qc_ldak_height
+${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/Height/data_qc_ldak_height
 
 " > ${dir}/scripts/Real_Traits/Height/data_qc_ldak_height
 
@@ -278,7 +278,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/bmi.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/bmi/data_qc_ldak_bmi
+${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/bmi.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/bmi/data_qc_ldak_bmi
 
 " > ${dir}/scripts/Real_Traits/bmi/data_qc_ldak_bmi
 
@@ -373,7 +373,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/alkaline.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/alkaline/data_qc_ldak_alkaline
+${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/alkaline.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/alkaline/data_qc_ldak_alkaline
 
 " > ${dir}/scripts/Real_Traits/alkaline/data_qc_ldak_alkaline
 
@@ -467,7 +467,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/urate.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/urate/data_qc_ldak_urate
+${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/urate.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/urate/data_qc_ldak_urate
 
 " > ${dir}/scripts/Real_Traits/urate/data_qc_ldak_urate
 
@@ -656,7 +656,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/cholesterol.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/cholesterol/data_qc_ldak_cholesterol
+${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/cholesterol.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/cholesterol/data_qc_ldak_cholesterol
 
 " > ${dir}/scripts/Real_Traits/cholesterol/data_qc_ldak_cholesterol
 
@@ -750,7 +750,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/hba1c.pheno  --covar ${dir}/covar_PC.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/hba1c/data_qc_ldak_hba1c
+${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/hba1c.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/hba1c/data_qc_ldak_hba1c
 
 " > ${dir}/scripts/Real_Traits/hba1c/data_qc_ldak_hba1c
 
