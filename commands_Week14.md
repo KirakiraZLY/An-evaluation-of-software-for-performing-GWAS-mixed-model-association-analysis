@@ -212,7 +212,7 @@ regenie \
   --step 1 \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/bmi_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -223,7 +223,7 @@ regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/bmi_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -253,7 +253,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bmi_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bmi/data_qc_Bolt_bmi
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bmi_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bmi/data_qc_Bolt_bmi
 
 " > ${dir}/scripts/Real_Traits/bmi/data_qc_Bolt_bmi
 
@@ -307,7 +307,7 @@ regenie \
   --step 1 \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/alkaline_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -318,7 +318,7 @@ regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/alkaline_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -348,7 +348,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/alkaline_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/alkaline/data_qc_Bolt_alkaline
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/alkaline_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/alkaline/data_qc_Bolt_alkaline
 
 " > ${dir}/scripts/Real_Traits/alkaline/data_qc_Bolt_alkaline
 
@@ -401,7 +401,7 @@ regenie \
   --step 1 \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/urate_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -412,7 +412,7 @@ regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/urate_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -442,7 +442,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/urate_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/urate/data_qc_Bolt_urate
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/urate_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/urate/data_qc_Bolt_urate
 
 " > ${dir}/scripts/Real_Traits/urate/data_qc_Bolt_urate
 
@@ -590,7 +590,7 @@ regenie \
   --step 1 \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/cholesterol_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -601,7 +601,7 @@ regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/cholesterol_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -631,7 +631,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/cholesterol_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/cholesterol/data_qc_Bolt_cholesterol
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/cholesterol_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/cholesterol/data_qc_Bolt_cholesterol
 
 " > ${dir}/scripts/Real_Traits/cholesterol/data_qc_Bolt_cholesterol
 
@@ -684,7 +684,7 @@ regenie \
   --step 1 \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/hba1c_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -695,7 +695,7 @@ regenie \
   --step 2 \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/hba1c_label.pheno \
-  --covarFile ${dir}/covar_PC.covars \
+  --covarFile ${dir}/covar_PC_10.covars \
   --covarCol PC{1:10} \
   --bsize 1000 \
   --threads 4 \
@@ -725,7 +725,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/hba1c_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/hba1c/data_qc_Bolt_hba1c
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/hba1c_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/hba1c/data_qc_Bolt_hba1c
 
 " > ${dir}/scripts/Real_Traits/hba1c/data_qc_Bolt_hba1c
 
