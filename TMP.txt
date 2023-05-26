@@ -1,150 +1,163 @@
 ##############################
-LDAK
+Bolt
 ##############################
-for j in {1..5}; do 
+
+for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
-#SBATCH -c 4
+#SBATCH -t 8:0:0
+#SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_7.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --linear ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait7/Result_LDAK_Trait_7_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_1_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait1/Result_Bolt_Trait1_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/Result_LDAK_Trait7_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait1_P$j
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/
-sbatch Result_LDAK_Trait7_P$j
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+
+sbatch Result_Bolt_Trait1_P$j
 done
 
 
 ##############################
-LDAK
+Bolt
 ##############################
-for j in {1..5}; do 
+
+for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
-#SBATCH -c 4
+#SBATCH -t 8:0:0
+#SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_8.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --linear ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait8/Result_LDAK_Trait_8_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_2_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait2/Result_Bolt_Trait2_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/Result_LDAK_Trait8_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait2_P$j
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/
-sbatch Result_LDAK_Trait8_P$j
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+
+sbatch Result_Bolt_Trait2_P$j
 done
 
+##############################
+Bolt
+##############################
 
-##############################
-LDAK
-##############################
-for j in {1..5}; do 
+for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
-#SBATCH -c 4
+#SBATCH -t 8:0:0
+#SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_10.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --linear ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait10/Result_LDAK_Trait_10_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_3_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait3/Result_Bolt_Trait3_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/Result_LDAK_Trait10_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait3_P$j
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/
-sbatch Result_LDAK_Trait10_P$j
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+
+sbatch Result_Bolt_Trait3_P$j
 done
 
+##############################
+Bolt
+##############################
 
-##############################
-LDAK
-##############################
-for j in {1..5}; do 
+for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
-#SBATCH -c 4
+#SBATCH -t 8:0:0
+#SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_10.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --linear ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait10/Result_LDAK_Trait_10_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_4_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait4/Result_Bolt_Trait4_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/Result_LDAK_Trait10_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait4_P$j
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/
-sbatch Result_LDAK_Trait10_P$j
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+
+sbatch Result_Bolt_Trait4_P$j
 done
 
+##############################
+Bolt
+##############################
 
-##############################
-LDAK
-##############################
-for j in {1..5}; do 
+for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
-#SBATCH -c 4
+#SBATCH -t 8:0:0
+#SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_11.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --linear ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait11/Result_LDAK_Trait_11_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_5_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait5/Result_Bolt_Trait5_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/Result_LDAK_Trait11_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait5_P$j
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/
-sbatch Result_LDAK_Trait11_P$j
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+
+sbatch Result_Bolt_Trait5_P$j
 done
 
+##############################
+Bolt
+##############################
 
-##############################
-LDAK
-##############################
-for j in {1..5}; do 
+for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 2:0:0
-#SBATCH -c 4
+#SBATCH -t 8:0:0
+#SBATCH -c 8
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
 
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_12.pheno  --mpheno $j --covar ${dir}/covar_1Wan_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_1Wan --linear ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait12/Result_LDAK_Trait_12_P$j
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_6_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait6/Result_Bolt_Trait6_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/Result_LDAK_Trait12_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait6_P$j
+
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_LDAK/
-sbatch Result_LDAK_Trait12_P$j
-done
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
 
+sbatch Result_Bolt_Trait6_P$j
+done
 
