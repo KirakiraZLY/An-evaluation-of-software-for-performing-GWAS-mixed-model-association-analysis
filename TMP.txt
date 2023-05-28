@@ -1,12 +1,10 @@
-##############################
-Bolt
-##############################
+######################
 
 for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 8:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -14,26 +12,24 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_1_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait1/Result_Bolt_Trait1_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B7_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Result_Trait_B7/Result_Bolt_TraitB7_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait1_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/Result_Bolt_TraitB7_P$j
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait1_P$j
+sbatch Result_Bolt_TraitB7_P$j
 done
 
-##############################
-Bolt
-##############################
+######################
 
 for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 8:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -41,26 +37,24 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_2_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait2/Result_Bolt_Trait2_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B8_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Result_Trait_B8/Result_Bolt_TraitB8_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait2_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/Result_Bolt_TraitB8_P$j
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait2_P$j
+sbatch Result_Bolt_TraitB8_P$j
 done
 
-##############################
-Bolt
-##############################
+######################
 
 for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 8:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -68,26 +62,24 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_3_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait3/Result_Bolt_Trait3_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B9_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Result_Trait_B9/Result_Bolt_TraitB9_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait3_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/Result_Bolt_TraitB9_P$j
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait3_P$j
+sbatch Result_Bolt_TraitB9_P$j
 done
 
-##############################
-Bolt
-##############################
+######################
 
 for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 8:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -95,26 +87,24 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_4_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait4/Result_Bolt_Trait4_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B10_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Result_Trait_B10/Result_Bolt_TraitB10_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait4_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/Result_Bolt_TraitB10_P$j
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait4_P$j
+sbatch Result_Bolt_TraitB10_P$j
 done
 
-##############################
-Bolt
-##############################
+######################
 
 for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 8:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -122,26 +112,24 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_5_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait5/Result_Bolt_Trait5_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B11_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Result_Trait_B11/Result_Bolt_TraitB11_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait5_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/Result_Bolt_TraitB11_P$j
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait5_P$j
+sbatch Result_Bolt_TraitB11_P$j
 done
 
-##############################
-Bolt
-##############################
+######################
 
 for j in {1..5};do 
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
-#SBATCH -t 8:0:0
+#SBATCH -t 4:0:0
 #SBATCH -c 4
 #SBATCH -A dsmwpred
 #SBATCH --constraint \"s05\"
@@ -149,350 +137,14 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_6_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait6/Result_Bolt_Trait6_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_Black --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Trait_B12_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_Black_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_B1_to_B24/Result_Trait_B12/Result_Bolt_TraitB12_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait6_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/Result_Bolt_TraitB12_P$j
 
 
 # I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
+cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_B1_to_B24/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait6_P$j
+sbatch Result_Bolt_TraitB12_P$j
 done
-
-##############################
-Bolt
-##############################
-
-for j in {1..5};do 
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 10:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_13_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait13/Result_Bolt_Trait13_P$j.Bolt
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/Result_Bolt_Trait13_P$j
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/
-
-sbatch Result_Bolt_Trait13_P$j
-done
-
-##############################
-Bolt
-##############################
-
-for j in {1..5};do 
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 10:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_14_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait14/Result_Bolt_Trait14_P$j.Bolt
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/Result_Bolt_Trait14_P$j
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/
-
-sbatch Result_Bolt_Trait14_P$j
-done
-
-##############################
-Bolt
-##############################
-
-for j in {1..5};do 
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 10:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_15_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait15/Result_Bolt_Trait15_P$j.Bolt
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/Result_Bolt_Trait15_P$j
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/
-
-sbatch Result_Bolt_Trait15_P$j
-done
-
-##############################
-Bolt
-##############################
-
-for j in {1..5};do 
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 10:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_16_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait16/Result_Bolt_Trait16_P$j.Bolt
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/Result_Bolt_Trait16_P$j
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/
-
-sbatch Result_Bolt_Trait16_P$j
-done
-
-##############################
-Bolt
-##############################
-
-for j in {1..5};do 
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 10:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_17_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait17/Result_Bolt_Trait17_P$j.Bolt
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/Result_Bolt_Trait17_P$j
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/
-
-sbatch Result_Bolt_Trait17_P$j
-done
-
-##############################
-Bolt
-##############################
-
-for j in {1..5};do 
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 10:0:0
-#SBATCH -c 4
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-
-source /home/lezh/miniconda3/etc/profile.d/conda.sh
-
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Trait_18_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 8  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_13_to_24/Result_Trait18/Result_Bolt_Trait18_P$j.Bolt
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/Result_Bolt_Trait18_P$j
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_13_to_24/Result_Bolt_lmm/
-
-sbatch Result_Bolt_Trait18_P$j
-done
-
-
-
-
-
-#############################
-fastGWA Step 3 for data_qc
-#############################
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 128G
-#SBATCH -t 150:0:0
-#SBATCH -c 10
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-${dir}/software/gcta --bfile ${dir}/data_qc \
---grm-sparse ${dir}/data_qc_gcta_2 \
---fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_1.pheno \
---qcovar ${dir}/covar_PC_10.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait1/Result_fastGWA_Trait1 \
---thread-num 10
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA/Result_fastGWA_Trait1
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA
-
-sbatch Result_fastGWA_Trait1
-
-
-
-#############################
-fastGWA Step 3 for data_qc
-#############################
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 128G
-#SBATCH -t 150:0:0
-#SBATCH -c 10
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-${dir}/software/gcta --bfile ${dir}/data_qc \
---grm-sparse ${dir}/data_qc_gcta_2 \
---fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_2.pheno \
---qcovar ${dir}/covar_PC_10.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait2/Result_fastGWA_Trait2 \
---thread-num 10
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA/Result_fastGWA_Trait2
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA
-
-sbatch Result_fastGWA_Trait2
-
-
-
-#############################
-fastGWA Step 3 for data_qc
-#############################
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 128G
-#SBATCH -t 150:0:0
-#SBATCH -c 10
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-${dir}/software/gcta --bfile ${dir}/data_qc \
---grm-sparse ${dir}/data_qc_gcta_2 \
---fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_3.pheno \
---qcovar ${dir}/covar_PC_10.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait3/Result_fastGWA_Trait3 \
---thread-num 10
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA/Result_fastGWA_Trait3
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA
-
-sbatch Result_fastGWA_Trait3
-
-
-#############################
-fastGWA Step 3 for data_qc
-#############################
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 128G
-#SBATCH -t 150:0:0
-#SBATCH -c 10
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-${dir}/software/gcta --bfile ${dir}/data_qc \
---grm-sparse ${dir}/data_qc_gcta_2 \
---fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_4.pheno \
---qcovar ${dir}/covar_PC_10.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait4/Result_fastGWA_Trait4 \
---thread-num 10
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA/Result_fastGWA_Trait4
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA
-
-sbatch Result_fastGWA_Trait4
-
-
-#############################
-fastGWA Step 3 for data_qc
-#############################
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 128G
-#SBATCH -t 150:0:0
-#SBATCH -c 10
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-${dir}/software/gcta --bfile ${dir}/data_qc \
---grm-sparse ${dir}/data_qc_gcta_2 \
---fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_5.pheno \
---qcovar ${dir}/covar_PC_10.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait5/Result_fastGWA_Trait5 \
---thread-num 10
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA/Result_fastGWA_Trait5
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA
-
-sbatch Result_fastGWA_Trait5
-
-
-#############################
-fastGWA Step 3 for data_qc
-#############################
-dir="/home/lezh/dsmwpred/zly"
-echo "#"'!'"/bin/bash
-#SBATCH --mem 128G
-#SBATCH -t 150:0:0
-#SBATCH -c 10
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-
-${dir}/software/gcta --bfile ${dir}/data_qc \
---grm-sparse ${dir}/data_qc_gcta_2 \
---fastGWA-mlm \
---pheno ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_6.pheno \
---qcovar ${dir}/covar_PC_10.covars \
---out ${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait6/Result_fastGWA_Trait6 \
---thread-num 10
-
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA/Result_fastGWA_Trait6
-
-
-# I am doing blabla
-cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_fastGWA
-
-sbatch Result_fastGWA_Trait6
-
 
