@@ -140,6 +140,17 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
     #SBATCH -A dsmwpred
     #SBATCH --constraint \"s05\"
 
+
+    ${dir}/software/plink \
+    --bfile ${dir}/data_qc \
+    --clump-p1 1 \
+    --clump-r2 0.1 \
+    --clump-kb 250 \
+    --clump ${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin \
+    --clump-snp-field SNP \
+    --clump-field P_BOLT_LMM \
+    --out ${dir}/Real_Traits/PRS/bilirubin_data_qc
+
     dir="/home/lezh/dsmwpred/zly"
    awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bilirubin_data_qc.clumped  >  ${dir}/Real_Traits/PRS/bilirubin_data_qc.valid.snp
    awk '{print $1,$12}' ${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin > ${dir}/Real_Traits/PRS/bilirubin_SNP.pvalue
