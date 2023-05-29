@@ -175,6 +175,7 @@ sbatch data_qc_Bolt_height
 result in ${dir}/Real_Traits/Height
 ```python
 dir="/home/lezh/dsmwpred/zly"
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 echo "#"'!'"/bin/bash
 #SBATCH --mem 8G
 #SBATCH -t 2:0:0
@@ -184,7 +185,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/ldak5.XXX --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/Height/data_qc_ldak_height
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/Height/data_qc_ldak_height
 
 " > ${dir}/scripts/Real_Traits/Height/data_qc_ldak_height
 
