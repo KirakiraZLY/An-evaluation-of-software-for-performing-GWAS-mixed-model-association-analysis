@@ -135,27 +135,27 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
 
    dir="/home/lezh/dsmwpred/zly"
    echo "#"'!'"/bin/bash
-#SBATCH --mem 8G
-#SBATCH -t 1:0:0
-#SBATCH -A dsmwpred
-#SBATCH --constraint \"s05\"
-   ${dir}/software/plink \
-    --bfile ${dir}/data_qc \
-    --indep-pairwise 200 50 0.25 \
-    --out ${dir}/Real_Traits/PRS/bilirubin_data_qc
-    # Then we calculate the first 6 PCs
+    #SBATCH --mem 8G
+    #SBATCH -t 1:0:0
+    #SBATCH -A dsmwpred
+    #SBATCH --constraint \"s05\"
     ${dir}/software/plink \
         --bfile ${dir}/data_qc \
-        --extract ${dir}/Real_Traits/PRS/bilirubin_data_qc.prune.in \
-        --pca 10 \
+        --indep-pairwise 200 50 0.25 \
         --out ${dir}/Real_Traits/PRS/bilirubin_data_qc
+        # Then we calculate the first 6 PCs
+        ${dir}/software/plink \
+            --bfile ${dir}/data_qc \
+            --extract ${dir}/Real_Traits/PRS/bilirubin_data_qc.prune.in \
+            --pca 10 \
+            --out ${dir}/Real_Traits/PRS/bilirubin_data_qc
 
 
-" > ${dir}/scripts/Real_Traits/PRS/bilirubin_data_qc
+    " > ${dir}/scripts/Real_Traits/PRS/bilirubin_data_qc
 
-# I am doing blabla
-cd ${dir}/scripts/Real_Traits/PRS/
-sbatch bilirubin_data_qc
+    # I am doing blabla
+    cd ${dir}/scripts/Real_Traits/PRS/
+    sbatch bilirubin_data_qc
     ```
 7. Finding the "best-fit" PRS
         **In Rmd** 
