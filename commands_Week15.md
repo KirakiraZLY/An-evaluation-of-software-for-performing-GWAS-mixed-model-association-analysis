@@ -139,6 +139,20 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
     #SBATCH -t 1:0:0
     #SBATCH -A dsmwpred
     #SBATCH --constraint \"s05\"
+
+    dir="/home/lezh/dsmwpred/zly"
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bilirubin_data_qc.clumped  >  ${dir}/Real_Traits/PRS/bilirubin_data_qc.valid.snp
+   awk '{print $1,$12}' ${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin > ${dir}/Real_Traits/PRS/bilirubin_SNP.pvalue
+
+
+   ${dir}/software/plink \
+    --bfile ${dir}/data_qc \
+    --score ${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin 1 5 9 header \
+    --q-score-range ${dir}/Real_Traits/PRS/range_list ${dir}/Real_Traits/PRS/bilirubin_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/bilirubin_data_qc.valid.snp \
+    --out ${dir}/Real_Traits/PRS/bilirubin_data_qc
+
+
     ${dir}/software/plink \
         --bfile ${dir}/data_qc \
         --indep-pairwise 200 50 0.25 \
