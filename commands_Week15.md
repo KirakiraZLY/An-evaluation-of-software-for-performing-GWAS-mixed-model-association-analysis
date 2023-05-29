@@ -36,9 +36,9 @@
 5. PRS calculation
     ```python
     ${dir}/software/plink \
-    --bfile EUR.QC \
-    --score Height.QC.Transformed 3 4 12 header \
-    --q-score-range range_list SNP.pvalue \
-    --extract EUR.valid.snp \
-    --out EUR
+    --bfile ${dir}/data_qc \
+    --score ${dir}/Real_Traits/bmi/data_qc_Bolt_bmi 1 5 9 header \
+    --q-score-range ${dir}/Real_Traits/PRS/range_list ${dir}/Real_Traits/PRS/SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/data_qc.valid.snp \
+    --out ${dir}/Real_Traits/PRS/data_qc
     ```
