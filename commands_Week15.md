@@ -57,3 +57,22 @@
     ```
 7. Finding the "best-fit" PRS
         **In Rmd** 
+
+    
+
+## PRSice-2
+```python
+dir="/home/lezh/dsmwpred/zly"
+Rscript ${dir}/PRS/PRSice2/PRSice.R \
+    --prsice ${dir}/PRS/PRSice2/PRSice_linux \
+    --base ${dir}/Real_Traits/bmi/data_qc_Bolt_bmi \
+    --target ${dir}/data_qc \
+    --binary-target F \
+    --pheno ${dir}/bmi1.pheno \
+    --cov ${dir}/covar_PC_10.covars \
+    --base-maf MAF:0.05 \
+    --base-info INFO:0.8 \
+    --stat BETA \
+    --beta \
+    --out ${dir}/Real_Traits/PRS/data_qc_PRSice2
+```
