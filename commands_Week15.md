@@ -107,7 +107,7 @@ Rscript ${dir}/PRS/PRSice2/PRSice.R \
 3. Extract the SNP ID and Generate PRS:
    ```python
     dir="/home/lezh/dsmwpred/zly"
-   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/data_qc.clumped  >  ${dir}/Real_Traits/PRS/data_qc.valid.snp
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bilirubin_data_qc.clumped  >  ${dir}/Real_Traits/PRS/bilirubin_data_qc.valid.snp
    awk '{print $1,$12}' ${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin > ${dir}/Real_Traits/PRS/bilirubin_SNP.pvalue
    ```
 4. P-value threshold
