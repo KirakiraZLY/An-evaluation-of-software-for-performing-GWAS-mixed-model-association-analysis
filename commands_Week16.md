@@ -187,3 +187,12 @@ dir="/home/lezh/dsmwpred/zly"
 ${dir}/software/plink --bfile ${dir}/newdata/data --geno 0.1 --mind 0.1 --maf 0.05 --make-bed --out ${dir}/newdata/new_data_qc
 ```
 Output: data_qc   
+
+## PCA
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/newdata/new_data_qc --recode vcf-iid --out ${dir}/newdata/new_data_qc_vcf
+${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 50 2 0.2 --out ${dir}/newdata/new_data_qc_vcf
+${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --allow-extra-chr --set-missing-var-ids @:# --extract ${dir}/newdata/new_data_qc_vcf.prune.in --pca --make-bed --out ${dir}/newdata/new_data_qc_vcf
+
+```
