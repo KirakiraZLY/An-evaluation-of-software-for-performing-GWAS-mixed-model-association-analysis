@@ -14,14 +14,14 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_3_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait3/Result_Bolt_Trait3_P$j.Bolt
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Trait_6_label.pheno   --phenoCol=Phenotype$j  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/type_1_error/Multi_Traits/Trait_1_to_12/Result_Trait6/Result_Bolt_Trait6_P$j.Bolt
 
-" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait3_P$j
+" > ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/Result_Bolt_Trait6_P$j
 
 
 # I am doing blabla
 cd ${dir}/scripts/type_1_error_new/Multi_Traits/Trait_1_to_12/Result_Bolt_lmm/
 
-sbatch Result_Bolt_Trait3_P$j
+sbatch Result_Bolt_Trait6_P$j
 done
 
