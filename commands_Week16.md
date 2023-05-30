@@ -176,3 +176,14 @@ cd ${dir}/scripts/Real_Traits/hba1c/
 sbatch data_White_Bolt_hba1c
 ```
 
+
+
+
+# New data
+## Start by QC(genomeDK, Plink)
+Filter out SNPs with genotype missingness >10%, samples with >10% missingness, MAF <5%, minor allele count(MAC) <100, 不做这个HWE p-value exceeding 1e-15.(MAF可以改成1%)   
+```python
+dir="/home/lezh/dsmwpred/zly"
+${dir}/software/plink --bfile ${dir}/newdata/data --geno 0.1 --mind 0.1 --maf 0.05 --make-bed --out ${dir}/newdata/new_data_qc
+```
+Output: data_qc   
