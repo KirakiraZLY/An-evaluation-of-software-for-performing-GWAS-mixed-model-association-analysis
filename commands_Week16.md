@@ -257,10 +257,10 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi
 
 
-    " > ${dir}/scripts/Real_Traits/PRS_bmi/data_qc_bmi
+    " > ${dir}/scripts/Real_Traits/PRS/bmi/data_qc_bmi
 
     # I am doing blabla
-    cd ${dir}/scripts/Real_Traits/PRS_bmi/
+    cd ${dir}/scripts/Real_Traits/PRS/bmi/
     sbatch data_qc_bmi
     ```
 3. Finding the "best-fit" PRS
