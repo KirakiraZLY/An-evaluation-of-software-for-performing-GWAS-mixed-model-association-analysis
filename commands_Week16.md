@@ -212,7 +212,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -277,7 +277,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -342,7 +342,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -409,7 +409,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -474,7 +474,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -547,7 +547,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -616,7 +616,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -683,7 +683,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -750,7 +750,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -816,7 +816,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -884,7 +884,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -950,7 +950,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -1017,7 +1017,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
@@ -1084,7 +1084,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
    dir="/home/lezh/dsmwpred/zly"
 
    echo "#"'!'"/bin/bash
-    #SBATCH --mem 16G
+    #SBATCH --mem 32G
     #SBATCH -t 10:0:0
     #SBATCH -c 8
     #SBATCH -A dsmwpred
