@@ -1267,3 +1267,33 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
+
+
+
+
+
+
+
+
+
+
+
+
+```python
+
+${dir}/software/plink \
+    --bfile ${dir}/newdata/new_data_qc \
+    --score ${dir}/Real_Traits/bmi/data_White_Bolt_bmi 1 5 9 header \
+    --q-score-range ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_range_list ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/bmi/data_qc_bmi.valid.snp \
+    --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi
+
+
+
+    ${dir}/software/plink \
+    --bfile ${dir}/newdata/new_data_qc \
+    --score ${dir}/Real_Traits/alkaline/data_qc_Bolt_alkaline 1 5 9 header \
+    --q-score-range ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_range_list ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline.valid.snp \
+    --out ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline
+```
