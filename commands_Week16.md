@@ -117,15 +117,15 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_White --phenoFile=${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_White_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_White_Bolt_bilirubin_Binary
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_White --phenoFile=${dir}/Phenotype_UKBB/bilirubin_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_White_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_White_Bolt_bilirubin
 
-" > ${dir}/scripts/Real_Traits/bilirubin/data_White_Bolt_bilirubin_Binary
+" > ${dir}/scripts/Real_Traits/bilirubin/data_White_Bolt_bilirubin
 
 
 # I am doing blabla
 cd ${dir}/scripts/Real_Traits/bilirubin/
 
-sbatch data_White_Bolt_bilirubin_Binary
+sbatch data_White_Bolt_bilirubin
 ```
 
 ### Bolt cholesterol
