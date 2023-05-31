@@ -244,7 +244,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_range_list ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/bmi/data_qc_bmi.valid.snp \
     --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -257,11 +266,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/bmi/data_qc_bmi
+    " > ${dir}/scripts/Real_Traits/PRS/bmi/data_qc_bmi_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/bmi/
-    sbatch data_qc_bmi
+    sbatch data_qc_bmi_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -309,7 +318,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_range_list ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline.valid.snp \
     --out ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -322,11 +340,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/alkaline/data_qc_alkaline
+    " > ${dir}/scripts/Real_Traits/PRS/alkaline/data_qc_alkaline_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/alkaline/
-    sbatch data_qc_alkaline
+    sbatch data_qc_alkaline_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -374,7 +392,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_range_list ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin.valid.snp \
     --out ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -387,11 +414,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/bilirubin/data_qc_bilirubin
+    " > ${dir}/scripts/Real_Traits/PRS/bilirubin/data_qc_bilirubin_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/bilirubin/
-    sbatch data_qc_bilirubin
+    sbatch data_qc_bilirubin_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -441,7 +468,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_range_list ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol.valid.snp \
     --out ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -454,11 +490,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/cholesterol/data_qc_cholesterol
+    " > ${dir}/scripts/Real_Traits/PRS/cholesterol/data_qc_cholesterol_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/cholesterol/
-    sbatch data_qc_cholesterol
+    sbatch data_qc_cholesterol_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -506,7 +542,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_range_list ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c.valid.snp \
     --out ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -519,11 +564,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/hba1c/data_qc_hba1c
+    " > ${dir}/scripts/Real_Traits/PRS/hba1c/data_qc_hba1c_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/hba1c/
-    sbatch data_qc_hba1c
+    sbatch data_qc_hba1c_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -579,7 +624,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/height/data_qc_height_range_list ${dir}/Real_Traits/PRS/height/data_qc_height_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/height/data_qc_height.valid.snp \
     --out ${dir}/Real_Traits/PRS/height/data_qc_height
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -592,11 +646,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/height/data_qc_height
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/height/data_qc_height
+    " > ${dir}/scripts/Real_Traits/PRS/height/data_qc_height_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/height/
-    sbatch data_qc_height
+    sbatch data_qc_height_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -648,7 +702,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/urate/data_qc_urate_range_list ${dir}/Real_Traits/PRS/urate/data_qc_urate_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/urate/data_qc_urate.valid.snp \
     --out ${dir}/Real_Traits/PRS/urate/data_qc_urate
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -661,11 +724,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/urate/data_qc_urate
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/urate/data_qc_urate
+    " > ${dir}/scripts/Real_Traits/PRS/urate/data_qc_urate_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/urate/
-    sbatch data_qc_urate
+    sbatch data_qc_urate_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -715,7 +778,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/bmi/data_White_bmi_range_list ${dir}/Real_Traits/PRS/bmi/data_White_bmi_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/bmi/data_White_bmi.valid.snp \
     --out ${dir}/Real_Traits/PRS/bmi/data_White_bmi
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -728,11 +800,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/bmi/data_White_bmi
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/bmi/data_White_bmi
+    " > ${dir}/scripts/Real_Traits/PRS/bmi/data_White_bmi_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/bmi/
-    sbatch data_White_bmi
+    sbatch data_White_bmi_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -782,7 +854,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/alkaline/data_White_alkaline_range_list ${dir}/Real_Traits/PRS/alkaline/data_White_alkaline_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/alkaline/data_White_alkaline.valid.snp \
     --out ${dir}/Real_Traits/PRS/alkaline/data_White_alkaline
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -795,11 +876,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/alkaline/data_White_alkaline
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/alkaline/data_White_alkaline
+    " > ${dir}/scripts/Real_Traits/PRS/alkaline/data_White_alkaline_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/alkaline/
-    sbatch data_White_alkaline
+    sbatch data_White_alkaline_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -848,7 +929,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/bilirubin/data_White_bilirubin_range_list ${dir}/Real_Traits/PRS/bilirubin/data_White_bilirubin_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/bilirubin/data_White_bilirubin.valid.snp \
     --out ${dir}/Real_Traits/PRS/bilirubin/data_White_bilirubin
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -861,11 +951,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/bilirubin/data_White_bilirubin
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/bilirubin/data_White_bilirubin
+    " > ${dir}/scripts/Real_Traits/PRS/bilirubin/data_White_bilirubin_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/bilirubin/
-    sbatch data_White_bilirubin
+    sbatch data_White_bilirubin_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -916,7 +1006,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --q-score-range ${dir}/Real_Traits/PRS/cholesterol/data_White_cholesterol_range_list ${dir}/Real_Traits/PRS/cholesterol/data_White_cholesterol_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/cholesterol/data_White_cholesterol.valid.snp \
     --out ${dir}/Real_Traits/PRS/cholesterol/data_White_cholesterol
+    ```
 
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -929,11 +1028,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/cholesterol/data_White_cholesterol
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/cholesterol/data_White_cholesterol
+    " > ${dir}/scripts/Real_Traits/PRS/cholesterol/data_White_cholesterol_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/cholesterol/
-    sbatch data_White_cholesterol
+    sbatch data_White_cholesterol_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -983,6 +1082,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --extract ${dir}/Real_Traits/PRS/hba1c/data_White_hba1c.valid.snp \
     --out ${dir}/Real_Traits/PRS/hba1c/data_White_hba1c
 
+    ```
+
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -995,11 +1104,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/hba1c/data_White_hba1c
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/hba1c/data_White_hba1c
+    " > ${dir}/scripts/Real_Traits/PRS/hba1c/data_White_hba1c_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/hba1c/
-    sbatch data_White_hba1c
+    sbatch data_White_hba1c_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -1150,11 +1259,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/urate/data_White_urate
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/urate/data_White_urate
+    " > ${dir}/scripts/Real_Traits/PRS/urate/data_White_urate_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/urate/
-    sbatch data_White_urate
+    sbatch data_White_urate_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
