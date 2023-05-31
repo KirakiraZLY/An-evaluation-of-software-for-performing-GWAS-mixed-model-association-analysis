@@ -222,13 +222,13 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/bmi/data_White_Bolt_bmi \
+    --clump ${dir}/Real_Traits/bmi/data_qc_Bolt_bmi \
     --clump-snp-field SNP \
     --clump-field P_BOLT_LMM \
     --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi
 
    awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bmi/data_qc_bmi.clumped  >  ${dir}/Real_Traits/PRS/bmi/data_qc_bmi.valid.snp
-   awk '{print $1,$12}' ${dir}/Real_Traits/bmi/data_White_Bolt_bmi > ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_SNP.pvalue
+   awk '{print $1,$12}' ${dir}/Real_Traits/bmi/data_qc_Bolt_bmi > ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_SNP.pvalue
 
     echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_range_list 
     echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_range_list
@@ -240,7 +240,7 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
-    --score ${dir}/Real_Traits/bmi/data_White_Bolt_bmi 1 5 9 header \
+    --score ${dir}/Real_Traits/bmi/data_qc_Bolt_bmi 1 5 9 header \
     --q-score-range ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_range_list ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/bmi/data_qc_bmi.valid.snp \
     --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi
