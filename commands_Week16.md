@@ -1050,6 +1050,16 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --extract ${dir}/Real_Traits/PRS/height/data_White_height.valid.snp \
     --out ${dir}/Real_Traits/PRS/height/data_White_height
 
+    ```
+
+    ```python
+
+    echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
+
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
@@ -1062,11 +1072,11 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
         --out ${dir}/Real_Traits/PRS/height/data_White_height
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/height/data_White_height
+    " > ${dir}/scripts/Real_Traits/PRS/height/data_White_height_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/height/
-    sbatch data_White_height
+    sbatch data_White_height_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -1117,6 +1127,17 @@ ${dir}/software/plink --vcf ${dir}/newdata/new_data_qc_vcf.vcf --double-id --all
     --extract ${dir}/Real_Traits/PRS/urate/data_White_urate.valid.snp \
     --out ${dir}/Real_Traits/PRS/urate/data_White_urate
 
+
+    ```
+
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
