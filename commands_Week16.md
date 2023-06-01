@@ -1297,3 +1297,83 @@ ${dir}/software/plink \
     --extract ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline.valid.snp \
     --out ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline
 ```
+
+
+
+
+
+
+
+
+
+# PRS, LDAK
+## BMI
+1. Basic data: data_White_Bolt_bmi   
+   Target data: new_data_qc   
+2. Clumping + Threshold
+   ```python
+   dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
+
+   ${dir}/software/plink \
+    --bfile ${dir}/newdata/new_data_qc \
+    --clump-p1 1 \
+    --clump-r2 0.1 \
+    --clump-kb 250 \
+    --clump ${dir}/Real_Traits/bmi/data_qc_ldak_bmi.assoc \
+    --clump-snp-field SNP \
+    --clump-field P_BOLT_LMM \
+    --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
+
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.clumped  >  ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.valid.snp
+   awk '{print $2,$7}' ${dir}/Real_Traits/bmi/data_qc_ldak_bmi.assoc > ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_SNP.pvalue
+
+    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list 
+    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
+    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
+    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
+    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
+    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
+    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
+
+    ${dir}/software/plink \
+    --bfile ${dir}/newdata/new_data_qc \
+    --score ${dir}/Real_Traits/bmi/data_qc_ldak_bmi.assoc 1 5 9 header \
+    --q-score-range ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.valid.snp \
+    --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
+    ```
+
+    ```python
+    dir="/home/lezh/dsmwpred/zly"
+
+   echo "#"'!'"/bin/bash
+    #SBATCH --mem 32G
+    #SBATCH -t 10:0:0
+    #SBATCH -c 8
+    #SBATCH -A dsmwpred
+   ${dir}/software/plink \
+    --bfile ${dir}/newdata/new_data_qc \
+    --indep-pairwise 200 50 0.25 \
+    --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
+    # Then we calculate the first 10 PCs
+    ${dir}/software/plink \
+        --bfile ${dir}/newdata/new_data_qc \
+        --extract ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.prune.in \
+        --pca 10 \
+        --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
+
+
+    " > ${dir}/scripts/Real_Traits/PRS/bmi/data_qc_bmi_ldak_2
+
+    # I am doing blabla
+    cd ${dir}/scripts/Real_Traits/PRS/bmi/
+    sbatch data_qc_bmi_ldak_2
+    ```
+3. Finding the "best-fit" PRS
+        **In Rmd** 
