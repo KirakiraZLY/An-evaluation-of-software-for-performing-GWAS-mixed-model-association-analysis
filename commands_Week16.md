@@ -2279,13 +2279,13 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/bilirubin/data_White_ldak_bilirubin.assoc \
+    --clump ${dir}/Real_Traits/bilirubin/data_White_LDAK_bilirubin.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
     --out ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin
 
    awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin.clumped  >  ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin.valid.snp
-   awk '{print $2,$7}' ${dir}/Real_Traits/bilirubin/data_White_ldak_bilirubin.assoc > ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_SNP.pvalue
+   awk '{print $2,$7}' ${dir}/Real_Traits/bilirubin/data_White_LDAK_bilirubin.assoc > ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_SNP.pvalue
 
     echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list 
     echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list
@@ -2297,7 +2297,7 @@ sbatch data_White_LDAK_urate
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
-    --score ${dir}/Real_Traits/bilirubin/data_White_ldak_bilirubin.assoc 2 4 8 header \
+    --score ${dir}/Real_Traits/bilirubin/data_White_LDAK_bilirubin.assoc 2 4 8 header \
     --q-score-range ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin.valid.snp \
     --out ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin
@@ -2353,7 +2353,7 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/cholesterol/data_White_ldak_cholesterol.assoc \
+    --clump ${dir}/Real_Traits/cholesterol/data_White_LDAK_cholesterol.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
     --out ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol
