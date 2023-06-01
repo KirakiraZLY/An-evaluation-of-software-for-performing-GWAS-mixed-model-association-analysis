@@ -2111,7 +2111,7 @@ sbatch data_White_LDAK_urate
 
 # PRS, LDAK, white
 ## BMI
-1. Basic data: data_White_Bolt_bmi   
+1. Basic data: data_White_LDAK_bmi   
    Target data: new_data_qc   
 2. Clumping + Threshold
    ```python
@@ -2128,28 +2128,28 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/bmi/data_white_ldak_bmi.assoc \
+    --clump ${dir}/Real_Traits/bmi/data_White_LDAK_bmi.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
-    --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
+    --out ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi
 
-   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.clumped  >  ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.valid.snp
-   awk '{print $2,$7}' ${dir}/Real_Traits/bmi/data_qc_ldak_bmi.assoc > ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_SNP.pvalue
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi.clumped  >  ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi.valid.snp
+   awk '{print $2,$7}' ${dir}/Real_Traits/bmi/data_qc_ldak_bmi.assoc > ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_SNP.pvalue
 
-    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list 
-    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
-    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
-    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
-    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
-    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
-    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list
+    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_range_list 
+    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_range_list
+    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_range_list
+    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_range_list
+    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_range_list
+    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_range_list
+    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_range_list
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --score ${dir}/Real_Traits/bmi/data_qc_ldak_bmi.assoc 2 4 8 header \
-    --q-score-range ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_SNP.pvalue \
-    --extract ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.valid.snp \
-    --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
+    --q-score-range ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_range_list ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi.valid.snp \
+    --out ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi
     ```
 
     ```python
@@ -2163,20 +2163,20 @@ sbatch data_White_LDAK_urate
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
-    --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
+    --out ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi
     # Then we calculate the first 10 PCs
     ${dir}/software/plink \
         --bfile ${dir}/newdata/new_data_qc \
-        --extract ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.prune.in \
+        --extract ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi.prune.in \
         --pca 10 \
-        --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
+        --out ${dir}/Real_Traits/PRS/bmi/data_White_LDAK_bmi
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/bmi/data_qc_bmi_ldak_2
+    " > ${dir}/scripts/Real_Traits/PRS/bmi/data_White_LDAK_bmi_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/bmi/
-    sbatch data_qc_bmi_ldak_2
+    sbatch data_White_LDAK_bmi_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -2186,7 +2186,7 @@ sbatch data_White_LDAK_urate
 
 
 ## Alkaline
-1. Basic data: data_qc_LDAK_alkaline   
+1. Basic data: data_White_LDAK_alkaline   
    Target data: new_data_qc   
 2. Clumping + Threshold
    ```python
@@ -2203,28 +2203,28 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/alkaline/data_qc_ldak_alkaline.assoc \
+    --clump ${dir}/Real_Traits/alkaline/data_White_ldak_alkaline.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
-    --out ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak
+    --out ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline
 
-   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak.clumped  >  ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak.valid.snp
-   awk '{print $2,$7}' ${dir}/Real_Traits/alkaline/data_qc_ldak_alkaline.assoc > ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_SNP.pvalue
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline.clumped  >  ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline.valid.snp
+   awk '{print $2,$7}' ${dir}/Real_Traits/alkaline/data_White_ldak_alkaline.assoc > ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_SNP.pvalue
 
-    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_range_list 
-    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_range_list
-    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_range_list
-    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_range_list
-    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_range_list
-    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_range_list
-    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_range_list
+    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list 
+    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list
+    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list
+    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list
+    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list
+    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list
+    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
-    --score ${dir}/Real_Traits/alkaline/data_qc_ldak_alkaline.assoc 2 4 8 header \
-    --q-score-range ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_range_list ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_SNP.pvalue \
-    --extract ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak.valid.snp \
-    --out ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak
+    --score ${dir}/Real_Traits/alkaline/data_White_ldak_alkaline.assoc 2 4 8 header \
+    --q-score-range ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline.valid.snp \
+    --out ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline
     ```
 
     ```python
@@ -2238,20 +2238,20 @@ sbatch data_White_LDAK_urate
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
-    --out ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak
+    --out ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline
     # Then we calculate the first 10 PCs
     ${dir}/software/plink \
         --bfile ${dir}/newdata/new_data_qc \
-        --extract ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak.prune.in \
+        --extract ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline.prune.in \
         --pca 10 \
-        --out ${dir}/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak
+        --out ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/alkaline/data_qc_alkaline_ldak_2
+    " > ${dir}/scripts/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/alkaline/
-    sbatch data_qc_alkaline_ldak_2
+    sbatch data_White_LDAK_alkaline_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -2262,7 +2262,7 @@ sbatch data_White_LDAK_urate
 
 
 ## bilirubin
-1. Basic data: data_qc_LDAK_bilirubin   
+1. Basic data: data_White_LDAK_bilirubin   
    Target data: new_data_qc   
 2. Clumping + Threshold
    ```python
@@ -2279,28 +2279,28 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/bilirubin/data_qc_ldak_bilirubin.assoc \
+    --clump ${dir}/Real_Traits/bilirubin/data_White_ldak_bilirubin.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
-    --out ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak
+    --out ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin
 
-   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak.clumped  >  ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak.valid.snp
-   awk '{print $2,$7}' ${dir}/Real_Traits/bilirubin/data_qc_ldak_bilirubin.assoc > ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_SNP.pvalue
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin.clumped  >  ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin.valid.snp
+   awk '{print $2,$7}' ${dir}/Real_Traits/bilirubin/data_White_ldak_bilirubin.assoc > ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_SNP.pvalue
 
-    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_range_list 
-    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_range_list
-    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_range_list
-    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_range_list
-    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_range_list
-    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_range_list
-    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_range_list
+    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list 
+    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list
+    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list
+    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list
+    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list
+    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list
+    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
-    --score ${dir}/Real_Traits/bilirubin/data_qc_ldak_bilirubin.assoc 2 4 8 header \
-    --q-score-range ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_range_list ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_SNP.pvalue \
-    --extract ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak.valid.snp \
-    --out ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak
+    --score ${dir}/Real_Traits/bilirubin/data_White_ldak_bilirubin.assoc 2 4 8 header \
+    --q-score-range ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_range_list ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin.valid.snp \
+    --out ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin
     ```
 
     ```python
@@ -2314,20 +2314,20 @@ sbatch data_White_LDAK_urate
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
-    --out ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak
+    --out ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin
     # Then we calculate the first 10 PCs
     ${dir}/software/plink \
         --bfile ${dir}/newdata/new_data_qc \
-        --extract ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak.prune.in \
+        --extract ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin.prune.in \
         --pca 10 \
-        --out ${dir}/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak
+        --out ${dir}/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/bilirubin/data_qc_bilirubin_ldak_2
+    " > ${dir}/scripts/Real_Traits/PRS/bilirubin/data_White_LDAK_bilirubin_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/bilirubin/
-    sbatch data_qc_bilirubin_ldak_2
+    sbatch data_White_LDAK_bilirubin_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -2336,7 +2336,7 @@ sbatch data_White_LDAK_urate
 
 
 ## cholesterol
-1. Basic data: data_qc_LDAK_cholesterol   
+1. Basic data: data_White_LDAK_cholesterol   
    Target data: new_data_qc   
 2. Clumping + Threshold
    ```python
@@ -2353,28 +2353,28 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/cholesterol/data_qc_ldak_cholesterol.assoc \
+    --clump ${dir}/Real_Traits/cholesterol/data_White_ldak_cholesterol.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
-    --out ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak
+    --out ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol
 
-   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak.clumped  >  ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak.valid.snp
-   awk '{print $2,$7}' ${dir}/Real_Traits/cholesterol/data_qc_ldak_cholesterol.assoc > ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_SNP.pvalue
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol.clumped  >  ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol.valid.snp
+   awk '{print $2,$7}' ${dir}/Real_Traits/cholesterol/data_qc_ldak_cholesterol.assoc > ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_SNP.pvalue
 
-    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_range_list 
-    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_range_list
-    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_range_list
-    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_range_list
-    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_range_list
-    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_range_list
-    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_range_list
+    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_range_list 
+    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_range_list
+    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_range_list
+    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_range_list
+    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_range_list
+    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_range_list
+    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_range_list
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --score ${dir}/Real_Traits/cholesterol/data_qc_ldak_cholesterol.assoc 2 4 8 header \
-    --q-score-range ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_range_list ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_SNP.pvalue \
-    --extract ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak.valid.snp \
-    --out ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak
+    --q-score-range ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_range_list ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol.valid.snp \
+    --out ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol
     ```
 
     ```python
@@ -2388,20 +2388,20 @@ sbatch data_White_LDAK_urate
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
-    --out ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak
+    --out ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol
     # Then we calculate the first 10 PCs
     ${dir}/software/plink \
         --bfile ${dir}/newdata/new_data_qc \
-        --extract ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak.prune.in \
+        --extract ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol.prune.in \
         --pca 10 \
-        --out ${dir}/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak
+        --out ${dir}/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/cholesterol/data_qc_cholesterol_ldak_2
+    " > ${dir}/scripts/Real_Traits/PRS/cholesterol/data_White_LDAK_cholesterol_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/cholesterol/
-    sbatch data_qc_cholesterol_ldak_2
+    sbatch data_White_LDAK_cholesterol_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -2418,7 +2418,7 @@ sbatch data_White_LDAK_urate
 
 
 ## hba1c
-1. Basic data: data_qc_LDAK_hba1c   
+1. Basic data: data_White_LDAK_hba1c   
    Target data: new_data_qc   
 2. Clumping + Threshold
    ```python
@@ -2435,28 +2435,28 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/hba1c/data_qc_ldak_hba1c.assoc \
+    --clump ${dir}/Real_Traits/hba1c/data_White_LDAK_hba1c.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
-    --out ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak
+    --out ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c
 
-   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak.clumped  >  ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak.valid.snp
-   awk '{print $2,$7}' ${dir}/Real_Traits/hba1c/data_qc_ldak_hba1c.assoc > ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_SNP.pvalue
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c.clumped  >  ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c.valid.snp
+   awk '{print $2,$7}' ${dir}/Real_Traits/hba1c/data_White_LDAK_hba1c.assoc > ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_SNP.pvalue
 
-    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_range_list 
-    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_range_list
-    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_range_list
-    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_range_list
-    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_range_list
-    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_range_list
-    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_range_list
+    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_range_list 
+    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_range_list
+    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_range_list
+    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_range_list
+    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_range_list
+    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_range_list
+    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_range_list
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
-    --score ${dir}/Real_Traits/hba1c/data_qc_ldak_hba1c.assoc 2 4 8 header \
-    --q-score-range ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_range_list ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_SNP.pvalue \
-    --extract ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak.valid.snp \
-    --out ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak
+    --score ${dir}/Real_Traits/hba1c/data_White_LDAK_hba1c.assoc 2 4 8 header \
+    --q-score-range ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_range_list ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c.valid.snp \
+    --out ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c
     ```
 
     ```python
@@ -2470,20 +2470,20 @@ sbatch data_White_LDAK_urate
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
-    --out ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak
+    --out ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c
     # Then we calculate the first 10 PCs
     ${dir}/software/plink \
         --bfile ${dir}/newdata/new_data_qc \
-        --extract ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak.prune.in \
+        --extract ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c.prune.in \
         --pca 10 \
-        --out ${dir}/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak
+        --out ${dir}/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/hba1c/data_qc_hba1c_ldak_2
+    " > ${dir}/scripts/Real_Traits/PRS/hba1c/data_White_LDAK_hba1c_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/hba1c/
-    sbatch data_qc_hba1c_ldak_2
+    sbatch data_White_LDAK_hba1c_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -2501,7 +2501,7 @@ sbatch data_White_LDAK_urate
 
 
 ## height
-1. Basic data: data_qc_LDAK_height   
+1. Basic data: data_White_LDAK_height   
    Target data: new_data_qc   
 2. Clumping + Threshold
    ```python
@@ -2518,28 +2518,28 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/height/data_qc_ldak_height.assoc \
+    --clump ${dir}/Real_Traits/height/data_White_LDAK_height.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
-    --out ${dir}/Real_Traits/PRS/height/data_qc_height_ldak
+    --out ${dir}/Real_Traits/PRS/height/data_White_LDAK_height
 
-   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/height/data_qc_height_ldak.clumped  >  ${dir}/Real_Traits/PRS/height/data_qc_height_ldak.valid.snp
-   awk '{print $2,$7}' ${dir}/Real_Traits/height/data_qc_ldak_height.assoc > ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_SNP.pvalue
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/height/data_White_LDAK_height.clumped  >  ${dir}/Real_Traits/PRS/height/data_White_LDAK_height.valid.snp
+   awk '{print $2,$7}' ${dir}/Real_Traits/height/data_White_LDAK_height.assoc > ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_SNP.pvalue
 
-    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_range_list 
-    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_range_list
-    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_range_list
-    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_range_list
-    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_range_list
-    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_range_list
-    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_range_list
+    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_range_list 
+    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_range_list
+    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_range_list
+    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_range_list
+    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_range_list
+    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_range_list
+    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_range_list
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
-    --score ${dir}/Real_Traits/height/data_qc_ldak_height.assoc 2 4 8 header \
-    --q-score-range ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_range_list ${dir}/Real_Traits/PRS/height/data_qc_height_ldak_SNP.pvalue \
-    --extract ${dir}/Real_Traits/PRS/height/data_qc_height_ldak.valid.snp \
-    --out ${dir}/Real_Traits/PRS/height/data_qc_height_ldak
+    --score ${dir}/Real_Traits/height/data_White_LDAK_height.assoc 2 4 8 header \
+    --q-score-range ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_range_list ${dir}/Real_Traits/PRS/height/data_White_LDAK_height_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/height/data_White_LDAK_height.valid.snp \
+    --out ${dir}/Real_Traits/PRS/height/data_White_LDAK_height
     ```
 
     ```python
@@ -2553,20 +2553,20 @@ sbatch data_White_LDAK_urate
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
-    --out ${dir}/Real_Traits/PRS/height/data_qc_height_ldak
+    --out ${dir}/Real_Traits/PRS/height/data_White_LDAK_height
     # Then we calculate the first 10 PCs
     ${dir}/software/plink \
         --bfile ${dir}/newdata/new_data_qc \
-        --extract ${dir}/Real_Traits/PRS/height/data_qc_height_ldak.prune.in \
+        --extract ${dir}/Real_Traits/PRS/height/data_White_LDAK_height.prune.in \
         --pca 10 \
-        --out ${dir}/Real_Traits/PRS/height/data_qc_height_ldak
+        --out ${dir}/Real_Traits/PRS/height/data_White_LDAK_height
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/height/data_qc_height_ldak_2
+    " > ${dir}/scripts/Real_Traits/PRS/height/data_White_LDAK_height_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/height/
-    sbatch data_qc_height_ldak_2
+    sbatch data_White_LDAK_height_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
@@ -2576,7 +2576,7 @@ sbatch data_White_LDAK_urate
 
 
 ## urate
-1. Basic data: data_qc_LDAK_urate   
+1. Basic data: data_White_LDAK_urate   
    Target data: new_data_qc   
 2. Clumping + Threshold
    ```python
@@ -2593,28 +2593,28 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/urate/data_qc_ldak_urate.assoc \
+    --clump ${dir}/Real_Traits/urate/data_White_LDAK_urate.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
-    --out ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak
+    --out ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate
 
-   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak.clumped  >  ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak.valid.snp
-   awk '{print $2,$7}' ${dir}/Real_Traits/urate/data_qc_ldak_urate.assoc > ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_SNP.pvalue
+   awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate.clumped  >  ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate.valid.snp
+   awk '{print $2,$7}' ${dir}/Real_Traits/urate/data_White_LDAK_urate.assoc > ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_SNP.pvalue
 
-    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_range_list 
-    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_range_list
-    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_range_list
-    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_range_list
-    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_range_list
-    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_range_list
-    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_range_list
+    echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_range_list 
+    echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_range_list
+    echo "0.1 0 0.1" >> ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_range_list
+    echo "0.2 0 0.2" >> ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_range_list
+    echo "0.3 0 0.3" >> ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_range_list
+    echo "0.4 0 0.4" >> ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_range_list
+    echo "0.5 0 0.5" >> ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_range_list
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
-    --score ${dir}/Real_Traits/urate/data_qc_ldak_urate.assoc 2 4 8 header \
-    --q-score-range ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_range_list ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak_SNP.pvalue \
-    --extract ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak.valid.snp \
-    --out ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak
+    --score ${dir}/Real_Traits/urate/data_White_LDAK_urate.assoc 2 4 8 header \
+    --q-score-range ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_range_list ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate_SNP.pvalue \
+    --extract ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate.valid.snp \
+    --out ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate
     ```
 
     ```python
@@ -2628,20 +2628,20 @@ sbatch data_White_LDAK_urate
    ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
     --indep-pairwise 200 50 0.25 \
-    --out ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak
+    --out ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate
     # Then we calculate the first 10 PCs
     ${dir}/software/plink \
         --bfile ${dir}/newdata/new_data_qc \
-        --extract ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak.prune.in \
+        --extract ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate.prune.in \
         --pca 10 \
-        --out ${dir}/Real_Traits/PRS/urate/data_qc_urate_ldak
+        --out ${dir}/Real_Traits/PRS/urate/data_White_LDAK_urate
 
 
-    " > ${dir}/scripts/Real_Traits/PRS/urate/data_qc_urate_ldak_2
+    " > ${dir}/scripts/Real_Traits/PRS/urate/data_White_LDAK_urate_2
 
     # I am doing blabla
     cd ${dir}/scripts/Real_Traits/PRS/urate/
-    sbatch data_qc_urate_ldak_2
+    sbatch data_White_LDAK_urate_2
     ```
 3. Finding the "best-fit" PRS
         **In Rmd** 
