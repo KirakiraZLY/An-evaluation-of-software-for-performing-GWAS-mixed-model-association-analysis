@@ -1881,7 +1881,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/alkaline.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --logistic ${dir}/Real_Traits/alkaline/data_White_LDAK_alkaline
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/alkaline.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --linear ${dir}/Real_Traits/alkaline/data_White_LDAK_alkaline
 
 " > ${dir}/scripts/Real_Traits/alkaline/data_White_LDAK_alkaline
 
@@ -1910,7 +1910,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/bilirubin.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --logistic ${dir}/Real_Traits/bilirubin/data_White_LDAK_bilirubin
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/bilirubin.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --linear ${dir}/Real_Traits/bilirubin/data_White_LDAK_bilirubin
 
 " > ${dir}/scripts/Real_Traits/bilirubin/data_White_LDAK_bilirubin
 
@@ -1940,7 +1940,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/bmi.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --logistic ${dir}/Real_Traits/bmi/data_White_LDAK_bmi
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/bmi.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --linear ${dir}/Real_Traits/bmi/data_White_LDAK_bmi
 
 " > ${dir}/scripts/Real_Traits/bmi/data_White_LDAK_bmi
 
@@ -1975,7 +1975,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/cholesterol.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --logistic ${dir}/Real_Traits/cholesterol/data_White_LDAK_cholesterol
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/cholesterol.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --linear ${dir}/Real_Traits/cholesterol/data_White_LDAK_cholesterol
 
 " > ${dir}/scripts/Real_Traits/cholesterol/data_White_LDAK_cholesterol
 
@@ -2003,7 +2003,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/hba1c.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --logistic ${dir}/Real_Traits/hba1c/data_White_LDAK_hba1c
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/hba1c.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --linear ${dir}/Real_Traits/hba1c/data_White_LDAK_hba1c
 
 " > ${dir}/scripts/Real_Traits/hba1c/data_White_LDAK_hba1c
 
@@ -2031,7 +2031,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --logistic ${dir}/Real_Traits/height/data_White_LDAK_height
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --linear ${dir}/Real_Traits/height/data_White_LDAK_height
 
 " > ${dir}/scripts/Real_Traits/height/data_White_LDAK_height
 
@@ -2060,7 +2060,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/urate.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --logistic ${dir}/Real_Traits/urate/data_White_LDAK_urate
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/urate.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --linear ${dir}/Real_Traits/urate/data_White_LDAK_urate
 
 " > ${dir}/scripts/Real_Traits/urate/data_White_LDAK_urate
 
