@@ -1326,8 +1326,8 @@ ${dir}/software/plink \
     --clump-r2 0.1 \
     --clump-kb 250 \
     --clump ${dir}/Real_Traits/bmi/data_qc_ldak_bmi.assoc \
-    --clump-snp-field SNP \
-    --clump-field P_BOLT_LMM \
+    --clump-snp-field Predictor \
+    --clump-field Wald_P \
     --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
 
    awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.clumped  >  ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.valid.snp
