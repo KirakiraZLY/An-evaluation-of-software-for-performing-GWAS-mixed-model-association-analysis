@@ -2203,13 +2203,13 @@ sbatch data_White_LDAK_urate
     --clump-p1 1 \
     --clump-r2 0.1 \
     --clump-kb 250 \
-    --clump ${dir}/Real_Traits/alkaline/data_White_ldak_alkaline.assoc \
+    --clump ${dir}/Real_Traits/alkaline/data_White_LDAK_alkaline.assoc \
     --clump-snp-field Predictor \
     --clump-field Wald_P \
     --out ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline
 
    awk 'NR!=1{print $3}' ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline.clumped  >  ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline.valid.snp
-   awk '{print $2,$7}' ${dir}/Real_Traits/alkaline/data_White_ldak_alkaline.assoc > ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_SNP.pvalue
+   awk '{print $2,$7}' ${dir}/Real_Traits/alkaline/data_White_LDAK_alkaline.assoc > ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_SNP.pvalue
 
     echo "0.001 0 0.001" > ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list 
     echo "0.05 0 0.05" >> ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list
@@ -2221,7 +2221,7 @@ sbatch data_White_LDAK_urate
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
-    --score ${dir}/Real_Traits/alkaline/data_White_ldak_alkaline.assoc 2 4 8 header \
+    --score ${dir}/Real_Traits/alkaline/data_White_LDAK_alkaline.assoc 2 4 8 header \
     --q-score-range ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_range_list ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline.valid.snp \
     --out ${dir}/Real_Traits/PRS/alkaline/data_White_LDAK_alkaline
