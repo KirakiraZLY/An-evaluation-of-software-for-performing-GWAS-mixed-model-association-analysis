@@ -1343,7 +1343,7 @@ ${dir}/software/plink \
 
     ${dir}/software/plink \
     --bfile ${dir}/newdata/new_data_qc \
-    --score ${dir}/Real_Traits/bmi/data_qc_ldak_bmi.assoc 1 5 9 header \
+    --score ${dir}/Real_Traits/bmi/data_qc_ldak_bmi.assoc 2 4 8 header \
     --q-score-range ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_range_list ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak_SNP.pvalue \
     --extract ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak.valid.snp \
     --out ${dir}/Real_Traits/PRS/bmi/data_qc_bmi_ldak
