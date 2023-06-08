@@ -894,12 +894,12 @@ regenie \
   --pred ${dir}/Real_Traits/height/data_qc_regenie_height_binary_s1_pred.list \
   --out ${dir}/Real_Traits/height/data_qc_regenie_height_binary_s2
 
-" > ${dir}/scripts/Real_Traits/height/data_qc_regenie_height
+" > ${dir}/scripts/Real_Traits/height/data_qc_regenie_height_binary
 
 
 # I am doing blabla
 cd ${dir}/scripts/Real_Traits/height/
-sbatch data_qc_regenie_height
+sbatch data_qc_regenie_height_binary
 
 ```
 ### Bolt height
