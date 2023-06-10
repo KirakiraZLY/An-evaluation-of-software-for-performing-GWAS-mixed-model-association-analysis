@@ -855,7 +855,7 @@ Result_Bolt_White_P5.Bolt
 
 
 
-## height Binary
+# height Binary
 ### Regenie height
 ```python
 dir="/home/lezh/dsmwpred/zly"
@@ -948,4 +948,26 @@ ${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/height_binary.pheno  --covar ${dir}/co
 # I am doing blabla
 cd ${dir}/scripts/Real_Traits/height/
 sbatch data_qc_ldak_height_Binary
+```
+
+## Plink Height
+```python
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 8:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/plink --bfile ${dir}/data_qc --logistic hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/Phenotype_UKBB/height_binary.pheno --allow-no-sex --out ${dir}/Real_Traits/height/data_qc_plink_height_Binary
+
+" > ${dir}/scripts/Real_Traits/height/data_qc_plink_height_Binary
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/height/
+sbatch data_qc_plink_height_Binary
 ```
