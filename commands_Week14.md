@@ -963,7 +963,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/Phenotype_UKBB/height.pheno --allow-no-sex --out ${dir}/Real_Traits/Height/data_qc_plink_height
+${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/covar_PC_10_withoutLabel.covars --pheno ${dir}/Phenotype_UKBB/height.pheno --allow-no-sex --out ${dir}/Real_Traits/height/data_qc_plink_height
 
 " > ${dir}/scripts/Real_Traits/height/data_qc_plink_height
 
