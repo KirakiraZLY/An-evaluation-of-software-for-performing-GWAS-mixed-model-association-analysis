@@ -1017,11 +1017,11 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/Height/data_qc_ldak_height
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --linear ${dir}/Real_Traits/height/data_qc_ldak_height
 
 " > ${dir}/scripts/Real_Traits/Height/data_qc_ldak_height
 
 # I am doing blabla
-cd ${dir}/scripts/Real_Traits/Height/
+cd ${dir}/scripts/Real_Traits/height/
 sbatch data_qc_ldak_height
 ```
