@@ -1001,6 +1001,4 @@ ${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phe
 cd ${dir}/scripts/Real_Traits/height/
 
 sbatch data_qc_Bolt_inf_height
-
-done
 ```
