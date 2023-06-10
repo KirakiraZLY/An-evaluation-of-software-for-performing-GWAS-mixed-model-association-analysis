@@ -971,3 +971,36 @@ ${dir}/software/plink --bfile ${dir}/data_qc --linear hide-covar --covar ${dir}/
 cd ${dir}/scripts/Real_Traits/height/
 sbatch data_qc_plink_height
 ```
+
+
+## Bolt-lmm-inf Height
+```python
+##############################
+Bolt-inf
+##############################
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 10:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/Height/data_qc_Bolt_inf_height
+
+
+
+" > ${dir}/scripts/Real_Traits/height/data_qc_Bolt_inf_height
+
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/height/
+
+sbatch data_qc_Bolt_inf_height
+
+done
+```
