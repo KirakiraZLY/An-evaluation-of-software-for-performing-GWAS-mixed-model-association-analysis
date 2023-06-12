@@ -101,7 +101,7 @@ Result_LDAK_White_P5.assoc
 
 
 # Real Traits
-## Height
+## height
 ### Regenie Height
 ```python
 dir="/home/lezh/dsmwpred/zly"
@@ -1737,8 +1737,8 @@ sbatch data_qc_ldak_bilirubin
 
 
 
-# White Height
-### Regenie Height
+# White height
+### Regenie height
 ```python
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
@@ -1759,7 +1759,7 @@ regenie \
   --bsize 1000 \
   --qt \
   --threads 4 \
-  --out ${dir}/Real_Traits/Height/data_White_regenie_height_s1  
+  --out ${dir}/Real_Traits/height/data_White_regenie_height_s1  
 
 
 regenie \
@@ -1772,18 +1772,18 @@ regenie \
   --threads 4 \
   --qt \
   --pThresh 0.01 \
-  --pred ${dir}/Real_Traits/Height/data_White_regenie_height_s1_pred.list \
-  --out ${dir}/Real_Traits/Height/data_White_regenie_height_s2
+  --pred ${dir}/Real_Traits/height/data_White_regenie_height_s1_pred.list \
+  --out ${dir}/Real_Traits/height/data_White_regenie_height_s2
 
-" > ${dir}/scripts/Real_Traits/Height/data_White_regenie_height
+" > ${dir}/scripts/Real_Traits/height/data_White_regenie_height
 
 
 # I am doing blabla
-cd ${dir}/scripts/Real_Traits/Height/
+cd ${dir}/scripts/Real_Traits/height/
 sbatch data_White_regenie_height
 
 ```
-### Bolt Height
+### Bolt height
 ```python
 dir="/home/lezh/dsmwpred/zly"
 echo "#"'!'"/bin/bash
@@ -1796,20 +1796,20 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_White --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_White_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/Height/data_White_Bolt_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_White --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_White_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/height/data_White_Bolt_height
 
-" > ${dir}/scripts/Real_Traits/Height/data_White_Bolt_height
+" > ${dir}/scripts/Real_Traits/height/data_White_Bolt_height
 
 
 # I am doing blabla
-cd ${dir}/scripts/Real_Traits/Height/
+cd ${dir}/scripts/Real_Traits/height/
 
 sbatch data_White_Bolt_height
 ```
 
 
-### LDAK run Height
-result in ${dir}/Real_Traits/Height
+### LDAK run height
+result in ${dir}/Real_Traits/height
 ```python
 dir="/home/lezh/dsmwpred/zly"
 dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
@@ -1822,17 +1822,17 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --linear ${dir}/Real_Traits/Height/data_White_ldak_height
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/height.pheno  --covar ${dir}/covar_White_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_White --linear ${dir}/Real_Traits/height/data_White_ldak_height
 
-" > ${dir}/scripts/Real_Traits/Height/data_White_ldak_height
+" > ${dir}/scripts/Real_Traits/height/data_White_ldak_height
 
 # I am doing blabla
-cd ${dir}/scripts/Real_Traits/Height/
+cd ${dir}/scripts/Real_Traits/height/
 sbatch data_White_ldak_height
 ```
 
 
-## Plink Height
+## Plink height
 ```python
 dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
 dir="/home/lezh/dsmwpred/zly"
@@ -1855,7 +1855,7 @@ sbatch data_White_plink_height
 ```
 
 
-## Bolt-lmm-inf Height
+## Bolt-lmm-inf height
 ```python
 ##############################
 Bolt-inf
