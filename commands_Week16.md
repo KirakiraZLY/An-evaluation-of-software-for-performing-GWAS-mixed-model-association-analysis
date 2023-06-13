@@ -1,5 +1,4 @@
 # Week 16
-# PRS
 
 ## White, 7 traits, Bolt-lmm
 ### Bolt height
