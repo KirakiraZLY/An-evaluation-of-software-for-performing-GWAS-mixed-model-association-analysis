@@ -214,7 +214,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/bmi_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --out ${dir}/Real_Traits/bmi/data_qc_regenie_bmi_s1  
@@ -225,7 +225,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/bmi_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --qt \
@@ -254,7 +254,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bmi_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bmi/data_qc_Bolt_bmi
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bmi_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bmi/data_qc_Bolt_bmi
 
 " > ${dir}/scripts/Real_Traits/bmi/data_qc_Bolt_bmi
 
@@ -309,7 +309,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/alkaline_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --out ${dir}/Real_Traits/alkaline/data_qc_regenie_alkaline_s1  
@@ -320,7 +320,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/alkaline_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --qt \
@@ -349,7 +349,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/alkaline_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/alkaline/data_qc_Bolt_alkaline
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/alkaline_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/alkaline/data_qc_Bolt_alkaline
 
 " > ${dir}/scripts/Real_Traits/alkaline/data_qc_Bolt_alkaline
 
@@ -403,7 +403,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/urate_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --out ${dir}/Real_Traits/urate/data_qc_regenie_urate_s1  
@@ -414,7 +414,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/urate_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --qt \
@@ -443,7 +443,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/urate_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/urate/data_qc_Bolt_urate
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/urate_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/urate/data_qc_Bolt_urate
 
 " > ${dir}/scripts/Real_Traits/urate/data_qc_Bolt_urate
 
@@ -496,7 +496,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --bt \
   --threads 4 \
@@ -508,7 +508,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
@@ -538,7 +538,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin_Binary
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin_Binary
 
 " > ${dir}/scripts/Real_Traits/bilirubin/data_qc_Bolt_bilirubin_Binary
 
@@ -592,7 +592,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/cholesterol_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --out ${dir}/Real_Traits/cholesterol/data_qc_regenie_cholesterol_s1  
@@ -603,7 +603,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/cholesterol_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --qt \
@@ -632,7 +632,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/cholesterol_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/cholesterol/data_qc_Bolt_cholesterol
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/cholesterol_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/cholesterol/data_qc_Bolt_cholesterol
 
 " > ${dir}/scripts/Real_Traits/cholesterol/data_qc_Bolt_cholesterol
 
@@ -686,7 +686,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/hba1c_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --out ${dir}/Real_Traits/hba1c/data_qc_regenie_hba1c_s1  
@@ -697,7 +697,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/hba1c_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --qt \
@@ -726,7 +726,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/hba1c_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/hba1c/data_qc_Bolt_hba1c
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/hba1c_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/hba1c/data_qc_Bolt_hba1c
 
 " > ${dir}/scripts/Real_Traits/hba1c/data_qc_Bolt_hba1c
 
@@ -873,7 +873,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/height_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --bt \
   --threads 4 \
@@ -885,7 +885,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/height_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
@@ -915,7 +915,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/height_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/height/data_qc_Bolt_height_Binary
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/height_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/height/data_qc_Bolt_height_Binary
 
 " > ${dir}/scripts/Real_Traits/height/data_qc_Bolt_height_Binary
 
@@ -1081,7 +1081,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/bmi_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --bt \
   --threads 4 \
@@ -1093,7 +1093,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/bmi_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
@@ -1122,7 +1122,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bmi_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bmi/data_qc_Bolt_bmi_Binary
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bmi_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bmi/data_qc_Bolt_bmi_Binary
 
 " > ${dir}/scripts/Real_Traits/bmi/data_qc_Bolt_bmi_Binary
 
@@ -1177,7 +1177,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/alkaline_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --bt \
   --threads 4 \
@@ -1189,7 +1189,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/alkaline_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
@@ -1218,7 +1218,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/alkaline_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/alkaline/data_qc_Bolt_alkaline_Binary
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/alkaline_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/alkaline/data_qc_Bolt_alkaline_Binary
 
 " > ${dir}/scripts/Real_Traits/alkaline/data_qc_Bolt_alkaline_Binary
 
@@ -1272,7 +1272,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/urate_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --bt \
   --threads 4 \
@@ -1284,7 +1284,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/urate_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
@@ -1313,7 +1313,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/urate_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/urate/data_qc_Bolt_urate_Binary
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/urate_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/urate/data_qc_Bolt_urate_Binary
 
 " > ${dir}/scripts/Real_Traits/urate/data_qc_Bolt_urate_Binary
 
@@ -1366,7 +1366,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --bt \
   --threads 4 \
@@ -1378,7 +1378,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
@@ -1408,7 +1408,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin_Binary
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bilirubin_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin_Binary
 
 " > ${dir}/scripts/Real_Traits/bilirubin/data_qc_Bolt_bilirubin_Binary
 
@@ -1462,7 +1462,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/cholesterol_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --bt \
   --threads 4 \
@@ -1474,7 +1474,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/cholesterol_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
@@ -1503,7 +1503,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/cholesterol_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/cholesterol/data_qc_Bolt_cholesterol_Binary
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/cholesterol_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/cholesterol/data_qc_Bolt_cholesterol_Binary
 
 " > ${dir}/scripts/Real_Traits/cholesterol/data_qc_Bolt_cholesterol_Binary
 
@@ -1557,7 +1557,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/hba1c_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --bt \
   --threads 4 \
@@ -1569,7 +1569,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/hba1c_binary_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --bt \
@@ -1598,7 +1598,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/hba1c_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/hba1c/data_qc_Bolt_hba1c_Binary
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/hba1c_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/hba1c/data_qc_Bolt_hba1c_Binary
 
 " > ${dir}/scripts/Real_Traits/hba1c/data_qc_Bolt_hba1c_Binary
 
@@ -1652,7 +1652,7 @@ regenie \
   --bed ${dir}/data_qc \
   --phenoFile ${dir}/Phenotype_UKBB/bilirubin_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --qt \
   --threads 4 \
@@ -1664,7 +1664,7 @@ regenie \
   --bgen ${dir}/data_qc.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/bilirubin_label.pheno \
   --covarFile ${dir}/covar_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --qt \
@@ -1694,7 +1694,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bilirubin_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/bilirubin_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/bilirubin/data_qc_Bolt_bilirubin
 
 " > ${dir}/scripts/Real_Traits/bilirubin/data_qc_Bolt_bilirubin
 
@@ -1910,7 +1910,7 @@ regenie \
   --bed ${dir}/data_Black \
   --phenoFile ${dir}/Phenotype_UKBB/height_label.pheno \
   --covarFile ${dir}/covar_Black_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --qt \
   --threads 4 \
@@ -1922,7 +1922,7 @@ regenie \
   --bgen ${dir}/data_Black.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/height_label.pheno \
   --covarFile ${dir}/covar_Black_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --qt \
