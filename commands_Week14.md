@@ -1755,7 +1755,7 @@ regenie \
   --bed ${dir}/data_White \
   --phenoFile ${dir}/Phenotype_UKBB/height_label.pheno \
   --covarFile ${dir}/covar_White_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --qt \
   --threads 4 \
@@ -1767,7 +1767,7 @@ regenie \
   --bgen ${dir}/data_White.bgen \
   --phenoFile ${dir}/Phenotype_UKBB/height_label.pheno \
   --covarFile ${dir}/covar_White_PC_10.covars \
-  --covarCol PC{1:10} \
+  --covarColList Paternal,Sex,PC{1:10} \
   --bsize 1000 \
   --threads 4 \
   --qt \
@@ -1796,7 +1796,7 @@ echo "#"'!'"/bin/bash
 
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_White --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_White_PC_10.covars --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/height/data_White_Bolt_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_White --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_White_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/height/data_White_Bolt_height
 
 " > ${dir}/scripts/Real_Traits/height/data_White_Bolt_height
 
@@ -1872,7 +1872,7 @@ echo "#"'!'"/bin/bash
 source /home/lezh/miniconda3/etc/profile.d/conda.sh
 
 
-${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_White --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_White_PC_10.covars --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/height/data_White_Bolt_inf_height
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_White --phenoFile=${dir}/Phenotype_UKBB/height_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_White_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmInfOnly --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/height/data_White_Bolt_inf_height
 
 
 
