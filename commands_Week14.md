@@ -2192,3 +2192,100 @@ cd ${dir}/scripts/Real_Traits/height/
 sbatch data_qc_Bolt_inf_height
 ```
 
+
+
+
+# height Binary
+### Regenie height
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 4:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+conda activate regenie_env
+
+regenie \
+  --step 1 \
+  --bed ${dir}/data_qc \
+  --phenoFile ${dir}/Phenotype_UKBB/height_binary_label.pheno \
+  --covarFile ${dir}/covar_PC_10.covars \
+  --covarColList Paternal,Sex,PC{1:10} \
+  --bsize 1000 \
+  --bt \
+  --threads 4 \
+  --out ${dir}/Real_Traits/height/data_qc_regenie_height_binary_s1  
+
+
+regenie \
+  --step 2 \
+  --bgen ${dir}/data_qc.bgen \
+  --phenoFile ${dir}/Phenotype_UKBB/height_binary_label.pheno \
+  --covarFile ${dir}/covar_PC_10.covars \
+  --covarColList Paternal,Sex,PC{1:10} \
+  --bsize 1000 \
+  --threads 4 \
+  --bt \
+  --firth --approx \
+  --pThresh 0.01 \
+  --pred ${dir}/Real_Traits/height/data_qc_regenie_height_binary_s1_pred.list \
+  --out ${dir}/Real_Traits/height/data_qc_regenie_height_binary_s2
+
+" > ${dir}/scripts/Real_Traits/height/data_qc_regenie_height_binary
+
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/height/
+sbatch data_qc_regenie_height_binary
+
+```
+### Bolt height
+```python
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 8:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir}/software/BOLT-LMM_v2.4/bolt --bfile=${dir}/data_qc --phenoFile=${dir}/Phenotype_UKBB/height_binary_label.pheno  --phenoCol=Phenotype  --covarFile=${dir}/covar_PC_10.covars --qCovarCol=Paternal --qCovarCol=Sex --qCovarCol=PC{1:10}  --lmmForceNonInf --LDscoresUseChip --numThreads 4  --statsFile=${dir}/Real_Traits/height/data_qc_Bolt_height_Binary
+
+" > ${dir}/scripts/Real_Traits/height/data_qc_Bolt_height_Binary
+
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/height/
+
+sbatch data_qc_Bolt_height_Binary
+```
+
+
+### LDAK run height
+result in ${dir}/Real_Traits/height
+```python
+dir_LDAK="/home/lezh/snpher/faststorage/ldak5.2.linux"
+dir="/home/lezh/dsmwpred/zly"
+echo "#"'!'"/bin/bash
+#SBATCH --mem 8G
+#SBATCH -t 2:0:0
+#SBATCH -c 4
+#SBATCH -A dsmwpred
+#SBATCH --constraint \"s05\"
+
+source /home/lezh/miniconda3/etc/profile.d/conda.sh
+
+${dir_LDAK} --pheno ${dir}/Phenotype_UKBB/height_binary.pheno  --covar ${dir}/covar_PC_10_withoutLabel.covars --max-threads 4  --bfile ${dir}/data_qc --logistic ${dir}/Real_Traits/height/data_qc_ldak_height_Binary
+
+" > ${dir}/scripts/Real_Traits/height/data_qc_ldak_height_Binary
+
+# I am doing blabla
+cd ${dir}/scripts/Real_Traits/height/
+sbatch data_qc_ldak_height_Binary
+```
