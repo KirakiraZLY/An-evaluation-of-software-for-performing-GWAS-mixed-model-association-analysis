@@ -160,3 +160,17 @@ cd ${dir}/scripts/Real_Traits/height/
 sbatch data_qc_nomissing_Bolt_inf_height
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
