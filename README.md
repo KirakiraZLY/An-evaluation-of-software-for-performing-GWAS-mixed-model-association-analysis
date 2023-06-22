@@ -1,7 +1,7 @@
 # An-evaluation-of-software-for-performing-GWAS-mixed-model-association-analysis
 Master's thesis   
-Date: 2023-2   
-   
+Date: 2023-2 to 2023-6   
+
 ## Project Description
 The most common way to test SNPs for association with a phenotype is via classical association analysis (i.e., least 
 squares regression). However, it is now increasingly common to instead use mixed-model analyses (MMA). The main 
