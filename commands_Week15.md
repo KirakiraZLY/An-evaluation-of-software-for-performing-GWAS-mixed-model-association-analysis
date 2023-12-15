@@ -39,7 +39,7 @@
     ${dir}/software/plink \
     --bfile ${dir}/data_qc \
     --score ${dir}/Real_Traits/bmi/data_qc_Bolt_bmi 1 5 9 header \
-    --q-score-range ${dir}/Real_Traits/PRS/range_list ${dir}/Real_Traits/PRS/SNP.pvalue \
+    --q-score-range ${dir}/Real_Traits/PRS/range_list ${dir}/Real_Traits/PRS/x       \
     --extract ${dir}/Real_Traits/PRS/data_qc.valid.snp \
     --out ${dir}/Real_Traits/PRS/data_qc
     ```
